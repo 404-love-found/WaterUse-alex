@@ -1,17 +1,19 @@
 from together import Together
-from dotenv import load_dotenv
 import os
 
-load_dotenv() # load .env 
-api_key = os.getenv("TOGETHER_API_KEY") # access your key
+# 直接填入你的 API Key
+api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-with open("LLM_Prompting/Txts/odd.txt", "r", encoding="utf-8") as f:
+
+odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
+game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
+
+with open(odd_path, "r", encoding="utf-8") as f:
     odd = f.read()
 
-with open("LLM_Prompting/Txts/game_stuff.txt", "r", encoding="utf-8") as f:
+with open(game_path, "r", encoding="utf-8") as f:
     game = f.read()
-
 
 prompt = f"""
 Given the following ODD+D description of a water use model:
@@ -89,16 +91,28 @@ Some important points to consider:
         - Payoffs must reflect these hydrological relationships even in simultaneous-move games.
     - Do not assume actions are made in isolation. Use the control rules and spatial logic from the model to define interaction effects.
     - Ensure payoffs reflect environmental feedback (e.g., water scarcity, fish population decline, budget constraints, yield effects).
-    - Avoid identical or symmetric payoff matrices unless the situation explicitly supports it.
 Specify why or why not each game complies with the odd+d description. If it does not, revise the game to make it compliant with the odd+d protocol. 
 The revised game should be the only ones shown in the actual output.
+
+**Constraints:**
+- The maximum number of fields a farmer can irrigate is 10.
+- Suggested strategy options should be chosen from realistic field allocations (e.g., 3 vs 7 fields, 2 vs 8, etc.).
+
+**Your Output Must Include:**
+2. A brief explanation of why the resulting game **does** or **does not** comply with the ODD+D description  
+3. If the game does **not** comply, revise it. Show only the **revised** version  
+4. if the game is symmetrical, revise it. Remember that in decentralized systems, 
+    - DF’s High payoff should drop significantly when UF overuses water.
+    - 
+4. A clearly formatted payoff matrix with meaningful, asymmetric values that capture resource tension
+
+Only output revised, ODD+D-compliant games.
 
 Please use clear, structured formatting. Number each action situation. Do not repeat strategic tensions across situations.
 """
 
-
 response = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-V3",
+    model="deepseek-ai/DeepSeek-R1",
     messages=[
         {
             "role": "system",
@@ -111,6 +125,5 @@ response = client.chat.completions.create(
     ],
     temperature=0.7
 )
-# Print the text output
-print("Response:")
+
 print(response.choices[0].message.content)

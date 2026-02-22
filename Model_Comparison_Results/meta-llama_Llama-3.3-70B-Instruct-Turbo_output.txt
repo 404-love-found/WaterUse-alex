@@ -1,0 +1,39 @@
+Model: meta-llama/Llama-3.3-70B-Instruct-Turbo
+==================================================
+
+Based on the provided ODD+D description of the water use model, I will extract three distinct action situations using the IAD framework and output a 2-player normal form payoff matrix for each.
+
+**Action Situation 1: Upstream-Downstream Water Allocation (Prisoner's Dilemma)**
+
+In this action situation, two farmers, one upstream (U) and one downstream (D), must decide how many fields to irrigate. The upstream farmer has priority access to the water, while the downstream farmer is affected by the upstream farmer's decision.
+
+|  | U: 5 fields | U: 10 fields |
+| --- | --- | --- |
+| **D: 5 fields** | U: 20, D: 15 | U: 25, D: 10 |
+| **D: 10 fields** | U: 22, D: 12 | U: 28, D: 5 |
+
+In this Prisoner's Dilemma, both farmers have an incentive to irrigate more fields, regardless of the other's action, leading to a suboptimal outcome for both.
+
+**Action Situation 2: Cooperative Water Management (Stag Hunt)**
+
+In this action situation, two farmers, one upstream (U) and one downstream (D), must decide whether to cooperate in managing the water resource. If both cooperate, they can maintain a stable water flow, but if one defects, the other's efforts are undermined.
+
+|  | U: Cooperate | U: Defect |
+| --- | --- | --- |
+| **D: Cooperate** | U: 25, D: 25 | U: 30, D: 10 |
+| **D: Defect** | U: 15, D: 30 | U: 20, D: 20 |
+
+In this Stag Hunt, both farmers have an incentive to cooperate, but the downstream farmer is more vulnerable to the upstream farmer's actions, making cooperation more challenging.
+
+**Action Situation 3: Fishery Management (Public Goods)**
+
+In this action situation, two farmers, one upstream (U) and one downstream (D), must decide how many fish to catch from the shared fishery. The fish population is affected by the water flow, which is influenced by the upstream farmer's irrigation decisions.
+
+|  | U: 2 fish | U: 5 fish |
+| --- | --- | --- |
+| **D: 2 fish** | U: 18, D: 18 | U: 20, D: 15 |
+| **D: 5 fish** | U: 15, D: 20 | U: 12, D: 10 |
+
+In this Public Goods game, both farmers have an incentive to overfish, but the downstream farmer is more affected by the upstream farmer's actions, which can reduce the fish population and harm both farmers' livelihoods.
+
+These action situations reflect spatial asymmetries and strategic dilemmas, and the payoff matrices are not completely symmetric. The maximum irrigated fields is 10, as per the constraints.

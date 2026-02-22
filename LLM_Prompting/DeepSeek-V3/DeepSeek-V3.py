@@ -1,15 +1,18 @@
-from openai import OpenAI
-from dotenv import load_dotenv
+from together import Together
 import os
 
-load_dotenv() # load .env 
-api_key = os.getenv("OPENAI_API_KEY") # access your key
-client = OpenAI(api_key=api_key)
+# 直接填入你的 API Key
+api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
+client = Together(api_key=api_key)
 
-with open("LLM_Prompting/Txts/odd.txt", "r", encoding="utf-8") as f:
+
+odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
+game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
+
+with open(odd_path, "r", encoding="utf-8") as f:
     odd = f.read()
 
-with open("LLM_Prompting/Txts/game_stuff.txt", "r", encoding="utf-8") as f:
+with open(game_path, "r", encoding="utf-8") as f:
     game = f.read()
 
 prompt = f"""
@@ -108,9 +111,19 @@ Only output revised, ODD+D-compliant games.
 Please use clear, structured formatting. Number each action situation. Do not repeat strategic tensions across situations.
 """
 
-response = client.responses.create(
-    model= "o4-mini-2025-04-16",
-    input= prompt
+response = client.chat.completions.create(
+    model="deepseek-ai/DeepSeek-V3",
+    messages=[
+        {
+            "role": "system",
+            "content": "You are an expert in institutional analysis, game theory, agent-based modeling, and IAD/ODD+D frameworks."
+        },
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ],
+    temperature=0.7
 )
 
-print(response.output_text)
+print(response.choices[0].message.content)
