@@ -1,0 +1,48 @@
+
+1. OVERVIEW
+   1.1 Purpose
+   The purpose of this model is to simulate the strategic interactions between Upstream Farmers (UF) and Downstream Farmers (DF) under water scarcity. It specifically investigates how different governance regimes (Centralized vs. Decentralized) affect the resilience of the community when facing hydrological uncertainty and ecological thresholds.
+
+   1.2 Entities, State Variables, and Scales
+   - Agents:
+     1. Upstream Farmers (UF): Located at the river source. They have "First Mover" advantage. They prioritize crop yield.
+     2. Downstream Farmers (DF): Located at the river tail. They are "Residual Claimants". They depend on leftover water for crops and lake levels for fishing. They prioritize survival (Crop + Fish).
+     3. National Authority (NA): Present in Centralized View (CV). Acts as a predictor and allocator.
+   - Spatial Units:
+     - River Segments: Linear flow from Upstream -> Downstream -> Lake.
+     - Lake: A reservoir supporting the fish population.
+   - Environment:
+     - Water Inflow: Stochastic (random) rainfall and river inflow, varying seasonally.
+     - Fish Population: A biological resource with a critical survival threshold (Tipping Point).
+
+   1.3 Process Overview and Scheduling
+   The model runs in annual steps, divided into seasonal phases:
+     1. Forecasting (Early Season): NA or Farmers estimate water availability.
+     2. Decision Making (Mid Season): Farmers decide number of irrigated fields (0 to 10).
+     3. Extraction & Flow (Mid Season): UF extracts first. Remaining water flows to DF. DF extracts. Remaining water flows to Lake.
+     4. Ecological Feedback (Late Season): Fish reproduce ONLY if Lake Level > Threshold.
+     5. Learning (End of Season): Agents update their strategies based on Payoffs (Yield + Fish Income).
+
+2. DESIGN CONCEPTS
+   2.1 Cognitive Model (CRITICAL)
+   - Bounded Rationality: Agents do not know the exact future inflow. They rely on "Memory of Scarcity". If the previous year was a disaster, they become Risk Averse.
+   - Asymmetry Perception:
+     - UF perceives: "My action directly determines my yield. I do not feel immediate pain from downstream loss."
+     - DF perceives: "My fate depends on UF's restraint. I must signal or coordinate to survive."
+
+   2.2 Objectives
+   - Maximize Utility = (Crop Yield * Price) + (Fish Catch * Price) - Cost.
+   - Constraint: Agents must avoid "Ruins" (Utility < Survival Cost).
+
+   2.3 Interaction
+   - The interaction is strictly directional (Upstream -> Downstream).
+   - Strategic Tension: There is a trade-off between Individual Irrigation (Private Good) and Lake Level Maintenance (Public Good/Common Pool Resource).
+
+3. DETAILS
+   3.1 Initialization
+   - Lake starts at full capacity.
+   - Fish population at max carrying capacity.
+   - All farmers start with equal budget.
+
+   3.2 Input Data
+   - Rainfall patterns based on historical data (stochastic).

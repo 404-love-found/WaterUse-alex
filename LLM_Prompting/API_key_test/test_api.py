@@ -30,8 +30,8 @@ def run_comparison_test(test_models):
 
     # 1. 获取绝对路径，确保能找到文件
     # 1. 直接使用硬编码的绝对路径（100%能找到）
-    odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
-    game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
+    odd_path = "/LLM_Prompting/Txts/odd.txt"
+    game_path = "/LLM_Prompting/Txts/game_stuff.txt"
     current_dir = os.path.dirname(os.path.abspath(__file__))
     # 如果上面的相对推导仍然找不到，你可以直接写死绝对路径，例如：
     # odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"

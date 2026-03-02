@@ -1,25 +1,25 @@
 from together import Together
 import os
 
-# 1. 直接填入你的 API Key（测试完务必记得去官网重置/删除该 Key）
+
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-# 2. 绝对路径配置（100%能找到文件）
-odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
-game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
-# 汇总结果保存的路径（保存为 Markdown 文件方便阅读表格）
-output_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/all_models_comparison.md"
 
-# 3. 读取底层文本
-print("📂 正在读取 ODD+D 文本文件...")
+odd_path = "/LLM_Prompting/Txts/odd.txt"
+game_path = "/LLM_Prompting/Txts/game_stuff.txt"
+
+output_path = "/LLM_Prompting/all_models_comparison.md"
+
+
+print("📂'ODD+D' file is being reading ")
 with open(odd_path, "r", encoding="utf-8") as f:
     odd = f.read()
 
 with open(game_path, "r", encoding="utf-8") as f:
     game = f.read()
 
-# 4. 定义统一的 Prompt
+
 prompt = f"""
 Given the following ODD+D description of a water use model:
 
@@ -75,22 +75,22 @@ After the games have been generated, double check that it strictly fits the {gam
 Only output revised, ODD+D-compliant games. Use clear Markdown formatting.
 """
 
-# 5. 定义要跑的三个模型
+# Define three kinds of models
 models_to_test = [
     "deepseek-ai/DeepSeek-R1",
     "deepseek-ai/DeepSeek-V3",
     "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 ]
 
-# 6. 开始循环请求并写入同一个文件
-print(f"🚀 准备开始生成，结果将汇总保存至: {output_path}\n")
+# save into one file
+print(f"🚀 prepare the outcome , the outcomes would be saved to: {output_path}\n")
 
 with open(output_path, "w", encoding="utf-8") as out_file:
-    # 写入文件大标题
+
     out_file.write("# 🏆 ODD+D Action Situations - 三大模型横向对比报告\n\n")
 
     for model_name in models_to_test:
-        print(f"⏳ 正在请求模型: {model_name} (这可能需要一两分钟)...")
+        print(f"⏳ request model: {model_name} (it might take a while)\n...")
         try:
             response = client.chat.completions.create(
                 model=model_name,
@@ -104,17 +104,17 @@ with open(output_path, "w", encoding="utf-8") as out_file:
 
             output_text = response.choices[0].message.content
 
-            # 将该模型的结果追加写入汇总文件
+
             out_file.write(f"## 🤖 模型: `{model_name}`\n")
             out_file.write("---\n\n")
             out_file.write(output_text)
-            out_file.write("\n\n<br><br>\n\n")  # 用换行和空行隔开不同的模型结果
+            out_file.write("\n\n<br><br>\n\n")
 
-            print(f"✅ {model_name} 生成完毕并已写入文件！")
+            print(f"✅ {model_name} completed successfully!\n！")
 
         except Exception as e:
-            print(f"❌ 模型 {model_name} 请求失败: {e}")
-            out_file.write(f"## 🤖 模型: `{model_name}`\n\n**生成失败**: {e}\n\n---\n\n")
+            print(f"❌ model {model_name} request fail: {e}")
+            out_file.write(f"## 🤖 model: `{model_name}`\n\n**fail**: {e}\n\n---\n\n")
 
 print(
-    f"\n🎉 全部完成！请用支持 Markdown 的编辑器（如 VS Code, Typora 或直接在 GitHub/Notion 中）打开 `{output_path}` 查看直观对比数据。")
+    f"\n🎉 all complete!, please use Markdown editors（如 VS Code, Typora or in GitHub/Notion）open `{output_path}` 查看直观对比数据。")
