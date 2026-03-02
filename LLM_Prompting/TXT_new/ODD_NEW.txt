@@ -1,19 +1,19 @@
 
 1. OVERVIEW
-   1.1 Purpose
-   The purpose of this model is to simulate the strategic interactions between Upstream Farmers (UF) and Downstream Farmers (DF) under water scarcity. It specifically investigates how different governance regimes (Centralized vs. Decentralized) affect the resilience of the community when facing hydrological uncertainty and ecological thresholds.
+1.1 Purpose
+The purpose of this model is to simulate the strategic interactions between Upstream Farmers (UF) and Downstream Farmers (DF) under water scarcity. It specifically investigates how different governance regimes (Centralized vs. Decentralized) affect the resilience of the community when facing hydrological uncertainty and ecological thresholds.
 
-   1.2 Entities, State Variables, and Scales
-   - Agents:
-     1. Upstream Farmers (UF): Located at the river source. They have "First Mover" advantage. They prioritize crop yield.
-     2. Downstream Farmers (DF): Located at the river tail. They are "Residual Claimants". They depend on leftover water for crops and lake levels for fishing. They prioritize survival (Crop + Fish).
-     3. National Authority (NA): Present in Centralized View (CV). Acts as a predictor and allocator.
-   - Spatial Units:
-     - River Segments: Linear flow from Upstream -> Downstream -> Lake.
-     - Lake: A reservoir supporting the fish population.
-   - Environment:
-     - Water Inflow: Stochastic (random) rainfall and river inflow, varying seasonally.
-     - Fish Population: A biological resource with a critical survival threshold (Tipping Point).
+1.2 Entities, State Variables, and Scales
+- Agents:
+1. Upstream Farmers (UF): Located at the river source. They have "First Mover" advantage. They prioritize crop yield.
+2. Downstream Farmers (DF): Located at the river tail. They are "Residual Claimants". They depend on leftover water for crops and lake levels for fishing. They prioritize survival (Crop + Fish).
+3. National Authority (NA): Present in Centralized View (CV). Acts as a predictor and allocator.
+- Spatial Units:
+- River Segments: Linear flow from Upstream -> Downstream -> Lake.
+- Lake: A reservoir supporting the fish population.
+- Environment:
+- Water Inflow: Stochastic (random) rainfall and river inflow, varying seasonally.
+- Fish Population: A biological resource with a critical survival threshold (Tipping Point).
 
    1.3 Process Overview and Scheduling
    The model runs in annual steps, divided into seasonal phases:

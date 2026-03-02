@@ -1,0 +1,48 @@
+Action Situations & Strategic Triggers
+
+Based on the ODD+D and Game Logic, the following 4 distinct Action Situations must be solved by the agents:
+
+---
+SCENARIO 1: "The Forecast Bet" (Early Season)
+- Type: Trust Game / Signal Game
+- Trigger: National Authority (NA) releases a water forecast.
+- Players: NA (Sender) vs. Farmers (Receivers).
+- Strategic Tension:
+  - NA wants farmers to plant efficiently but fears panic. NA might overestimate water to encourage planting.
+  - Farmers must decide: "Do I trust the forecast and plant 10 fields? Or do I distrust it and play safe with 4 fields?"
+- Payoff Risk: Trusting a wrong forecast leads to -100 (Crop Failure). Distrusting a good forecast leads to Opportunity Cost.
+
+---
+SCENARIO 2: "The Upstream Temptation" (Mid Season - Irrigation)
+- Type: Asymmetric Commons Dilemma
+- Trigger: Water arrives at Upstream gates.
+- Players: Upstream Farmer (UF) vs. Downstream Farmer (DF).
+- Strategic Tension:
+  - UF moves First. UF can take ALL the water (High Extraction).
+  - IF UF takes High: DF gets Zero water (Sucker's Payoff).
+  - IF UF takes Low: DF gets water, but UF sacrifices potential profit.
+- Key Insight: This is NOT a standard Prisoner's Dilemma because payoffs are not symmetric. UF dominates.
+
+---
+SCENARIO 3: "The Ecological Cliff" (Late Season - Environmental)
+- Type: Stag Hunt / Threshold Public Goods Game
+- Trigger: Determining water residual for the Lake.
+- Players: All Farmers collectively.
+- Strategic Tension:
+  - To save the fish (High Future Payoff), TOTAL extraction must be low.
+  - If even one agent defects and extracts High, the threshold is missed, and the fish die (Disaster for all).
+  - Equilibrium:
+    1. Cooperation: Everyone extracts Low -> Fish Survive -> High Long-term Utility.
+    2. Defection: Everyone extracts High -> Fish Die -> Ecosystem Collapse.
+
+---
+SCENARIO 4: "The Downstream Desperation" (Reactive Phase)
+- Type: Chicken Game / Survival Game
+- Trigger: UF has already extracted High.
+- Players: DF vs. Nature.
+- Strategic Tension:
+  - UF left very little water.
+  - DF Choice:
+    1. Extract the little remaining water for Crops (Kill the fish immediately).
+    2. Sacrifice Crops to save the Fish (Hope for future fish income).
+  - This tests the agent's time horizon (Short-term hunger vs. Long-term sustainability).
