@@ -1,0 +1,41 @@
+Mathematical Logic & Payoff Structures (The Rules of the Game)
+
+1. WATER EXTRACTION LOGIC
+   - Constraint: Maximum Fields = 10 per farmer.
+   - Water Requirement: 1 unit of water per 1 irrigated field.
+   - Physical Flow:
+     Water_Available_for_DF = Total_Inflow - (UF_Extraction)
+     Water_to_Lake = Water_Available_for_DF - (DF_Extraction)
+
+2. CROP YIELD FUNCTION (Private Good)
+   - Yield is binary per field:
+     If Water_Received >= Fields_Planted: Yield = 100% * Fields_Planted
+     If Water_Received < Fields_Planted: Yield = 0% (Total Crop Failure due to drought stress)
+   - Implication: Over-planting is extremely risky.
+
+3. FISH ECOLOGY & TIPPING POINT (Public Good / Common Pool)
+   - The ecosystem is NON-LINEAR.
+   - Reproduction Threshold (R_thresh): The Lake needs at least 5 units of water inflow to sustain larvae.
+   - Fish Population Dynamics:
+     IF Water_to_Lake >= 5 units:
+        Fish_Next_Year = Current_Fish * Growth_Rate (Bountiful Harvest)
+     IF Water_to_Lake < 5 units:
+        Fish_Next_Year = 0 (ECOLOGICAL COLLAPSE)
+
+   - Strategic Implication: The "last drop" of water extracted by a farmer can destroy the entire future fishery. This creates a "Stag Hunt" or "Chicken" game dynamic.
+
+4. UTILITY / PAYOFF FUNCTIONS
+   To model the strategic tension, we weigh the resources differently for UF and DF:
+
+   - Upstream Farmer (UF) Utility:
+     U_uf = (Crop_Revenue) + (Small_Social_Pressure_Penalty)
+     *Note: UF has weak economic incentive to save fish, unless Social Pressure is high.*
+
+   - Downstream Farmer (DF) Utility:
+     U_df = (Crop_Revenue) + (Fish_Revenue * 3)
+     *Note: DF cares 3x more about fish than UF does. DF is structurally vulnerable.*
+
+5. DECISION DILEMMAS
+   - The "Tragedy of the Commons" occurs when:
+     (UF_Extraction + DF_Extraction) > (Total_Inflow - 5 units).
+   - If they extract too much, the lake dries, fish die, and DF goes bankrupt.
