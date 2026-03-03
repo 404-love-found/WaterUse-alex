@@ -10,22 +10,22 @@ client = Together(api_key=api_key)
 
 base_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting"
 
-# Input Files
-odd_path = os.path.join(base_path, "Txts", "odd.txt")
-game_path = os.path.join(base_path, "Txts", "game_stuff.txt")
+# [UPDATED] Now points to the NEW (Experimental) texts for production run
+odd_path = os.path.join(base_path, "TXT_new", "ODD_NEW.txt")
+game_path = os.path.join(base_path, "TXT_new", "GAME_STUFF_NEW.txt")
 
-# Output File (Saved in JUD_ALL folder)
-output_path = os.path.join(base_path, "JUD_ALL", "all_models_comparison_updated.md")
+# Output File
+output_path = os.path.join(base_path, "JUD_ALL", "Production_Run_Report.md")
 
-# Top 3 Models (Consistent with unified_ab_test.py)
+# Top 3 Models
 models_to_test = [
     "deepseek-ai/DeepSeek-R1",
     "meta-llama/Llama-3.3-70B-Instruct-Turbo",
     "Qwen/Qwen2.5-72B-Instruct-Turbo"
 ]
 
-def run_all_models():
-    print("🚀 Starting Batch Generation for JUD_ALL...")
+def run_production_generation():
+    print("🚀 Starting Production Run (Using ODD_NEW Data)...")
 
     try:
         with open(odd_path, "r", encoding="utf-8") as f:
@@ -33,10 +33,10 @@ def run_all_models():
         with open(game_path, "r", encoding="utf-8") as f:
             game_text = f.read()
     except FileNotFoundError:
-        print("❌ Error: Input files not found.")
+        print(f"❌ Error: Input files not found in {os.path.dirname(odd_path)}")
         return
 
-    # Standardized Prompt
+    # Standardized Prompt (Consistent with unified_ab_test.py)
     prompt = f"""
     Given the following ODD+D description of a water use model:
     {odd_text}
@@ -61,11 +61,12 @@ def run_all_models():
     print(f"🚀 Preparing output, results will be saved to: {output_path}\n")
 
     with open(output_path, "w", encoding="utf-8") as out_file:
-        out_file.write(f"# 🏆 Unified Model Comparison (JUD_ALL Version)\n")
-        out_file.write(f"> Generated at: {datetime.datetime.now()}\n\n")
+        out_file.write(f"# 🏆 Production Model Run (New ODD Source)\n")
+        out_file.write(f"> Generated at: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        out_file.write(f"> Source: `ODD_NEW.txt` & `GAME_STUFF_NEW.txt`\n\n")
 
         for model_name in models_to_test:
-            print(f"⏳ Requesting model: {model_name} (this may take a while)...")
+            print(f"⏳ Requesting model: {model_name}...")
             try:
                 response = client.chat.completions.create(
                     model=model_name,
@@ -86,7 +87,7 @@ def run_all_models():
                 print(f"❌ Model {model_name} request failed: {e}")
                 out_file.write(f"## 🤖 Model: `{model_name}`\n\n**Error**: {e}\n\n---\n\n")
 
-    print(f"\n🎉 All completed! Please open `{output_path}` in VS Code or Markdown viewer.")
+    print(f"\n🎉 Production run complete! File: {output_path}")
 
 if __name__ == "__main__":
-    run_all_models()
+    run_production_generation()
