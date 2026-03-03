@@ -1,11 +1,11 @@
 from together import Together
 import os
 
-# 直接填入你的 API Key
+# Insert your API Key directly
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-
+# Absolute paths (kept identical to source)
 odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
 game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
 
@@ -112,7 +112,7 @@ Please use clear, structured formatting. Number each action situation. Do not re
 """
 
 response = client.chat.completions.create(
-    model="deepseek-ai/DeepSeek-V3",
+    model="Qwen/Qwen2.5-72B-Instruct-Turbo",  # <-- UPDATED MODEL
     messages=[
         {
             "role": "system",
