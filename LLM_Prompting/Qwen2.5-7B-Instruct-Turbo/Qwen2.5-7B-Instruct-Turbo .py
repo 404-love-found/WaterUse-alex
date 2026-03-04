@@ -112,7 +112,7 @@ Please use clear, structured formatting. Number each action situation. Do not re
 """
 
 response = client.chat.completions.create(
-    model="Qwen/Qwen2.5-72B-Instruct-Turbo",  # <-- UPDATED MODEL
+    model="Qwen/Qwen2.5-7B-Instruct-Turbo ",  # <-- UPDATED MODEL
     messages=[
         {
             "role": "system",

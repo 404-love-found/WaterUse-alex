@@ -32,7 +32,7 @@ files_config = {
 models = [
     "deepseek-ai/DeepSeek-R1",  # Best for Reasoning (Chain of Thought)
     "meta-llama/Llama-3.3-70B-Instruct-Turbo",  # Best for Instruction Following
-    "Qwen/Qwen2.5-72B-Instruct-Turbo"  # Best Generalist / Logic Alternative
+    "Qwen/Qwen2.5-7B-Instruct-Turbo"  # Best Generalist / Logic Alternative
 ]
 
 

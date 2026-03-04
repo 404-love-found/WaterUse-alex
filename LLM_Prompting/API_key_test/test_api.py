@@ -4,44 +4,56 @@ import os
 # ---------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------
-# use same API Key
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-# the path
 base_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting"
 
-# Top 3 models
-TARGET_MODELS = [
+# A broad list of candidates including fallbacks for Qwen
+CANDIDATE_MODELS = [
     "deepseek-ai/DeepSeek-R1",
     "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-    "Qwen/Qwen2.5-72B-Instruct-Turbo"
+    "Qwen/Qwen2.5-72B-Instruct",  # Target
+    "Qwen/Qwen2.5-7B-Instruct-Turbo",  # Fallback 1
+    "Qwen/Qwen2-72B-Instruct",  # Fallback 2
+    "Qwen/QwQ-32B-Preview",  # Fallback 3
+    "mistralai/Mixtral-8x22B-Instruct-v0.1"  # Ultimate Fallback
 ]
 
 
-def check_available_models():
-    print("🔍 Checking Together AI models...")
-    try:
-        models = client.models.list()
+def find_working_models():
+    """
+    Sends a tiny request to verify if the model is actually available
+    on the public serverless endpoints, avoiding the 400 error.
+    """
+    working_models = []
+    print("🔍 Probing Together AI to find active serverless models...\n")
 
-        available_ids = [m.id for m in models]
+    for model in CANDIDATE_MODELS:
+        try:
+            # Send a 1-token dummy request to test availability
+            client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": "Hi"}],
+                max_tokens=2
+            )
+            print(f"✅ [ACTIVE]: {model}")
+            working_models.append(model)
+        except Exception as e:
+            # Catch the 400 error or any other unavailability errors silently
+            print(f"❌ [UNAVAILABLE]: {model} (Moved to dedicated or offline)")
 
-        print("\n✅ check targeted Top 3 models usage：")
-        for target in TARGET_MODELS:
-            status = "Usable" if target in available_ids else "not found"
-            icon = "✅" if target in available_ids else "❌"
-            print(f" {icon} {target}")
-
-        return TARGET_MODELS
-    except Exception as e:
-        print(f"❌ Model fail: {e}")
-        return []
+    print("\n==================================================")
+    print(f"🎯 Total active models found: {len(working_models)}")
+    return working_models
 
 
 def run_comparison_test(test_models):
-    print("\n" + "=" * 50)
-    print("🚀 TEST API...")
+    if not test_models:
+        print("❌ No valid models found to run the test.")
+        return
 
+    print("\n🚀 Starting Heavy Generation Test on ACTIVE models...")
 
     odd_path = os.path.join(base_path, "Txts", "odd.txt")
     game_path = os.path.join(base_path, "Txts", "game_stuff.txt")
@@ -56,9 +68,8 @@ def run_comparison_test(test_models):
         with open(game_path, "r", encoding="utf-8") as f:
             game_text = f.read()
     except FileNotFoundError:
-        print(f"❌ check path: {base_path}")
+        print(f"❌ Input files not found. Check path: {base_path}")
         return
-
 
     prompt = f"""
     Given the following ODD+D description of a water use model:
@@ -82,7 +93,7 @@ def run_comparison_test(test_models):
     """
 
     for model_name in test_models:
-        print(f"\n⏳ CHECKING: {model_name} ...")
+        print(f"\n⏳ GENERATING: {model_name} ...")
         try:
             response = client.chat.completions.create(
                 model=model_name,
@@ -90,7 +101,7 @@ def run_comparison_test(test_models):
                     {"role": "user", "content": prompt}
                 ],
                 temperature=0.6,
-                max_tokens=1000
+                max_tokens=1500
             )
 
             output_text = response.choices[0].message.content
@@ -102,12 +113,19 @@ def run_comparison_test(test_models):
                 out_file.write("=" * 50 + "\n\n")
                 out_file.write(output_text)
 
-            print(f"✅ Success: {filename}")
+            print(f"✅ Success: Saved to {filename}")
 
         except Exception as e:
-            print(f"❌ model {model_name} failure: {e}")
+            print(f"❌ Model {model_name} failed during long generation: {e}")
 
 
 if __name__ == "__main__":
-    check_available_models()
-    run_comparison_test(TARGET_MODELS)
+    # 1. Filter out the dead models
+    active_models = find_working_models()
+
+    # 2. Pick top 3 active models to avoid taking too much time
+    selected_top_3 = active_models[:3]
+    print(f"👉 Proceeding with top 3 models: {selected_top_3}")
+
+    # 3. Run the actual prompt
+    run_comparison_test(selected_top_3)

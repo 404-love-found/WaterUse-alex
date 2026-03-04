@@ -21,7 +21,7 @@ output_path = os.path.join(base_path, "JUD_ALL", "Production_Run_Report.md")
 models_to_test = [
     "deepseek-ai/DeepSeek-R1",
     "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-    "Qwen/Qwen2.5-72B-Instruct-Turbo"
+    "Qwen/Qwen2.5-7B-Instruct-Turbo"
 ]
 
 def run_production_generation():
