@@ -5,18 +5,18 @@ api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
 base_path = "LLM_Prompting/ODD_electricity"
-model_name = "Qwen/Qwen2.5-7B-Instruct-Turbo"
+model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 
 odd_path = os.path.join(base_path, "TXT_electricity", "ODD_electricity.txt")
 scenario_path = os.path.join(base_path, "TXT_electricity", "SCENARIO_electricity.txt")
 game_path = os.path.join(base_path, "TXT_electricity", "GAME_STUFF_electricity.txt")
 
-output_dir = os.path.join(base_path, "Qwen2.5-7B-Instruct-Turbo")
+output_dir = os.path.join(base_path, "Llama-3.3-70B")
 os.makedirs(output_dir, exist_ok=True)
-output_file = os.path.join(output_dir, "Qwen2.5_7B_Standalone_Output.md")
+output_file = os.path.join(output_dir, "Llama_3.3_70B_Standalone_Output.md")
 
 
-def run_qwen():
+def run_llama():
     print(f"🚀 Running Standalone Test for {model_name} (Electricity)...")
 
     try:
@@ -58,15 +58,16 @@ def run_qwen():
         response = client.chat.completions.create(
             model=model_name,
             messages=[
-                {"role": "system", "content": "You are a precise game theory extraction assistant."},
+                {"role": "system",
+                 "content": "You are an expert in game theory, institutional analysis, and social-ecological systems modeling."},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.3
+            temperature=0.4  #
         )
         content = response.choices[0].message.content
 
         with open(output_file, "w", encoding="utf-8") as f:
-            f.write(f"# 🤖 Model Output: {model_name}\n\n")
+            f.write(f"# Model Output: {model_name}\n\n")
             f.write(content)
         print(f"✅ Output saved to: {output_file}")
 
@@ -75,4 +76,4 @@ def run_qwen():
 
 
 if __name__ == "__main__":
-    run_qwen()
+    run_llama()
