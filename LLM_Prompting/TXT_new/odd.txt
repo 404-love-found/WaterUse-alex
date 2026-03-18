@@ -1,0 +1,228 @@
+Table B.1: ODD+D protocol for the example of an ABM of water use. CV = centralised version, DV = decentralised version
+
+I.	Overview
+
+I.i Purpose
+I.i.a What is the purpose of the study?
+To understand how different governance structures (centralised versus decentralised) and diversity of water use affect the resilience of a farmer community to variable and uncertain water flows.
+
+I.i.b For whom is the model designed?
+For scientists, particularly those interested in natural
+resource governance and resilience.
+
+I.ii Entities, state variables and scales
+I.ii.a What kinds of entities are in the model?
+* two types of human agents - individual farmers and a regulator such as a national government authority
+* one biological entity that is an age-structured fish population
+* the water resource, as a bio-physical entity
+
+I.ii.b By what attributes (i.e. state variables and parameters) are these entities characterised?
+Farmer: location along the river (determines distance to the water inflow and the fishing lake), number of irrigated fields, expectations of water availability, memory of past water deliveries, yield, fish catch, budget
+National authority: number of irrigated fields, expectations of water availability, memory of past water flows, budget
+Fish population: 12 age classes, in-migration rate, density- dependent and density-independent mortalities per age class, birth and reproductive rates
+Water: flow
+
+I.ii.c What are the exogenous factors /
+drivers of the model?
+Water inflow into the river stretch from upstream.
+
+I.ii.d If applicable, how is space included in the model?
+Implicitly through the location of each farm along the river stretch which determines its access to water and to the fish
+resources as well as the information each farmer has on water flows.
+
+I.ii.e What are the temporal and
+spatial resolutions and extents of the model?
+Monthly time steps, 200 years, irrigation decisions are taken
+at the beginning of a season, i.e. once a year.
+Nine farms along the river and one lake at the end.
+
+
+I.iii Process overview and scheduling
+I.iii.a What entity does what, and in what order?
+CV, beginning of season (April): national authority predicts
+water inflow to the river stretch, decides about the number of fields to irrigate, farmers calculate water demand.
+CV, each month: farmers irrigate, water flows onto the fields and into the lake.
+CV, end of the year: fish population grows, farmers harvest, national authority calculates budget.
+DV, beginning of season (April): each farmer predicts water availability at his location along the river, decides on the number of fields to irrigate, calculates water demands.
+DV, each month: farmers irrigate, water flows onto the fields and into the lake.
+DV, end of the year: fish population grows, farmers harvest, calculate individual budgets.
+Each agent is updated in the sequence determined by its location along the river stretch.
+II. Design Concepts
+
+II.i
+Theoretical and Empirical Background
+II.i.a Which general concepts, theories or hypotheses are underlying the model's design at the system level or at the level(s) of the submodel(s) (apart from the decision model)?
+What is the link to complexity and the purpose of the model?
+Resilience thinking, population dynamics theory (Ricker, 1954), standard hydrological and agricultural approaches. For the fish population an age-structured model was used in order to represent the differential effect of water inflows on the zero age class (inflow of larvae into the population).
+
+II.i.b On what assumptions is/are the agents' decision model(s) based?
+Agents are bounded rational (Simon, 1957), use a form of inductive reasoning (Deadman et al., 2000) and rely on
+heuristics (Ostrom et al., 1994). They have no foresight. Once they are above a certain minimum income threshold they engage in a process of trial and error to determine their best irrigation strategy based on their experience with past
+strategies.
+
+
+II.i.c Why is /are certain decision model(s) chosen?
+The decision model of the national authority is based on real-world heuristics of water allocation in the case study. The ad-hoc decision model of the farmers was chosen because a decentralised setting does not exist in the case
+study and hence there are no data.
+
+
+II.i.d If the model / submodel (e.g. the
+decision model) is based on empirical data, where do the data come from?
+A runoff time series for a gauging station at the entrance to
+the Amudarya river has been used to determine the exogenous inflow to the river stretch.
+
+
+II.i.e At which level of aggregation were the data available?
+Monthly.
+
+II.ii Individual Decision Making
+II.ii.a What are the subjects and objects of the decision-making? On which level of aggregation is decision-making modelled? Are multiple levels of decision making
+included?
+Two levels, however in different model versions.
+In CV the national authority decides about the number of irrigated fields and the farmers follow.
+In DV the farmers decide about the number of irrigated fields themselves.
+
+II.ii.b What is the basic rationality behind agent decision-making in the model? Do agents pursue an explicit objective or have other success criteria?
+Agents pursue the objective of finding the optimal number of fields they can irrigate with an uncertain water supply and a limited budget.
+
+II.ii.c How do agents make their decisions?
+They compare their past yields with their minimum income level, assess past water flows and their current budget to select a strategy for the next season.
+
+II.ii.d Do the agents adapt their behaviour to changing endogenous and exogenous state variables? And if
+yes, how?
+Yes, they use basic balance calculations or a simple heuristic to adapt the number of irrigated fields to the expected water availability, experienced water flows, past
+yields and budget.
+
+II.ii.e Do social norms or cultural values play a role in the decision- making process?
+No.
+
+II.ii.f Do spatial aspects play a role in the decision process?
+No, but the location of an agent influences the outcome of his decisions.
+
+II.ii.g Do temporal aspects play a role in the decision process?
+Yes - agents have a memory of past water availability. The memory strength varies between different scenarios.
+
+II.ii.h To which extent and how is uncertainty included in the agents' decision rules?
+Uncertainty is not explicitly included in the agent's decision rule; however, agents try to deal with the uncertainty of
+water flows by taking past flows as a predictor of future ones.
+
+
+II.iii Learning
+II.iii.a Is individual learning included in the decision process? No.
+II.iii.b Is collective learning implemented in the model? No.
+
+
+II.iv Individual Sensing
+II.iv.a What endogenous and exogenous state variables are individuals assumed to sense and consider in their decisions? Is the sensing process erroneous?
+Individuals sense water flows, irrigation costs, yields and their budget. The sensing of water flows is erroneous because it is an estimation based on past water flows. Irrigation costs, yields and budget are known without error.
+
+
+II.iv.b What state variables of which other individuals can an individual perceive? Is the sensing process erroneous?
+The national authority knows the net return from irrigation of all farmers without error.
+
+II.iv.c What is the spatial scale of sensing?
+Global (national authority), local (farmers).
+
+
+II.iv.d Are the mechanisms by which agents obtain information modelled
+explicitly, or are individuals simply assumed to know these variables?
+The calculation of expected water availability is modelled explicitly (as a weighted average of past water flows).
+All other variables are just known by the agents.
+
+II.iv.e Are the costs for cognition and the costs for gathering information explicitly included in the model?
+No.
+
+II.v
+Individual Prediction
+II.v.a Which data do the agents use to predict future conditions?
+Data on past water flows at its location.
+
+II.v.b What internal models are agents assumed to use to estimate future conditions or consequences of their decisions?
+No specific models.
+
+II.v.c Might agents be erroneous in the prediction process, and how is it implemented?
+Agents' predictions are erroneous because of unknown variability of water inflows and the loss of memory of past water flows. Downstream agents also do not know the water extraction of upstream agents. Agents estimate water availability using a weighted average of past water flows
+where the weights are determined by their memory capacity.
+
+II.vi Interaction
+II.vi.a Are interactions among agents
+and entities assumed as direct or indirect?
+Indirect through water and fish extraction (common pool resources).
+
+II.vi.b On what do the interactions depend?
+Location of the agents along the river stretch.
+
+II.vi.d If a coordination network exists, how does it affect the agent behaviour? Is the structure of the network imposed or emergent?
+CV: the national authority is a coordination structure that coordinates water use by determining the amount of water for each farmer (equally distributed). There is no coordination network. The actors implement the decisions of the national authority without errors.
+DV: no coordination exists.
+
+II.vii Collectives
+II.vii.a Do the individuals form or belong to aggregations that affect and are affected by the individuals?
+No.
+
+II.viii Heteroge- neity
+II.viii.a Are the agents heterogeneous?
+No.
+
+II.ix Stochasticity
+II.ix.a What processes (including initialisation) are modelled by assuming they are random or partly random?
+Vulnerability of the different age classes is modelled random (i.e. the age class from which a fish is taken by fishing).
+
+II.x
+Observation
+II.x.a What data are collected from the ABM for testing, understanding
+Annual yields and catch of each farmer, accumulated total returns, abundance of the fish population are collected at the and analysing it, and how and when are they collected?
+end of each year.
+
+
+II.x.b What key results, outputs or characteristics of the model are emerging from the individuals? (Emergence)
+A distinct pattern of distribution of yields along the
+upstream-downstream gradient emerges depending on governance type (centralised or decentralised), diversity of water use, and the memory capacity of agents.
+III. Details
+III.i
+Implementa- tion Details
+III.i.a. How has the model been implemented?
+In Java using the Repast platform.
+
+III.ii Initialisation
+III.ii.a What is the initial state of the model world, i.e. at time t=0 of a simulation run?
+Nine farmers with equal initial budget, number of irrigated fields, yields, and memory capacity.
+National authority with an initial budget, an initial number of fields and a memory capacity.
+
+III.ii.b Is the initialisation always the
+same, or is it allowed to vary among simulations?
+The initial number of irrigated fields is varied.
+
+III.ii.c Are the initial values chosen arbitrarily or based on data?
+The initial values for the agents and the fish population have been determined through calibration. The inflow to the river stretch is provided by a data file with an observed
+characteristic runoff time series for the Amudarya river.
+
+III.iii Input Data
+III.iii.a Does the model use input from external sources such as data files or other models to represent
+processes that change over time?
+A 15-year time series of river runoff is provided as input from a data file.
+
+III.iv Submodels
+III.iv.a What, in detail, are the submodels that represent the processes listed in 'Process overview and scheduling'?
+Water flow prediction Water allocation planning Irrigation
+Fishing
+Fish Population Growth Water Flow
+Budget calculation
+
+
+
+Submodels
+Water flow prediction: The agents predict water flows for the upcoming year by evaluating the observed water flows of previous years during the peak month of July. In the centralised version, the national authority bases its prediction on past flows into the river stretch. In the decentralised version, each farmer bases his prediction on the observed water flows at his location along the river stretch. Both the national authority and farmers have a memory capacity, ??, that determines the strength with which past years affect the current year's estimate. 
+
+Water allocation planning: The agents base their decision on the number of fields to irrigate each season on their prediction of water flows and the available budget. In the centralised version, the national authority determines the number of fields that can be irrigated with the expected amount of water and the available budget and distributes the water resources equally to all farmers. If the budget is not sufficient, the national authority reduces the number of irrigated fields to the amount that can be cropped. In the decentralised version, each farmer first assesses his income situation. If the income in the past year was below a critical threshold the farmer will risk and increase the number of irrigated fields by one independent of the water flow predictions, hoping that more water will be available in the current year. If his income is above the threshold but his water demands have not been met in the previous year, the farmer will not risk losing his investment but rather irrigate the number of fields suitable for the amount of water he/she expects in the current year. If the farmer received the demanded amount of water in the past year and has the necessary financial resources, he/she will increase the number of fields by one to test whether he/she can receive more water in the future. In all cases, the number of irrigated fields is limited by the farmer's available budget and the maximum number of fields of the farm.
+
+Irrigation: During the vegetation season, farmers irrigate their fields every month. Water stress occurs when the amount of water delivered is less than the amount needed to irrigate all of the planned fields. Water stress accumulates over the season and affects yields.
+
+Fishing: The farmers access the fishing lake in the order of their distance from the lake, i.e.
+the downstream farmers can access the lake first. Each farmer tries to catch the amount of fish given by a fixed target catch level. Fishing is not costly to the farmer and does not affect agricultural activities. Fish are caught randomly from one of the adult age classes.
+Fish population growth: The fish population is modelled with an age-structured Leslie type matrix model with 12 age classes. The age 0 class is composed of fish born by all mature age classes (age 5-12) as well as larvae that migrate into the lake from upstream. Migration depends on the amount of water inflow into the lake during reproduction in May, which has to be above a certain threshold so that the larvae can survive. The number of larvae transported into the lake is proportional to the water volume once the threshold value is passed. Survival of the fish in the juvenile age classes 1-4 is density dependent, while adult fish are only subject to density-independent natural mortality. Only adult fish from age class 5 and onwards are harvested, and fish older than 12 years die.
+
+WaterFlow: The water resource is modelled as a one-dimensional flow from upstream to downstream. The inflow of water into the river stretch is taken from a 15-year characteristic monthly runoff time series of inflow to the Amudarya river delta, which reflects the variability of water flows in this river basin. The water flow directly reaches the first farmer. Each farmer withdraws water sequentially according to his needs for irrigation. The remaining water flows downstream into the fishing lake.
+Budget calculations: In the centralised version, the national authority calculates its budget as the accumulated sum of net returns from crop production of all farmers minus the costs for irrigation and the consumption needs of the farmers.
+Note that in the centralised version, the returns from fishing remain with the individual farmers, as fishing is a subsistence activity that enables the farmers to cover his consumptive needs or provide for investment in agriculture.
+The budget of each farmer in the decentralised version is the sum of the returns from agriculture and fishing minus the costs for irrigation and consumption.
