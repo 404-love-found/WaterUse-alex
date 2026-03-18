@@ -1,0 +1,491 @@
+# ELECTRICITY GOVERNANCE MODEL — Game-Theoretic Logic Reference
+# Source: Kimmich, C. (2013). Linking action situations: Coordination, conflicts,
+#         and evolution in electricity provision for irrigation in Andhra Pradesh, India.
+#         Ecological Economics, 90, 150–158.
+# Purpose: LLM prompt input for action situation extraction — strategic-trigger format
+# Note: All payoff matrices reproduced directly from paper Tables 2–6.
+#       Payoffs are ORDINAL RANKS (0, 1, 2, 3), not cardinal utilities.
+
+========================================================================
+
+SECTION A: AGENTS
+
+------------------------------------------------------------------------
+Agent         | Role                          | Key Attributes
+------------------------------------------------------------------------
+Farmer (F)    | Technology adopter,           | Location (transformer area),
+              | water extractor, grid user    | pumpset type (ISI-marked or not),
+              |                               | capacitor status, authorisation
+              |                               | status, social network ties,
+              |                               | indebtedness, groundwater depth
+------------------------------------------------------------------------
+Sub-station   | Gatekeeper, enforcer,         | Discretionary power over
+Personnel (U) | informal exchange partner     | connections, monitoring exposure,
+              |                               | established collusion ties
+------------------------------------------------------------------------
+APERC         | Regulator — tariff-setter,    | Stochastic audit intensity
+(Regulator)   | formal rule enforcer          | (exogenous; treated as parameter)
+------------------------------------------------------------------------
+
+SECTION B: THE SIX ACTION SITUATIONS — STRATEGIC TRIGGERS
+
+Each action situation is derived directly from Section 6 of the paper.
+Payoff matrices are reproduced exactly from Tables 2–6.
+
+========================================================================
+
+AS1 — THE CORE ACTION SITUATION: COORDINATION / ASSURANCE (Section 6.1)
+Game type: Assurance Problem / Stag Hunt
+
+CONTEXT (from paper):
+Power quality is a shared resource within each transformer service area
+(on average 17 pumpsets per transformer). Each farmer's pumpset choice
+affects all others. Installing a standard-approved pumpset (ISI-marked)
+or capacitor improves power quality collectively but requires ALL farmers
+to invest simultaneously. If only one farmer invests, voltage remains low,
+and their capacitor may even prevent motor start or burn out — creating
+false negative inference. Economists confirmed (AS1 econometric analysis):
+"under the given conditions, the rational strategy is not to adopt any DSM."
+
+STRATEGIC TRIGGER:
+Two farmers (F1, F2) sharing a transformer SIMULTANEOUSLY decide:
+  I  = invest in DSM (capacitor / ISI-marked pumpset)
+  ~I = do not invest
+
+PAYOFF MATRIX (Table 2 — ordinal ranks):
+
+                AS1: F2
+                 I        ~I
+       F1  I   2, 2      0, 1
+          ~I   1, 0      1, 1
+
+PAYOFF INTERPRETATION:
+  (I, I)   = 2, 2  → Both invest: Pareto-optimal. Shared power quality
+                      improvement. Equipment damage and repair costs
+                      drastically reduced. PAYOFF-DOMINANT Nash equilibrium.
+  (~I, ~I) = 1, 1  → Neither invests: status quo. No improvement, but
+                      no unilateral cost either. RISK-DOMINANT Nash equilibrium.
+                      This is the EMPIRICALLY OBSERVED outcome (10% adoption).
+  (I, ~I)  = 0, 1  → F1 invests alone: F1 bears cost, voltage stays low,
+                      capacitor may fail or burn out. F2 free-rides passively.
+  (~I, I)  = 1, 0  → F2 invests alone: F2 bears the loss, F1 benefits
+                      slightly from no coordination cost.
+
+NASH EQUILIBRIA: Two in pure strategies.
+  1. (I, I) = (2, 2)  — payoff-dominant, Pareto-superior
+  2. (~I, ~I) = (1, 1) — risk-dominant, empirically prevailing
+
+GAME LOGIC RULES:
+  ❗ This is an ASSURANCE PROBLEM, NOT a Prisoner's Dilemma.
+     No farmer has an incentive to deviate from (I,I) ONCE REACHED
+     (a standard pumpset reduces individual damage regardless of others).
+  ❗ The risk-dominant equilibrium prevails because:
+     (a) farmers do not know the coordination requirement (most unaware
+         that simultaneous installation is necessary), and
+     (b) AS2 (social learning) prevents coordinated experimentation.
+  ❗ Do NOT model this as a PD. Unilateral defection is NOT advantaged
+     in the way a PD requires — the payoff difference is informational
+     and coordination-failure-driven.
+  ❗ Linking parameters: τ (transformer capacity from AS3) reduces the
+     value of (I,I) if capacity is insufficient — DSM cannot work when
+     voltage is structurally too low.
+
+========================================================================
+
+AS2 — SOCIAL LEARNING IN TECHNOLOGY ADOPTION (Section 6.2)
+Game type: NON-STRATEGIC LINK — Diffusion Mechanism
+
+CONTEXT (from paper):
+"Farmers resorted to a common practice in technology adoption: Only
+selected farmers experimented with the use of a capacitor, and their
+neighbours and peer network adapted to their experiences."
+Since no farmer has experience of coordinated simultaneous adoption,
+the sequential learning strategy always observes unilateral failure
+(AS1 low equilibrium) and does NOT imitate.
+
+STRUCTURE: Sequential game tree (Fig. 2 in paper)
+  - F1 moves first (experiments with capacitor).
+  - Technology (T) moves: if only F1 adopts → technology fails.
+  - F2 observes F1's outcome: failure → F2 does NOT adopt.
+  - Equilibrium of AS2: one farmer invests, technology fails,
+    no observer invests. Diffusion stalls permanently.
+
+INFORMATIONAL LINK (ι):
+  AS2 transforms AS1 from a simultaneous game into a sequential game,
+  blocking the path to the payoff-dominant (I,I) equilibrium.
+  "Sequential adoption even undermines simultaneous experimentation
+  and the emergence of successful variation."
+
+GAME LOGIC RULES:
+  ❗ AS2 is a DIFFUSION MECHANISM, not a standalone game.
+     Do NOT generate a payoff matrix for AS2.
+  ❗ AS2 is the link between AS1 and AS3 via the parameter ι.
+  ❗ The bottleneck: if no coordinated successful trial occurs,
+     no beneficial experience is possible, and no imitation follows.
+  ❗ Policy implication from paper: a demonstration project showing
+     coordinated investment could shift social learning trajectory,
+     with impact "far beyond the demonstration project itself."
+
+========================================================================
+
+AS3 — INFRASTRUCTURE CAPACITY PROVISION (Section 6.3)
+Game type: Asymmetric Prisoner's Dilemma
+
+CONTEXT (from paper):
+Providing additional transformer capacity for each new connection requires
+a one-time connection payment. Farmers who have already paid (authorised
+connections) have contributed to capacity; new farmers can evade this
+payment via informal arrangements with sub-station staff (AS4/AS5).
+Estimated 20–30% of connections are unauthorised. For 11% of transformers,
+calculated capacity is below average pumpset power (survey data).
+"An additional farmer can evade contributing to that capacity."
+
+STRATEGIC TRIGGER:
+Two farmers (F1 has authorised; F2 seeks to connect) SIMULTANEOUSLY decide:
+  A  = authorise (pay formal connection charge, contribute to capacity)
+  ~A = not authorise (informal/unauthorised connection via AS4/AS5 ties)
+
+PAYOFF MATRIX (Table 3 — ordinal ranks):
+
+                AS3: F2
+                 A        ~A
+       F1  A   2, 2      1, 3
+          ~A   3, 0      1, 1
+
+PAYOFF INTERPRETATION:
+  (A, A)   = 2, 2  → Both authorise: sufficient capacity, voltage adequate
+                      for both. Collectively optimal but individually tempting
+                      to deviate.
+  (~A, ~A) = 1, 1  → Both unauthorised: low capacity, low voltage, suboptimal
+                      for both. NASH EQUILIBRIUM.
+  (A, ~A)  = 1, 3  → F1 pays and provides capacity; F2 free-rides and gets
+                      HIGHEST payoff (3) without contribution cost.
+  (~A, A)  = 3, 0  → F1 free-rides (gets highest payoff); F2 bears full cost
+                      with lowest payoff (0).
+
+DOMINANT STRATEGY: ~A for BOTH farmers (3>2 and 1≥1; 3>2 and 1≥1).
+NASH EQUILIBRIUM: (~A, ~A) = (1, 1).
+
+ASYMMETRY: Whoever authorises first bears full cost; the other gains more.
+Payoffs are asymmetric between (A,~A) = (1,3) and (~A,A) = (3,0).
+
+GAME LOGIC RULES:
+  ❗ This is an ASYMMETRIC PD. Both players have dominant strategy ~A.
+  ❗ Asymmetry comes from who authorises first, not spatial position.
+  ❗ Do NOT make payoffs symmetric. (A,~A) ≠ (~A,A) in the paper.
+  ❗ Linking parameters:
+     - δ (social norms from AS4): collusion equilibrium enables ~A option.
+       Without AS4 tie, ~A option may not be available to F2.
+     - τ (capacity shortfall): (~A,~A) outcome reduces τ, reducing AS1
+       payoffs (DSM cannot work at insufficient voltage).
+     - AS6 (γ): rising pumping costs increase load, worsening capacity
+       constraint and lowering effective capacity for all farmers.
+
+========================================================================
+
+AS4 — MUTUAL EXCHANGE AND COLLUSION (Section 6.4)
+Game type: Coordination Game (two Nash equilibria)
+
+CONTEXT (from paper):
+"The established relations between farmers and sub-station personnel,
+and also solidarity among farmers with those who cannot afford the
+connection charge, play a role in shaping capacity provision in AS3."
+"Obtaining access without authorization is an 'open secret' in many cases."
+Kinship and evolved personal relations create exchange ties.
+"A network link is established if the Pareto-superior equilibrium of
+mutual exchange is reached." APERC vigilance monitoring is stochastic and
+alters expected payoff of the (E,E) cell.
+
+STRATEGIC TRIGGER:
+Farmer (F) and sub-station personnel (U) SIMULTANEOUSLY decide:
+  E  = exchange (engage in mutual informal exchange — payment, favour)
+  ~E = not exchange (formal channel only)
+
+PAYOFF MATRIX (Table 4 — ordinal ranks):
+
+                AS4: U
+                 E        ~E
+       F   E   1, 1      0, 1
+          ~E   1, 0      0, 0
+
+PAYOFF INTERPRETATION:
+  (E, E)   = 1, 1  → Mutual exchange: both gain from informal arrangement.
+                      F gets faster/better service; U receives informal
+                      compensation. PARETO-SUPERIOR Nash equilibrium.
+                      Collusion equilibrium.
+  (~E, ~E) = 0, 0  → No exchange: formal channel only. No extra benefit.
+                      FORMAL COMPLIANCE Nash equilibrium.
+  (E, ~E)  = 0, 1  → F engages, U abstains: F bears loss (wasted offer,
+                      still gets formal delays); U saves effort with no cost.
+  (~E, E)  = 1, 0  → U engages, F abstains: U bears effort cost; F gets
+                      benefit without reciprocation (rare structurally).
+
+NASH EQUILIBRIA: Two in pure strategies.
+  1. (E, E) = (1, 1)   — Pareto-superior, collusion equilibrium
+  2. (~E, ~E) = (0, 0) — formal compliance equilibrium
+
+GAME LOGIC RULES:
+  ❗ This is a COORDINATION / MUTUAL EXCHANGE game — NOT a PD.
+     Unilateral engagement LOSSES for the engaging party.
+  ❗ Two Nash equilibria: equilibrium selection depends on:
+     - Strength of social/kinship ties (parameter δ).
+     - APERC monitoring intensity (stochastic): high monitoring reduces
+       expected value of (E,E) below (0,0), pushing toward formal equilibrium.
+  ❗ This AS enables the ~A option in AS3 by establishing the
+     institutional precondition for informal connections.
+  ❗ The payoff values in the paper (0,1 scale) are minimal ordinal ranks;
+     in practice, the informal compensation can be substantial.
+
+========================================================================
+
+AS5 — AUTHORIZATION AND CAPACITY INVESTMENT (Section 6.5)
+Game type: Asymmetric Coordination with Unique Nash Equilibrium
+
+CONTEXT (from paper):
+"The formal procedure of receiving an electricity connection is to apply
+and then pay a fixed connection fee to the distribution company."
+"However, the sub-station personnel can exert discretionary agency power."
+"In addition to formal payments, informal payments are often expected."
+Sub-station personnel can delay service even after authorisation.
+"This setting is only feasible if the farmer has the choice to get a
+connection without authorization, which depends on established connections
+as in AS4." Without AS4 collusion tie, the (~A) option for the farmer
+does not exist.
+
+STRATEGIC TRIGGER:
+Farmer F2 (from AS3) chooses: Authorise (A) vs. not (~A).
+Sub-station personnel U chooses: Invest in capacity (I) vs. not (~I).
+
+PAYOFF MATRIX (Table 5 — ordinal ranks):
+
+                AS5: U
+                 I        ~I
+       F2  A   2, 1      0, 2
+          ~A   3, 0      1, 1
+
+PAYOFF INTERPRETATION:
+  (A, I)   = 2, 1  → Formal + investment: optimal collective outcome.
+                      F2 pays fee and gets connection; U invests effort
+                      and receives formal compensation. Grid integrity maintained.
+  (A, ~I)  = 0, 2  → Formal request + withhold: F2 pays fee, gets nothing
+                      (capacity not provided despite authorisation); U saves
+                      effort AND avoids formal penalty. F2 bears maximum loss.
+  (~A, I)  = 3, 0  → Informal + invest: F2 gets connection without fee
+                      (best outcome for F2 = 3); U bears full investment
+                      cost without formal compensation (worst for U = 0).
+  (~A, ~I) = 1, 1  → Informal + withhold: F2 gets nothing (uses diesel or
+                      delays); U saves effort. This is the Nash equilibrium.
+
+DOMINANT STRATEGY ANALYSIS:
+  F2: ~A dominates A (3>2 when U plays I; 1>0 when U plays ~I).
+  U: ~I dominates I (2>1 when F plays A; 1>0 when F plays ~A).
+UNIQUE NASH EQUILIBRIUM: (~A, ~I) = (1, 1).
+
+GAME LOGIC RULES:
+  ❗ This has a UNIQUE Nash equilibrium, unlike AS1 and AS4.
+  ❗ (~A) is dominant for farmer; (~I) is dominant for staff.
+  ❗ Collectively optimal (A,I)=(2,1) is individually unstable.
+  ❗ The (~A,~I) equilibrium creates the asymmetric payoff in AS3:
+     it reduces the transformer capacity available to ALL farmers,
+     lowering the effective value of the (A,A) cell in AS3.
+  ❗ APERC enforcement can shift payoffs: effective monitoring raises
+     penalty of (~A) for farmer and (~I) for staff, potentially making
+     (A,I) incentive-compatible. Paper notes this requires APERC capacity
+     and political will beyond the boundary of the adjacency network.
+
+========================================================================
+
+AS6 — GROUNDWATER EXTRACTION DILEMMA (Section 6.6)
+Game type: Dynamic Prisoner's Dilemma (CPR — Common Pool Resource)
+
+CONTEXT (from paper):
+"Certainly the most visible link is located between power utilisation
+and groundwater exploitation." Groundwater tables in the Deccan plateau
+case study area have declined drastically over two decades (Fig. 3).
+"Decreasing groundwater tables require deepened wells, which steadily
+increases energy use and the respective loads on the electricity grid."
+This makes AS3 capacity constraint worse and AS1 coordination harder.
+"The extraction equilibrium (E;E) initially creates the highest outcome,
+but with a decreasing groundwater level, the costs of pumping (γ)
+increase and the equilibrium falls below the payoffs for restraining."
+
+STRATEGIC TRIGGER:
+Two farmers (F1, F2) sharing an aquifer SIMULTANEOUSLY decide:
+  E  = extract (pump at unconstrained rate)
+  ~E = restrain (limit pump hours, conserve groundwater)
+
+PAYOFF MATRIX (Table 6 — ordinal ranks with cost parameter γ):
+
+                AS6: F2
+                 E           ~E
+       F1  E   2-γ, 2-γ    3, 0
+          ~E   0, 3         1, 1
+
+PAYOFF INTERPRETATION:
+  (E, E)   = 2-γ, 2-γ → Both extract: initially highest individual payoff
+                          (2-γ when γ is small). As groundwater table drops,
+                          γ increases, and this payoff eventually falls BELOW
+                          (1,1). The equilibrium is DYNAMICALLY UNSTABLE.
+  (~E, ~E) = 1, 1       → Mutual restraint: stable long-term payoff.
+                          Aquifer recharges at natural rate. Initially
+                          Pareto-inferior but eventually superior as γ rises.
+  (E, ~E)  = 3, 0       → F1 extracts, F2 restrains: F1 gets maximum gain
+                          (3); F2 suffers lowest payoff (0) — deeper well,
+                          higher costs. STRONGEST INDIVIDUAL INCENTIVE.
+  (~E, E)  = 0, 3       → F2 extracts, F1 restrains: reverse of above.
+
+DYNAMIC LOGIC:
+  - Short term (γ small): (E) is dominant strategy. Nash = (E,E) = (2-γ, 2-γ).
+  - Long term (γ large): (E,E) payoff < (1,1). Mutual extraction eventually
+    yields worse outcome than mutual restraint — but individual defection
+    incentive (3>1) persists. Classic tragedy of the commons.
+
+GAME LOGIC RULES:
+  ❗ This is a DYNAMIC CPR PRISONER'S DILEMMA. Dominant strategy is
+     extraction (E) throughout, but the collective cost compounds over time.
+  ❗ Parameter γ is normalised in the model but empirically observable
+     via bore-well depth data (Fig. 3: depth increasing with well age).
+  ❗ No monitoring of individual pump hours exists — open-access commons.
+  ❗ Physical links to other AS:
+     - Rising γ increases electrical load per farm → worsens AS3 capacity
+       shortfall → reduces τ parameter → degrades AS1 payoffs.
+     - Paradox noted in paper: successful coordination in AS1 (efficient
+       pumpsets) could AGGRAVATE groundwater exploitation by reducing
+       pumping cost per unit water extracted.
+
+========================================================================
+
+SECTION C: STRATEGIC VS. NON-STRATEGIC FILTER
+(from Section 6 and Table structure in Kimmich 2013)
+
+Process              | Strategic?    | Rationale from paper
+---------------------|---------------|--------------------------------------
+DSM adoption (AS1)   | ✅ YES        | Mutual interdependence; two Nash
+                     |               | equilibria; assurance structure
+---------------------|---------------|--------------------------------------
+Social learning (AS2)| ❌ NOT a game | Informational link ι between AS1
+                     |               | and AS3; sequential diffusion
+                     |               | mechanism; no independent strategy set
+---------------------|---------------|--------------------------------------
+Transformer auth.    | ✅ YES        | Asymmetric PD; dominant strategy
+(AS3)                |               | to defect (~A); capacity externality
+---------------------|---------------|--------------------------------------
+Farmer–staff exchange| ✅ YES        | Two Nash equilibria; mutual
+(AS4)                |               | reciprocation required; APERC
+                     |               | monitoring shifts equilibrium
+---------------------|---------------|--------------------------------------
+Authorization &      | ✅ YES        | Unique Nash (~A,~I); staff withhold
+investment (AS5)     |               | dominant; formal vs. informal access
+---------------------|---------------|--------------------------------------
+Groundwater          | ✅ YES        | Dynamic CPR-PD; extraction dominant;
+extraction (AS6)     |               | γ parameter links to AS3 and AS1
+---------------------|---------------|--------------------------------------
+APERC tariff-setting | ❌ NOT a game | Exogenous; top-down rule; not a
+                     |               | strategic interaction within model
+                     |               | boundary (Section 6.5 explicitly
+                     |               | treats it as outside boundary)
+---------------------|---------------|--------------------------------------
+
+========================================================================
+
+SECTION D: LINKING PARAMETERS
+(from Section 6.8 and Fig. 4 of Kimmich 2013)
+
+Parameter | Symbol | Mechanism in adjacency network
+----------|--------|-----------------------------------------------
+Transformer| τ     | AS3 outcome (capacity shortfall) → reduces AS1
+capacity   |       | payoffs. If τ is low, DSM cannot function even
+           |       | if coordination is achieved.
+----------|--------|-----------------------------------------------
+Social     | δ     | AS4 collusion equilibrium → enables ~A option
+norms/     |       | in AS5 → creates asymmetric payoff in AS3.
+exchange   |       | Strong δ sustains (E,E) collusion in AS4.
+ties       |       |
+----------|--------|-----------------------------------------------
+Cognitive/ | ι     | AS2 social learning heuristic → transforms AS1
+information|       | from simultaneous to sequential game → blocks
+constraint |       | path to payoff-dominant (I,I) equilibrium.
+----------|--------|-----------------------------------------------
+Pumping    | γ     | AS6 extraction → deepening groundwater table
+cost       |       | → increases electrical load → worsens AS3
+           |       | capacity constraint → degrades τ → reduces
+           |       | AS1 payoffs.
+
+========================================================================
+
+SECTION E: ADJACENCY NETWORK STRUCTURE
+(Fig. 4, Kimmich 2013)
+
+AS2 [ι — informational link]
+  ↓ transforms AS1 into sequential game
+AS1 (Core) ← τ ← AS3 ← δ ← AS4
+                 ↑             ↓
+                 AS6 [γ]      AS5 [δ,actors]
+                 ↑
+               (γ rises as groundwater drops)
+
+Links by type (Link Proposition 1 in paper):
+  AS2 → AS1: information (ι) — cognitive/learning constraint
+  AS3 → AS1: biophysical (τ) — transformer capacity constraint
+  AS4 → AS3: institution (δ) — collusion norms enable unauthorized access
+  AS5 → AS3: institution + actors — (~A,~I) Nash reduces capacity in AS3
+  AS6 → AS3: biophysical (γ) — increased load degrades capacity
+  AS4 ↔ AS5: actors — same farmer F2 and staff U involved in both
+
+Bidirectional causation (Interdependency Proposition 3):
+  AS3 ↔ AS6: sufficient capacity (AS3) can intensify groundwater
+              exploitation (AS6); AS6 aggravates AS3 capacity constraint.
+  AS1 ↔ AS3: successful coordination (AS1) reduces electric load,
+              improving effective capacity (AS3); but AS3 is a prerequisite
+              for AS1 to work (τ must be adequate first).
+
+========================================================================
+
+SECTION F: EXPECTED GAME-TYPE DIVERSITY CHECKLIST
+(required for complete action situation extraction)
+
+Your output MUST include exactly one game of each type (no repeats):
+  [ ] Assurance / Stag Hunt                → AS1: DSM Adoption Coordination
+  [ ] NON-GAME diffusion link description  → AS2: Social Learning (NO matrix)
+  [ ] Asymmetric Prisoner's Dilemma        → AS3: Transformer Authorization
+  [ ] Coordination (two Nash equilibria)   → AS4: Farmer-Staff Collusion
+  [ ] Unique Nash / Anti-Coordination      → AS5: Formal/Informal Authorization
+  [ ] Dynamic CPR / Prisoner's Dilemma     → AS6: Groundwater Extraction
+
+❗ CRITICAL FAILURE MODES TO AVOID:
+  1. Treating AS2 as a payoff-matrix game (it is a DIFFUSION LINK only).
+  2. Treating AS1 as a Prisoner's Dilemma (it is an ASSURANCE problem).
+  3. Making AS3 payoffs symmetric — they are explicitly asymmetric in Table 3.
+  4. Assigning AS6 a Stag Hunt structure — it is a PD with dynamic γ.
+  5. Generating a game for APERC tariff-setting (exogenous, non-strategic).
+  6. Omitting AS6 entirely — most commonly missed in output.
+
+========================================================================
+
+SECTION G: CONSTRAINTS FROM ODD (for payoff grounding)
+
+Physical constraints:
+  - Average 17 pumpsets connected per transformer.
+  - 11% of transformers operate below average pumpset power capacity.
+  - Only 10% of farmers successfully use capacitors (survey).
+  - Branded pumpsets: 67%; ISI-marked: 37%; BEE-rated: 6%.
+  - Estimated 20–30% unauthorised connections across the study area.
+  - Five villages: 1–3 farmer deaths per year from DIY transformer repair.
+
+Institutional constraints:
+  - APERC monitoring is stochastic (random audit), not continuous.
+  - Flat-rate electricity tariff: no price signal for conservation.
+  - No metering of individual pump hours (open-access groundwater).
+  - No external water trading or groundwater market.
+  - Social networks are village-scale and kinship-based.
+
+Payoff constraints:
+  - All payoffs are ORDINAL RANKS (0, 1, 2, 3) as in paper's tables.
+  - Do NOT use cardinal utility values or invent numerical scales.
+  - Payoff ordering must respect the equilibrium logic of each game type.
+  - Parameter γ in AS6 must be treated as a dynamic variable
+    (initially small; increases over time as groundwater table drops).
+
+========================================================================
+END OF game_stuff_electricity.txt
+Source: Kimmich (2013), Ecological Economics 90, 150–158.

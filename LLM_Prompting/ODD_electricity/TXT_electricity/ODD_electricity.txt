@@ -1,0 +1,722 @@
+ODD+D Protocol — Electricity Governance in Irrigation Systems
+Source: Kimmich, C. (2013). Linking action situations: Coordination, conflicts, and evolution
+in electricity provision for irrigation in Andhra Pradesh, India.
+Ecological Economics, 90, 150–158. https://doi.org/10.1016/j.ecolecon.2013.03.017
+
+========================================================================
+
+I. OVERVIEW
+
+------------------------------------------------------------------------
+I.i Purpose
+------------------------------------------------------------------------
+
+I.i.a What is the purpose of the study?
+To analyse how linked action situations affect electricity governance and
+energy efficiency in irrigation systems, using game theory and empirical
+data from Andhra Pradesh, India. Specifically, the paper examines why
+coordination to improve power quality and energy efficiency persistently
+fails, by identifying a network of six adjacent action situations (AS1–AS6)
+that co-determine outcomes of the core action situation (AS1).
+
+The paper contributes to the analysis of Networks of Adjacent Action
+Situations (NAAS) and derives three theoretical propositions concerning:
+(1) types of links between action situations, (2) a boundary criterion
+for delimiting relevant adjacent situations, and (3) conditions for
+bidirectional causation (interdependency) between linked situations.
+
+I.i.b For whom is the model designed?
+For scientists and policymakers interested in resource governance,
+institutional analysis, energy policy, and the ecology of games in
+social-ecological systems. The study is instrumental (Stake, 2000) and
+based on a mixed-method research design (semi-structured interviews,
+cross-section survey with N=305, econometric analysis, game theory).
+
+------------------------------------------------------------------------
+I.ii Entities, State Variables, and Scales
+------------------------------------------------------------------------
+
+I.ii.a What kinds of entities are in the model?
+
+Human agents:
+  - Farmers (F): smallholder irrigators using electric pumpsets to access
+    groundwater. On average 17 pumpsets are connected per transformer.
+  - Sub-station personnel (U): utility ground staff with discretionary
+    power over connection authorisations and infrastructure maintenance.
+  - Regulators (APERC): Andhra Pradesh Electricity Regulatory Commission —
+    sets tariffs and formal governance rules; treated as exogenous.
+
+Institutional entities:
+  - Flat-rate electricity tariff policy (persistent for three decades).
+  - Formal connection authorisation procedure (fixed connection fee).
+  - Informal exchange norms and collusion ties between farmers and staff.
+  - Social learning routines for technology adoption.
+
+Physical entities:
+  - Electricity grid: sub-stations, distribution transformers (~11 kV),
+    pumpsets, capacitors.
+  - Groundwater: shared aquifer accessed via tube wells.
+  - Demand-side measures (DSM): ISI-marked pumpsets (Bureau of Indian
+    Standards), BEE-rated pumpsets (Bureau of Energy Efficiency),
+    capacitors (power factor correction devices).
+
+I.ii.b By what attributes are these entities characterised?
+
+Farmers:
+  - Location (distance to sub-station).
+  - Pumpset type: branded/non-branded, ISI-marked, BEE-rated.
+  - Capacitor installation status (only 10% successfully installed
+    during the research period).
+  - Number of motor burn-outs per year (mean: 1.86, SD: 1.64).
+  - Costs for motor repair (mean: INR 2,693; range: 200–8,500).
+  - Age of pumpset (mean: 7.21 years).
+  - Transformer burn-outs per year (mean: 1.02).
+  - Costs for transformer repair (mean: INR 621).
+  - Authorisation status of grid connection (authorised vs. unauthorised).
+  - Social network ties (kinship, village-level).
+  - Budget / indebtedness (many farmers heavily indebted from tube-well
+    and pumpset investments).
+
+Sub-station personnel:
+  - Discretionary power over formal and informal connection authorisation.
+  - Exposure to monitoring/vigilance by utility management.
+  - Established exchange ties with farmers (collusion networks).
+
+Electricity grid:
+  - Transformer capacity (11% of transformers calculated below average
+    pumpset power; only 37% of farmers considered present capacity
+    sufficient for an additional pumpset).
+  - Voltage stability and power quality.
+  - Estimated 20–30% unauthorised connections (as reported by regulators,
+    farmers, and electrical engineers).
+
+Groundwater:
+  - Table depth (steadily declining in the Deccan plateau case study area).
+  - Extraction rate per farm.
+  - Pumping energy cost γ (increases as groundwater table drops,
+    imposing greater electrical load on the grid).
+
+I.ii.c What are the exogenous factors/drivers?
+
+  - Aquifer recharge rates (dependent on monsoon precipitation, geology
+    of hard-rock Deccan plateau aquifers).
+  - APERC tariff orders and formal enforcement campaigns (e.g., 2001
+    order requiring compulsory capacitor use; related distribution
+    campaigns; stochastic vigilance monitoring).
+  - National and state-level political economy of electricity subsidisation
+    ('vote bank' politics; flat-rate tariff persistence).
+  - Market for crops and labour (alternative income sources).
+  - Tube-well and pumpset market conditions.
+
+I.ii.d How is space included in the model?
+Implicitly through farmer locations relative to the transformer service
+area and the sub-station. Proximity to the sub-station affects informal
+relationship formation with sub-station personnel. Shared transformer
+connections define the physical boundary of the coordination externality
+in AS1 and AS3. Groundwater basin extent defines the boundary of
+common-pool extraction in AS6.
+
+I.ii.e What are the temporal and spatial resolutions?
+
+Temporal:
+  - Irrigation decisions: seasonal (linked to monsoon cropping cycles).
+  - Electricity billing: monthly flat-rate.
+  - Technology adoption: annual or multi-year cycles.
+  - Groundwater depletion: dynamic, multi-year (declining water table
+    over two decades in the case study area).
+  - Interviews conducted 2009–2011; survey cross-section.
+
+Spatial:
+  - Village-level transformer service area (core unit for AS1 and AS3).
+  - District-level groundwater basin (AS6).
+  - State-level regulatory governance (APERC, exogenous).
+
+------------------------------------------------------------------------
+I.iii Process Overview and Scheduling
+------------------------------------------------------------------------
+
+I.iii.a What entity does what, and in what order?
+
+The model is not a time-stepped simulation but a set of linked
+game-theoretic models. The sequencing is conceptual:
+
+1. Farmers simultaneously decide whether to invest in DSM (capacitors,
+   ISI-marked pumpsets) — AS1: Coordination/Assurance.
+
+2. Farmers observe peers' adoption outcomes and apply social learning
+   rules (imitate if peer outcome ranks higher than own) — AS2: Social
+   Learning (adjacent, non-strategic link).
+
+3. When additional farmers seek grid connections, existing farmers and
+   new applicants decide whether to pay for formal transformer capacity
+   authorisation or to establish informal (unauthorised) connections —
+   AS3: Asymmetric Infrastructure Dilemma.
+
+4. Farmers and sub-station personnel decide whether to engage in mutual
+   informal exchange (collusion) — AS4: Mutual Exchange Coordination.
+
+5. Farmers choose formal or informal request pathways; sub-station
+   personnel choose whether to invest capacity or withhold service —
+   AS5: Authorization and Investment Dilemma.
+
+6. Farmers decide how intensively to extract groundwater from the shared
+   aquifer; extraction increases electrical load over time — AS6:
+   Groundwater Extraction Dilemma.
+
+Each agent is updated through their own decision process; interactions
+are defined by game-theoretic equilibrium logic rather than sequential
+turn-taking.
+
+========================================================================
+
+II. DESIGN CONCEPTS
+
+------------------------------------------------------------------------
+II.i Theoretical and Empirical Background
+------------------------------------------------------------------------
+
+II.i.a Which general concepts, theories, or hypotheses underlie the model?
+
+The paper draws on three theoretical traditions:
+
+1. Institutional Analysis and Development (IAD) framework (Ostrom, 2005):
+   Action situations as the core unit of analysis; working components
+   (actors, positions, actions, outcomes, information, payoffs, rules).
+
+2. Networks of Adjacent Action Situations (NAAS) (McGinnis, 2011):
+   "An action situation Xi is adjacent to Y if the outcome of Xi directly
+   influences the value of one or more of the working components of Y."
+   The paper derives three propositions:
+   - Link proposition: every adjacent AS must be linked through
+     biophysical transactions, information, institutions, or actors.
+   - Boundary proposition: boundary delimited by range of influence
+     of core actors (at least one actor must be involved in both Y and Xi).
+   - Interdependency proposition: causal mechanisms between linked AS
+     can be unidirectional or bidirectional.
+
+3. Evolutionary game theory and technology adoption (Axelrod, 1981;
+   Skyrms, 2004; Foster & Rosenzweig, 1995):
+   Social learning strategies (imitation) are evolutionarily dominant
+   for many technologies, but fail in coordination problems because
+   sequential adoption undermines simultaneous experimentation.
+
+Game model archetypes used:
+  - Assurance/Stag Hunt (AS1): two Nash equilibria in pure strategies;
+    payoff-dominant (I,I) vs. risk-dominant (~I,~I).
+  - Asymmetric Prisoner's Dilemma (AS3): dominant strategy to defect
+    (~A); asymmetric payoffs due to infrastructure externality.
+  - Mutual Exchange Coordination (AS4): two equilibria (E,E) and (~E,~E);
+    collusion vs. formal compliance.
+  - Authorization-Investment Dilemma (AS5): unique Nash equilibrium
+    (~A,~I); staff's withholding is dominant.
+  - Dynamic CPR Dilemma (AS6): extraction (E) initially dominant, but
+    rising pumping cost γ shifts equilibrium over time.
+
+II.i.b On what assumptions are agents' decisions based?
+
+  - Bounded rationality (Simon, 1957): agents use heuristics, social
+    learning, and experiential rules rather than full optimisation.
+  - Ordinal preferences: payoff matrices use ordinal ranks (0, 1, 2, 3)
+    rather than cardinal utilities.
+  - No adoption of capacitors without understanding the coordination
+    requirement (farmers rarely aware that simultaneous installation
+    is necessary).
+  - Collusion ties are contingent on kinship or evolved personal
+    relations with sub-station personnel.
+  - APERC monitoring is stochastic (random audit probability).
+
+II.i.c Why are certain decision models chosen?
+The game models are derived from qualitative and quantitative empirical
+evidence (interviews, survey, econometric analysis). Each game archetype
+is chosen to match the observed institutional and physical structure of
+the respective action situation:
+  - AS1 is an assurance problem (not a PD) because no farmer has an
+    incentive to deviate from the high equilibrium once reached (a
+    standard-approved pumpset reduces individual equipment damage too).
+  - AS3 is an asymmetric PD because the authorising farmer bears the
+    full cost of additional transformer capacity, while all farmers
+    benefit from the voltage improvement.
+  - AS4 is a coordination game because mutual exchange is required;
+    unilateral engagement yields a loss for the initiating party.
+  - AS5's Nash equilibrium (~A,~I) explains the observed persistence of
+    unauthorised connections and under-provision by staff.
+  - AS6 is dynamic because the pumping cost parameter γ increases over
+    time as the groundwater table drops.
+
+II.i.d Where do empirical data come from?
+  - Semi-structured interviews (2009–2011): farmers, repair workshop
+    owners, pumpset manufacturers, local retailers, utility managers,
+    sub-station staff, village revenue officers, elected village heads,
+    APERC members.
+  - Cross-section survey: N=305, stratified random sample.
+  - APERC tariff orders (2001, 2005, 2010) and public hearing transcripts.
+  - Bore-well depth records (Fig. 3 in paper: depth vs. age of bore wells).
+  - State-level statistics: 36% of all final electric energy in Andhra
+    Pradesh used in agriculture (2007); >2.5 million pumpsets on grid (2008).
+
+II.i.e At what level of aggregation were data available?
+  - Individual farmer level (survey variables: pumpset type, burn-outs,
+    repair costs, capacitor status, authorisation status).
+  - Village level (transformer burn-outs, capacity estimates,
+    unauthorised connection prevalence).
+  - District/state level (groundwater depth trends, energy statistics).
+
+------------------------------------------------------------------------
+II.ii Individual Decision-Making
+------------------------------------------------------------------------
+
+II.ii.a What are the subjects and objects of decision-making?
+
+AS1: Each farmer decides whether to invest (I) in DSM (capacitor,
+     ISI-marked pumpset) or not (~I). Decisions are simultaneous.
+     Object: shared power quality at the transformer level.
+
+AS2: Farmers observe peers' adoption outcomes and decide whether to
+     imitate. Object: technology adoption strategy.
+
+AS3: Each farmer decides whether to authorise (A) or not (~A) their
+     connection. Object: transformer capacity provision.
+
+AS4: Farmer and sub-station staff each decide whether to engage in
+     mutual exchange (E) or not (~E). Object: informal access and
+     favours within an ongoing social relation.
+
+AS5: Farmer decides formal (A) or informal (~A) request;
+     Sub-station personnel decides invest (I) or withhold (~I).
+     Object: grid connection and capacity provision.
+
+AS6: Each farmer decides whether to extract (E) or restrain (~E)
+     groundwater pumping. Object: shared aquifer level.
+
+II.ii.b What is the basic rationality behind agent decision-making?
+Farmers pursue satisfactory yields and seek to minimise costs under
+bounded rationality, using heuristics informed by past experience and
+peer observation. Utility staff balance formal compliance and informal
+reciprocity, seeking stable exchange relationships and personal gain.
+Agents are not assumed to have full information about game structure
+(e.g., most farmers do not know coordination requirement of AS1).
+
+II.ii.c How do agents make their decisions?
+  - Farmers use social learning (imitation of successful peers) as the
+    dominant adoption strategy — but this fails in coordination problems.
+  - In AS3 and AS5, farmers exploit informal arrangements via established
+    collusion ties (AS4) where available.
+  - Sub-station personnel respond conditionally to oversight intensity
+    and established exchange relations.
+  - In AS6, extraction decisions are driven by immediate water need and
+    absence of monitoring of individual pump hours.
+
+II.ii.d Do agents adapt their behaviour to changing state variables?
+Yes. As groundwater tables drop (AS6), pumping costs increase, raising
+electrical load and making transformer capacity (AS3) even more scarce.
+Farmers adapt DSM investment based on observed equipment damage frequency.
+Staff adapt enforcement effort to perceived monitoring intensity by APERC.
+
+II.ii.e Do social norms or cultural values play a role?
+Yes. Norms of solidarity among farmers (supporting neighbours who cannot
+afford connection charges) and norms of reciprocity between farmers and
+sub-station staff shape AS3 and AS4 outcomes. Collusion is an 'open
+secret' in many villages; kinship and evolved personal ties sustain both
+equilibria in AS4.
+
+II.ii.f Do spatial aspects matter?
+Yes. Transformer service area determines which farmers share power quality
+externalities (AS1) and transformer capacity (AS3). Distance to sub-station
+influences informal relation formation with staff (AS4, AS5).
+
+II.ii.g Do temporal aspects play a role?
+Yes. Repeated interaction sustains collusion equilibrium in AS4.
+Groundwater depletion in AS6 is inherently dynamic: as γ increases over
+years, the extraction equilibrium (E,E) eventually yields lower payoffs
+than mutual restraint, but individual defection incentive remains.
+Memory of past grid failures and equipment damage shapes DSM investment.
+
+II.ii.h How is uncertainty included in decision rules?
+  - Farmers cannot know others' simultaneous choices (AS1 coordination
+    requirement unknown to most).
+  - Farmers cannot observe others' pump hours (AS6: open-access commons).
+  - APERC monitoring is stochastic: uncertain detection probability
+    alters expected payoffs in AS4 and AS5 collusion strategies.
+  - Voltage fluctuations and equipment damage are stochastic, making
+    learning to coordinate (AS2) difficult.
+
+------------------------------------------------------------------------
+II.iii Learning
+------------------------------------------------------------------------
+
+II.iii.a Is individual learning included?
+Yes — social learning (AS2): each farmer observes peers' adoption
+outcomes and imitates only if the peer's outcome ranks above their own.
+This is the empirically dominant adoption strategy for agricultural
+technologies in the study area (consistent with Munshi, 2004), but it
+fails in coordination problems because sequential adoption prevents
+simultaneous experimentation.
+
+II.iii.b Is collective learning implemented?
+No explicit collective learning. Norms of solidarity and collusion emerge
+from repeated interactions rather than deliberate collective rule-making.
+
+------------------------------------------------------------------------
+II.iv Individual Sensing
+------------------------------------------------------------------------
+
+II.iv.a What state variables do individuals sense?
+Farmers directly observe:
+  - Voltage levels and power quality at their transformer connection.
+  - Frequency and cost of motor and transformer burn-outs.
+  - Peers' visible DSM adoption (capacitor, pumpset type).
+  - Groundwater depth in their bore well.
+  - Electricity service delays (transformer repair wait times).
+
+Sensing is erroneous:
+  - Farmers misattribute voltage fluctuations (cannot distinguish own
+    contribution vs. utility's responsibility vs. neighbours' load).
+  - Farmers misattribute capacitor performance (if one farmer installs
+    without coordination, the capacitor may prevent motor start or
+    burn out due to low voltage, leading to negative inference).
+  - Almost no farmer was aware that simultaneous installation by all
+    connected farmers is required for capacitors to work (Section 6.1).
+
+II.iv.b What variables of other individuals can an individual perceive?
+  - Visible DSM adoption by neighbours (capacitor presence, pumpset type).
+  - Authorisation/unauthorisation status of connections (in some cases
+    common knowledge, e.g., one farmer openly admitted unauthorised
+    connection in a group discussion with an electrical engineer).
+  - Sub-station personnel can observe which farmers have formal vs.
+    informal connections.
+
+II.iv.c What is the spatial scale of sensing?
+  - Farmers: local (own transformer service area and immediate neighbours;
+    bore-well depth in own and adjacent plots).
+  - Extended local: social network peers within the village (kinship ties).
+  - Sub-station personnel: transformer service area and sub-station records.
+
+II.iv.d Are sensing mechanisms modelled explicitly?
+Not formally. AS2 models the informational link between AS1 and AS3 as
+a sequential game tree (Fig. 2 in paper): technology makes a move based
+on the number of adopters. The key informational constraint is that no
+farmer has experience of coordinated simultaneous adoption — making the
+payoff-dominant equilibrium of AS1 unobservable in practice.
+
+II.iv.e Are costs for cognition and information gathering included?
+Not modelled explicitly. Bounded rationality is assumed qualitatively;
+the cost of understanding the coordination requirement is treated as
+prohibitively high for most farmers (evidenced by survey results).
+
+------------------------------------------------------------------------
+II.v Individual Prediction
+------------------------------------------------------------------------
+
+II.v.a Which data do agents use to predict future conditions?
+  - Past electricity service quality and equipment damage frequency.
+  - Observed peer adoption outcomes (AS2 social learning).
+  - Established exchange relationships with sub-station personnel.
+  - Historical groundwater depth trends (bore-well depth data).
+
+II.v.b What internal models do agents use?
+No formal predictive models. Farmers apply heuristics and evolutionary
+strategies (imitation, trial-and-error). Sub-station personnel apply
+conditional rules based on perceived monitoring risk and existing ties.
+
+II.v.c Might agents be erroneous in prediction?
+Yes — systematically. The core prediction error is the failure to
+recognise the coordination requirement: farmers experiment individually
+with capacitors, experience failure (due to unilateral installation),
+and infer that DSM are ineffective. This blocks the social learning
+path to the payoff-dominant equilibrium (AS2 link to AS1).
+
+------------------------------------------------------------------------
+II.vi Interaction
+------------------------------------------------------------------------
+
+II.vi.a Are interactions direct or indirect?
+Both:
+  - Direct: farmer–farmer interaction via shared transformer externality
+    (AS1, AS3, AS6); farmer–staff interaction (AS4, AS5).
+  - Indirect: farmers interact with the utility and regulatory commission
+    through formal institutional rules and enforcement mechanisms.
+
+II.vi.b On what do interactions depend?
+  - Shared infrastructure (transformer, aquifer).
+  - Social network ties (kinship, trust, established exchange norms).
+  - Institutional enforcement (APERC monitoring intensity, stochastic).
+
+II.vi.c How are communications represented?
+Implicitly through observed behaviour (visible adoption, informal
+discussions, negotiation with staff). No explicit communication protocol
+is modelled. Collusion is communicated through evolved trust relations.
+
+II.vi.d If a coordination network exists, how does it affect behaviour?
+The adjacency network (Fig. 4 in paper) links all six action situations.
+Key linking parameters:
+  - τ (transformer capacity): capacity shortfall from AS3 reduces payoffs
+    in AS1 (insufficient capacity prevents DSM from working).
+  - γ (pumping cost): rising groundwater extraction costs in AS6 increase
+    electrical load, reducing capacity in AS3.
+  - δ (social norms/exchange ties): collusion equilibrium in AS4 enables
+    informal connections in AS5, creating the asymmetric payoff in AS3.
+  - ι (information/cognitive constraint): social learning heuristic in
+    AS2 transforms AS1 into a sequential game, blocking coordination.
+
+The network is emergent from kinship ties, repeated interactions, and
+evolved norms — not imposed by the modeller.
+
+------------------------------------------------------------------------
+II.vii Collectives
+------------------------------------------------------------------------
+
+II.vii.a Do individuals form or belong to aggregations?
+Yes. Farmers belong to:
+  - Transformer service groups (defined by shared physical infrastructure).
+  - Village social networks (kinship, solidarity norms).
+  - Informal collusion groups with sub-station personnel.
+
+These aggregations are emergent from location, kinship ties, and
+institutional arrangements. No explicit collective agent type is modelled.
+
+II.vii.b How are collectives represented?
+Implicitly through shared infrastructure externalities, coordinated or
+collusive behaviour, and village-level norms. The paper notes the role
+of coalitions and asymmetries of power (Knight, 1992) in norm emergence.
+
+------------------------------------------------------------------------
+II.viii Heterogeneity
+------------------------------------------------------------------------
+
+II.viii.a Are agents heterogeneous?
+Yes. Farmers differ in:
+  - Pumpset type (branded 67%; ISI-marked 37%; BEE-rated 6%).
+  - Capacitor installation status (10% successfully installed).
+  - Motor burn-out frequency and repair costs.
+  - Authorisation status (estimated 20–30% unauthorised connections).
+  - Groundwater depth at location.
+  - Financial resources and indebtedness.
+  - Strength of social network ties with sub-station personnel.
+
+Sub-station personnel differ in:
+  - Exposure to APERC vigilance monitoring.
+  - Strength of established collusion ties with local farmers.
+
+II.viii.b Are agents heterogeneous in decision-making?
+Yes. Decision-making differs based on:
+  - Access to informal exchange ties (determines AS4/AS5 options).
+  - Financial capacity to pay formal connection charges (affects AS3).
+  - Prior experience with DSM failure or success (affects AS1/AS2).
+  - Perceived monitoring risk (affects AS4/AS5 collusion decisions).
+
+------------------------------------------------------------------------
+II.ix Stochasticity
+------------------------------------------------------------------------
+
+II.ix.a What processes are modelled as random?
+  - Transformer failures (stochastic; affected by load and voltage quality).
+  - Motor burn-outs (stochastic; Poisson-like, mean 1.86/year).
+  - APERC vigilance monitoring (stochastic audit probability; alters
+    expected payoffs in AS4 and AS5).
+  - Groundwater depletion is dynamic but treated as parametric (γ
+    increases deterministically in the model, but actual recharge is
+    stochastic depending on monsoon rainfall).
+
+------------------------------------------------------------------------
+II.x Observation
+------------------------------------------------------------------------
+
+II.x.a What data are collected for testing and understanding?
+  - Annual DSM adoption rates (capacitors, ISI-marked and BEE-rated
+    pumpsets) — collected via survey.
+  - Frequency of motor and transformer burn-outs per year.
+  - Proportion of authorised vs. unauthorised connections per transformer.
+  - Groundwater depth (bore-well depth vs. age, Fig. 3 in paper).
+  - Changes in pumping costs over time.
+  - Informal payment prevalence in connection authorisation.
+
+II.x.b What key results emerge?
+  - Persistent low-equilibrium adoption of DSM (risk-dominant Nash in AS1):
+    only 10% capacitor adoption despite APERC orders and campaigns.
+  - Persistence of unauthorised connections and under-provision of
+    transformer capacity (Nash in AS3: both farmers prefer ~A).
+  - Collusion equilibrium between farmers and staff (AS4/AS5) sustains
+    informal access and undermines formal governance.
+  - Declining groundwater tables (AS6) increase electrical load,
+    further constraining capacity provision (AS3) and coordination (AS1).
+  - Five villages reported 1–3 maintenance-related farmer deaths within
+    one year from self-repair of transformers (due to service delays).
+
+========================================================================
+
+III. DETAILS
+
+------------------------------------------------------------------------
+III.i Implementation Details
+------------------------------------------------------------------------
+
+III.i.a How is the model implemented?
+Conceptually: a set of six interconnected game-theoretic bi-matrix models
+(AS1–AS6), linked through soft parameters (τ, δ, ι, γ) as depicted in
+Fig. 4 (adjacency network diagram). Each game describes strategic choices
+and ordinal payoff rankings derived from empirical evidence.
+
+No simulation platform is used. The model is analytical (equilibrium
+derivation) rather than agent-based simulation. The paper notes that
+"formal modelling of nested and interconnected games is primarily limited
+to sequentially connected games" and that this gap "remains to be developed"
+(Dutton et al., 2012, cited in paper Section 7).
+
+III.i.b Is the model accessible?
+Can be made available upon request (stated in the paper).
+
+------------------------------------------------------------------------
+III.ii Initialization
+------------------------------------------------------------------------
+
+III.ii.a What is the initial state of the model world?
+  - Existing transformer infrastructure across agricultural villages.
+  - Flat-rate electricity tariff in place.
+  - Mix of authorised and unauthorised connections (~20–30% unauthorised).
+  - Low DSM adoption (10% capacitor installation).
+  - Established collusion networks between farmers and staff.
+  - Declining groundwater table (multi-decade trend).
+
+III.ii.b Is initialisation always the same?
+No. Varies across:
+  - Regions with different social network structures and collusion norms.
+  - Villages with different transformer capacity adequacy.
+  - Groundwater basin conditions (hard-rock vs. alluvial aquifers).
+
+III.ii.c Are initial values based on data?
+Yes. Based on cross-section survey (N=305), APERC reports, bore-well
+depth records, and Andhra Pradesh state energy statistics.
+
+------------------------------------------------------------------------
+III.iii Input Data
+------------------------------------------------------------------------
+
+III.iii.a Does the model use external data inputs?
+No dynamic external data files. Empirical inputs are used to:
+  - Calibrate ordinal payoff ranks in each game matrix.
+  - Estimate the parameter γ (pumping cost as function of depth).
+  - Establish transformer capacity adequacy thresholds (survey data).
+  - Derive social network tie intensity from interview evidence.
+
+Groundwater decline and infrastructure deterioration are generated
+endogenously within the game logic (AS6 feeds AS3).
+
+------------------------------------------------------------------------
+III.iv Submodels
+------------------------------------------------------------------------
+
+III.iv.a What are the submodels (Action Situations)?
+
+AS1 — Coordination/Assurance (Core Action Situation)
+  Agents: Two farmers (F1, F2) sharing a distribution transformer.
+  Choices: Invest in DSM (I) vs. not invest (~I).
+  Structure: Assurance/Stag Hunt — two Nash equilibria.
+  (I,I): payoff-dominant (ordinal rank 2,2)
+  (~I,~I): risk-dominant (ordinal rank 1,1)
+  (I,~I) or (~I,I): unilateral investor bears cost, no quality gain (0,1) / (1,0)
+  Empirical outcome: low Nash equilibrium (~I,~I) prevails; only 10%
+  adoption despite legal orders.
+
+AS2 — Social Learning in Technology Adoption (Adjacent, Non-Strategic)
+  Agents: Farmer A (early adopter) and Farmer B (observer).
+  Structure: Sequential game tree (Fig. 2). Technology (T) makes a move
+  based on number of adopters. B imitates A only if A's outcome ranks
+  higher. Since sequential adoption always leads to unilateral
+  installation (AS1 low equilibrium), B observes failure and does not
+  imitate. Diffusion stalls. This is an informational link, not a
+  standalone strategic game.
+
+AS3 — Infrastructure Capacity Provision (Adjacent, Asymmetric PD)
+  Agents: Two farmers (F1, F2) — F1 has authorised connection; F2 seeks
+  to connect.
+  Choices: Authorise (A) vs. not authorise (~A).
+  Structure: Asymmetric Prisoner's Dilemma.
+  (~A) is dominant for both: (~A) gains more regardless of other's choice.
+  Nash: (~A,~A) = (1,1) — both defect; capacity under-provided.
+  Link to AS1: insufficient capacity (τ) reduces AS1 payoffs.
+  Link to AS4/AS5: collusion norms (δ) enable unauthorised connections.
+
+AS4 — Mutual Exchange and Collusion (Adjacent, Coordination Game)
+  Agents: Farmer (F) and sub-station personnel (U).
+  Choices: Exchange (E) vs. not exchange (~E).
+  Structure: Coordination game with two Nash equilibria.
+  (E,E) = (1,1): mutual exchange — Pareto-superior, collusion equilibrium.
+  (~E,~E) = (0,0): formal channel — no extra benefit, formal compliance.
+  Unilateral offer: offerer bears loss (0,1) or (1,0).
+  Stochastic APERC monitoring shifts expected value of (E,E) downward.
+
+AS5 — Authorization and Capacity Investment (Adjacent, Unique Nash)
+  Agents: Farmer F2 (from AS3) and sub-station personnel (U).
+  Choices: Farmer: Authorise (A) vs. not (~A);
+           Staff: Invest in capacity (I) vs. not (~I).
+  Structure: Asymmetric coordination dilemma.
+  Nash: (~A,~I) = (1,1) — unique equilibrium.
+  (~A) is dominant for farmer (3>2; 1≥1).
+  (~I) is dominant for staff (2>1; 1>0).
+  Collectively optimal: (A,I) = (2,1) — but individually unstable.
+  Link to AS3: (~A,~I) outcome creates the asymmetric payoff in AS3
+  by reducing available transformer capacity.
+
+AS6 — Groundwater Extraction (Adjacent, Dynamic CPR Dilemma)
+  Agents: Two farmers (F1, F2) sharing an aquifer.
+  Choices: Extract (E) vs. restrain (~E).
+  Structure: Dynamic Prisoner's Dilemma with cost parameter γ.
+  (E,E) = (2-γ, 2-γ): mutual extraction — initially highest individual
+  payoff, but γ increases as groundwater table drops, eventually making
+  (E,E) < (1,1) = (~E,~E).
+  (~E,E) = (0,3): restrainer loses; extractor gains most.
+  (E,~E) = (3,0): extractor gains most.
+  (~E,~E) = (1,1): mutual restraint — stable long-term but initially
+  Pareto-inferior.
+  Link to AS3: rising γ increases electrical load → worsens AS3
+  capacity adequacy → reduces AS1 payoffs via τ.
+
+III.iv.b What are the model parameters?
+  - τ: transformer capacity parameter; links AS3 → AS1.
+  - δ: social norms/collusion network strength; links AS4 → AS3/AS5.
+  - ι: information/cognitive constraint; links AS2 → AS1 (transforms
+    AS1 into sequential game, blocking high equilibrium).
+  - γ: groundwater pumping cost (normalised); links AS6 → AS3 → AS1.
+
+All parameters are ordinal (rank-based), not cardinal utility values.
+Reference values are normalised ordinal ranks as in the paper's tables.
+
+III.iv.c How were submodels designed and tested?
+Derived from field interviews, APERC public hearing transcripts, survey
+data, and secondary literature on electricity governance and groundwater
+use in Andhra Pradesh. Payoff structures were parameterised based on
+observed incentives, infrastructure conditions, and reported behaviours,
+then tested for plausibility and equilibrium consistency against empirical
+outcomes. Econometric analysis (Kimmich, in press) confirmed the low-Nash
+equilibrium prediction for AS1.
+
+========================================================================
+
+ADJACENCY NETWORK SUMMARY (Fig. 4 in paper)
+
+AS2 [Social Learning — informational link ι]
+  → transforms AS1 into sequential game, blocking coordination
+
+AS3 [Infrastructure Capacity — capacity link τ]
+  → reduces payoffs in AS1 when capacity is insufficient
+  → AS6 aggravates AS3 via increased electrical load (γ)
+
+AS4 [Collusion — institutional link δ]
+  → enables AS5 informal option
+  → worsens AS3 asymmetry by enabling unauthorized connections
+
+AS5 [Authorization — institutional/actor link]
+  → Nash (~A,~I) reduces transformer capacity available to farmers
+  → creates asymmetric payoff structure in AS3
+
+AS6 [Groundwater — physical/biophysical link γ]
+  → deepening wells increase energy load → constrain AS3 capacity
+  → linked through same actors as AS3 (all are farmers)
+
+All six AS are linked to AS1 (core situation) through one or more of:
+  biophysical transactions (τ, γ), information (ι), institutions (δ),
+  or shared actors.
+
+========================================================================
+END OF ODD+D — odd_electricity.txt
+Source: Kimmich (2013), Ecological Economics 90, 150–158.

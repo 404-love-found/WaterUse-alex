@@ -7,7 +7,7 @@ import os
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-base_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting"
+base_path = "/LLM_Prompting"
 model_name = "deepseek-ai/DeepSeek-R1"
 
 # Input Files

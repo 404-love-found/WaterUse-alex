@@ -6,8 +6,8 @@ api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
 
-odd_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/odd.txt"
-game_path = "/Users/alex-lirio-lucian/WaterUse——alex/LLM_Prompting/Txts/game_stuff.txt"
+odd_path = "/LLM_Prompting/Txts/odd.txt"
+game_path = "/LLM_Prompting/Txts/game_stuff.txt"
 
 with open(odd_path, "r", encoding="utf-8") as f:
     odd = f.read()
