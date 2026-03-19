@@ -10,16 +10,16 @@ client = Together(api_key=api_key)
 base_path = "LLM_Prompting/ODD_water-use"
 model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 
-# Input Files
-odd_path = os.path.join(base_path, "Txts", "odd.txt")
-game_path = os.path.join(base_path, "Txts", "game_stuff.txt")
+# Input Files (Using TXT_new)
+odd_path = os.path.join(base_path, "TXT_new", "odd.txt")
+game_path = os.path.join(base_path, "TXT_new", "GAME_STUFF_NEW.txt")
 
 # Output File
-output_file = os.path.join(base_path, "Llama-3.3-70B", "Llama_3_3_70B_Txts_Output.md")
+output_file = os.path.join(base_path, "Llama-3.3-70B", "Llama_3_3_70B_TXT_new_Output.md")
 
 
-def run_llama_3_3_70b_txts():
-    print(f"🚀 Running Standalone Test for {model_name} (Txts version)...")
+def run_llama_3_3_70b_txt_new():
+    print(f"🚀 Running Standalone Test for {model_name} (TXT_new version)...")
 
     try:
         with open(odd_path, "r", encoding="utf-8") as f:
@@ -64,7 +64,7 @@ def run_llama_3_3_70b_txts():
         # Save Results
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(f"# 🤖 Model Output: {model_name}\n")
-            f.write(f"> Logic: Unified ODD+D Prompt (Txts)\n\n")
+            f.write(f"> Logic: Unified ODD+D Prompt (TXT_new)\n\n")
             f.write(content)
 
         print(f"✅ Output saved to: {output_file}")
@@ -74,4 +74,4 @@ def run_llama_3_3_70b_txts():
 
 
 if __name__ == "__main__":
-    run_llama_3_3_70b_txts()
+    run_llama_3_3_70b_txt_new()
