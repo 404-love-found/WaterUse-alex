@@ -7,16 +7,17 @@ import os
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-base_path = "LLM_Prompting/ODD_water-use"
 model_name = "Qwen/Qwen2.5-7B-Instruct-Turbo"
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.dirname(current_dir)
 
 # Input Files (Using TXT_new)
 odd_path = os.path.join(base_path, "TXT_new", "odd.txt")
 game_path = os.path.join(base_path, "TXT_new", "GAME_STUFF_NEW.txt")
 
 # Output File
-output_file = os.path.join(base_path, "Qwen2.5-7B-Instruct-Turbo", "Qwen2_5_7B_TXT_new_Output.md")
-
+output_file = os.path.join(current_dir, "Qwen2_5_7B_TXT_new_Output.md")
 
 def run_qwen_2_5_7b_txt_new():
     print(f"🚀 Running Standalone Test for {model_name} (TXT_new version)...")
@@ -26,8 +27,11 @@ def run_qwen_2_5_7b_txt_new():
             odd_text = f.read()
         with open(game_path, "r", encoding="utf-8") as f:
             game_text = f.read()
-    except FileNotFoundError:
-        print("❌ Error: Input files not found.")
+    except FileNotFoundError as e:
+        print(f"❌ Error: Input files not found. \nDetails: {e}")
+        # Print the exact paths being searched for easier debugging
+        print(f"Looking for ODD at: {odd_path}")
+        print(f"Looking for GAME at: {game_path}")
         return
 
     # Unified Standard Prompt
