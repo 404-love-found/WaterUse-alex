@@ -7,16 +7,19 @@ import os
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-base_path = "LLM_Prompting/ODD_water-use"
 model_name = "deepseek-ai/DeepSeek-R1"
 
-# Input Files
+# Dynamically get the directory of the current script (e.g., .../DeepSeek-R1)
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# Go up one level to get the base path (e.g., .../ODD_water-use)
+base_path = os.path.dirname(current_dir)
+
+# Input Files (Using Txts)
 odd_path = os.path.join(base_path, "Txts", "odd.txt")
 game_path = os.path.join(base_path, "Txts", "game_stuff.txt")
 
 # Output File
-output_file = os.path.join(base_path, "DeepSeek-R1", "DeepSeek_R1_Txts_Output.md")
-
+output_file = os.path.join(current_dir, "DeepSeek_R1_Txts_Output.md")
 
 def run_deepseek_r1_txts():
     print(f"🚀 Running Standalone Test for {model_name} (Txts version)...")
@@ -26,8 +29,11 @@ def run_deepseek_r1_txts():
             odd_text = f.read()
         with open(game_path, "r", encoding="utf-8") as f:
             game_text = f.read()
-    except FileNotFoundError:
-        print("❌ Error: Input files not found.")
+    except FileNotFoundError as e:
+        print(f"❌ Error: Input files not found. \nDetails: {e}")
+        # Print the exact paths being searched for easier debugging
+        print(f"Looking for ODD at: {odd_path}")
+        print(f"Looking for GAME at: {game_path}")
         return
 
     # Unified Standard Prompt
