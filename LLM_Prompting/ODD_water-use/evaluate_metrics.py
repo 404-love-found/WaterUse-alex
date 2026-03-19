@@ -1,62 +1,51 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import os
 
 
 def calculate_metrics(ground_truth, predictions):
     """
-    Calculate TP, FP, FN, Precision, Recall, and F1-Score
+    Calculate TP, FP, FN, Precision, and Recall for extracted games.
     """
-    # Convert lists to sets for intersection and difference operations
     gt_set = set(ground_truth)
     pred_set = set(predictions)
 
-    # Calculate True Positives (Intersection: Games correctly predicted by the model)
     tp_set = gt_set.intersection(pred_set)
-    tp = len(tp_set)
-
-    # Calculate False Positives (Difference: Games predicted by the model but NOT in Ground Truth)
     fp_set = pred_set.difference(gt_set)
-    fp = len(fp_set)
-
-    # Calculate False Negatives (Difference: Games in Ground Truth but missed by the model)
     fn_set = gt_set.difference(pred_set)
+
+    tp = len(tp_set)
+    fp = len(fp_set)
     fn = len(fn_set)
 
-    # Calculate metrics (avoid division by zero)
     precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
     recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
 
     return {
-        "TP": tp,
-        "FP": fp,
-        "FN": fn,
+        "TP": tp, "FP": fp, "FN": fn,
         "Precision": round(precision, 3),
         "Recall": round(recall, 3),
-        "F1-Score": round(f1, 3),
-        "Missed Games (FN)": list(fn_set),
-        "Hallucinated Games (FP)": list(fp_set)
+        "Missed (FN)": list(fn_set),
+        "Hallucinated (FP)": list(fp_set)
     }
 
 
 def run_evaluation():
-    # 1. Define your Ground Truth (The correct set of games for each txt version)
-    # Customize these lists based on what is ACTUALLY in your text files
+    # 1. Define your Ground Truth (The correct set of games for each text version)
     ground_truth_db = {
         "Txts": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Ecological_Tipping_Point"],
         "TXT_new": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Groundwater_Depletion", "Subsidies_Game"]
     }
 
     # 2. Record the model's extraction results (mapped to tags after human review)
-    # Fill in the lists below based on what the models generated in the Markdown files
     model_predictions = [
-        # Performance on Txts dataset
         {"Model": "DeepSeek-R1", "Dataset": "Txts", "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority"]},
         {"Model": "Llama-3.3-70B", "Dataset": "Txts",
          "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Ecological_Tipping_Point",
                    "Irrelevant_Weather_Game"]},
         {"Model": "Qwen2.5-7B", "Dataset": "Txts", "Preds": ["Upstream_vs_Downstream", "Crop_Selection_Game"]},
 
-        # Performance on TXT_new dataset
         {"Model": "DeepSeek-R1", "Dataset": "TXT_new",
          "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Groundwater_Depletion"]},
         {"Model": "Llama-3.3-70B", "Dataset": "TXT_new",
@@ -72,28 +61,97 @@ def run_evaluation():
         gt = ground_truth_db.get(dataset, [])
 
         metrics = calculate_metrics(gt, preds)
-
-        # Merge info into a single row dictionary
         row = {"Model": model, "Dataset": dataset}
         row.update(metrics)
         results.append(row)
 
-    # 4. Print results using Pandas for a clean table format
     df = pd.DataFrame(results)
 
-    print("\n🚀 === Core Quantitative Metrics (Precision & Recall) ===")
-    display_cols = ["Model", "Dataset", "TP", "FP", "FN", "Precision", "Recall", "F1-Score"]
+    # ---------------------------------------------------------
+    # PART A: Terminal Output (Quick Overview)
+    # ---------------------------------------------------------
+    print("\n🚀 === Core Quantitative Metrics ===")
+    display_cols = ["Model", "Dataset", "Precision", "Recall", "TP", "FP", "FN"]
     print(df[display_cols].to_string(index=False))
 
-    print("\n🔍 === Error Analysis (What was missed? What was hallucinated?) ===")
+    print("\n🔍 === Error Tracing (What went wrong?) ===")
     for index, row in df.iterrows():
         if row["FN"] > 0 or row["FP"] > 0:
             print(f"[{row['Model']} on {row['Dataset']}]")
             if row["FN"] > 0:
-                print(f"   ❌ Missed Games (FN): {row['Missed Games (FN)']}")
+                print(f"   ❌ Missed Games (FN): {row['Missed (FN)']}")
             if row["FP"] > 0:
-                print(f"   ⚠️ Hallucinated Games (FP): {row['Hallucinated Games (FP)']}")
-            print("-" * 60)
+                print(f"   ⚠️ Hallucinated Games (FP): {row['Hallucinated (FP)']}")
+            print("-" * 50)
+
+    # ---------------------------------------------------------
+    # PART B: Generate Markdown Report
+    # ---------------------------------------------------------
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    md_file = os.path.join(current_dir, "evaluation_report.md")
+
+    with open(md_file, "w", encoding="utf-8") as f:
+        f.write("# 📊 LLM Game Extraction Evaluation Report\n\n")
+        f.write("### 1. Core Metrics (Precision & Recall)\n")
+        f.write(df[display_cols].to_markdown(index=False))
+        f.write("\n\n### 2. 🎯 Error Tracing (False Positives & False Negatives)\n")
+
+        for index, row in df.iterrows():
+            if row["FN"] > 0 or row["FP"] > 0:
+                f.write(f"**🔴 {row['Model']} on `{row['Dataset']}` Dataset**\n")
+                if row["FN"] > 0:
+                    f.write(f"* **❌ Missed Games (FN)**: `{row['Missed (FN)']}`\n")
+                if row["FP"] > 0:
+                    f.write(f"* **⚠️ Hallucinated Games (FP)**: `{row['Hallucinated (FP)']}`\n")
+                f.write("\n")
+
+    print(f"\n✅ Markdown report saved to: {md_file}")
+
+    # ---------------------------------------------------------
+    # PART C: Generate Bar Chart Image (Matplotlib)
+    # ---------------------------------------------------------
+    fig, axes = plt.subplots(1, 2, figsize=(14, 6), sharey=True)
+    datasets = ["Txts", "TXT_new"]
+    colors = ['#4C72B0', '#55A868']  # Precision: Blue, Recall: Green
+
+    for i, ds in enumerate(datasets):
+        ax = axes[i]
+        subset = df[df["Dataset"] == ds]
+        if subset.empty:
+            continue
+
+        # Setup bar positions
+        x = np.arange(len(subset["Model"]))
+        width = 0.35
+
+        # Plot Precision and Recall bars
+        rects1 = ax.bar(x - width / 2, subset["Precision"], width, label='Precision', color=colors[0])
+        rects2 = ax.bar(x + width / 2, subset["Recall"], width, label='Recall', color=colors[1])
+
+        # Chart formatting
+        ax.set_title(f'Performance on {ds} Dataset', fontsize=14, pad=15)
+        ax.set_xticks(x)
+        ax.set_xticklabels(subset["Model"], rotation=15, ha="right", fontsize=11)
+        ax.set_ylim(0, 1.1)
+        if i == 0:
+            ax.set_ylabel('Score', fontsize=12)
+        ax.legend(loc='lower right')
+
+        # Add numerical labels on top of the bars
+        for rect in rects1:
+            height = rect.get_height()
+            ax.annotate(f'{height:.2f}', xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=10)
+        for rect in rects2:
+            height = rect.get_height()
+            ax.annotate(f'{height:.2f}', xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=10)
+
+    # Save the chart as a PNG file in the same directory
+    plt.tight_layout()
+    chart_file = os.path.join(current_dir, 'evaluation_chart.png')
+    plt.savefig(chart_file, dpi=300)
+    print(f"📈 Chart image successfully generated and saved to: {chart_file}")
 
 
 if __name__ == "__main__":
