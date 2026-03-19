@@ -7,7 +7,7 @@ import os
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-base_path = "/LLM_Prompting"
+base_path = "LLM_Prompting/ODD_water-use"
 model_name = "deepseek-ai/DeepSeek-R1"
 
 # Input Files
@@ -15,11 +15,11 @@ odd_path = os.path.join(base_path, "Txts", "odd.txt")
 game_path = os.path.join(base_path, "Txts", "game_stuff.txt")
 
 # Output File
-output_file = os.path.join(base_path, "DeepSeek-R1", "DeepSeek_R1_Standalone_Output.md")
+output_file = os.path.join(base_path, "DeepSeek-R1", "DeepSeek_R1_Txts_Output.md")
 
 
-def run_deepseek_r1():
-    print(f"🚀 Running Standalone Test for {model_name}...")
+def run_deepseek_r1_txts():
+    print(f"🚀 Running Standalone Test for {model_name} (Txts version)...")
 
     try:
         with open(odd_path, "r", encoding="utf-8") as f:
@@ -64,7 +64,7 @@ def run_deepseek_r1():
         # Save Results
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(f"# 🤖 Model Output: {model_name}\n")
-            f.write(f"> Logic: Unified ODD+D Prompt\n\n")
+            f.write(f"> Logic: Unified ODD+D Prompt (Txts)\n\n")
             f.write(content)
 
         print(f"✅ Output saved to: {output_file}")
@@ -74,4 +74,4 @@ def run_deepseek_r1():
 
 
 if __name__ == "__main__":
-    run_deepseek_r1()
+    run_deepseek_r1_txts()
