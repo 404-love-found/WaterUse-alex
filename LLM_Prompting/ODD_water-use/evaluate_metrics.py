@@ -111,7 +111,7 @@ def run_evaluation():
 
     with open(md_file, "w", encoding="utf-8") as f:
         f.write("# 📊 LLM Game Extraction Evaluation Report\n\n")
-        f.write("### Ground Truth Baseline (As clarified by Professor):\n")
+        f.write("### Ground Truth Baseline:\n")
         f.write("**1.** `Upstream_and_Downstream_Withdrawal_Decisions`\n")
         f.write("**2.** `Fish_Extraction_Common_Pool_Resource_Game`\n\n")
         f.write("*(Note: Evaluated strictly for the Decentralized Case per new prompt instructions)*\n\n")
