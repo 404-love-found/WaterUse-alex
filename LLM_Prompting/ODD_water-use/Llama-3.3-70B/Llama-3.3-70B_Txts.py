@@ -36,27 +36,27 @@ def run_llama_3_3_70b_txts():
         print(f"Looking for GAME at: {game_path}")
         return
 
-    # Unified Standard Prompt
     prompt = f"""
-    Given the following ODD+D description of a water use model:
-    {odd_text}
+        Given the following ODD+D description of a water use model:
+        {odd_text}
 
-    Model Logic & Math details:
-    {game_text}
+        Model Logic & Math details:
+        {game_text}
 
-    Extract all **distinct action situations** described in the model using the IAD framework. 
-    Each action situation must reflect a **unique strategic tension**.
+        Extract all **distinct action situations** described in the model using the IAD framework. 
+        Each action situation must reflect a **unique strategic tension**.
 
-    ### Task Requirements:
-    1. Identify at least 3-4 distinct strategic dilemmas.
-    2. For each, provide a **2-player Normal Form Payoff Matrix**.
-    3. **CRITICAL CONSTRAINT**: 
-       - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
-       - Reflect the **Ecological Thresholds** (Tipping points).
-       - Max fields = 10.
+        ### Task Requirements:
+        1. Identify the distinct strategic dilemmas.
+        2. For each, provide a **2-player Normal Form Payoff Matrix**.
+        3. **CRITICAL CONSTRAINTS**: 
+           - **Extract action situations ONLY for the decentralized case (DV). Do NOT extract situations for the centralized case (CV).**
+           - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
+           - Reflect the **Ecological Thresholds** (Tipping points).
+           - Max fields = 10.
 
-    Only output the analysis (Title, Tension, Matrix, Justification).
-    """
+        Only output the analysis (Title, Tension, Matrix, Justification).
+        """
 
     print("   ↳ Sending request...")
     try:

@@ -6,7 +6,7 @@ import os
 
 def calculate_metrics(ground_truth, predictions):
     """
-    Calculate TP, FP, FN, Precision, and Recall for extracted games.
+    Calculate TP, FP, FN, Precision, and Recall for extracted games/situations.
     """
     gt_set = set(ground_truth)
     pred_set = set(predictions)
@@ -32,27 +32,56 @@ def calculate_metrics(ground_truth, predictions):
 
 
 def run_evaluation():
-    # 1. Define your Ground Truth (The correct set of games for each text version)
-    ground_truth_db = {
-        "Txts": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Ecological_Tipping_Point"],
-        "TXT_new": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Groundwater_Depletion", "Subsidies_Game"]
-    }
-
-    # 2. Record the model's extraction results (mapped to tags after human review)
-    model_predictions = [
-        {"Model": "DeepSeek-R1", "Dataset": "Txts", "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority"]},
-        {"Model": "Llama-3.3-70B", "Dataset": "Txts",
-         "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Ecological_Tipping_Point",
-                   "Irrelevant_Weather_Game"]},
-        {"Model": "Qwen2.5-7B", "Dataset": "Txts", "Preds": ["Upstream_vs_Downstream", "Crop_Selection_Game"]},
-
-        {"Model": "DeepSeek-R1", "Dataset": "TXT_new",
-         "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Groundwater_Depletion"]},
-        {"Model": "Llama-3.3-70B", "Dataset": "TXT_new",
-         "Preds": ["Upstream_vs_Downstream", "Farmer_vs_Authority", "Groundwater_Depletion", "Subsidies_Game"]},
+    # ---------------------------------------------------------
+    # 1. Authentic Ground Truth (Provided explicitly by the Professor)
+    # ---------------------------------------------------------
+    official_baselines = [
+        "Upstream_and_Downstream_Withdrawal_Decisions",
+        "Fish_Extraction_Common_Pool_Resource_Game"
     ]
 
-    # 3. Batch calculation
+    ground_truth_db = {
+        "Txts": official_baselines,
+        "TXT_new": official_baselines
+    }
+
+    # ---------------------------------------------------------
+    # 2. Model Output Mapping
+    # ⚠️ IMPORTANT: You MUST update the "Preds" lists below AFTER
+    # you re-run your 6 LLM scripts with the new Prompt!
+    # ---------------------------------------------------------
+    model_predictions = [
+        # --- Performance on the 'Txts' dataset ---
+        {"Model": "DeepSeek-R1", "Dataset": "Txts", "Preds": []},
+
+        {"Model": "Llama-3.3-70B", "Dataset": "Txts", "Preds": [
+            "Upstream_and_Downstream_Withdrawal_Decisions",
+            "Fish_Extraction_Common_Pool_Resource_Game"
+        ]},
+
+        {"Model": "Qwen2.5-7B", "Dataset": "Txts", "Preds": [
+            "Fish_Extraction_Common_Pool_Resource_Game",
+            "Random_Irrigation_Risk_Mechanic"
+        ]},
+
+        # --- Performance on the 'TXT_new' dataset ---
+        {"Model": "DeepSeek-R1", "Dataset": "TXT_new", "Preds": []},
+
+        {"Model": "Llama-3.3-70B", "Dataset": "TXT_new", "Preds": [
+            "Upstream_and_Downstream_Withdrawal_Decisions",
+            "Fish_Extraction_Common_Pool_Resource_Game"
+        ]},
+
+        {"Model": "Qwen2.5-7B", "Dataset": "TXT_new", "Preds": [
+            "Upstream_and_Downstream_Withdrawal_Decisions",
+            "Fish_Extraction_Common_Pool_Resource_Game",
+            "Some_Extra_Hallucinated_Game"
+        ]}
+    ]
+
+    # ---------------------------------------------------------
+    # 3. Batch Calculate Metrics
+    # ---------------------------------------------------------
     results = []
     for entry in model_predictions:
         dataset = entry["Dataset"]
@@ -68,21 +97,11 @@ def run_evaluation():
     df = pd.DataFrame(results)
 
     # ---------------------------------------------------------
-    # PART A: Terminal Output (Quick Overview)
+    # PART A: Terminal Output
     # ---------------------------------------------------------
     print("\n🚀 === Core Quantitative Metrics ===")
     display_cols = ["Model", "Dataset", "Precision", "Recall", "TP", "FP", "FN"]
     print(df[display_cols].to_string(index=False))
-
-    print("\n🔍 === Error Tracing (What went wrong?) ===")
-    for index, row in df.iterrows():
-        if row["FN"] > 0 or row["FP"] > 0:
-            print(f"[{row['Model']} on {row['Dataset']}]")
-            if row["FN"] > 0:
-                print(f"   ❌ Missed Games (FN): {row['Missed (FN)']}")
-            if row["FP"] > 0:
-                print(f"   ⚠️ Hallucinated Games (FP): {row['Hallucinated (FP)']}")
-            print("-" * 50)
 
     # ---------------------------------------------------------
     # PART B: Generate Markdown Report
@@ -92,6 +111,11 @@ def run_evaluation():
 
     with open(md_file, "w", encoding="utf-8") as f:
         f.write("# 📊 LLM Game Extraction Evaluation Report\n\n")
+        f.write("### Ground Truth Baseline (As clarified by Professor):\n")
+        f.write("**1.** `Upstream_and_Downstream_Withdrawal_Decisions`\n")
+        f.write("**2.** `Fish_Extraction_Common_Pool_Resource_Game`\n\n")
+        f.write("*(Note: Evaluated strictly for the Decentralized Case per new prompt instructions)*\n\n")
+
         f.write("### 1. Core Metrics (Precision & Recall)\n")
         f.write(df[display_cols].to_markdown(index=False))
         f.write("\n\n### 2. 🎯 Error Tracing (False Positives & False Negatives)\n")
@@ -100,12 +124,12 @@ def run_evaluation():
             if row["FN"] > 0 or row["FP"] > 0:
                 f.write(f"**🔴 {row['Model']} on `{row['Dataset']}` Dataset**\n")
                 if row["FN"] > 0:
-                    f.write(f"* **❌ Missed Games (FN)**: `{row['Missed (FN)']}`\n")
+                    f.write(f"* **❌ Missed Situations (FN)**: `{row['Missed (FN)']}`\n")
                 if row["FP"] > 0:
-                    f.write(f"* **⚠️ Hallucinated Games (FP)**: `{row['Hallucinated (FP)']}`\n")
+                    f.write(f"* **⚠️ Hallucinated / Over-extracted Mechanics (FP)**: `{row['Hallucinated (FP)']}`\n")
                 f.write("\n")
 
-    print(f"\n✅ Markdown report saved to: {md_file}")
+    print(f"\n✅ Markdown report successfully saved to: {md_file}")
 
     # ---------------------------------------------------------
     # PART C: Generate Bar Chart Image (Matplotlib)
@@ -120,15 +144,12 @@ def run_evaluation():
         if subset.empty:
             continue
 
-        # Setup bar positions
         x = np.arange(len(subset["Model"]))
         width = 0.35
 
-        # Plot Precision and Recall bars
         rects1 = ax.bar(x - width / 2, subset["Precision"], width, label='Precision', color=colors[0])
         rects2 = ax.bar(x + width / 2, subset["Recall"], width, label='Recall', color=colors[1])
 
-        # Chart formatting
         ax.set_title(f'Performance on {ds} Dataset', fontsize=14, pad=15)
         ax.set_xticks(x)
         ax.set_xticklabels(subset["Model"], rotation=15, ha="right", fontsize=11)
@@ -137,7 +158,6 @@ def run_evaluation():
             ax.set_ylabel('Score', fontsize=12)
         ax.legend(loc='lower right')
 
-        # Add numerical labels on top of the bars
         for rect in rects1:
             height = rect.get_height()
             ax.annotate(f'{height:.2f}', xy=(rect.get_x() + rect.get_width() / 2, height),
@@ -147,7 +167,6 @@ def run_evaluation():
             ax.annotate(f'{height:.2f}', xy=(rect.get_x() + rect.get_width() / 2, height),
                         xytext=(0, 3), textcoords="offset points", ha='center', va='bottom', fontsize=10)
 
-    # Save the chart as a PNG file in the same directory
     plt.tight_layout()
     chart_file = os.path.join(current_dir, 'evaluation_chart.png')
     plt.savefig(chart_file, dpi=300)

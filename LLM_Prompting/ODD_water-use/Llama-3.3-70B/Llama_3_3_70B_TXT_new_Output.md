@@ -1,54 +1,44 @@
 # 🤖 Model Output: meta-llama/Llama-3.3-70B-Instruct-Turbo
 > Logic: Unified ODD+D Prompt (TXT_new)
 
-### Action Situation 1: Water Extraction Dilemma
+### Action Situation 1: Upstream Farmer (UF) vs Downstream Farmer (DF) - Water Extraction Dilemma
 #### Tension: 
-Upstream and Downstream farmers have conflicting interests in water extraction, where the upstream farmer's actions directly impact the downstream farmer's access to water and the fish population.
+The strategic tension arises from the fact that both farmers want to maximize their crop yields, but the upstream farmer's water extraction affects the downstream farmer's access to water, and consequently, the fish population.
 
 #### Matrix:
-|  | UF Extracts 5 units | UF Extracts 10 units |
+
+|  | UF: Extract (E) | UF: Conserve (C) |
 | --- | --- | --- |
-| **DF Extracts 0 units** | U_uf: 50, U_df: 30 | U_uf: 100, U_df: 0 |
-| **DF Extracts 5 units** | U_uf: 25, U_df: 60 | U_uf: 50, U_df: 0 |
+| **DF: Extract (E)** | UF: 100, DF: 0 | UF: 100, DF: 300 |
+| **DF: Conserve (C)** | UF: 100, DF: 100 | UF: 50, DF: 400 |
 
-#### Justification:
-This matrix reflects the strategic tension between the upstream and downstream farmers. If the upstream farmer extracts 10 units, the downstream farmer's fish revenue drops to 0 due to the ecological collapse. The upstream farmer prioritizes crop revenue, while the downstream farmer cares more about the fish population.
+#### Justification: 
+In this action situation, the upstream farmer (UF) has a dominant strategy to extract water (E), as it guarantees a high payoff regardless of the downstream farmer's (DF) action. However, if both farmers extract water, the downstream farmer faces a high risk of crop failure and ecological collapse, resulting in a payoff of 0. The matrix reflects the spatial asymmetry and ecological thresholds, where the upstream farmer's actions have a greater impact on the downstream farmer's outcomes.
 
-### Action Situation 2: Irrigation Investment Dilemma
+### Action Situation 2: Upstream Farmer (UF) vs Downstream Farmer (DF) - Fish Population Conservation Dilemma
 #### Tension: 
-Farmers must decide how many fields to irrigate, given the uncertainty of water availability and the risk of crop failure.
+The strategic tension arises from the fact that the downstream farmer (DF) has a greater incentive to conserve the fish population, while the upstream farmer (UF) has a weaker incentive, leading to a potential tragedy of the commons.
 
 #### Matrix:
-|  | UF Irrigates 5 fields | UF Irrigates 10 fields |
+
+|  | UF: Conserve Fish (C) | UF: Overfish (O) |
 | --- | --- | --- |
-| **DF Irrigates 0 fields** | U_uf: 25, U_df: 10 | U_uf: 50, U_df: 0 |
-| **DF Irrigates 5 fields** | U_uf: 10, U_df: 30 | U_uf: 20, U_df: 0 |
+| **DF: Conserve Fish (C)** | UF: 50, DF: 400 | UF: 100, DF: 0 |
+| **DF: Overfish (O)** | UF: 100, DF: 0 | UF: 0, DF: 0 |
 
-#### Justification:
-This matrix highlights the risk of over-planting and the consequences of water scarcity. If both farmers irrigate 10 fields, the downstream farmer's crop fails due to water stress. The upstream farmer's decision affects the downstream farmer's outcome.
+#### Justification: 
+In this action situation, the downstream farmer (DF) has a strong incentive to conserve the fish population, as it provides a significant portion of their income. However, the upstream farmer (UF) has a weaker incentive, and may choose to overfish, leading to a potential tragedy of the commons. The matrix reflects the ecological threshold, where overfishing leads to a collapse of the fish population, resulting in a payoff of 0 for both farmers.
 
-### Action Situation 3: Fish Conservation Dilemma
+### Action Situation 3: Upstream Farmer (UF) vs Downstream Farmer (DF) - Crop Yield and Fish Revenue Tradeoff Dilemma
 #### Tension: 
-Farmers must balance their economic interests with the need to conserve the fish population, which is vulnerable to water extraction.
+The strategic tension arises from the fact that the upstream farmer (UF) must balance their crop yield with the potential impact on the fish population, while the downstream farmer (DF) must balance their crop yield with their reliance on the fish population for income.
 
 #### Matrix:
-|  | UF Conserves Fish | UF Over-Extracts |
+
+|  | UF: Max Crop Yield (M) | UF: Balance Crop and Fish (B) |
 | --- | --- | --- |
-| **DF Conserves Fish** | U_uf: 20, U_df: 40 | U_uf: 30, U_df: 10 |
-| **DF Over-Extracts** | U_uf: 10, U_df: 20 | U_uf: 20, U_df: 0 |
+| **DF: Max Crop Yield (M)** | UF: 100, DF: 0 | UF: 50, DF: 200 |
+| **DF: Balance Crop and Fish (B)** | UF: 50, DF: 400 | UF: 25, DF: 600 |
 
-#### Justification:
-This matrix reflects the strategic tension between conserving the fish population and maximizing economic gains. If both farmers conserve fish, they receive a moderate payoff. However, if one farmer over-extracts, the other farmer's payoff decreases due to the ecological collapse.
-
-### Action Situation 4: Social Pressure Dilemma
-#### Tension: 
-The upstream farmer faces social pressure to conserve water for the downstream farmer, while the downstream farmer relies on the upstream farmer's cooperation.
-
-#### Matrix:
-|  | UF Cooperates | UF Defects |
-| --- | --- | --- |
-| **DF Cooperates** | U_uf: 30, U_df: 50 | U_uf: 50, U_df: 10 |
-| **DF Defects** | U_uf: 10, U_df: 30 | U_uf: 20, U_df: 0 |
-
-#### Justification:
-This matrix highlights the impact of social pressure on the upstream farmer's decision. If the upstream farmer cooperates, the downstream farmer receives a higher payoff. However, if the upstream farmer defects, the downstream farmer's payoff decreases due to the lack of cooperation.
+#### Justification: 
+In this action situation, the upstream farmer (UF) must decide whether to maximize their crop yield or balance their crop yield with the potential impact on the fish population. The downstream farmer (DF) must decide whether to maximize their crop yield or balance their crop yield with their reliance on the fish population for income. The matrix reflects the tradeoff between crop yield and fish revenue, where the upstream farmer's actions have a greater impact on the downstream farmer's outcomes.
