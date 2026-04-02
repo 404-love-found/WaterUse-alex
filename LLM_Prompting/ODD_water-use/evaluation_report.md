@@ -14,32 +14,32 @@
 Specific games categorized as True Positive, False Positives, and False Negatives.
 
 #### 🤖 DeepSeek-R1 - `Txts`
-- **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
+- **True Positive:** `['Upstream_and_Downstream_Withdrawal_Decisions', 'Fish_Extraction_Common_Pool_Resource_Game']`
 - **False Positives:** `None`
 - **False Negatives:** `None`
 
 #### 🤖 Llama-3.3-70B - `Txts`
-- **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
+- **True Positive:** `['Upstream_and_Downstream_Withdrawal_Decisions', 'Fish_Extraction_Common_Pool_Resource_Game']`
 - **False Positives:** `['Centralized_Case_Hallucination', 'Tradeoff_Overextraction']`
 - **False Negatives:** `None`
 
 #### 🤖 Qwen2.5-7B - `Txts`
 - **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game']`
-- **False Positives:** `['Water_Prediction_Hallucination', 'Income_Threshold_Hallucination', 'Irrigation_Risk_Hallucination']`
+- **False Positives:** `['Irrigation_Risk_Hallucination', 'Water_Prediction_Hallucination', 'Income_Threshold_Hallucination']`
 - **False Negatives:** `['Upstream_and_Downstream_Withdrawal_Decisions']`
 
 #### 🤖 DeepSeek-R1 - `TXT_new`
-- **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
+- **True Positive:** `['Upstream_and_Downstream_Withdrawal_Decisions', 'Fish_Extraction_Common_Pool_Resource_Game']`
 - **False Positives:** `None`
 - **False Negatives:** `None`
 
 #### 🤖 Llama-3.3-70B - `TXT_new`
-- **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
+- **True Positive:** `['Upstream_and_Downstream_Withdrawal_Decisions', 'Fish_Extraction_Common_Pool_Resource_Game']`
 - **False Positives:** `['Social_Pressure_Overextraction', 'Irrigation_Risk_Overextraction']`
 - **False Negatives:** `None`
 
 #### 🤖 Qwen2.5-7B - `TXT_new`
-- **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
+- **True Positive:** `['Upstream_and_Downstream_Withdrawal_Decisions', 'Fish_Extraction_Common_Pool_Resource_Game']`
 - **False Positives:** `['Social_Pressure_Hallucination', 'Planting_Risk_Hallucination']`
 - **False Negatives:** `None`
 

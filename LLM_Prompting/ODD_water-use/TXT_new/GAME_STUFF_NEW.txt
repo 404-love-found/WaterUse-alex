@@ -1,41 +1,133 @@
 Mathematical Logic & Payoff Structures (The Rules of the Game)
 
-1. WATER EXTRACTION LOGIC
-   - Constraint: Maximum Fields = 10 per farmer.
-   - Water Requirement: 1 unit of water per 1 irrigated field.
-   - Physical Flow:
-     Water_Available_for_DF = Total_Inflow - (UF_Extraction)
-     Water_to_Lake = Water_Available_for_DF - (DF_Extraction)
+===========================================================
+0. TEMPORAL STRUCTURE (Sequence of Events Each Year)
+===========================================================
+   Phase 1 — PLANNING (Beginning of Season, April):
+     Each farmer independently predicts water availability at their
+     location using a weighted average of past observed water flows.
+     Each farmer decides how many fields to irrigate (0 to 10),
+     constrained by their prediction and their available budget.
 
-2. CROP YIELD FUNCTION (Private Good)
-   - Yield is binary per field:
-     If Water_Received >= Fields_Planted: Yield = 100% * Fields_Planted
-     If Water_Received < Fields_Planted: Yield = 0% (Total Crop Failure due to drought stress)
-   - Implication: Over-planting is extremely risky.
+   Phase 2 — IRRIGATION (Monthly, April to September):
+     Water enters the river from upstream.
+     Upstream Farmer (UF) extracts water FIRST, proportional to
+     his planned number of irrigated fields.
+     Remaining water flows downstream.
+     Downstream Farmer (DF) extracts water from remaining flow.
+     Remaining water flows into the terminal lake.
+     Water stress accumulates if received water < demanded water.
 
-3. FISH ECOLOGY & TIPPING POINT (Public Good / Common Pool)
-   - The ecosystem is NON-LINEAR.
-   - Reproduction Threshold (R_thresh): The Lake needs at least 5 units of water inflow to sustain larvae.
-   - Fish Population Dynamics:
-     IF Water_to_Lake >= 5 units:
-        Fish_Next_Year = Current_Fish * Growth_Rate (Bountiful Harvest)
-     IF Water_to_Lake < 5 units:
-        Fish_Next_Year = 0 (ECOLOGICAL COLLAPSE)
+   Phase 3 — FISHING (End of Year):
+     Downstream Farmer (DF) accesses the fishing lake FIRST.
+     Upstream Farmer (UF) accesses the lake AFTER DF.
+     Each farmer attempts to catch a fixed target amount of fish
+     from adult age classes (age 5+).
+     Fish availability depends on lake water inflow during the year.
 
-   - Strategic Implication: The "last drop" of water extracted by a farmer can destroy the entire future fishery. This creates a "Stag Hunt" or "Chicken" game dynamic.
+   Phase 4 — ECOLOGICAL UPDATE & BUDGET:
+     Fish population reproduces if lake inflow during May exceeded
+     the reproduction threshold. Otherwise larvae recruitment fails.
+     Each farmer's budget is updated: Budget = Crop_Yield + Fish_Catch - Irrigation_Costs.
 
-4. UTILITY / PAYOFF FUNCTIONS
-   To model the strategic tension, we weigh the resources differently for UF and DF:
+   KEY IMPLICATION: Irrigation decisions (Phase 2) determine how
+   much water reaches the lake, which determines fish availability
+   (Phase 3) and future fish population (Phase 4). These two
+   resource systems are coupled through water flow.
 
-   - Upstream Farmer (UF) Utility:
-     U_uf = (Crop_Revenue) + (Small_Social_Pressure_Penalty)
-     *Note: UF has weak economic incentive to save fish, unless Social Pressure is high.*
+===========================================================
+1. STRATEGIC TENSION A: WATER WITHDRAWAL DECISIONS
+   (Upstream vs Downstream Asymmetric Commons Dilemma)
+===========================================================
+   Players: Upstream Farmer (UF) vs Downstream Farmer (DF)
+   Decision: How many fields to irrigate (0 to 10)
 
-   - Downstream Farmer (DF) Utility:
-     U_df = (Crop_Revenue) + (Fish_Revenue * 3)
-     *Note: DF cares 3x more about fish than UF does. DF is structurally vulnerable.*
+   PHYSICAL FLOW CONSTRAINT:
+     Water_Available_for_DF = Total_Inflow - (UF_Fields * Water_Per_Field)
+     Water_to_Lake = Water_Available_for_DF - (DF_Fields * Water_Per_Field)
+     Water_Per_Field = 1 unit per field per month
 
-5. DECISION DILEMMAS
-   - The "Tragedy of the Commons" occurs when:
-     (UF_Extraction + DF_Extraction) > (Total_Inflow - 5 units).
-   - If they extract too much, the lake dries, fish die, and DF goes bankrupt.
+   CROP YIELD FUNCTION:
+     Yield_j = Y_max * N_fields_j * (Sum of Water_Received / Water_Demanded) / 6
+     If a farmer plants more fields than available water can support,
+     water stress accumulates and yield is proportionally reduced.
+
+   SPATIAL ASYMMETRY:
+     - UF extracts water FIRST and always receives the full inflow.
+       UF's crop yield is NOT affected by DF's decisions.
+     - DF receives only the RESIDUAL water after UF's extraction.
+       DF's crop yield IS affected by UF's decisions.
+     - This creates a sequential advantage: UF can guarantee his own
+       crop yield regardless of DF's choice, but DF cannot.
+
+   PAYOFF STRUCTURE:
+     Each farmer's crop payoff = Yield - Irrigation_Cost
+     UF payoff depends ONLY on UF's own extraction and total inflow.
+     DF payoff depends on BOTH UF's extraction and DF's own extraction.
+
+===========================================================
+2. STRATEGIC TENSION B: FISH EXTRACTION
+   (Common Pool Resource Game)
+===========================================================
+   Players: Downstream Farmer (DF) vs Upstream Farmer (UF)
+   Decision: How much fish to harvest from the lake
+
+   ACCESS ASYMMETRY:
+     - DF accesses the fishing lake FIRST (closer to lake).
+     - UF accesses the lake AFTER DF, and can only catch remaining fish.
+     - This is the REVERSE of the water asymmetry: DF has priority
+       in fishing, while UF had priority in water.
+
+   FISH POPULATION DYNAMICS (Non-Linear):
+     The fish population follows an age-structured model (12 age classes).
+     Only adult fish (age 5+) can be harvested.
+
+     REPRODUCTION THRESHOLD:
+       IF lake water inflow during May >= Threshold:
+          Larvae can migrate into lake, fish population is sustained.
+       IF lake water inflow during May < Threshold:
+          Larvae recruitment FAILS, juvenile population collapses,
+          future adult fish stock declines toward zero.
+
+     This creates a NON-LINEAR tipping point: the combined water
+     extraction decisions from Tension A directly determine whether
+     the fish population in Tension B can sustain itself.
+
+   PAYOFF STRUCTURE:
+     Each farmer's fish payoff = Fish_Catch (from available adult stock)
+     DF tends to catch more fish (priority access).
+     UF catches only what remains after DF.
+     Both farmers benefit from a healthy fish stock in future years.
+
+===========================================================
+3. COUPLING BETWEEN THE TWO TENSIONS
+===========================================================
+   The two action situations are NOT independent. They are linked
+   through the water flow:
+
+     High total water extraction (Tension A)
+       → Less water reaches the lake
+       → Fish reproduction threshold may not be met
+       → Fish stock declines in subsequent years (Tension B)
+       → Both farmers lose future fish income
+
+   This coupling means that a farmer's optimal irrigation strategy
+   must account for the indirect effect on fish income. However,
+   because farmers use past water flows (not future fish stock)
+   as the basis for their decisions, the ecological feedback is
+   delayed and imperfect.
+
+===========================================================
+4. BUDGET AND DECISION CONSTRAINTS
+===========================================================
+   - Maximum fields per farmer: 10
+   - Irrigation cost: Fixed cost per field per season
+   - Budget constraint: A farmer cannot irrigate more fields than
+     their budget allows.
+   - Decision heuristic (DV): Farmers adjust field count based on:
+     (a) Whether past income was below a survival threshold
+     (b) Whether past water demand was met
+     (c) Available budget
+   - Memory: Farmers estimate future water using a weighted average
+     of past observations, with memory parameter delta controlling
+     how strongly recent years are weighted.
