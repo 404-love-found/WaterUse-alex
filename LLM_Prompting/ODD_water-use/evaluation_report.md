@@ -20,7 +20,7 @@ Specific games categorized as True Positive, False Positives, and False Negative
 
 #### 🤖 Llama-3.3-70B - `Txts`
 - **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
-- **False Positives:** `['Tradeoff_Overextraction', 'Centralized_Case_Hallucination']`
+- **False Positives:** `['Centralized_Case_Hallucination', 'Tradeoff_Overextraction']`
 - **False Negatives:** `None`
 
 #### 🤖 Qwen2.5-7B - `Txts`
@@ -40,6 +40,6 @@ Specific games categorized as True Positive, False Positives, and False Negative
 
 #### 🤖 Qwen2.5-7B - `TXT_new`
 - **True Positive:** `['Fish_Extraction_Common_Pool_Resource_Game', 'Upstream_and_Downstream_Withdrawal_Decisions']`
-- **False Positives:** `['Planting_Risk_Hallucination', 'Social_Pressure_Hallucination']`
+- **False Positives:** `['Social_Pressure_Hallucination', 'Planting_Risk_Hallucination']`
 - **False Negatives:** `None`
 

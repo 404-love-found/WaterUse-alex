@@ -93,10 +93,10 @@ def run_evaluation():
     # ---------------------------------------------------------
     # PART A: Terminal Detailed Analysis
     # ---------------------------------------------------------
-    print("\n=== Standardized Evaluation Metrics (Electricity) ===")
+    print("\n🚀 === Standardized Evaluation Metrics ===")
     print(df[["Model", "Dataset", "Precision", "Recall", "TP", "FP", "FN"]].to_string(index=False))
 
-    print("\n=== Detailed Game Classification Breakdown ===")
+    print("\n🔍 === Detailed Game Classification Breakdown ===")
     for index, row in df.iterrows():
         print(f"[{row['Model']} | {row['Dataset']}]")
         print(f"   True Positive:   {row['True Positive'] if row['True Positive'] else 'None'}")
@@ -111,34 +111,21 @@ def run_evaluation():
     md_file = os.path.join(current_dir, "evaluation_report.md")
 
     with open(md_file, "w", encoding="utf-8") as f:
-        f.write("# Comprehensive LLM Evaluation Report (Electricity)\n\n")
-
-        f.write("### Ground Truth Action Situations\n")
-        f.write("The following 6 action situations were extracted from the ODD+D protocol:\n\n")
-        f.write("| # | Action Situation | Game Type |\n")
-        f.write("|---|---|---|\n")
-        f.write("| AS1 | DSM Adoption Coordination | Assurance / Stag Hunt |\n")
-        f.write("| AS2 | Social Learning Sequential Adoption | Non-strategic Sequential Link |\n")
-        f.write("| AS3 | Infrastructure Capacity Provision | Asymmetric Prisoner's Dilemma |\n")
-        f.write("| AS4 | Mutual Exchange and Collusion | Coordination Game |\n")
-        f.write("| AS5 | Authorization and Capacity Investment | Asymmetric Coordination |\n")
-        f.write("| AS6 | Groundwater Extraction Dilemma | Dynamic CPR Prisoner's Dilemma |\n")
-        f.write("\n")
-
+        f.write("# 📊 Comprehensive LLM Evaluation Report\n\n")
         f.write("### 1. Summary Table\n")
         f.write(df[["Model", "Dataset", "Precision", "Recall", "TP", "FP", "FN"]].to_markdown(index=False))
 
-        f.write("\n\n### 2. Individual Game Analysis (Breakdown)\n")
+        f.write("\n\n### 2. 🎯 Individual Game Analysis (Breakdown)\n")
         f.write("Specific games categorized as True Positive, False Positives, and False Negatives.\n\n")
 
         for index, row in df.iterrows():
-            f.write(f"#### {row['Model']} - `{row['Dataset']}`\n")
+            f.write(f"#### 🤖 {row['Model']} - `{row['Dataset']}`\n")
             f.write(f"- **True Positive:** `{row['True Positive'] if row['True Positive'] else 'None'}`\n")
             f.write(f"- **False Positives:** `{row['False Positives'] if row['False Positives'] else 'None'}`\n")
             f.write(f"- **False Negatives:** `{row['False Negatives'] if row['False Negatives'] else 'None'}`\n")
             f.write("\n")
 
-    print(f"\nDetailed Markdown report saved to: {md_file}")
+    print(f"\n✅ Detailed Markdown report saved to: {md_file}")
 
 
 if __name__ == "__main__":
