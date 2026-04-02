@@ -4,16 +4,16 @@ import os
 api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 client = Together(api_key=api_key)
 
-base_path = "LLM_Prompting/ODD_electricity"
 model_name = "Qwen/Qwen2.5-7B-Instruct-Turbo"
 
-odd_path = os.path.join(base_path, "TXT_electricity", "ODD_electricity.txt")
-scenario_path = os.path.join(base_path, "TXT_electricity", "SCENARIO_electricity.txt")
-game_path = os.path.join(base_path, "TXT_electricity", "GAME_STUFF_electricity.txt")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+base_path = os.path.dirname(current_dir)
 
-output_dir = os.path.join(base_path, "Qwen2.5-7B-Instruct-Turbo")
-os.makedirs(output_dir, exist_ok=True)
-output_file = os.path.join(output_dir, "Qwen2.5_7B_Standalone_Output.md")
+odd_path = os.path.join(base_path, "TXT_electricity", "odd.txt")
+scenario_path = os.path.join(base_path, "TXT_electricity", "Scenarios electricity.txt")
+game_path = os.path.join(base_path, "TXT_electricity", "Game stuff electricity.txt")
+
+output_file = os.path.join(current_dir, "Qwen2.5_7B_Standalone_Output.md")
 
 
 def run_qwen():
