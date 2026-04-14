@@ -1,13 +1,14 @@
 """
 DeepSeek-R1 单独跑 30 次。
-- 超时 600s，每次失败最多重试 8 次，间隔递增
+- max_tokens=16000（R1 推理链需要 ~6000-8000 tokens，之后才输出内容）
+- 每次调用间隔 1 秒（教授建议，防止 API 限流）
+- 超时 600s，每次失败最多重试 5 次
 - 错误详细记录到 error_log.txt
 """
 
 from together import Together
 import os
 import time
-import traceback
 
 # ---------------------------------------------------------
 # Configuration
@@ -16,8 +17,9 @@ api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
 model_id = "deepseek-ai/DeepSeek-R1"
 
 N_RUNS = 30
-MAX_RETRIES = 8
-BASE_WAIT = 40  # seconds, first retry wait
+MAX_RETRIES = 5
+BASE_WAIT = 10  # seconds, first retry wait
+COOLDOWN = 1    # seconds between successful runs (professor's suggestion)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 odd_path = os.path.join(current_dir, "Txts", "odd.txt")
@@ -57,30 +59,43 @@ def log_error(msg):
 
 
 def run_single(client, prompt, run_num):
-    """Send one request with aggressive retry."""
+    """Send one request with retry logic."""
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            t0 = time.time()
             response = client.chat.completions.create(
                 model=model_id,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
-                max_tokens=8192,
+                max_tokens=16000,
             )
+            dt = time.time() - t0
             content = response.choices[0].message.content
+            finish = response.choices[0].finish_reason
+            usage = response.usage
+
             if content and len(content.strip()) > 50:
+                print(f"    [{dt:.0f}s, {usage.completion_tokens} tokens, finish={finish}]", end="")
                 return content
             else:
-                msg = f"  Run {run_num} attempt {attempt}: empty/short response ({len(content) if content else 0} chars)"
-                print(msg)
+                msg = (f"  Run {run_num} attempt {attempt}: empty response "
+                       f"({len(content) if content else 0} chars, "
+                       f"{usage.completion_tokens} completion_tokens, "
+                       f"finish={finish}, {dt:.0f}s)")
+                print(f"\n{msg}")
                 log_error(msg)
+
         except Exception as e:
             wait = BASE_WAIT * attempt
             msg = f"  Run {run_num} attempt {attempt}/{MAX_RETRIES}: {type(e).__name__}: {e}"
-            print(msg)
+            print(f"\n{msg}")
             log_error(msg)
             if attempt < MAX_RETRIES:
                 print(f"      Waiting {wait}s before retry...")
                 time.sleep(wait)
+
+        # Delay between retries
+        time.sleep(COOLDOWN)
     return None
 
 
@@ -97,17 +112,20 @@ def main():
 
     # Clear error log
     with open(error_log_path, "w", encoding="utf-8") as f:
-        f.write(f"DeepSeek-R1 Batch Run Error Log\n{'='*50}\n\n")
+        f.write(f"DeepSeek-R1 Batch Run Error Log\n")
+        f.write(f"max_tokens=16000, cooldown={COOLDOWN}s\n")
+        f.write(f"{'='*50}\n\n")
 
     print(f"{'='*60}")
-    print(f"  DeepSeek-R1  |  {N_RUNS} runs  |  max {MAX_RETRIES} retries each")
+    print(f"  DeepSeek-R1  |  {N_RUNS} runs  |  max_tokens=16000")
+    print(f"  Cooldown: {COOLDOWN}s between calls")
     print(f"{'='*60}")
 
     success = 0
     fail = 0
 
     for i in range(1, N_RUNS + 1):
-        print(f"\n  Run {i:2d}/{N_RUNS} ...", flush=True)
+        print(f"  Run {i:2d}/{N_RUNS} ...", end="", flush=True)
         content = run_single(client, prompt, i)
 
         if content:
@@ -122,9 +140,9 @@ def main():
             print(f"  ❌ all retries failed")
             fail += 1
 
-        # Small cooldown between runs to avoid rate limiting
+        # Cooldown between runs
         if i < N_RUNS:
-            time.sleep(5)
+            time.sleep(COOLDOWN)
 
     print(f"\n{'='*60}")
     print(f"  Done!  Success: {success}/{N_RUNS}  |  Failed: {fail}/{N_RUNS}")
