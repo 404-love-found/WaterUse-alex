@@ -1,0 +1,615 @@
+======================================================================
+  FINAL EVALUATION: TP / FP / FN
+======================================================================
+
+Ground Truth (2 correct action situations):
+  AS1: Upstream and downstream withdrawal decisions
+  AS2: Fish extraction common pool resource game
+
+Metrics:
+  TP = How many LLM-generated ASs were correct
+  FN = How many correct ASs the LLM missed
+  FP = How many LLM-generated ASs were wrong
+  Precision = TP / (TP + FP)
+  Recall    = TP / (TP + FN)
+
+
+######################################################################
+  MODEL 1: DeepSeek-R1  (30 runs)
+######################################################################
+
+Run 01 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FP: Risk-taking dilemma in irrigation strategy
+  FN missed: Fish extraction CPR
+
+Run 02 | TP=1  FP=1  FN=1
+  TP: Water extraction and ecological threshold dilemma
+  FP: Downstream fishing competition (actions = field counts, not fish harvest)
+  FN missed: Fish extraction CPR
+
+Run 03 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FP: Fishing access priority (upstream chooses irrigation, not fish — cross-domain)
+  FN missed: Fish extraction CPR
+
+Run 04 | TP=1  FP=1  FN=1
+  TP: Water extraction dilemma between upstream and downstream farmers
+  FP: Fishing order dilemma (upstream chooses irrigation, not fish — cross-domain)
+  FN missed: Fish extraction CPR
+
+Run 05 | TP=2  FP=0  FN=0
+  TP: Water allocation dilemma between upstream and downstream farmers
+  TP: Fishing pressure dilemma among downstream farmers (restrain vs aggress on catch)
+
+Run 06 | TP=1  FP=0  FN=1
+  TP: Water extraction dilemma for fish reproduction threshold
+  FN missed: Fish extraction CPR
+
+Run 07 | TP=2  FP=0  FN=0
+  TP: Upstream-downstream water allocation dilemma
+  TP: Sequential fishing access dilemma (moderate vs high fish catch)
+
+Run 08 | TP=1  FP=0  FN=1
+  TP: Spatial water rivalry with ecological tipping points
+  FN missed: Fish extraction CPR
+
+Run 09 | TP=1  FP=1  FN=1
+  TP: Water withdrawal dilemma with ecological threshold
+  FP: Fishing access asymmetry (upstream chooses irrigation, not fish — cross-domain)
+  FN missed: Fish extraction CPR
+
+Run 10 | TP=1  FP=1  FN=1
+  TP: Water allocation dilemma (upstream-downstream)
+  FP: Ecological threshold dilemma (actions = irrigation levels, not fish harvest)
+  FN missed: Fish extraction CPR
+
+Run 11 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water rivalry
+  FP: Irrigation-fishery tradeoff (actions = irrigation levels, fish is consequence)
+  FN missed: Fish extraction CPR
+
+Run 12 | TP=2  FP=0  FN=0
+  TP: Water allocation dilemma (upstream vs downstream)
+  TP: Fishing pressure dilemma — downstream farmers (restrain vs max catch)
+
+Run 13 | TP=1  FP=0  FN=1
+  TP: Water extraction dilemma
+  FN missed: Fish extraction CPR
+
+Run 14 | TP=1  FP=1  FN=1
+  TP: Water allocation dilemma (upstream-downstream)
+  FP: Fish stock sustainability dilemma (actions = irrigation cooperate/defect, not fishing)
+  FN missed: Fish extraction CPR
+
+Run 15 | TP=2  FP=1  FN=0
+  TP: Water extraction dilemma
+  TP: Fishing access competition (fish aggressively vs conservatively)
+  FP: Irrigation risk coordination
+
+Run 16 | TP=1  FP=1  FN=1
+  TP: Water withdrawal dilemma (upstream vs downstream)
+  FP: Fishing access dilemma (upstream chooses irrigation, not fish — cross-domain)
+  FN missed: Fish extraction CPR
+
+Run 17 | TP=2  FP=0  FN=0
+  TP: Water extraction dilemma between upstream and downstream farmers
+  TP: Fishing competition under water scarcity (moderate vs aggressive catch)
+
+Run 18 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water rivalry for agriculture
+  FP: May water extraction for fish reproduction threshold (actions = irrigation, not fishing)
+  FN missed: Fish extraction CPR
+
+Run 19 | TP=1  FP=0  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FN missed: Fish extraction CPR
+
+Run 20 | TP=1  FP=0  FN=1
+  TP: Water extraction dilemma with ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 21 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FP: Sequential fishing access dilemma (upstream chooses irrigation, not fish — cross-domain)
+  FN missed: Fish extraction CPR
+
+Run 22 | TP=2  FP=0  FN=0
+  TP: Upstream-downstream water allocation dilemma
+  TP: Downstream fishing access dilemma (restrain vs maximize fishing)
+
+Run 23 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FP: Lake water threshold coordination (actions = irrigation levels, not fishing)
+  FN missed: Fish extraction CPR
+
+Run 24 | TP=1  FP=0  FN=1
+  TP: Upstream-downstream water extraction dilemma
+  FN missed: Fish extraction CPR
+
+Run 25 | TP=1  FP=0  FN=1
+  TP: Water extraction dilemma (upstream vs downstream)
+  FN missed: Fish extraction CPR
+
+Run 26 | TP=1  FP=1  FN=1
+  TP: Upstream-downstream water competition
+  FP: Ecological threshold public good dilemma (actions = irrigation cooperate/defect)
+  FN missed: Fish extraction CPR
+
+Run 27 | TP=1  FP=1  FN=1
+  TP: Water rivalry between upstream and downstream farmers
+  FP: Collective water use vs fish population viability (actions = irrigation)
+  FN missed: Fish extraction CPR
+
+Run 28 | TP=2  FP=0  FN=0
+  TP: Upstream-downstream water extraction dilemma
+  TP: Downstream fishing race dilemma (conservative vs aggressive fish catch)
+
+Run 29 | TP=2  FP=0  FN=0
+  TP: Upstream-downstream water allocation dilemma
+  TP: Downstream fishing priority dilemma (restrain vs exploit fish catch)
+
+Run 30 | TP=2  FP=0  FN=0
+  TP: Water withdrawal dilemma
+  TP: Fishing access race (restrain vs exploit fish catch)
+
+----------------------------------------------------------------------
+  DeepSeek-R1 TOTALS
+----------------------------------------------------------------------
+  TP = 39    FP = 14    FN = 21
+  Precision = TP/(TP+FP) = 39/(39+14) = 39/53 = 0.7358
+  Recall    = TP/(TP+FN) = 39/(39+21) = 39/60 = 0.6500
+
+  Water AS correctly identified: 30/30 runs (100%)
+  Fish  AS correctly identified:  9/30 runs (30%)
+
+  FN breakdown: All 21 FN = missed fish extraction CPR game
+  FP breakdown:
+    - Cross-domain fishing games (upstream=irrigation vs downstream=fishing): 7
+    - Irrigation actions mislabeled as fishing/ecological game: 5
+    - Risk-taking / irrigation coordination: 2
+
+
+######################################################################
+  MODEL 2: Llama-3.3-70B  (30 runs)
+######################################################################
+
+Run 01 | TP=1  FP=2  FN=1
+  TP: Upstream-downstream water usage
+  FP: Fishing and water usage (tradeoff between activities, not CPR)
+  FP: Risky irrigation investment
+  FN missed: Fish extraction CPR
+
+Run 02 | TP=2  FP=2  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Downstream farmer's fishing decision (cooperate/defect on catch)
+  FP: Farmer's decision to increase irrigated fields
+  FP: Farmer's response to ecological thresholds
+
+Run 03 | TP=2  FP=2  FN=0
+  TP: Upstream vs downstream irrigation decision
+  TP: Fishing resource management (high/low fishing effort)
+  FP: Risky irrigation expansion
+  FP: Water conservation vs expansion
+
+Run 04 | TP=2  FP=1  FN=0
+  TP: Upstream-downstream water extraction
+  TP: Fishing quota competition (cooperate/defect on catch)
+  FP: Irrigation expansion vs ecological conservation
+
+Run 05 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to invest in water conservation
+  FP: Farmer's response to ecological threshold
+  FN missed: Fish extraction CPR
+
+Run 06 | TP=2  FP=1  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's decision to fish (cooperate/defect on fishing)
+  FP: Farmer's irrigation vs fishing resource allocation
+
+Run 07 | TP=1  FP=2  FN=1
+  TP: Upstream irrigation vs downstream fishing (water tension)
+  FP: Farmer decides to exceed ecological threshold vs conserve water
+  FP: Upstream farmer invests in water-saving technology
+  FN missed: Fish extraction CPR
+
+Run 08 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to invest in irrigation infrastructure
+  FP: Farmer's response to ecological threshold
+  FN missed: Fish extraction CPR
+
+Run 09 | TP=1  FP=2  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's field expansion decision
+  FN missed: Fish extraction CPR
+
+Run 10 | TP=2  FP=2  FN=0
+  TP: Upstream-downstream water allocation
+  TP: Fishing resource management (cooperate/defect on fishing)
+  FP: Water flow prediction and irrigation
+  FP: Ecological thresholds and tipping points
+
+Run 11 | TP=2  FP=1  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's decision to invest in fishing (cooperate/defect on fishing)
+  FP: Farmer's response to ecological thresholds
+
+Run 12 | TP=2  FP=1  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's decision to fish (cooperate/defect on fishing)
+  FP: Farmer's decision to increase irrigated fields
+
+Run 13 | TP=2  FP=1  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's decision to fish (cooperate/defect on fishing)
+  FP: Farmer's decision to increase irrigated fields
+
+Run 14 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's field expansion decision
+  FP: Farmer's risk-taking decision
+  FN missed: Fish extraction CPR
+
+Run 15 | TP=2  FP=3  FN=0
+  TP: Upstream-downstream water allocation
+  TP: Overfishing (cooperate/defect on fishing)
+  FP: Field expansion
+  FP: Risk taking in irrigation decisions
+  FP: Adaptive management of water resources
+
+Run 16 | TP=2  FP=2  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's fishing decision (cooperate/defect on fishing)
+  FP: Upstream farmer's water withdrawal decision (duplicate water)
+  FP: Farmer's field expansion decision
+
+Run 17 | TP=2  FP=3  FN=0
+  TP: Upstream farmer's irrigation decision
+  TP: Farmer's decision to invest in fishing (cooperate/defect on fishing)
+  FP: Upstream farmer's decision to increase irrigated fields
+  FP: Farmer's response to ecological thresholds
+  FP: Spatial asymmetry in water access (duplicate water)
+
+Run 18 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to increase fields
+  FP: Water allocation under ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 19 | TP=1  FP=2  FN=1
+  TP: Upstream-downstream irrigation dilemma
+  FP: Fishing and water extraction trade-off (single farmer vs nature, not CPR)
+  FP: Information sharing and cooperation
+  FN missed: Fish extraction CPR
+
+Run 20 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to increase irrigated fields
+  FP: Farmers' collective response to ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 21 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to invest in irrigation efficiency
+  FP: Response to ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 22 | TP=2  FP=2  FN=0
+  TP: Upstream farmer exploitation (water)
+  TP: Fishery conservation (cooperate/defect on fishing)
+  FP: Water conservation vs irrigation
+  FP: Field expansion
+
+Run 23 | TP=2  FP=1  FN=0
+  TP: Upstream-downstream water usage
+  TP: Fishing resource management (limit catch vs overfish)
+  FP: Irrigation investment
+
+Run 24 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Farmer's decision to invest in fishing (choosing fishing vs irrigation, not CPR)
+  FP: Reaction to ecological thresholds
+  FP: Upstream-downstream coordination (duplicate water)
+  FN missed: Fish extraction CPR
+
+Run 25 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to invest in irrigation infrastructure
+  FP: Farmer's decision to expand irrigated fields
+  FN missed: Fish extraction CPR
+
+Run 26 | TP=1  FP=2  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Farmer's decision to fish (spatial access asymmetry, not clean CPR)
+  FP: Farmer's investment in irrigation efficiency
+  FN missed: Fish extraction CPR
+
+Run 27 | TP=1  FP=3  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's decision to invest in water conservation
+  FP: Farmer's response to ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 28 | TP=2  FP=1  FN=0
+  TP: Upstream-downstream water allocation
+  TP: Fishing resource management (conserve vs overfish)
+  FP: Irrigation investment
+
+Run 29 | TP=1  FP=4  FN=1
+  TP: Upstream farmer's irrigation decision
+  FP: Downstream farmer's fishing decision (matrix = downstream fishing vs upstream irrigation — cross-domain)
+  FP: Farmer's field expansion decision
+  FP: Water flow prediction and irrigation decision
+  FP: Ecological threshold and fishing decision (farmer vs nature)
+  FN missed: Fish extraction CPR
+
+Run 30 | TP=1  FP=2  FN=1
+  TP: Upstream farmer increases irrigation, downstream farmer's water stress
+  FP: Farmer's irrigation vs ecological threshold for fish (actions = irrigation)
+  FP: Upstream-downstream irrigation with limited water (duplicate water)
+  FN missed: Fish extraction CPR
+
+----------------------------------------------------------------------
+  Llama-3.3-70B TOTALS
+----------------------------------------------------------------------
+  TP = 45    FP = 66    FN = 15
+  Precision = TP/(TP+FP) = 45/(45+66) = 45/111 = 0.4054
+  Recall    = TP/(TP+FN) = 45/(45+15) = 45/60  = 0.7500
+
+  Water AS correctly identified: 30/30 runs (100%)
+  Fish  AS correctly identified: 15/30 runs (50%)
+
+  FN breakdown: All 15 FN = missed fish extraction CPR game
+  FP breakdown:
+    - Cross-domain fishing games (downstream=fishing vs upstream=irrigation): 18
+    - Field expansion / irrigation infrastructure: 15
+    - Ecological threshold / conservation: 14
+    - Duplicate water ASs: 6
+    - Risk-taking / adaptive management: 7
+    - Fishing vs irrigation tradeoff (not CPR): 6
+
+
+######################################################################
+  MODEL 3: Qwen2.5-7B  (30 runs)
+######################################################################
+
+Run 01 | TP=1  FP=2  FN=1
+  TP: Upstream vs downstream farmer's irrigation decisions
+  FP: Irrigation vs fishing (tradeoff between activities, not CPR)
+  FP: Risk-taking vs risk-aversion
+  FN missed: Fish extraction CPR
+
+Run 02 | TP=1  FP=2  FN=1
+  TP: Spatial asymmetry in water allocation
+  FP: Ecological thresholds in fish population (actions = irrigation fields)
+  FP: Economic thresholds in farmer income
+  FN missed: Fish extraction CPR
+
+Run 03 | TP=1  FP=3  FN=1
+  TP: Upstream vs downstream farmer water allocation
+  FP: Farmer's risk tolerance in water allocation
+  FP: Ecological thresholds in fish population growth (actions = water save/allocate)
+  FP: Spatial asymmetry in water and fish access
+  FN missed: Fish extraction CPR
+
+Run 04 | TP=1  FP=2  FN=1
+  TP: Risk vs security in water allocation
+  FP: Water allocation and fish population (actions = maximize fields vs optimize fish via irrigation)
+  FP: Water allocation and budget constraints
+  FN missed: Fish extraction CPR
+
+Run 05 | TP=1  FP=2  FN=1
+  TP: Water allocation and yield optimization (upstream vs downstream)
+  FP: Income threshold and risk-taking
+  FP: Ecological threshold and fish population sustainability (actions = irrigation fields)
+  FN missed: Fish extraction CPR
+
+Run 06 | TP=1  FP=3  FN=1
+  TP: Spatial asymmetry and risk aversion (upstream vs downstream field decisions)
+  FP: Ecological threshold and fish population sustainability (actions = increase/maintain fields)
+  FP: Risk tolerance and budget constraints
+  FP: Water stress and yield reduction
+  FN missed: Fish extraction CPR
+
+Run 07 | TP=1  FP=2  FN=1
+  TP: Resource allocation vs yield maximization (upstream vs downstream irrigation)
+  FP: Risk vs security
+  FP: Competition vs cooperation
+  FN missed: Fish extraction CPR
+
+Run 08 | TP=1  FP=2  FN=1
+  TP: Risk aversion vs optimism (upstream vs downstream irrigation with spatial asymmetry)
+  FP: Short-term gain vs long-term sustainability
+  FP: Individual vs collective welfare
+  FN missed: Fish extraction CPR
+
+Run 09 | TP=1  FP=0  FN=1
+  TP: Upstream vs downstream farmers' irrigation decisions
+  FN missed: Fish extraction CPR
+
+Run 10 | TP=1  FP=3  FN=1
+  TP: Upstream vs downstream water allocation
+  FP: Risk vs caution in water allocation
+  FP: Ensuring fish stocks vs maximizing yield (actions = water allocation levels)
+  FP: Memory capacity and past experiences
+  FN missed: Fish extraction CPR
+
+Run 11 | TP=1  FP=4  FN=1
+  TP: Decentralized water use — strategic tensions in farmer irrigation decisions
+  FP: Risk aversion vs risk taking
+  FP: Budget constraint vs yield maximization
+  FP: Water stress vs yield stability
+  FP: Ecological threshold vs economic profit (actions = irrigation)
+  FN missed: Fish extraction CPR
+
+Run 12 | TP=1  FP=4  FN=1
+  TP: Water allocation vs yield optimization
+  FP: Yield vs fish catch (actions = "allocate fields to fishing" — nonsensical)
+  FP: Memory capacity vs risk aversion
+  FP: Water allocation vs budget constraints
+  FP: Water allocation vs ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 13 | TP=2  FP=0  FN=0
+  TP: Upstream vs downstream irrigation decisions
+  TP: Ecological thresholds — fish responsibly vs overfish (true fish CPR)
+
+Run 14 | TP=1  FP=3  FN=1
+  TP: Over-extraction vs sustainable use (upstream vs downstream water)
+  FP: Risk aversion vs risk taking
+  FP: Yield maximization vs fish population preservation (actions = irrigation)
+  FP: Short-term gain vs long-term sustainability
+  FN missed: Fish extraction CPR
+
+Run 15 | TP=1  FP=0  FN=1
+  TP: Spatial asymmetry vs ecological thresholds (upstream vs downstream irrigation)
+  FN missed: Fish extraction CPR
+
+Run 16 | TP=2  FP=1  FN=0
+  TP: Risk vs reward in irrigation decisions
+  TP: Fish population sustainability and overfishing (increase fishing vs maintain fishing — true fish CPR)
+  FP: Water stress and yield reduction
+
+Run 17 | TP=1  FP=3  FN=1
+  TP: Yield vs risk aversion (upstream vs downstream irrigation)
+  FP: Water stress vs fish population (actions = irrigation levels)
+  FP: Budget constraints vs yield maximization
+  FP: Short-term gain vs long-term sustainability
+  FN missed: Fish extraction CPR
+
+Run 18 | TP=1  FP=2  FN=1
+  TP: Water allocation vs yield maximization (upstream vs downstream)
+  FP: Income threshold vs risk tolerance
+  FP: Water stress vs yield reduction
+  FN missed: Fish extraction CPR
+
+Run 19 | TP=1  FP=2  FN=1
+  TP: Spatial asymmetry (upstream vs downstream over-irrigation decisions)
+  FP: Risk-taking vs prudence
+  FP: Short-term gain vs long-term sustainability
+  FN missed: Fish extraction CPR
+
+Run 20 | TP=1  FP=3  FN=1
+  TP: Balancing water allocation and budget constraints
+  FP: Risking income for higher water allocation
+  FP: Managing water stress and yield trade-offs
+  FP: Harvesting fish vs irrigating fields (tradeoff between activities, not CPR)
+  FN missed: Fish extraction CPR
+
+Run 21 | TP=1  FP=4  FN=1
+  TP: Water allocation vs yield maximization
+  FP: Water stress vs fish population (actions = irrigation)
+  FP: Fish population vs economic stability (fish vs conserve, not competitive CPR)
+  FP: Spatial asymmetry (upstream vs downstream — duplicate water)
+  FP: Ecological thresholds (tipping points)
+  FN missed: Fish extraction CPR
+
+Run 22 | TP=1  FP=3  FN=1
+  TP: Spatial asymmetry — upstream vs downstream (irrigation decisions)
+  FP: Ecological thresholds — water inflow and fish population (one axis is nature)
+  FP: Budget constraints and risk-taking
+  FP: Yield and water stress
+  FN missed: Fish extraction CPR
+
+Run 23 | TP=1  FP=2  FN=1
+  TP: Risk vs security in water allocation
+  FP: Subsistence vs investment (actions = irrigation field decisions)
+  FP: Immediate gain vs long-term sustainability
+  FN missed: Fish extraction CPR
+
+Run 24 | TP=1  FP=2  FN=1
+  TP: Optimal irrigation vs ecological sustainability
+  FP: Short-term risk vs long-term stability
+  FP: Spatial asymmetry and ecological thresholds
+  FN missed: Fish extraction CPR
+
+Run 25 | TP=2  FP=2  FN=0
+  TP: Upstream vs downstream water allocation
+  TP: Spatial asymmetry and fish extraction — extract 10 fish vs 9 fish (true fish CPR)
+  FP: Water allocation and ecological thresholds
+  FP: Budget constraints and risk management
+
+Run 26 | TP=1  FP=2  FN=1
+  TP: Irrigation risk vs conservation
+  FP: Water extraction vs fish population health (actions = water extraction volume)
+  FP: Income threshold vs economic stability
+  FN missed: Fish extraction CPR
+
+Run 27 | TP=1  FP=3  FN=1
+  TP: Water allocation and fishing decisions (water framing)
+  FP: Risk vs conservation
+  FP: Immediate benefits vs long-term sustainability
+  FP: Spatial asymmetry (duplicate water)
+  FN missed: Fish extraction CPR
+
+Run 28 | TP=1  FP=3  FN=1
+  TP: Risk aversion vs optimism (upstream vs downstream irrigation)
+  FP: Conservation vs exploitation (irrigation-based)
+  FP: Short-term gain vs long-term sustainability
+  FP: Individual gain vs collective welfare
+  FN missed: Fish extraction CPR
+
+Run 29 | TP=2  FP=1  FN=0
+  TP: Spatial asymmetry water (upstream vs downstream irrigation)
+  TP: Ecological threshold — sustainable vs overfishing pressure (true fish CPR)
+  FP: Economic stability and risk aversion
+
+Run 30 | TP=1  FP=2  FN=1
+  TP: Upstream vs downstream irrigation decisions
+  FP: Water stress and yield reduction (one axis is nature)
+  FP: Income threshold and risk aversion
+  FN missed: Fish extraction CPR
+
+----------------------------------------------------------------------
+  Qwen2.5-7B TOTALS
+----------------------------------------------------------------------
+  TP = 34    FP = 67    FN = 26
+  Precision = TP/(TP+FP) = 34/(34+67) = 34/101 = 0.3366
+  Recall    = TP/(TP+FN) = 34/(34+26) = 34/60  = 0.5667
+
+  Water AS correctly identified: 30/30 runs (100%)
+  Fish  AS correctly identified:  4/30 runs (13.3%)
+
+  FN breakdown: All 26 FN = missed fish extraction CPR game
+  FP breakdown:
+    - Risk-taking / risk-aversion / budget reframings: 20
+    - Short-term vs long-term / sustainability: 13
+    - Irrigation effects on fish mislabeled as fish game: 11
+    - Ecological threshold / tipping points: 8
+    - Duplicate water / spatial asymmetry reframings: 7
+    - Irrigation tradeoffs (fish vs irrigation activity choice): 5
+    - Memory / prediction / other: 3
+
+
+######################################################################
+  FINAL COMPARISON
+######################################################################
+
+Model              TP    FP    FN    Precision    Recall
+─────────────────────────────────────────────────────────
+DeepSeek-R1        39    14    21    0.7358       0.6500
+Llama-3.3-70B      45    66    15    0.4054       0.7500
+Qwen2.5-7B         34    67    26    0.3366       0.5667
+
+                   Water AS found    Fish AS found
+                   ──────────────    ─────────────
+DeepSeek-R1         30/30 (100%)      9/30 (30.0%)
+Llama-3.3-70B       30/30 (100%)     15/30 (50.0%)
+Qwen2.5-7B          30/30 (100%)      4/30 (13.3%)
+
+FN: ALL false negatives across all models = missed Fish extraction CPR
+FP patterns:
+  DeepSeek-R1   — Fewest FPs; main error = cross-domain fishing games
+  Llama-3.3-70B — Cross-domain fishing games + field expansion + ecological threshold
+  Qwen2.5-7B    — Many reframings of same irrigation tension (risk, budget, sustainability)
