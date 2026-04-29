@@ -1,10 +1,4 @@
-"""
-DeepSeek-R1 单独跑 30 次。
-- max_tokens=16000（R1 推理链需要 ~6000-8000 tokens，之后才输出内容）
-- 每次调用间隔 1 秒（教授建议，防止 API 限流）
-- 超时 600s，每次失败最多重试 5 次
-- 错误详细记录到 error_log.txt
-"""
+
 
 from together import Together
 import os
