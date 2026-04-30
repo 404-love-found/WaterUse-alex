@@ -18,20 +18,20 @@ Metrics:
   Recall    = TP / (TP + FN)
 
 ######################################################################
-  FINAL COMPARISON TABLE: ORIGINAL VS ODD-ONLY
+  FINAL COMPARISON TABLE: ODD + game stuff VS ODD-ONLY
 ######################################################################
 
 Side-by-side totals:
 Model                Evaluation         TP   FP   FN  Precision   Recall       F1        Water         Fish
 ──────────────────────────────────────────────────────────────────────────────────────────────────────────────
-DeepSeek-R1          Original           39   14   21     0.7358   0.6500   0.6903        30/30         9/30
+DeepSeek-R1          ODD + game stuff           39   14   21     0.7358   0.6500   0.6903        30/30         9/30
 DeepSeek-R1          ODD-only           40   10   20     0.8000   0.6667   0.7273        27/30        13/30
-Llama-3.3-70B        Original           45   66   15     0.4054   0.7500   0.5263        30/30        15/30
+Llama-3.3-70B        ODD + game stuff           45   66   15     0.4054   0.7500   0.5263        30/30        15/30
 Llama-3.3-70B        ODD-only           60   55    0     0.5217   1.0000   0.6857        30/30        30/30
-Qwen2.5-7B           Original           34   67   26     0.3366   0.5667   0.4224        30/30         4/30
+Qwen2.5-7B           ODD + game stuff           34   67   26     0.3366   0.5667   0.4224        30/30         4/30
 Qwen2.5-7B           ODD-only           46   61   14     0.4299   0.7667   0.5509        24/30        22/30
 
-Differences (ODD-only minus Original):
+Differences (ODD-only minus ODD + game stuff):
 Model                Delta TP Delta FP Delta FN  Delta Prec  Delta Recall   Delta F1   Delta Water  Delta Fish
 ────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 DeepSeek-R1                +1       -4       -1     +0.0642       +0.0167    +0.0370            -3          +4
