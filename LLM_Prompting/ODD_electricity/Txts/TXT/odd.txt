@@ -1,0 +1,244 @@
+ODD+D protocol for an ABM of irrigation electricity governance and energy efficiency in Andhra Pradesh, India
+
+Guiding Questions
+Example (Kimmich, 2013)
+
+I. Overview
+
+I.i Purpose
+
+I.i.a What is the purpose of the study?
+To analyze how linked action situations affect electricity governance and energy efficiency in irrigation systems by using game theory and empirical data from Andhra Pradesh, India.
+
+I.i.b For whom is the model designed?
+For scientists and policymakers interested in resource governance, institutional analysis, and energy policy.
+
+I.ii Entities, state variables, and scales
+
+I.ii.a What kinds of entities are in the model?
+Human agents: Farmers, sub-station personnel (utility staff), regulators (APERC).
+
+Institutional entities: Electricity governance rules, social norms.
+
+Physical entities: Electricity grid, transformers, groundwater, capacitors.
+
+I.ii.b By what attributes (i.e. state
+variables and parameters) are these entities characterised?
+Farmers: Location, access to electricity/groundwater, adoption of capacitors, budget, social networks.
+
+Utility staff: Discretionary power, collusion with farmers.
+
+Electricity grid: Capacity, voltage stability, transformer load.
+
+Groundwater: Table depth, extraction rates.
+
+I.ii.c What are the exogenous factors/drivers?
+Environmental and infrastructural conditions such as aquifer recharge rates, rainfall affecting groundwater availability, and the initial transformer capacities of the electricity grid. Additionally, policy and institutional settings are treated as externally set parameters that influence but are not determined by agent behavior. Exogenous drivers include stochastic monitoring intensity and exogenous aquifer recharge.
+
+I.ii.d If applicable, how is space included in the model?
+Implicitly through farmer locations (upstream/downstream effects on grid load) and village-level infrastructure.
+
+I.ii.e What are the temporal and spatial resolutions?
+Temporal: Annual irrigation cycles, monthly electricity billing.
+
+Spatial: Village-level transformers, district-level groundwater basins.
+
+I.iii Process overview and scheduling
+
+I.iii.a What entity does what, and in what order?
+1. Farmers predict water/energy needs, decide on capacitor adoption.
+
+2. Sub-station personnel authorize connections (formally/informally).
+
+3. Electricity grid distributes power; transformers fail if overloaded.
+
+4. Regulators (APERC) set tariffs and enforce rules.
+
+II. Design Concepts
+
+II.i Theoretical and Empirical Background
+
+II.i.a Which general concepts,
+theories or hypotheses are underlying the model’s design at the system level or at the level(s) of the submodel(s) (apart from the decision model)?
+What is the link to complexity and the purpose of the model?
+Each action situation mirrors a well-known strategic archetype (coordination/assurance, asymmetric authorization dilemma, mutual exchange coordination, asymmetric cost-sharing, and common-pool extraction). The ordinal relations between outcomes follow those archetypes’ canonical logic, mutual cooperation Pareto-dominant in assurance, unilateral defection advantageous in asymmetric dilemmas, and reciprocity necessary for exchange.
+
+II.i.b What assumptions are agents’ decisions based on?
+Bounded rationality, social learning, collusion norms.
+
+II.i.c Why are certain decision models chosen?
+Coordination and assurance structures capture interdependent technology choices where mutual participation is needed for efficiency; asymmetric Prisoner’s Dilemmas capture infrastructure under-investment and common-pool resource extraction; mutual-exchange coordination models represent relational governance between farmers and officials.
+
+II.i.d If the model is based on empirical data, where do data come from?
+Surveys, interviews, APERC reports, and groundwater data.
+
+II.i.e At what level of aggregation were data available?
+Village-level (transformers), individual farmer (Capacitor adoption).
+
+II.ii Individual Decision-Making
+
+II.ii.a What are the subjects/objects of decisions? On which level of aggregation is decision-making modelled? Are
+multiple levels of decision making
+included?
+Farmers decide whether to invest in electricity-quality improvements, pay for authorized connections, or extract groundwater. Some farmers are already connected and have contributed to transformer capacity, while others seek new or informal connections. This difference in contribution means that upgrades can benefit all, but costs fall unevenly across participants. Utility staff decide whether to enforce formal rules, accept informal exchanges, or invest effort in grid maintenance. Staff enforcement involves effort costs and potential sanctions if failures occur, while inaction saves effort but increases reputational risk. Farmers, in turn, face the trade-off between paying authorization fees and risking penalties from unauthorized use. “In some situations (e.g., transformer authorization), one farmer’s decision determines access conditions for others, creating an asymmetric interdependence where authorization confers collective benefit but uneven costs.
+
+II.ii.b What is the basic rationality behind agent decision-making in the model? Do agents pursue an explicit object or have other success criteria?
+Farmers pursue satisfactory yields and minimize costs under bounded rationality, anticipating others’ choices (e.g., whether neighbors authorize or adopt). Utility staff balance formal compliance and informal reciprocity, seeking stable relations and personal gain.
+
+II.ii.c How do agents make their decisions?
+Farmers use a mix of heuristic and social-learning rules: imitate successful peers, coordinate when mutual benefit is expected, or free-ride when others pay for shared capacity. Staff decide conditionally, enforcing when oversight risk is high, exchanging favors when trust networks are strong. When only some farmers contribute to grid upgrades, contributors bear private costs while non-contributors still enjoy reliability gains, creating an asymmetric free-rider dilemma around transformer capacity. These differing costs and risks create an asymmetric authorization–enforcement dilemma between farmers and staff, where each side’s optimal action depends on the other’s monitoring or compliance effort. Mutual exchanges between farmers and staff yield reciprocal benefit only if both engage; if either abstains, neither gains.
+
+II.ii.d Do agents adapt their behaviour to changing endogenous and exogenous state variables? And if yes, how?
+Yes. Farmers and staff adapt based on feedback: unreliable electricity or low water tables prompt behavioral change (e.g., shifting to diesel or delaying payment). Staff adapt enforcement effort to perceived oversight intensity.
+
+II.ii.e Do social norms or cultural values play a role in the decision-making process?
+Yes (e.g., solidarity among farmers, collusion with utility staff). Reciprocity and solidarity shape cooperation; collusive exchanges occur within ongoing relations of trust and mutual obligation. These ties can sustain either mutual enforcement or mutual tolerance, so both formal compliance and informal exchange can persist as stable outcomes within the same social network.
+
+II.ii.f Do spatial aspects matter?
+Yes (e.g., transformer proximity affects power quality).
+
+II.ii.g Do temporal aspects play a role in the decision process?
+Yes (e.g., memory of past grid failures influences capacitor adoption).
+
+II.ii.h To which extent and how is
+uncertainty included in the agents’
+decision rules?
+Uncertainty enters through bounded knowledge and stochastic enforcement. Farmers cannot know others’ simultaneous choices or the likelihood of monitoring. Sub-station staff face uncertain detection of collusion. Probabilistic outcomes alter expected ordinal payoffs—high-risk strategies yield lower expected ranks—without introducing numeric utilities.
+
+II.iii Learning
+
+II.iii.a Is individual learning included in the decision process? How do individuals change their decision rules over time as consequence of their experience?
+Yes, via social learning (observing neighbors’ capacitor outcomes).
+
+II.iii.b Is collective learning implemented?
+No
+
+II.iv Individual Sensing
+
+II.iv.a What endogenous and
+exogenous state variables are
+individuals assumed to sense and
+consider in their decisions? Is the
+sensing process erroneous?
+Farmers sense local electricity voltage levels, frequency of transformer burnouts, repair delays, equipment performance (pump set and capacitor functioning), and groundwater depth. These perceptions are often erroneous due to incomplete technical knowledge and difficulty linking causes (e.g., voltage drops) to specific sources.
+
+II.iv.b What state variables of which other individuals can an individual perceive? Is the sensing process erroneous?
+Farmers observe whether neighbouring farmers adopt capacitor measures or have authorised/unauthorised connections. This is perceived without error in terms of visible adoption, but the effects on performance are often misinterpreted.
+
+II.iv.c What is the spatial scale of
+sensing?
+Local (transformer service area and nearby wells), extended local (social network of neighbouring farmers), and utility-level for sub-station personnel.
+
+II.iv.d Are the mechanisms by which agents obtain information modelled explicitly, or are individuals simply assumed to know these variables?
+Information on neighbours’ adoption and visible infrastructure is assumed to be known through observation. Perceptions of electricity service quality and groundwater depth are based on direct experience, but no explicit sensing mechanism is modelled.
+
+II.iv.e Are the costs for cognition and the costs for gathering information explicitly included in the model?
+Not modeled explicitly
+
+II.v Individual Prediction
+
+II.v.a Which data do the agents use to predict future conditions?
+Farmers use past experiences of electricity service quality, equipment failure, repair delays, and groundwater availability. Sub-station personnel use past and current load conditions and connection records.
+
+II.v.b What internal models are agents assumed to use to estimate future conditions or consequences of their decisions?
+No formal predictive models; farmers rely on experiential heuristics and social learning from observed neighbour outcomes.
+
+II.v.c Might agents be erroneous in
+the prediction process, and how is it implemented?
+Yes. Predictions are erroneous due to misattribution of causes, incomplete technical understanding of coordination requirements, and biased learning from failed sequential adoption. This is not modelled probabilistically but emerges from bounded rationality and partial information in the empirical setting.
+
+II.iv Interaction
+
+II.iv.a Are interactions among agents and entities assumed as direct or indirect?
+Both. Farmers interact directly with neighbouring farmers and sub-station personnel, and indirectly with the utility and regulatory commission through institutional rules and enforcement.
+
+II.iv.b On what do the interactions depend?
+Location, social networks, institutional enforcement.
+
+II.vi.c If the interactions involve communication, how are such communications represented?
+Communication is represented implicitly through observed behaviour (e.g., capacitor adoption), informal discussions within social networks, and negotiation or collusion with sub-station personnel. No explicit communication protocol is modelled.
+
+II.vi.d If a coordination network exists, how does it affect the agent behaviour? Is the structure of the network imposed or emergent?
+Coordination networks, such as farmer social ties or collusive relationships with utility staff, influence adoption of capacitor measures, access to unauthorised connections, and capacity provision. These networks are emergent from kinship, trust, and repeated interactions.
+
+II.vii Collectives
+
+II.vii.a Do the individuals form or belong to aggregations that affect and are affected by the individuals? Are these aggregations imposed by the modeller or do they emerge during the simulation?
+Yes. Farmers belong to aggregations defined by shared transformer connections, village social networks, and informal collusion groups. These aggregations emerge from location, kinship ties, and institutional arrangements, rather than being imposed by the modeller.
+
+II.vii.b How are collectives
+represented?
+Collectives are represented implicitly through shared infrastructure (transformers), coordinated or collusive behaviour, and village-level norms. No explicit collective agent type is modelled.
+
+II.viii Heterogeneity
+
+II.viii.a Are the agents
+heterogeneous? If yes, which state
+variables and/or processes differ
+between the agents?
+Yes. Farmers differ in pump-set type and quality (standard-approved vs. low-quality), presence of capacitors, age of equipment, number of motor burn-outs, groundwater depth at their location, access type (authorised vs. unauthorised connection), financial resources, and strength of social network ties with sub-station personnel.
+
+II.viii.b Are the agents heterogeneous
+in their decision-making? If yes,
+which decision models or decision
+objects differ between the agents?
+Yes. Decision-making differs based on access to information through social learning networks, ability to pay for authorised connections, willingness or capacity to engage in collusion, and perceived risks/benefits of capacitor adoption given local voltage conditions and past experiences.
+
+II.v Stochasticity
+
+II.v.a What processes are modeled as random?
+Transformer failures, groundwater depletion rates.
+
+II.x Observation
+
+II.x.a What data are collected from the ABM for testing, understanding, and analysing it, and how and when are they collected?
+Annual adoption rates of capacitor measures (e.g., capacitors, ISI-marked pumpsets), frequency of transformer failures, proportion of authorised vs. unauthorised connections, groundwater extraction rates, and changes in pumping costs. Data are collected at the end of each simulation year.
+
+II.x.b What key results, outputs or
+characteristics of the model are
+emerging from the individuals?
+(Emergence)
+Patterns of capacitor adoption, persistence of collusion networks, uneven access to reliable electricity, degradation of power quality, and increasing pumping costs as groundwater declines.
+
+III. Details
+
+III.i Implementation Details
+
+III.i.a How is the model implemented?
+Conceptually represented through a set of interconnected game-theoretic models corresponding to core and adjacent action situations. Each game describes strategic choices of farmers and sub-station personnel, linked through parameters representing shared infrastructure and social networks.
+
+III.i.b Is the model accessible, and if so where?
+Can be made available upon request.
+
+III.ii Initialization
+
+III.ii.a What is the initial state of the model world, i.e. at time t=0 of a simulation run?
+An agricultural region with existing transformer infrastructure, a flat-rate electricity tariff, a mix of authorised and unauthorised connections, heterogeneous pump-set efficiency, and existing groundwater levels.
+
+III.ii.b Is the initialisation always the same, or is it allowed to vary among simulations?
+Initialisation can vary to represent different social network structures, levels of capacitor adoption, and groundwater conditions.
+
+III.ii.c Are the initial values chosen
+arbitrarily or based on data?
+Based on empirical data from Andhra Pradesh field studies, regulatory reports, and secondary literature.
+
+III.iii Input Data
+
+III.iii.a Does the model use input
+from external sources such as data files or other models to represent processes that change over time?
+No external data files are used; dynamic changes (e.g., groundwater decline, infrastructure deterioration) are generated endogenously by the linked game models.
+
+III.iii Submodels
+
+III.iv.a What, in detail, are the
+submodels that represent the
+processes listed in ‘Process overview and scheduling’?
+AS1 is a capacitor-adoption assurance game between two neighbouring farmers who decide whether to invest in voltage-stabilising equipment; mutual investment yields shared improvement, while unilateral investment yields no added private benefit, creating a coordination problem with mutual cooperation Pareto-dominant but risky. AS2 is a sequential social-learning process in capacitor adoption in which each farmer observes a peer’s outcome and imitates only if that outcome ranks higher, so diffusion occurs only after a successful coordinated trial has been observed. AS3 is an asymmetric transformer-capacity authorization dilemma between two farmers: one farmer’s authorization or investment benefits both by raising voltage quality, but costs fall solely on the authorizer, generating a free-rider incentive and uneven payoffs—if only one invests, the contributor bears cost while the non-investor benefits more, whereas if neither invests both remain at a low but non-zero baseline. AS4 is a mutual-exchange coordination game between a farmer and sub-station staff in which reciprocal benefit arises only when both engage in informal exchange; if either abstains while the other offers exchange, the offerer bears a loss while the abstainer reverts to baseline, and if both abstain no extra benefit occurs—only matched cooperation yields mutual gain. AS5 is an authorization-and-investment asymmetric coordination game between a farmer (formal versus informal request) and staff (invest versus withhold capacity); mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost, and if the farmer makes an informal request and staff invest, the farmer gains more while the staff bear the cost without the formal fee—staff gain modestly even under formal cooperation due to investment burden, producing asymmetric incentives between legality and opportunism. AS6 is a groundwater-extraction prisoner’s dilemma between two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+III.iv.b What are the model parameters, their dimensions and
+reference values?
+Parameters are ordinal payoff values in each game matrix, plus linking parameters (τ, δ, ι, γ) representing transformer capacity, social norms, learning constraints, and pumping costs. Reference values are normalised to ordinal ranks as reported in the paper’s tables.
+
+III.iv.c How were the submodels
+designed or chosen, and how were they parameterised and then tested?
+Submodels are derived from field interviews, public hearing transcripts, and literature on electricity governance and groundwater use in Andhra Pradesh. Payoff structures were parameterised based on observed incentives, infrastructure conditions, and reported behaviours, then tested conceptually for plausibility and equilibrium structure.

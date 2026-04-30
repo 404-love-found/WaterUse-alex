@@ -1,0 +1,86 @@
+Electricity governance model context:
+The model represents irrigation electricity governance in Andhra Pradesh, India. It links farmer decisions, sub-station personnel decisions, electricity-grid reliability, transformer capacity, capacitor adoption, and groundwater extraction. Farmers need electricity to pump groundwater for irrigation. Electricity quality depends on local transformer capacity, aggregate pump load, equipment quality, capacitor use, connection authorization, and staff maintenance/enforcement.
+
+Purpose and empirical setting:
+The model is designed to analyze how linked strategic incentives affect electricity governance and energy efficiency in irrigation systems. It is based on field evidence, interviews, surveys, public regulatory material, APERC reports, and groundwater/electricity governance studies from Andhra Pradesh. The target audience is scientists and policymakers interested in resource governance, institutional analysis, and energy policy.
+
+Entities and state variables:
+Farmers have location, transformer-service area, access to groundwater, access type (authorized or unauthorized electricity connection), pump-set type and quality, capacitor status, budget, social-network ties, memory of past failures, and perceived reliability of supply.
+Sub-station personnel have discretionary enforcement power, access to connection records, maintenance responsibility, effort costs, reputational concerns, and potential informal relationships with farmers.
+The regulator APERC sets tariffs and formal rules and affects oversight intensity, but it is treated mainly as an institutional rule-setter rather than a repeatedly choosing local participant.
+The electricity grid has transformer capacity, aggregate load, voltage stability, connection status, repair delays, and burnout risk.
+Groundwater has aquifer depth, recharge, extraction rate, and pumping cost implications.
+Capacitors and pump-set quality affect voltage stabilization, pump efficiency, and the probability that adoption visibly improves local service quality.
+
+Spatial and temporal structure:
+Space is represented implicitly through village-level transformer service areas, farmer proximity to transformers, local social networks, and district-level groundwater basins. Farmers connected to the same transformer affect each other indirectly because aggregate load changes voltage quality and transformer failure risk.
+The main time step is an annual irrigation cycle. Electricity billing, enforcement, and service feedback can be represented at a monthly level. Farmers and staff update expectations from past transformer failures, voltage instability, repair delays, equipment performance, and groundwater conditions.
+
+Process overview and scheduling:
+At the beginning of the irrigation cycle, farmers form expectations about irrigation water needs, electricity quality, groundwater access, pumping costs, and the likely behavior of neighboring farmers.
+Farmers decide whether to invest in voltage-stabilizing equipment such as capacitors, whether to use standard-approved or low-quality pump equipment, whether to seek authorized electricity access, and whether to rely on informal access or relationships.
+Sub-station personnel observe local load conditions and connection records. They decide how much effort to devote to enforcement, formal authorization, informal tolerance, and transformer maintenance.
+Electricity is delivered through village-level transformer infrastructure. If aggregate demand exceeds effective transformer capacity, voltage quality declines and transformer failure risk increases.
+Farmers pump groundwater for irrigation. Pumping volume is shaped by electricity availability, pump efficiency, groundwater depth, pumping cost, and perceived need for crop yield.
+At the end of the cycle, farmers observe crop results, equipment performance, service reliability, groundwater depth, repair delays, and neighbors' visible outcomes. These observations feed into social learning and future decisions.
+
+Capacitor adoption and coordination:
+Capacitors can improve voltage stability and pump efficiency, but benefits are strongest when adoption is coordinated among farmers sharing the same transformer. If only one farmer installs a capacitor while neighbors do not, the local reliability improvement may be weak or hard to attribute, making unilateral investment unattractive.
+Farmers observe visible adoption by neighbors and may imitate successful peers. Diffusion is therefore path-dependent: early failed or isolated adoption can discourage later uptake, while visibly successful coordinated adoption can spread through the social network.
+The main uncertainty is not whether a capacitor physically works, but whether enough connected farmers participate and whether farmers correctly interpret the cause of observed voltage improvements or failures.
+
+Transformer capacity and contribution imbalance:
+Some farmers already contributed to authorized transformer capacity or formal connection costs, while others seek access later or rely on informal connections. Capacity upgrades and authorized connections can improve reliability for the local group, but costs are not always shared evenly.
+When one farmer pays for authorization or capacity improvement, other connected farmers can still benefit from improved voltage quality. This creates a free-rider incentive for non-contributors and makes contributors bear disproportionate private costs.
+If too many farmers avoid contributing, the transformer remains overloaded or under-maintained. If enough farmers contribute or comply formally, reliability improves but individual incentives can still favor waiting for others to pay first.
+
+Farmer and sub-station personnel interaction:
+Farmers and sub-station personnel interact under formal electricity rules and informal local relationships. Formal compliance can involve authorization fees, records, and staff effort. Informal exchange can involve tolerance of unauthorized access or reciprocal favors.
+Informal exchange benefits both sides only when expectations are matched. A farmer offering informal cooperation loses if staff enforce strictly; staff tolerating or helping informally lose if the farmer does not reciprocate or if oversight detects misconduct.
+Staff decisions depend on oversight risk, trust networks, expected personal benefit, reputational risk, and the local consequences of transformer failure. Farmer decisions depend on connection cost, penalty risk, expected staff response, service reliability, and social ties.
+
+Authorization, enforcement, and maintenance:
+Formal authorization increases legitimacy and can support better capacity planning, but it requires costs for farmers and effort or investment from staff. Staff may withhold effort to avoid maintenance burden, while farmers may prefer informal access to reduce immediate costs.
+When farmers request formal access and staff invest in capacity or maintenance, reliability improves and penalties are avoided, but staff bear effort costs and farmers bear formal fees.
+When farmers seek informal access and staff tolerate it, the farmer may obtain cheaper electricity access, but the system records become less reliable and transformer overload risk can rise.
+When staff enforce rules while farmers attempt informal access, farmers face penalties or exclusion. When staff withhold maintenance even under formal requests, farmers bear costs without receiving expected reliability improvements.
+
+Grid reliability and transformer dynamics:
+Transformer reliability depends on effective capacity, aggregate pump load, equipment quality, capacitor use, unauthorized connections, and maintenance effort.
+A simple ordinal reliability relationship can be represented as:
+Reliability increases with transformer capacity, capacitor coordination, standard pump quality, formal connection records, and staff maintenance effort.
+Reliability decreases with unauthorized load, low-quality pump sets, high simultaneous pumping demand, delayed repair, and weak enforcement.
+Transformer failure risk increases when aggregate load exceeds effective capacity for sustained periods. Failure produces service interruptions, repair delays, higher pumping uncertainty, and stronger incentives for farmers to shift strategies in later cycles.
+
+Groundwater extraction dynamics:
+Farmers pump groundwater for irrigation using electric pumps. Groundwater extraction is individually beneficial in the short run because it supports crop production, but aggregate over-extraction lowers the water table.
+As groundwater depth increases, pumping becomes more costly and less reliable. Deeper groundwater can require more electricity or longer pumping time, which further increases grid load and can worsen transformer stress.
+Aquifer recharge and rainfall are exogenous drivers. Extraction decisions are endogenous and can create feedback: heavy pumping lowers groundwater, deeper groundwater raises pumping cost and electricity demand, and higher load reduces electricity reliability.
+
+Bounded rationality, sensing, and learning:
+Farmers are boundedly rational. They rely on local experience, visible neighbor behavior, social learning, and rough attribution rather than perfect technical knowledge.
+Farmers sense voltage levels, transformer burnouts, repair delays, pump performance, groundwater depth, and neighbors' visible adoption or connection status. These signals can be misleading because farmers may incorrectly attribute voltage drops or pump failures to the wrong cause.
+Sub-station personnel use connection records, observed load, past failures, and perceived oversight intensity. They also operate under uncertainty about detection of informal exchange and future transformer failures.
+Social learning is local. Farmers are more likely to imitate successful neighbors with similar equipment, transformer access, or social position. Failed adoption or unclear performance gains can slow diffusion even when the technology would be efficient under broader coordination.
+
+Social norms and informal institutions:
+Solidarity among farmers, kinship ties, repeated interactions, and trust networks influence both formal compliance and informal exchange. Collusive relationships with utility staff can persist when both sides expect reciprocal benefit and low detection risk.
+The same social network can support different outcomes. It can encourage coordinated capacitor adoption and formal contribution, or it can support informal tolerance, free-riding, and continued underinvestment.
+
+Payoff logic:
+Payoffs are ordinal rather than monetary. Higher-ranked outcomes combine reliable electricity, adequate irrigation, lower avoidable costs, lower penalty exposure, stable equipment performance, and sustainable groundwater access.
+Farmers rank outcomes by crop reliability, pumping cost, connection cost, penalty risk, equipment investment cost, and whether neighbors' behavior improves or worsens shared infrastructure.
+Sub-station personnel rank outcomes by effort cost, formal compliance, informal benefit, oversight risk, reputation, and whether local grid failure creates blame or additional work.
+For shared infrastructure choices, mutual contribution or coordinated adoption can be collectively best, but unilateral contribution can be privately unattractive because benefits spill over to non-contributors.
+For informal exchange, mutual reciprocity can be stable when trust is high and oversight is weak, but mismatched expectations create losses for the party that offers cooperation while the other side abstains or enforces.
+For groundwater, individual high extraction can dominate in the short run when others restrain, but mutual high extraction accelerates depletion and raises future pumping and electricity costs.
+
+Linking parameters:
+tau represents effective transformer capacity and local grid reliability conditions.
+delta represents social norms, reciprocity, and the strength of trust or collusion networks.
+iota represents learning constraints, visibility of successful adoption, and imitation barriers.
+gamma represents pumping cost pressure, groundwater depth, and the energy burden of extraction.
+These parameters link the local mechanisms: weak capacity can make capacitor adoption more salient, strong social ties can support either coordination or collusion, poor learning can block efficient diffusion, and declining groundwater can increase electricity demand and grid stress.
+
+Model outputs:
+Important outputs include capacitor adoption rates, use of standard-approved pump sets, transformer failure frequency, repair delays, proportion of authorized versus unauthorized connections, electricity reliability, groundwater extraction rates, pumping costs, persistence of informal staff-farmer networks, and uneven access to reliable electricity across villages or transformer areas.
