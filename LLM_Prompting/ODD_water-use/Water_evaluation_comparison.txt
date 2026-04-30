@@ -10,78 +10,12 @@ Evaluation Context:
   ODD + game stuff evaluation: ODD + game stuff
   ODD-only evaluation: ODD only
 
-
-######################################################################
-  MODEL 1: DeepSeek-R1 (30 runs)
-######################################################################
-
-ODD + game stuff Evaluation:
-  TP = 39    FP = 14    FN = 21
-  Precision = 0.7358
-  Recall    = 0.6500
-  Water AS correctly identified: 30/30 runs (100.0%)
-  Fish  AS correctly identified:  9/30 runs (30.0%)
-
-ODD-Only Evaluation:
-  TP = 40    FP = 10    FN = 20
-  Precision = 0.8000
-  Recall    = 0.6667
-  Water AS correctly identified: 27/30 runs (90.0%)
-  Fish  AS correctly identified: 13/30 runs (43.3%)
-
-Difference (ODD-only minus Original):
-  Delta TP: +1 | Delta FP: -4 | Delta FN: -1
-  Delta Precision: +0.0642 | Delta Recall: +0.0167
-  Delta Water: -3 | Delta Fish: +4
-
-
-######################################################################
-  MODEL 2: Llama-3.3-70B (30 runs)
-######################################################################
-
-Original Evaluation:
-  TP = 45    FP = 66    FN = 15
-  Precision = 0.4054
-  Recall    = 0.7500
-  Water AS correctly identified: 30/30 runs (100.0%)
-  Fish  AS correctly identified: 15/30 runs (50.0%)
-
-ODD-Only Evaluation:
-  TP = 60    FP = 55    FN = 0
-  Precision = 0.5217
-  Recall    = 1.0000
-  Water AS correctly identified: 30/30 runs (100.0%)
-  Fish  AS correctly identified: 30/30 runs (100.0%)
-
-Difference (ODD-only minus Original):
-  Delta TP: +15 | Delta FP: -11 | Delta FN: -15
-  Delta Precision: +0.1163 | Delta Recall: +0.2500
-  Delta Water: 0 | Delta Fish: +15
-
-
-######################################################################
-  MODEL 3: Qwen2.5-7B (30 runs)
-######################################################################
-
-Original Evaluation:
-  TP = 34    FP = 67    FN = 26
-  Precision = 0.3366
-  Recall    = 0.5667
-  Water AS correctly identified: 30/30 runs (100.0%)
-  Fish  AS correctly identified:  4/30 runs (13.3%)
-
-ODD-Only Evaluation :
-  TP = 46    FP = 61    FN = 14
-  Precision = 0.4299
-  Recall    = 0.7667
-  Water AS correctly identified: 24/30 runs (80.0%)
-  Fish  AS correctly identified: 22/30 runs (73.3%)
-
-Difference (ODD-only minus Original):
-  Delta TP: +12 | Delta FP: -6 | Delta FN: -12
-  Delta Precision: +0.0933 | Delta Recall: +0.2000
-  Delta Water: -6 | Delta Fish: +18
-
+Metrics:
+  TP = How many LLM-generated ASs were correct
+  FN = How many correct ASs the LLM missed
+  FP = How many LLM-generated ASs were wrong
+  Precision = TP / (TP + FP)
+  Recall    = TP / (TP + FN)
 
 ######################################################################
   FINAL COMPARISON TABLE: ORIGINAL VS ODD-ONLY
