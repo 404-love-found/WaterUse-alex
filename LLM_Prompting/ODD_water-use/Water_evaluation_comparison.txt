@@ -1,5 +1,5 @@
 ======================================================================
-  COMPARISON EVALUATION: ORIGINAL VS ODD-ONLY
+  COMPARISON EVALUATION: ODD + game stuff VS ODD-ONLY
 ======================================================================
 
 Ground Truth (2 correct action situations)
