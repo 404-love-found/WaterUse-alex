@@ -1,0 +1,105 @@
+======================================================================
+  COMPARISON EVALUATION: ORIGINAL VS ODD-ONLY
+======================================================================
+
+Ground Truth (2 correct action situations)
+  AS1: Upstream and downstream withdrawal decisions
+  AS2: Fish extraction common pool resource game
+
+Evaluation Context:
+  ODD + game stuff evaluation: ODD + game stuff
+  ODD-only evaluation: ODD only
+
+
+######################################################################
+  MODEL 1: DeepSeek-R1 (30 runs)
+######################################################################
+
+ODD + game stuff Evaluation:
+  TP = 39    FP = 14    FN = 21
+  Precision = 0.7358
+  Recall    = 0.6500
+  Water AS correctly identified: 30/30 runs (100.0%)
+  Fish  AS correctly identified:  9/30 runs (30.0%)
+
+ODD-Only Evaluation:
+  TP = 40    FP = 10    FN = 20
+  Precision = 0.8000
+  Recall    = 0.6667
+  Water AS correctly identified: 27/30 runs (90.0%)
+  Fish  AS correctly identified: 13/30 runs (43.3%)
+
+Difference (ODD-only minus Original):
+  Delta TP: +1 | Delta FP: -4 | Delta FN: -1
+  Delta Precision: +0.0642 | Delta Recall: +0.0167
+  Delta Water: -3 | Delta Fish: +4
+
+
+######################################################################
+  MODEL 2: Llama-3.3-70B (30 runs)
+######################################################################
+
+Original Evaluation:
+  TP = 45    FP = 66    FN = 15
+  Precision = 0.4054
+  Recall    = 0.7500
+  Water AS correctly identified: 30/30 runs (100.0%)
+  Fish  AS correctly identified: 15/30 runs (50.0%)
+
+ODD-Only Evaluation:
+  TP = 60    FP = 55    FN = 0
+  Precision = 0.5217
+  Recall    = 1.0000
+  Water AS correctly identified: 30/30 runs (100.0%)
+  Fish  AS correctly identified: 30/30 runs (100.0%)
+
+Difference (ODD-only minus Original):
+  Delta TP: +15 | Delta FP: -11 | Delta FN: -15
+  Delta Precision: +0.1163 | Delta Recall: +0.2500
+  Delta Water: 0 | Delta Fish: +15
+
+
+######################################################################
+  MODEL 3: Qwen2.5-7B (30 runs)
+######################################################################
+
+Original Evaluation:
+  TP = 34    FP = 67    FN = 26
+  Precision = 0.3366
+  Recall    = 0.5667
+  Water AS correctly identified: 30/30 runs (100.0%)
+  Fish  AS correctly identified:  4/30 runs (13.3%)
+
+ODD-Only Evaluation :
+  TP = 46    FP = 61    FN = 14
+  Precision = 0.4299
+  Recall    = 0.7667
+  Water AS correctly identified: 24/30 runs (80.0%)
+  Fish  AS correctly identified: 22/30 runs (73.3%)
+
+Difference (ODD-only minus Original):
+  Delta TP: +12 | Delta FP: -6 | Delta FN: -12
+  Delta Precision: +0.0933 | Delta Recall: +0.2000
+  Delta Water: -6 | Delta Fish: +18
+
+
+######################################################################
+  FINAL COMPARISON TABLE: ORIGINAL VS ODD-ONLY
+######################################################################
+
+Side-by-side totals:
+Model                Evaluation         TP   FP   FN  Precision   Recall       F1        Water         Fish
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────
+DeepSeek-R1          Original           39   14   21     0.7358   0.6500   0.6903        30/30         9/30
+DeepSeek-R1          ODD-only           40   10   20     0.8000   0.6667   0.7273        27/30        13/30
+Llama-3.3-70B        Original           45   66   15     0.4054   0.7500   0.5263        30/30        15/30
+Llama-3.3-70B        ODD-only           60   55    0     0.5217   1.0000   0.6857        30/30        30/30
+Qwen2.5-7B           Original           34   67   26     0.3366   0.5667   0.4224        30/30         4/30
+Qwen2.5-7B           ODD-only           46   61   14     0.4299   0.7667   0.5509        24/30        22/30
+
+Differences (ODD-only minus Original):
+Model                Delta TP Delta FP Delta FN  Delta Prec  Delta Recall   Delta F1   Delta Water  Delta Fish
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+DeepSeek-R1                +1       -4       -1     +0.0642       +0.0167    +0.0370            -3          +4
+Llama-3.3-70B             +15      -11      -15     +0.1163       +0.2500    +0.1594            +0         +15
+Qwen2.5-7B                +12       -6      -12     +0.0933       +0.2000    +0.1285            -6         +18
