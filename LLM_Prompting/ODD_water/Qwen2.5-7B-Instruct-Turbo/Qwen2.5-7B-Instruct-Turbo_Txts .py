@@ -4,7 +4,9 @@ import os
 # ---------------------------------------------------------
 # Configuration
 # ---------------------------------------------------------
-api_key = "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc"
+api_key = os.environ.get("TOGETHER_API_KEY")
+if not api_key:
+    raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
 client = Together(api_key=api_key)
 
 model_name = "Qwen/Qwen2.5-7B-Instruct-Turbo"

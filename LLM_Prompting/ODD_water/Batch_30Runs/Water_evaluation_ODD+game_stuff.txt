@@ -1,6 +1,6 @@
-======================================================================
-  FINAL EVALUATION: TP / FP / FN (ODD+game_stuff)
-======================================================================
+==============================================================================
+FINAL EVALUATION: TP / FP / FN (ODD+game_stuff)
+==============================================================================
 
 Ground Truth (2 correct action situations):
   AS1: Upstream and downstream withdrawal decisions
@@ -15,636 +15,661 @@ Metrics:
   F1 Score  = 2 * Precision * Recall / (Precision + Recall)
 
 
-######################################################################
-  MODEL 1: DeepSeek-R1  (30 runs)
-######################################################################
-
-Run 01 | TP=1  FP=1  FN=1
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Extraction Dilemma between Upstream and Downstream Farmers
-  FP: **Action Situation 2: Risk-Taking Dilemma in Irrigation Strategy
-  FN missed: Fish extraction CPR
-
-Run 02 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Water Extraction and Ecological Threshold Dilemma
-  TP: [fish]  Downstream Fishing Competition Dilemma
-
-Run 03 | TP=1  FP=1  FN=1
-  Generated ASs: 2
-  FP: Extracted Action Situations for Decentralized Version (DV)
-  TP: [water] Title: **Upstream-Downstream Water Extraction Dilemma
-  FN missed: Fish extraction CPR
-
-Run 04 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Extraction Dilemma between Upstream and Downstream Farmers
-  TP: [fish]  **Action Situation 2: Fishing Order Dilemma
-
-Run 05 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Allocation Dilemma Between Upstream and Downstream Farmers
-  TP: [fish]  **Action Situation 2: Fishing Pressure Dilemma Among Downstream Farmers
-
-Run 06 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [fish]  **Action Situation 1: Water Extraction Dilemma for Fish Reproduction Threshold
-  FN missed: Upstream and downstream withdrawal decisions
-
-Run 07 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: **Upstream-Downstream Water Allocation Dilemma
-  TP: [fish]  Action Situation 2: **Sequential Fishing Access Dilemma
-
-Run 08 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [fish]  Action Situation 1: **Spatial Water Rivalry with Ecological Tipping Points
-  FN missed: Upstream and downstream withdrawal decisions
-
-Run 09 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: Water Withdrawal Dilemma with Ecological Threshold
-  TP: [fish]  Action Situation 2: Fishing Access Asymmetry
-
-Run 10 | TP=1  FP=1  FN=1
-  Generated ASs: 2
-  TP: [water] Action Situation 1: **Water Allocation Dilemma (Upstream-Downstream)
-  FP: Action Situation 2: **Ecological Threshold Dilemma (May Inflow)
-  FN missed: Fish extraction CPR
-
-Run 11 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: **Upstream-Downstream Water Rivalry
-  TP: [fish]  Action Situation 2: **Irrigation-Fishery Tradeoff
-
-Run 12 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Allocation Dilemma (Upstream vs. Downstream)
-  TP: [fish]  **Action Situation 2: Fishing Pressure Dilemma (Downstream Farmers)
-
-Run 13 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] 1. **Water Extraction Dilemma with Ecological Threshold
-  FN missed: Fish extraction CPR
-
-Run 14 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Allocation Dilemma (Upstream-Downstream)
-  TP: [fish]  **Action Situation 2: Fish Stock Sustainability Dilemma
-
-Run 15 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Water Extraction Dilemma
-  TP: [fish]  Action Situation 2: Fishing Access Competition
-  FP: [duplicate] Action Situation 3: Irrigation Risk Coordination
-
-Run 16 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] Extracted Action Situations for Decentralized Version (DV)
-  FN missed: Fish extraction CPR
-
-Run 17 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Extraction Dilemma between Upstream and Downstream Farmers
-  TP: [fish]  **Action Situation 2: Fishing Competition under Water Scarcity
-
-Run 18 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: Upstream-Downstream Water Rivalry for Agriculture
-  TP: [fish]  Action Situation 2: May Water Extraction for Fish Reproduction Threshold
-
-Run 19 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] Action Situation: Upstream-Downstream Water Extraction Dilemma
-  FN missed: Fish extraction CPR
-
-Run 20 | TP=0  FP=0  FN=2
-  Generated ASs: 0
-  FN missed: Upstream and downstream withdrawal decisions
-  FN missed: Fish extraction CPR
-
-Run 21 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Upstream-Downstream Water Extraction Dilemma
-  TP: [fish]  **Action Situation 2: Sequential Fishing Access Dilemma
-
-Run 22 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Upstream-Downstream Water Allocation Dilemma
-  TP: [fish]  **Action Situation 2: Downstream Fishing Access Dilemma
-
-Run 23 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: **Upstream-Downstream Water Extraction Dilemma
-  TP: [fish]  Action Situation 2: **Lake Water Threshold Coordination
-
-Run 24 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] Action Situation: **Upstream-Downstream Water Extraction Dilemma
-  FN missed: Fish extraction CPR
-
-Run 25 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] 1. **Water Extraction Dilemma: Upstream vs. Downstream Farmers
-  FN missed: Fish extraction CPR
-
-Run 26 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] Action Situation 1: Upstream-Downstream Water Competition
-  TP: [fish]  Action Situation 2: Lake Inflow Threshold Maintenance
-
-Run 27 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] **Action Situation 1: Water Rivalry between Upstream and Downstream Farmers
-  TP: [fish]  **Action Situation 2: Collective Water Use vs. Fish Population Viability
-
-Run 28 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [water] 1. **Upstream-Downstream Water Extraction Dilemma
-  TP: [fish]  2. **Downstream Fishing Race Dilemma
-
-Run 29 | TP=0  FP=1  FN=2
-  Generated ASs: 1
-  FP: Extracted Action Situations
-  FN missed: Upstream and downstream withdrawal decisions
-  FN missed: Fish extraction CPR
-
-Run 30 | TP=2  FP=0  FN=0
-  Generated ASs: 2
-  TP: [fish]  Analysis of Distinct Action Situations for Decentralized Case (DV)
-  TP: [water] Summary of Strategic Tensions
-
-----------------------------------------------------------------------
-  DeepSeek-R1 TOTALS
-----------------------------------------------------------------------
-  TP = 46    FP = 5     FN = 14
-  Avg/run:  TP=1.53  FP=0.17  FN=0.47
-  Precision = TP/(TP+FP) = 46/(46+5) = 0.9020
-  Recall    = TP/(TP+FN) = 46/(46+14) = 0.7667
-  F1 Score  = 0.8288
-
-  Water AS correctly identified: 26/30 runs (86.7%)
-  Fish  AS correctly identified: 20/30 runs (66.7%)
-
-######################################################################
-  MODEL 2: Llama-3.3-70B  (30 runs)
-######################################################################
-
-Run 01 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream-Downstream Water Usage
-  TP: [fish]  Action Situation 2: Fishing and Water Usage
-  FP: Action Situation 3: Risky Irrigation Investment
-
-Run 02 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-  FP: [duplicate] Action Situation 4: Farmer's Response to Ecological Thresholds
-
-Run 03 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream vs Downstream Irrigation Decision
-  FP: Action Situation 2: Risky Irrigation Expansion
-  TP: [fish]  Action Situation 3: Fishing Resource Management
-  FP: Action Situation 4: Water Conservation vs Expansion
-
-Run 04 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream-Downstream Water Extraction
-  TP: [fish]  Action Situation 2: Fishing Quota Competition
-  FP: Action Situation 3: Irrigation Expansion vs. Ecological Conservation
-
-Run 05 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Invest in Water Conservation
-  FP: Action Situation 4: Farmer's Response to Ecological Threshold
-
-Run 06 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Fish
-  FP: [duplicate] Action Situation 3: Farmer's Investment in Irrigation vs. Fishing
-
-Run 07 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [fish]  Action Situation 1: Upstream Farmer Increases Irrigation vs Downstream Farmer Increases Fishing
-  FP: Action Situation 2: Farmer Decides to Exceed Ecological Threshold vs Farmer Conserves Water
-  TP: [water] Action Situation 3: Upstream Farmer Invests in Water-Saving Technology vs Downstream Farmer Does Not
-
-Run 08 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Invest in Irrigation Infrastructure
-  FP: Action Situation 4: Farmer's Response to Ecological Threshold
-
-Run 09 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Field Expansion Decision
-
-Run 10 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream-Downstream Water Allocation
-  TP: [fish]  Action Situation 2: Fishing Resource Management
-  FP: Action Situation 3: Water Flow Prediction and Irrigation
-  FP: [duplicate] Action Situation 4: Ecological Thresholds and Tipping Points
-
-Run 11 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Invest in Fishing
-  FP: [duplicate] Action Situation 3: Farmer's Response to Ecological Thresholds
-
-Run 12 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Fish
-  FP: Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-
-Run 13 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Fish
-  FP: Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-
-Run 14 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Field Expansion Decision
-  FP: Action Situation 4: Farmer's Risk-Taking Decision
-
-Run 15 | TP=2  FP=3  FN=0
-  Generated ASs: 5
-  TP: [water] Action Situation 1: Upstream-Downstream Water Allocation
-  TP: [fish]  Action Situation 2: Overfishing
-  FP: Action Situation 3: Field Expansion
-  FP: Action Situation 4: Risk Taking in Irrigation Decisions
-  FP: Action Situation 5: Adaptive Management of Water Resources
-
-Run 16 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Fishing Decision
-  FP: [duplicate] Action Situation 3: Upstream Farmer's Water Withdrawal Decision
-  FP: Action Situation 4: Farmer's Field Expansion Decision
-
-Run 17 | TP=2  FP=3  FN=0
-  Generated ASs: 5
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Invest in Fishing
-  FP: [duplicate] Action Situation 3: Upstream Farmer's Decision to Increase Irrigated Fields
-  FP: Action Situation 4: Farmer's Response to Ecological Thresholds
-  FP: [duplicate] Action Situation 5: Spatial Asymmetry in Water Access
-
-Run 18 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Increase Fields
-  FP: [duplicate] Action Situation 4: Water Allocation Under Ecological Thresholds
-
-Run 19 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream-Downstream Irrigation Dilemma
-  TP: [fish]  Action Situation 2: Fishing and Water Extraction Trade-off
-  FP: [duplicate] Action Situation 3: Information Sharing and Cooperation
-
-Run 20 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-  FP: Action Situation 4: Farmers' Collective Response to Ecological Thresholds
-
-Run 21 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Invest in Irrigation Efficiency
-  FP: Action Situation 4: Response to Ecological Thresholds
-
-Run 22 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Upstream Farmer Exploitation
-  TP: [fish]  2. Fishery Conservation
-  FP: 3. Water Conservation vs. Irrigation
-  FP: 4. Field Expansion
-
-Run 23 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream-Downstream Water Usage
-  TP: [fish]  Action Situation 2: Fishing Resource Management
-  FP: Action Situation 3: Irrigation Investment
-
-Run 24 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Invest in Fishing
-  FP: Action Situation 3: Reaction to Ecological Thresholds
-  FP: [duplicate] Action Situation 4: Upstream-Downstream Coordination
-
-Run 25 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Invest in Irrigation Infrastructure
-  FP: Action Situation 4: Farmer's Decision to Expand Irrigated Fields
-
-Run 26 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Farmer's Decision to Fish
-  FP: [duplicate] Action Situation 3: Farmer's Investment in Irrigation Efficiency
-
-Run 27 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Upstream Farmer's Irrigation Decision
-  TP: [fish]  Action Situation 2: Downstream Farmer's Fishing Decision
-  FP: Action Situation 3: Farmer's Decision to Invest in Water Conservation
-  FP: [duplicate] Action Situation 4: Farmer's Response to Ecological Thresholds
-
-Run 28 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream-Downstream Water Allocation
-  TP: [fish]  Action Situation 2: Fishing Resource Management
-  FP: Action Situation 3: Irrigation Investment
-
-Run 29 | TP=2  FP=3  FN=0
-  Generated ASs: 5
-  TP: [water] 1. Upstream Farmer's Irrigation Decision
-  TP: [fish]  2. Downstream Farmer's Fishing Decision
-  FP: 3. Farmer's Field Expansion Decision
-  FP: 4. Water Flow Prediction and Irrigation Decision
-  FP: [duplicate] 5. Ecological Threshold and Fishing Decision
-
-Run 30 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] Action Situation 1: Upstream Farmer Increases Irrigation, Downstream Farmer's Water Stress
-  TP: [fish]  Action Situation 2: Farmer's Irrigation Decision vs. Ecological Threshold for Fish Population
-  FP: [duplicate] Action Situation 3: Upstream and Downstream Farmers' Irrigation Decisions with Limited Water Availability
-
-----------------------------------------------------------------------
-  Llama-3.3-70B TOTALS
-----------------------------------------------------------------------
-  TP = 60    FP = 50    FN = 0
-  Avg/run:  TP=2.00  FP=1.67  FN=0.00
-  Precision = TP/(TP+FP) = 60/(60+50) = 0.5455
-  Recall    = TP/(TP+FN) = 60/(60+0) = 1.0000
-  F1 Score  = 0.7059
-
-  Water AS correctly identified: 30/30 runs (100.0%)
-  Fish  AS correctly identified: 30/30 runs (100.0%)
-
-######################################################################
-  MODEL 3: Qwen2.5-7B  (30 runs)
-######################################################################
-
-Run 01 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Farmer's Irrigation Decisions
-  TP: [fish]  2. Strategic Tension: Irrigation vs. Fishing
-  FP: 3. Strategic Tension: Risk-Taking vs. Risk-Aversion
-
-Run 02 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Spatial Asymmetry in Water Allocation
-  TP: [fish]  2. Strategic Tension: Ecological Thresholds in Fish Population
-  FP: [duplicate] 3. Strategic Tension: Economic Thresholds in Farmer Income
-
-Run 03 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Farmer Water Allocation
-  FP: [duplicate] 2. Strategic Tension: Farmer's Risk Tolerance in Water Allocation
-  TP: [fish]  3. Strategic Tension: Ecological Thresholds in Fish Population Growth
-  FP: [duplicate] 4. Strategic Tension: Spatial Asymmetry in Water and Fish Access
-
-Run 04 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Risk vs. Security in Water Allocation
-  TP: [fish]  2. Strategic Tension: Water Allocation and Fish Population
-  FP: [duplicate] 3. Strategic Tension: Water Allocation and Budget Constraints
-
-Run 05 | TP=1  FP=2  FN=1
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Water Allocation and Yield Optimization (Upstream vs Downstream)
-  FP: [duplicate] 2. Strategic Tension: Income Threshold and Risk-Taking (Upstream vs Downstream)
-  FP: [duplicate] 3. Strategic Tension: Ecological Threshold and Fish Population Sustainability (Upstream vs Downstream)
-  FN missed: Fish extraction CPR
-
-Run 06 | TP=1  FP=3  FN=1
-  Generated ASs: 4
-  FP: Action Situation 1: Spatial Asymmetry and Risk Aversion
-  TP: [fish]  Action Situation 2: Ecological Threshold and Fish Population Sustainability
-  FP: Action Situation 3: Risk Tolerance and Budget Constraints
-  FP: Action Situation 4: Water Stress and Yield Reduction
-  FN missed: Upstream and downstream withdrawal decisions
-
-Run 07 | TP=1  FP=2  FN=1
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Resource Allocation vs. Yield Maximization
-  FP: 2. Strategic Tension: Risk vs. Security
-  FP: [duplicate] 3. Strategic Tension: Competition vs. Cooperation
-  FN missed: Fish extraction CPR
-
-Run 08 | TP=0  FP=3  FN=2
-  Generated ASs: 3
-  FP: 1. Strategic Tension: Risk Aversion vs. Optimism
-  FP: 2. Strategic Tension: Short-term Gain vs. Long-term Sustainability
-  FP: 3. Strategic Tension: Individual vs. Collective Welfare
-  FN missed: Upstream and downstream withdrawal decisions
-  FN missed: Fish extraction CPR
-
-Run 09 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Farmers' Irrigation Decisions
-  FN missed: Fish extraction CPR
-
-Run 10 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Water Allocation
-  FP: [duplicate] 2. Strategic Tension: Risk vs. Caution in Water Allocation
-  TP: [fish]  3. Strategic Tension: Ensuring Fish Stocks vs. Maximizing Yield
-  FP: 4. Strategic Tension: Memory Capacity and Past Experiences
-
-Run 11 | TP=1  FP=5  FN=1
-  Generated ASs: 6
-  TP: [water] Title: Decentralized Water Use Model - Strategic Tensions in Farmer Irrigation Decisions
-  FP: Tension 1: Risk Aversion vs. Risk Taking
-  FP: Tension 2: Budget Constraint vs. Yield Maximization
-  FP: Tension 3: Water Stress vs. Yield Stability
-  FP: Tension 4: Ecological Threshold vs. Economic Profit
-  FP: [duplicate] Tension 5: Spatial Asymmetry (Upstream vs. Downstream)
-  FN missed: Fish extraction CPR
-
-Run 12 | TP=2  FP=4  FN=0
-  Generated ASs: 6
-  FP: Title: Distinct Action Situations in the Decentralized Version (DV) of the Water Use Model
-  TP: [water] Tension 1: Water Allocation vs. Yield Optimization
-  TP: [fish]  Tension 2: Yield vs. Fish Catch
-  FP: Tension 3: Memory Capacity vs. Risk Aversion
-  FP: [duplicate] Tension 4: Water Allocation vs. Budget Constraints
-  FP: [duplicate] Tension 5: Water Allocation vs. Ecological Thresholds
-
-Run 13 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Farmers' Irrigation Decisions
-  TP: [fish]  2. Strategic Tension: Ecological Thresholds and Fish Population Viability
-  FP: [duplicate] Action Situation 1: Upstream vs Downstream Farmers' Irrigation Decisions
-  FP: [duplicate] Action Situation 2: Ecological Thresholds and Fish Population Viability
-
-Run 14 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  FP: 1. **Strategic Tension: Risk Aversion vs. Risk Taking
-  TP: [water] 2. **Strategic Tension: Over-Extraction vs. Sustainable Use
-  TP: [fish]  3. **Strategic Tension: Yield Maximization vs. Fish Population Preservation
-  FP: [duplicate] 4. **Strategic Tension: Short-term Gain vs. Long-term Sustainability
-
-Run 15 | TP=1  FP=0  FN=1
-  Generated ASs: 1
-  TP: [water] 1. Strategic Tension: Spatial Asymmetry vs Ecological Thresholds
-  FN missed: Fish extraction CPR
-
-Run 16 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  FP: Title: Strategic Tensions in Decentralized Water Use Management
-  TP: [water] Tension 1: Risk vs. Reward in Irrigation Decisions
-  FP: [duplicate] Tension 2: Water Stress and Yield Reduction
-  TP: [fish]  Tension 3: Fish Population Sustainability and Overfishing
-
-Run 17 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Strategic Tension: Yield vs. Risk Aversion (Upstream vs. Downstream Farmers)
-  TP: [fish]  2. Strategic Tension: Water Stress vs. Fish Population (Upstream vs. Downstream Farmers)
-  FP: [duplicate] 3. Strategic Tension: Budget Constraints vs. Yield Maximization (Upstream vs. Downstream Farmers)
-  FP: [duplicate] 4. Strategic Tension: Short-term Gain vs. Long-term Sustainability (Upstream vs. Downstream Farmers)
-
-Run 18 | TP=1  FP=2  FN=1
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Water Allocation vs. Yield Maximization (Upstream vs. Downstream)
-  FP: [duplicate] 2. Strategic Tension: Income Threshold vs. Risk Tolerance (Upstream vs. Downstream)
-  FP: [duplicate] 3. Strategic Tension: Water Stress vs. Yield Reduction (Upstream vs. Downstream)
-  FN missed: Fish extraction CPR
-
-Run 19 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  FP: Title: Strategic Dilemmas in the Decentralized Water Use Model (DV)
-  TP: [fish]  Tension 1: Spatial Asymmetry vs. Ecological Thresholds
-  FP: Tension 2: Risk-Taking vs. Prudence
-  TP: [water] Tension 3: Short-Term Gain vs. Long-Term Sustainability
-
-Run 20 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] 1. Strategic Dilemma: Balancing Water Allocation and Budget Constraints
-  FP: [duplicate] 2. Strategic Dilemma: Risking Income for Higher Water Allocation
-  FP: [duplicate] 3. Strategic Dilemma: Managing Water Stress and Yield Trade-offs
-  TP: [fish]  4. Strategic Dilemma: Harvesting Fish vs. Irrigating Fields
-
-Run 21 | TP=2  FP=3  FN=0
-  Generated ASs: 5
-  TP: [water] 1. Strategic Tension: Water Allocation vs. Yield Maximization
-  TP: [fish]  2. Strategic Tension: Water Stress vs. Fish Population
-  FP: [duplicate] 3. Strategic Tension: Fish Population vs. Economic Stability
-  FP: [duplicate] 4. Strategic Tension: Spatial Asymmetry (Upstream vs. Downstream)
-  FP: [duplicate] 5. Strategic Tension: Ecological Thresholds (Tipping Points)
-
-Run 22 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  TP: [water] Action Situation 1: Spatial Asymmetry - Upstream vs Downstream
-  TP: [fish]  Action Situation 2: Ecological Thresholds - Water Inflow and Fish Population
-  FP: Action Situation 3: Budget Constraints and Risk-Taking
-  FP: [duplicate] Action Situation 4: Yield and Water Stress
-
-Run 23 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  FP: Title: Distinct Action Situations in the Decentralized Version (DV) of the Water Use Model
-  TP: [water] Tension 1: Risk vs Security in Water Allocation
-  TP: [fish]  Tension 2: Subsistence vs Investment
-  FP: [duplicate] Tension 3: Immediate Gain vs Long-term Sustainability
-
-Run 24 | TP=1  FP=2  FN=1
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Optimal Irrigation vs. Ecological Sustainability
-  FP: [duplicate] 2. Strategic Tension: Short-Term Risk vs. Long-Term Stability
-  FP: [duplicate] 3. Strategic Tension: Spatial Asymmetry and Ecological Thresholds
-  FN missed: Fish extraction CPR
-
-Run 25 | TP=1  FP=3  FN=1
-  Generated ASs: 4
-  TP: [water] 1. Strategic Tension: Upstream vs Downstream Farmer Water Allocation
-  FP: [duplicate] 2. Strategic Tension: Water Allocation and Ecological Thresholds
-  FP: [duplicate] 3. Strategic Tension: Spatial Asymmetry and Water Extraction
-  FP: [duplicate] 4. Strategic Tension: Budget Constraints and Risk Management
-  FN missed: Fish extraction CPR
-
-Run 26 | TP=2  FP=1  FN=0
-  Generated ASs: 3
-  TP: [water] 1. Strategic Tension: Irrigation Risk vs. Conservation
-  TP: [fish]  2. Strategic Tension: Water Extraction vs. Fish Population Health
-  FP: 3. Strategic Tension: Income Threshold vs. Economic Stability
-
-Run 27 | TP=1  FP=5  FN=1
-  Generated ASs: 6
-  FP: Analysis of Strategic Tensions in the Decentralized Version (DV) of the Water Use Model
-  TP: [fish]  Title: Strategic Tensions in Water Allocation and Fishing Decisions
-  FP: [duplicate] Tension: Water Allocation vs. Fish Catch
-  FP: Tension: Risk vs. Conservation
-  FP: Tension: Immediate Benefits vs. Long-term Sustainability
-  FP: Tension: Spatial Asymmetry
-  FN missed: Upstream and downstream withdrawal decisions
-
-Run 28 | TP=1  FP=4  FN=1
-  Generated ASs: 5
-  FP: Title: Strategic Dilemmas in the Decentralized Water Use Model
-  FP: Tension 1: Risk Aversion vs. Optimism
-  FP: Tension 2: Conservation vs. Exploitation
-  FP: Tension 3: Short-term Gain vs. Long-term Sustainability
-  TP: [water] Tension 4: Individual Gain vs. Collective Welfare
-  FN missed: Fish extraction CPR
-
-Run 29 | TP=2  FP=2  FN=0
-  Generated ASs: 4
-  FP: Title: Distinct Action Situations in the Decentralized Version (DV) of the Water Use Model
-  TP: [water] Tension 1: Spatial Asymmetry and Water Allocation Risk
-  TP: [fish]  Tension 2: Ecological Threshold and Fish Population Survival
-  FP: Tension 3: Economic Stability and Risk Aversion
-
-Run 30 | TP=1  FP=6  FN=1
-  Generated ASs: 7
-  FP: Title: Decentralized Water Use Decision Analysis (DV)
-  TP: [water] Strategic Dilemma 1: **Spatial Asymmetry - Upstream vs Downstream
-  FP: [duplicate] Tension
-  FP: Strategic Dilemma 2: **Water Stress and Yield Reduction
-  FP: Tension
-  FP: Strategic Dilemma 3: **Income Threshold and Risk Aversion
-  FP: Tension
-  FN missed: Fish extraction CPR
-
-----------------------------------------------------------------------
-  Qwen2.5-7B TOTALS
-----------------------------------------------------------------------
-  TP = 46    FP = 70    FN = 14
-  Avg/run:  TP=1.53  FP=2.33  FN=0.47
-  Precision = TP/(TP+FP) = 46/(46+70) = 0.3966
-  Recall    = TP/(TP+FN) = 46/(46+14) = 0.7667
-  F1 Score  = 0.5227
-
-  Water AS correctly identified: 27/30 runs (90.0%)
-  Fish  AS correctly identified: 19/30 runs (63.3%)
-
-
-######################################################################
-  FINAL COMPARISON: ODD+game_stuff
-######################################################################
+##############################################################################
+MODEL 1: DeepSeek-R1 (30 runs)
+##############################################################################
+
+run_01.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Extraction Dilemma between Upstream and Downstream Farmers
+  FP [duplicate] L27: Risk-Taking Dilemma in Irrigation Strategy
+  FN missed: Fish extraction common pool resource game
+
+run_02.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L3: Water Extraction and Ecological Threshold Dilemma
+  TP [fish]  L25: Downstream Fishing Competition Dilemma
+
+run_03.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Upstream-Downstream Water Extraction Dilemma
+  TP [fish]  L34: Fishing Access Priority vs. Resource Sustainability
+
+run_04.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Extraction Dilemma between Upstream and Downstream Farmers
+  FP [duplicate] L27: Fishing Order Dilemma
+  FN missed: Fish extraction common pool resource game
+
+run_05.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Allocation Dilemma Between Upstream and Downstream Farmers
+  TP [fish]  L31: Fishing Pressure Dilemma Among Downstream Farmers
+
+run_06.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Water Extraction Dilemma for Fish Reproduction Threshold
+  FN missed: Fish extraction common pool resource game
+
+run_07.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Upstream-Downstream Water Allocation Dilemma
+  TP [fish]  L31: Sequential Fishing Access Dilemma
+
+run_08.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Spatial Water Rivalry with Ecological Tipping Points
+  FN missed: Fish extraction common pool resource game
+
+run_09.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L3: Water Withdrawal Dilemma with Ecological Threshold
+  TP [fish]  L25: Fishing Access Asymmetry
+
+run_10.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L3: Water Allocation Dilemma (Upstream-Downstream)
+  FP [duplicate] L19: Ecological Threshold Dilemma (May Inflow)
+  FN missed: Fish extraction common pool resource game
+
+run_11.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L3: Upstream-Downstream Water Rivalry
+  FP [duplicate] L24: Irrigation-Fishery Tradeoff
+  FN missed: Fish extraction common pool resource game
+
+run_12.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Allocation Dilemma (Upstream vs. Downstream)
+  TP [fish]  L26: Fishing Pressure Dilemma (Downstream Farmers)
+
+run_13.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: 1. **Water Extraction Dilemma with Ecological Threshold
+  FN missed: Fish extraction common pool resource game
+
+run_14.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Allocation Dilemma (Upstream-Downstream)
+  FP [duplicate] L29: Fish Stock Sustainability Dilemma
+  FN missed: Fish extraction common pool resource game
+
+run_15.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Water Extraction Dilemma
+  TP [fish]  L22: Fishing Access Competition
+  FP [duplicate] L41: Irrigation Risk Coordination
+
+run_16.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Withdrawal Dilemma (Upstream vs. Downstream)
+  TP [fish]  L28: Fishing Access Dilemma (Downstream Priority)
+
+run_17.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Extraction Dilemma between Upstream and Downstream Farmers
+  TP [fish]  L25: Fishing Competition under Water Scarcity
+
+run_18.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L3: Upstream-Downstream Water Rivalry for Agriculture
+  FP [duplicate] L25: May Water Extraction for Fish Reproduction Threshold
+  FN missed: Fish extraction common pool resource game
+
+run_19.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Upstream-Downstream Water Extraction Dilemma
+  FN missed: Fish extraction common pool resource game
+
+run_20.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Water Extraction Dilemma with Ecological Thresholds
+  FN missed: Fish extraction common pool resource game
+
+run_21.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Upstream-Downstream Water Extraction Dilemma
+  TP [fish]  L26: Sequential Fishing Access Dilemma
+
+run_22.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Upstream-Downstream Water Allocation Dilemma
+  TP [fish]  L32: Downstream Fishing Access Dilemma
+
+run_23.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L3: Upstream-Downstream Water Extraction Dilemma
+  FP [duplicate] L20: Lake Water Threshold Coordination
+  FN missed: Fish extraction common pool resource game
+
+run_24.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Upstream-Downstream Water Extraction Dilemma
+  FN missed: Fish extraction common pool resource game
+
+run_25.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: 1. **Water Extraction Dilemma: Upstream vs. Downstream Farmers
+  FN missed: Fish extraction common pool resource game
+
+run_26.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L25: Upstream-Downstream Water Competition
+  FP [wrong] L52: Lake Inflow Threshold Maintenance
+  FN missed: Fish extraction common pool resource game
+
+run_27.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Rivalry between Upstream and Downstream Farmers
+  FP [duplicate] L26: Collective Water Use vs. Fish Population Viability
+  FN missed: Fish extraction common pool resource game
+
+run_28.md | TP=1 FP=1 FN=1 Precision=0.5000 Recall=0.5000 F1=0.5000
+Generated ASs evaluated: 2
+  TP [water] L34: 1. **Upstream-Downstream Water Extraction Dilemma
+  FP [duplicate] L56: 2. **Downstream Fishing Race Dilemma
+  FN missed: Fish extraction common pool resource game
+
+run_29.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L1: Focus exclusively on DV** (centralized governance/CV is excluded).
+  FN missed: Fish extraction common pool resource game
+
+run_30.md | TP=2 FP=0 FN=0 Precision=1.0000 Recall=1.0000 F1=1.0000
+Generated ASs evaluated: 2
+  TP [water] L5: Water Withdrawal Dilemma
+  TP [fish]  L33: Fishing Access Race
+
+------------------------------------------------------------------------------
+DeepSeek-R1 TOTALS
+------------------------------------------------------------------------------
+TP = 42    FP = 11    FN = 18
+Avg/run: TP=1.40 FP=0.37 FN=0.60
+Precision = TP/(TP+FP) = 42/(42+11) = 0.7925
+Recall    = TP/(TP+FN) = 42/(42+18) = 0.7000
+F1 Score  = 0.7434
+Water AS correctly identified: 30/30 runs (100.0%)
+Fish  AS correctly identified: 12/30 runs (40.0%)
+Assessment: main loss: missed ground-truth action situations
+Most common FP titles:
+  1x Risk-Taking Dilemma in Irrigation Strategy
+  1x Fishing Order Dilemma
+  1x Ecological Threshold Dilemma (May Inflow)
+  1x Irrigation-Fishery Tradeoff
+  1x Fish Stock Sustainability Dilemma
+
+##############################################################################
+MODEL 2: Llama-3.3-70B (30 runs)
+##############################################################################
+
+run_01.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream-Downstream Water Usage
+  FP [duplicate] L17: Fishing and Water Usage
+  FP [duplicate] L30: Risky Irrigation Investment
+  FN missed: Fish extraction common pool resource game
+
+run_02.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Decision to Increase Irrigated Fields
+  FP [wrong] L42: Farmer's Response to Ecological Thresholds
+
+run_03.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream vs Downstream Irrigation Decision
+  FP [wrong] L16: Risky Irrigation Expansion
+  TP [fish]  L29: Fishing Resource Management
+  FP [wrong] L42: Water Conservation vs Expansion
+
+run_04.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream-Downstream Water Extraction
+  TP [fish]  L16: Fishing Quota Competition
+  FP [wrong] L29: Irrigation Expansion vs. Ecological Conservation
+
+run_05.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L5: The upstream farmer must decide whether to irrigate a large number of fields, potentially reducing water availability for downstream farmers, or to conserve water and possibly forgo economic benefits.
+  TP [fish]  L17: The downstream farmer must decide whether to fish at a sustainable level, allowing the fish population to recover, or to overfish, potentially depleting the resource and affecting their own future livelihood.
+  FP [wrong] L29: The farmer must decide whether to invest in water conservation measures, potentially reducing their water usage and increasing the water availability for other farmers, or to maintain their current water usage, possibly leading to water scarcity and reduced yields.
+  FP [wrong] L41: The farmer must decide whether to reduce their water usage in response to an ecological threshold (e.g., low water levels), potentially reducing their yield, or to maintain their current water usage, possibly leading to catastrophic consequences for the ecosystem.
+
+run_06.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Decision to Fish
+  FP [duplicate] L29: Farmer's Investment in Irrigation vs. Fishing
+
+run_07.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer Increases Irrigation vs Downstream Farmer Increases Fishing
+  FP [duplicate] L16: Farmer Decides to Exceed Ecological Threshold vs Farmer Conserves Water
+  FP [duplicate] L29: Upstream Farmer Invests in Water-Saving Technology vs Downstream Farmer Does Not
+  FN missed: Fish extraction common pool resource game
+
+run_08.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L5: An upstream farmer must decide whether to irrigate their maximum number of fields (10), potentially reducing water availability for downstream farmers, or to conserve water by irrigating fewer fields.
+  TP [fish]  L17: A downstream farmer must decide whether to fish at their target catch level, potentially depleting the fish population, or to reduce their fishing effort to conserve the fish population.
+  FP [wrong] L29: A farmer must decide whether to invest in irrigation infrastructure to increase their water use efficiency, potentially increasing their yield, or to not invest and maintain their current irrigation efficiency.
+  FP [wrong] L41: A farmer must decide whether to reduce their water use in response to an ecological threshold (e.g., low water levels), potentially reducing their yield, or to maintain their current water use, potentially causing further ecological degradation.
+
+run_09.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Field Expansion Decision
+
+run_10.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream-Downstream Water Allocation
+  TP [fish]  L16: Fishing Resource Management
+  FP [wrong] L29: Water Flow Prediction and Irrigation
+  FP [wrong] L42: Ecological Thresholds and Tipping Points
+
+run_11.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Decision to Invest in Fishing
+  FP [duplicate] L29: Farmer's Response to Ecological Thresholds
+
+run_12.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Decision to Fish
+  FP [wrong] L29: Farmer's Decision to Increase Irrigated Fields
+
+run_13.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Decision to Fish
+  FP [duplicate] L29: Farmer's Decision to Increase Irrigated Fields
+
+run_14.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L5: The upstream farmer must decide whether to irrigate more fields, potentially reducing the water available for downstream farmers.
+  TP [fish]  L17: The downstream farmer must decide whether to fish more, potentially depleting the fish population and affecting their own future catch.
+  FP [wrong] L29: A farmer must decide whether to expand their fields, potentially increasing their yield but also increasing their water demands and affecting other farmers.
+  FP [wrong] L41: A farmer must decide whether to take a risk and irrigate more fields, potentially increasing their yield but also increasing the risk of water stress and affecting their budget.
+
+run_15.md | TP=2 FP=3 FN=0 Precision=0.4000 Recall=1.0000 F1=0.5714
+Generated ASs evaluated: 5
+  TP [water] L3: Upstream-Downstream Water Allocation
+  TP [fish]  L16: Overfishing
+  FP [duplicate] L29: Field Expansion
+  FP [duplicate] L42: Risk Taking in Irrigation Decisions
+  FP [duplicate] L55: Adaptive Management of Water Resources
+
+run_16.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Fishing Decision
+  FP [duplicate] L29: Upstream Farmer's Water Withdrawal Decision
+  FP [wrong] L42: Farmer's Field Expansion Decision
+
+run_17.md | TP=2 FP=3 FN=0 Precision=0.4000 Recall=1.0000 F1=0.5714
+Generated ASs evaluated: 5
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Farmer's Decision to Invest in Fishing
+  FP [duplicate] L29: Upstream Farmer's Decision to Increase Irrigated Fields
+  FP [wrong] L42: Farmer's Response to Ecological Thresholds
+  FP [duplicate] L55: Spatial Asymmetry in Water Access
+
+run_18.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Decision to Increase Fields
+  FP [wrong] L42: Water Allocation Under Ecological Thresholds
+
+run_19.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream-Downstream Irrigation Dilemma
+  TP [fish]  L16: Fishing and Water Extraction Trade-off
+  FP [duplicate] L29: Information Sharing and Cooperation
+
+run_20.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L4: Over-Irrigation vs. Conservation
+  TP [fish]  L16: Over-Fishing vs. Sustainable Fishing
+  FP [wrong] L28: Expansion vs. Caution
+  FP [wrong] L40: Cooperation vs. Defection
+
+run_21.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Decision to Invest in Irrigation Efficiency
+  FP [wrong] L42: Response to Ecological Thresholds
+
+run_22.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L6: Upstream Dominance
+  TP [fish]  L18: Fish Population Conservation
+  FP [wrong] L29: 3. Water Conservation vs. Irrigation
+
+run_23.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream-Downstream Water Usage
+  TP [fish]  L16: Fishing Resource Management
+  FP [wrong] L29: Irrigation Investment
+
+run_24.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  FP [wrong] L17: Farmer's Decision to Invest in Fishing
+  FP [wrong] L31: Reaction to Ecological Thresholds
+  FP [duplicate] L45: Upstream-Downstream Coordination
+  FN missed: Fish extraction common pool resource game
+
+run_25.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Decision to Invest in Irrigation Infrastructure
+  FP [duplicate] L42: Farmer's Decision to Expand Irrigated Fields
+
+run_26.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L4: Over-Irrigation vs. Conservative Irrigation
+  TP [fish]  L16: Over-Fishing vs. Sustainable Fishing
+  FP [duplicate] L28: Invest in Efficiency vs. Maintain Status Quo
+
+run_27.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L3: Upstream Farmer's Irrigation Decision
+  TP [fish]  L16: Downstream Farmer's Fishing Decision
+  FP [wrong] L29: Farmer's Decision to Invest in Water Conservation
+  FP [duplicate] L42: Farmer's Response to Ecological Thresholds
+
+run_28.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream-Downstream Water Allocation
+  TP [fish]  L16: Fishing Resource Management
+  FP [wrong] L29: Irrigation Investment
+
+run_29.md | TP=2 FP=2 FN=0 Precision=0.5000 Recall=1.0000 F1=0.6667
+Generated ASs evaluated: 4
+  TP [water] L5: Upstream Irrigation Dilemma
+  FP [duplicate] L15: Downstream Fishing Dilemma
+  FP [wrong] L35: Water Flow Prediction Dilemma
+  TP [fish]  L45: Ecological Threshold Dilemma
+
+run_30.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L3: Upstream Farmer Increases Irrigation, Downstream Farmer's Water Stress
+  FP [wrong] L16: Farmer's Irrigation Decision vs. Ecological Threshold for Fish Population
+  FP [duplicate] L29: Upstream and Downstream Farmers' Irrigation Decisions with Limited Water Availability
+  FN missed: Fish extraction common pool resource game
+
+------------------------------------------------------------------------------
+Llama-3.3-70B TOTALS
+------------------------------------------------------------------------------
+TP = 56    FP = 52    FN = 4
+Avg/run: TP=1.87 FP=1.73 FN=0.13
+Precision = TP/(TP+FP) = 56/(56+52) = 0.5185
+Recall    = TP/(TP+FN) = 56/(56+4) = 0.9333
+F1 Score  = 0.6667
+Water AS correctly identified: 30/30 runs (100.0%)
+Fish  AS correctly identified: 26/30 runs (86.7%)
+Assessment: main loss: extra or duplicate action situations
+Most common FP titles:
+  4x Farmer's Response to Ecological Thresholds
+  3x Farmer's Decision to Increase Irrigated Fields
+  2x Farmer's Field Expansion Decision
+  2x Irrigation Investment
+  1x Fishing and Water Usage
+
+##############################################################################
+MODEL 3: Qwen2.5-7B (30 runs)
+##############################################################################
+
+run_01.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Upstream vs Downstream Farmer's Irrigation Decisions
+  FP [duplicate] L25: Irrigation vs. Fishing
+  FP [duplicate] L45: Risk-Taking vs. Risk-Aversion
+  FN missed: Fish extraction common pool resource game
+
+run_02.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Spatial Asymmetry in Water Allocation
+  FP [duplicate] L23: Ecological Thresholds in Fish Population
+  FP [duplicate] L41: Economic Thresholds in Farmer Income
+  FN missed: Fish extraction common pool resource game
+
+run_03.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Upstream vs Downstream Farmer Water Allocation
+  FP [wrong] L25: Farmer's Risk Tolerance in Water Allocation
+  FP [duplicate] L45: Ecological Thresholds in Fish Population Growth
+  FP [duplicate] L65: Spatial Asymmetry in Water and Fish Access
+  FN missed: Fish extraction common pool resource game
+
+run_04.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Risk vs. Security in Water Allocation
+  FP [duplicate] L23: Water Allocation and Fish Population
+  FP [duplicate] L41: Water Allocation and Budget Constraints
+  FN missed: Fish extraction common pool resource game
+
+run_05.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Water Allocation and Yield Optimization (Upstream vs Downstream)
+  FP [duplicate] L23: Income Threshold and Risk-Taking (Upstream vs Downstream)
+  FP [duplicate] L40: Ecological Threshold and Fish Population Sustainability (Upstream vs Downstream)
+  FN missed: Fish extraction common pool resource game
+
+run_06.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Spatial Asymmetry and Risk Aversion
+  FP [duplicate] L26: Ecological Threshold and Fish Population Sustainability
+  FP [duplicate] L47: Risk Tolerance and Budget Constraints
+  FP [duplicate] L68: Water Stress and Yield Reduction
+  FN missed: Fish extraction common pool resource game
+
+run_07.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Resource Allocation vs. Yield Maximization
+  FP [duplicate] L25: Risk vs. Security
+  FP [duplicate] L46: Competition vs. Cooperation
+  FN missed: Fish extraction common pool resource game
+
+run_08.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Risk Aversion vs. Optimism
+  FP [wrong] L28: Short-term Gain vs. Long-term Sustainability
+  FP [duplicate] L47: Individual vs. Collective Welfare
+  FN missed: Fish extraction common pool resource game
+
+run_09.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Upstream vs Downstream Farmers' Irrigation Decisions
+  FN missed: Fish extraction common pool resource game
+
+run_10.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Upstream vs Downstream Water Allocation
+  FP [duplicate] L27: Risk vs. Caution in Water Allocation
+  FP [duplicate] L49: Ensuring Fish Stocks vs. Maximizing Yield
+  FP [duplicate] L71: Memory Capacity and Past Experiences
+  FN missed: Fish extraction common pool resource game
+
+run_11.md | TP=1 FP=4 FN=1 Precision=0.2000 Recall=0.5000 F1=0.2857
+Generated ASs evaluated: 5
+  TP [water] L5: Risk Aversion vs. Risk Taking
+  FP [duplicate] L23: Budget Constraint vs. Yield Maximization
+  FP [duplicate] L40: Water Stress vs. Yield Stability
+  FP [duplicate] L57: Ecological Threshold vs. Economic Profit
+  FP [duplicate] L74: Spatial Asymmetry (Upstream vs. Downstream)
+  FN missed: Fish extraction common pool resource game
+
+run_12.md | TP=1 FP=4 FN=1 Precision=0.2000 Recall=0.5000 F1=0.2857
+Generated ASs evaluated: 5
+  TP [water] L5: Water Allocation vs. Yield Optimization
+  FP [duplicate] L21: Yield vs. Fish Catch
+  FP [duplicate] L37: Memory Capacity vs. Risk Aversion
+  FP [duplicate] L53: Water Allocation vs. Budget Constraints
+  FP [duplicate] L69: Water Allocation vs. Ecological Thresholds
+  FN missed: Fish extraction common pool resource game
+
+run_13.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [fish]  L9: Ecological Thresholds and Fish Population Viability
+  TP [water] L15: Upstream vs Downstream Farmers' Irrigation Decisions
+  FP [duplicate] L38: Ecological Thresholds and Fish Population Viability
+
+run_14.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L7: Risk Aversion vs. Risk Taking in Irrigation Decisions
+  FP [duplicate] L29: Over-Extraction vs. Sustainable Use in Water Allocation
+  FP [duplicate] L51: Yield Maximization vs. Fish Population Preservation
+  FP [duplicate] L73: Short-term Gain vs. Long-term Sustainability in Water Use
+  FN missed: Fish extraction common pool resource game
+
+run_15.md | TP=1 FP=0 FN=1 Precision=1.0000 Recall=0.5000 F1=0.6667
+Generated ASs evaluated: 1
+  TP [water] L5: Spatial Asymmetry vs Ecological Thresholds
+  FN missed: Fish extraction common pool resource game
+
+run_16.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L5: Risk vs. Reward in Irrigation Decisions
+  FP [duplicate] L23: Water Stress and Yield Reduction
+  TP [fish]  L41: Fish Population Sustainability and Overfishing
+
+run_17.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Yield vs. Risk Aversion (Upstream vs. Downstream Farmers)
+  FP [duplicate] L27: Water Stress vs. Fish Population (Upstream vs. Downstream Farmers)
+  FP [duplicate] L49: Budget Constraints vs. Yield Maximization (Upstream vs. Downstream Farmers)
+  FP [duplicate] L71: Short-term Gain vs. Long-term Sustainability (Upstream vs. Downstream Farmers)
+  FN missed: Fish extraction common pool resource game
+
+run_18.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Water Allocation vs. Yield Maximization (Upstream vs. Downstream)
+  FP [duplicate] L30: Income Threshold vs. Risk Tolerance (Upstream vs. Downstream)
+  FP [duplicate] L54: Water Stress vs. Yield Reduction (Upstream vs. Downstream)
+  FN missed: Fish extraction common pool resource game
+
+run_19.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Spatial Asymmetry vs. Ecological Thresholds
+  FP [duplicate] L23: Risk-Taking vs. Prudence
+  FP [duplicate] L41: Short-Term Gain vs. Long-Term Sustainability
+  FN missed: Fish extraction common pool resource game
+
+run_20.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Balancing Water Allocation and Budget Constraints
+  FP [duplicate] L22: Risking Income for Higher Water Allocation
+  FP [duplicate] L39: Managing Water Stress and Yield Trade-offs
+  FP [duplicate] L56: Harvesting Fish vs. Irrigating Fields
+  FN missed: Fish extraction common pool resource game
+
+run_21.md | TP=1 FP=4 FN=1 Precision=0.2000 Recall=0.5000 F1=0.2857
+Generated ASs evaluated: 5
+  TP [water] L5: Water Allocation vs. Yield Maximization
+  FP [duplicate] L21: Water Stress vs. Fish Population
+  FP [wrong] L37: Fish Population vs. Economic Stability
+  FP [duplicate] L53: Spatial Asymmetry (Upstream vs. Downstream)
+  FP [duplicate] L69: Ecological Thresholds (Tipping Points)
+  FN missed: Fish extraction common pool resource game
+
+run_22.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L7: Upstream Farmers vs Downstream Farmers
+  FP [duplicate] L25: Water Inflow vs Fish Population Stability
+  FP [duplicate] L43: Risk-Taking vs Prudent Decision-Making
+  FP [duplicate] L61: Optimal Irrigation vs Water Stress
+  FN missed: Fish extraction common pool resource game
+
+run_23.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Risk vs Security in Water Allocation
+  FP [duplicate] L26: Subsistence vs Investment
+  FP [duplicate] L47: Immediate Gain vs Long-term Sustainability
+  FN missed: Fish extraction common pool resource game
+
+run_24.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Optimal Irrigation vs. Ecological Sustainability
+  FP [duplicate] L23: Short-Term Risk vs. Long-Term Stability
+  FP [duplicate] L41: Spatial Asymmetry and Ecological Thresholds
+  FN missed: Fish extraction common pool resource game
+
+run_25.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Upstream vs Downstream Farmer Water Allocation
+  FP [duplicate] L24: Water Allocation and Ecological Thresholds
+  FP [duplicate] L43: Spatial Asymmetry and Water Extraction
+  FP [duplicate] L62: Budget Constraints and Risk Management
+  FN missed: Fish extraction common pool resource game
+
+run_26.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L7: Irrigation Risk vs. Conservation
+  FP [duplicate] L28: Water Extraction vs. Fish Population Health
+  FP [duplicate] L49: Income Threshold vs. Economic Stability
+  FN missed: Fish extraction common pool resource game
+
+run_27.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L7: Water Allocation vs. Fish Catch
+  FP [wrong] L22: Risk vs. Conservation
+  FP [wrong] L37: Immediate Benefits vs. Long-term Sustainability
+  FP [duplicate] L52: Spatial Asymmetry
+  FN missed: Fish extraction common pool resource game
+
+run_28.md | TP=1 FP=3 FN=1 Precision=0.2500 Recall=0.5000 F1=0.3333
+Generated ASs evaluated: 4
+  TP [water] L5: Risk Aversion vs. Optimism
+  FP [duplicate] L22: Conservation vs. Exploitation
+  FP [duplicate] L39: Short-term Gain vs. Long-term Sustainability
+  FP [duplicate] L56: Individual Gain vs. Collective Welfare
+  FN missed: Fish extraction common pool resource game
+
+run_29.md | TP=2 FP=1 FN=0 Precision=0.6667 Recall=1.0000 F1=0.8000
+Generated ASs evaluated: 3
+  TP [water] L5: Spatial Asymmetry and Water Allocation Risk
+  TP [fish]  L23: Ecological Threshold and Fish Population Survival
+  FP [duplicate] L41: Economic Stability and Risk Aversion
+
+run_30.md | TP=1 FP=2 FN=1 Precision=0.3333 Recall=0.5000 F1=0.4000
+Generated ASs evaluated: 3
+  TP [water] L5: Spatial Asymmetry - Upstream vs Downstream
+  FP [wrong] L29: Water Stress and Yield Reduction
+  FP [duplicate] L53: Income Threshold and Risk Aversion
+  FN missed: Fish extraction common pool resource game
+
+------------------------------------------------------------------------------
+Qwen2.5-7B TOTALS
+------------------------------------------------------------------------------
+TP = 33    FP = 69    FN = 27
+Avg/run: TP=1.10 FP=2.30 FN=0.90
+Precision = TP/(TP+FP) = 33/(33+69) = 0.3235
+Recall    = TP/(TP+FN) = 33/(33+27) = 0.5500
+F1 Score  = 0.4074
+Water AS correctly identified: 30/30 runs (100.0%)
+Fish  AS correctly identified: 3/30 runs (10.0%)
+Assessment: main loss: extra or duplicate action situations
+Most common FP titles:
+  3x Water Stress and Yield Reduction
+  2x Short-term Gain vs. Long-term Sustainability
+  2x Spatial Asymmetry (Upstream vs. Downstream)
+  1x Irrigation vs. Fishing
+  1x Risk-Taking vs. Risk-Aversion
+
+
+##############################################################################
+FINAL MODEL COMPARISON: ODD+game_stuff
+##############################################################################
 
 Model                  TP   FP   FN  Precision   Recall       F1
-----------------------------------------------------------------------
-DeepSeek-R1            46    5   14     0.9020   0.7667   0.8288
-Llama-3.3-70B          60   50    0     0.5455   1.0000   0.7059
-Qwen2.5-7B             46   70   14     0.3966   0.7667   0.5227
+------------------------------------------------------------------------------
+DeepSeek-R1            42   11   18     0.7925   0.7000   0.7434
+Llama-3.3-70B          56   52    4     0.5185   0.9333   0.6667
+Qwen2.5-7B             33   69   27     0.3235   0.5500   0.4074
