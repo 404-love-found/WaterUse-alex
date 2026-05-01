@@ -1,5 +1,5 @@
 ================================================================================
-  ELECTRICITY EVALUATION COMPARISON: ODD + GAME_STUFF VS ODD-ONLY
+  ELECTRICITY EVALUATION COMPARISON: ODD+GAME_STUFF VS ODD-ONLY
 ================================================================================
 
 Side-by-side totals:

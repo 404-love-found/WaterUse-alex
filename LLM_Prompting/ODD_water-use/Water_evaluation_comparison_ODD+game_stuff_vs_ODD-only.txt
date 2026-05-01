@@ -1,0 +1,26 @@
+======================================================================
+  COMPARISON EVALUATION: ODD+game_stuff VS ODD-only
+======================================================================
+
+Ground Truth (2 correct action situations):
+  AS1: Upstream and downstream withdrawal decisions
+  AS2: Fish extraction common pool resource game
+
+Both experiments below were evaluated with the same evaluate_run() scorer.
+
+Side-by-side totals:
+Model                Evaluation         TP   FP   FN  Precision   Recall       F1        Water         Fish
+--------------------------------------------------------------------------------------------------------------
+DeepSeek-R1          ODD+game_stuff     46    5   14     0.9020   0.7667   0.8288        26/30        20/30
+DeepSeek-R1          ODD-only           40   10   20     0.8000   0.6667   0.7273        27/30        13/30
+Llama-3.3-70B        ODD+game_stuff     60   50    0     0.5455   1.0000   0.7059        30/30        30/30
+Llama-3.3-70B        ODD-only           60   55    0     0.5217   1.0000   0.6857        30/30        30/30
+Qwen2.5-7B           ODD+game_stuff     46   70   14     0.3966   0.7667   0.5227        27/30        19/30
+Qwen2.5-7B           ODD-only           46   61   14     0.4299   0.7667   0.5509        24/30        22/30
+
+Differences (ODD-only minus ODD+game_stuff):
+Model                Delta TP Delta FP Delta FN  Delta Prec  Delta Recall   Delta F1   Delta Water  Delta Fish
+----------------------------------------------------------------------------------------------------------------
+DeepSeek-R1                -6       +5       +6     -0.1020       -0.1000    -0.1016            +1          -7
+Llama-3.3-70B              +0       +5       +0     -0.0237       +0.0000    -0.0202            +0          +0
+Qwen2.5-7B                 +0       -9       +0     +0.0334       +0.0000    +0.0282            -3          +3

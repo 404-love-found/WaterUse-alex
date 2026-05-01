@@ -1,8 +1,8 @@
 """
 Evaluate TP, FP, FN for the ODD-only 30-run outputs.
 
-The report follows the style of Batch_30Runs/evaluation_final.txt and appends
-a comparison table between the original evaluation and the ODD-only evaluation.
+The report follows the suffixed water-use evaluation style and appends a
+comparison table between ODD+game_stuff and ODD-only.
 """
 
 import csv
@@ -13,7 +13,13 @@ from evaluate_tp_fp_fn import evaluate_run
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 BATCH_DIR = os.path.join(CURRENT_DIR, "Batch_30Runs_ODDOnly")
-ORIGINAL_EVALUATION_PATH = os.path.join(CURRENT_DIR, "Batch_30Runs", "evaluation_final.txt")
+ORIGINAL_EVALUATION_PATH = os.path.join(
+    CURRENT_DIR,
+    "Batch_30Runs",
+    "Water_evaluation_ODD+game_stuff.txt",
+)
+REPORT_NAME = "Water_evaluation_ODD-only.txt"
+CSV_NAME = "Water_evaluation_summary_ODD-only.csv"
 
 MODELS = {
     "DeepSeek-R1":   os.path.join(BATCH_DIR, "DeepSeek-R1"),
@@ -50,7 +56,7 @@ def format_run_detail(detail):
 
 
 def parse_original_evaluation(filepath):
-    """Read the original evaluation_final.txt totals for comparison."""
+    """Read the ODD+game_stuff evaluation totals for comparison."""
     if not os.path.exists(filepath):
         return {}
 
@@ -161,7 +167,7 @@ def write_final_comparison(out, all_model_results):
 
 def write_experiment_difference(out, original_results, odd_only_results):
     out.write("\n\n" + "#" * 70 + "\n")
-    out.write("  DIFFERENCE TABLE: ORIGINAL EVALUATION VS ODD-ONLY\n")
+    out.write("  DIFFERENCE TABLE: ODD+GAME_STUFF VS ODD-ONLY\n")
     out.write("#" * 70 + "\n\n")
 
     if not original_results:
@@ -169,8 +175,8 @@ def write_experiment_difference(out, original_results, odd_only_results):
         return
 
     out.write("Baseline files:\n")
-    out.write("  Original evaluation: Batch_30Runs/evaluation_final.txt (ODD + game logic text)\n")
-    out.write("  ODD-only evaluation: Batch_30Runs_ODDOnly/evaluation_results.txt (ODD text only)\n\n")
+    out.write("  ODD+game_stuff evaluation: Batch_30Runs/Water_evaluation_ODD+game_stuff.txt\n")
+    out.write("  ODD-only evaluation: Batch_30Runs_ODDOnly/Water_evaluation_ODD-only.txt\n\n")
 
     out.write("Side-by-side totals:\n")
     out.write(
@@ -180,7 +186,7 @@ def write_experiment_difference(out, original_results, odd_only_results):
     out.write("─" * 110 + "\n")
     for model_name in MODELS:
         for label, source in (
-            ("Original", original_results.get(model_name)),
+            ("ODD+game_stuff", original_results.get(model_name)),
             ("ODD-only", odd_only_results.get(model_name)),
         ):
             if not source:
@@ -193,7 +199,7 @@ def write_experiment_difference(out, original_results, odd_only_results):
                 f"{water:>12} {fish:>12}\n"
             )
 
-    out.write("\nDifferences (ODD-only minus Original):\n")
+    out.write("\nDifferences (ODD-only minus ODD+game_stuff):\n")
     out.write(
         f"{'Model':<20} {'Delta TP':>8} {'Delta FP':>8} {'Delta FN':>8} "
         f"{'Delta Prec':>11} {'Delta Recall':>13} {'Delta F1':>10} "
@@ -219,8 +225,8 @@ def write_experiment_difference(out, original_results, odd_only_results):
 
 
 def main():
-    output_path = os.path.join(BATCH_DIR, "evaluation_results.txt")
-    csv_path = os.path.join(BATCH_DIR, "evaluation_summary.csv")
+    output_path = os.path.join(BATCH_DIR, REPORT_NAME)
+    csv_path = os.path.join(BATCH_DIR, CSV_NAME)
     original_results = parse_original_evaluation(ORIGINAL_EVALUATION_PATH)
 
     with open(output_path, "w", encoding="utf-8") as out, \

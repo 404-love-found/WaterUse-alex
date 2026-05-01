@@ -1,5 +1,5 @@
 ======================================================================
-  FINAL EVALUATION: TP / FP / FN (ODD-only)
+  FINAL EVALUATION: TP / FP / FN (ODD-ONLY)
 ======================================================================
 
 Ground Truth (2 correct action situations):
@@ -641,11 +641,24 @@ Run 30 | TP=2  FP=1  FN=0
 
 
 ######################################################################
-  FINAL COMPARISON: ODD-only
+  FINAL COMPARISON: ODD-ONLY EVALUATION
 ######################################################################
 
 Model                  TP   FP   FN  Precision   Recall       F1
-----------------------------------------------------------------------
+──────────────────────────────────────────────────────────────────────
 DeepSeek-R1            40   10   20     0.8000   0.6667   0.7273
 Llama-3.3-70B          60   55    0     0.5217   1.0000   0.6857
 Qwen2.5-7B             46   61   14     0.4299   0.7667   0.5509
+
+Model                    Water AS found      Fish AS found
+──────────────────────────────────────────────────────────────────────
+DeepSeek-R1               27/30 (90.0%)      13/30 (43.3%)
+Llama-3.3-70B            30/30 (100.0%)     30/30 (100.0%)
+Qwen2.5-7B                24/30 (80.0%)      22/30 (73.3%)
+
+
+######################################################################
+  DIFFERENCE TABLE: ORIGINAL EVALUATION VS ODD-ONLY
+######################################################################
+
+Original evaluation not found: /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water-use/Batch_30Runs/evaluation_final.txt

@@ -15,7 +15,10 @@ import os
 import re
 import csv
 
+EXPERIMENT_NAME = "ODD+game_stuff"
 BATCH_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Batch_30Runs")
+REPORT_NAME = "Water_evaluation_ODD+game_stuff.txt"
+CSV_NAME = "Water_evaluation_summary_ODD+game_stuff.csv"
 
 MODELS = {
     "DeepSeek-R1":   os.path.join(BATCH_DIR, "DeepSeek-R1"),
@@ -183,8 +186,8 @@ def evaluate_run(filepath):
 
 
 def main():
-    output_path = os.path.join(BATCH_DIR, "evaluation_results.txt")
-    csv_path = os.path.join(BATCH_DIR, "evaluation_summary.csv")
+    output_path = os.path.join(BATCH_DIR, REPORT_NAME)
+    csv_path = os.path.join(BATCH_DIR, CSV_NAME)
 
     with open(output_path, "w", encoding="utf-8") as out, \
          open(csv_path, "w", newline="", encoding="utf-8") as csvf:
@@ -194,7 +197,7 @@ def main():
                          "Precision", "Recall", "Found_Water", "Found_Fish"])
 
         out.write("=" * 70 + "\n")
-        out.write("  EVALUATION: TP / FP / FN for LLM Action Situation Extraction\n")
+        out.write(f"  EVALUATION: TP / FP / FN for LLM Action Situation Extraction ({EXPERIMENT_NAME})\n")
         out.write("=" * 70 + "\n")
         out.write("Ground Truth (2 correct action situations):\n")
         out.write("  AS1: Upstream and downstream withdrawal decisions\n")

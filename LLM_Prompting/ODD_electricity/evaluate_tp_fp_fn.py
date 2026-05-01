@@ -22,6 +22,11 @@ EXPERIMENTS = {
     "ODD-only": os.path.join(CURRENT_DIR, "Batch_30Runs_ODDOnly"),
 }
 
+EXPERIMENT_SUFFIXES = {
+    "ODD + game_stuff": "ODD+game_stuff",
+    "ODD-only": "ODD-only",
+}
+
 MODELS = {
     "DeepSeek-R1": "DeepSeek-R1",
     "Llama-3.3-70B": "Llama-3.3-70B",
@@ -278,8 +283,9 @@ def write_header(out, experiment_name):
 
 
 def evaluate_experiment(experiment_name, batch_dir):
-    output_path = os.path.join(batch_dir, "evaluation_final.txt")
-    csv_path = os.path.join(batch_dir, "evaluation_summary.csv")
+    suffix = EXPERIMENT_SUFFIXES[experiment_name]
+    output_path = os.path.join(batch_dir, f"Electricity_evaluation_{suffix}.txt")
+    csv_path = os.path.join(batch_dir, f"Electricity_evaluation_summary_{suffix}.csv")
     all_model_results = {}
 
     with open(output_path, "w", encoding="utf-8") as out, \
@@ -371,59 +377,63 @@ def evaluate_experiment(experiment_name, batch_dir):
 
 
 def write_cross_experiment_comparison(results_by_experiment):
-    output_path = os.path.join(CURRENT_DIR, "evaluation_comparison.txt")
-    with open(output_path, "w", encoding="utf-8") as out:
-        out.write("=" * 80 + "\n")
-        out.write("  ELECTRICITY EVALUATION COMPARISON: ODD + GAME_STUFF VS ODD-ONLY\n")
-        out.write("=" * 80 + "\n\n")
+    output_paths = [
+        os.path.join(CURRENT_DIR, "Electricity_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt"),
+    ]
 
-        out.write("Side-by-side totals:\n")
-        out.write(
-            f"{'Model':<20} {'Experiment':<18} {'TP':>4} {'FP':>4} {'FN':>4} "
-            f"{'Precision':>10} {'Recall':>8} {'F1':>8}\n"
-        )
-        out.write("-" * 92 + "\n")
-        for model_name in MODELS:
-            for experiment_name, results in results_by_experiment.items():
-                result = results[model_name]
-                out.write(
-                    f"{model_name:<20} {experiment_name:<18} {result['tp']:>4} "
-                    f"{result['fp']:>4} {result['fn']:>4} {result['precision']:>10.4f} "
-                    f"{result['recall']:>8.4f} {result['f1']:>8.4f}\n"
-                )
+    for output_path in output_paths:
+        with open(output_path, "w", encoding="utf-8") as out:
+            out.write("=" * 80 + "\n")
+            out.write("  ELECTRICITY EVALUATION COMPARISON: ODD+GAME_STUFF VS ODD-ONLY\n")
+            out.write("=" * 80 + "\n\n")
 
-        if "ODD + game_stuff" in results_by_experiment and "ODD-only" in results_by_experiment:
-            out.write("\nDifferences (ODD-only minus ODD + game_stuff):\n")
+            out.write("Side-by-side totals:\n")
             out.write(
-                f"{'Model':<20} {'Delta TP':>8} {'Delta FP':>8} {'Delta FN':>8} "
-                f"{'Delta Prec':>11} {'Delta Recall':>13} {'Delta F1':>10}\n"
+                f"{'Model':<20} {'Experiment':<18} {'TP':>4} {'FP':>4} {'FN':>4} "
+                f"{'Precision':>10} {'Recall':>8} {'F1':>8}\n"
             )
-            out.write("-" * 82 + "\n")
-            old_results = results_by_experiment["ODD + game_stuff"]
-            new_results = results_by_experiment["ODD-only"]
+            out.write("-" * 92 + "\n")
             for model_name in MODELS:
-                old = old_results[model_name]
-                new = new_results[model_name]
+                for experiment_name, results in results_by_experiment.items():
+                    result = results[model_name]
+                    out.write(
+                        f"{model_name:<20} {experiment_name:<18} {result['tp']:>4} "
+                        f"{result['fp']:>4} {result['fn']:>4} {result['precision']:>10.4f} "
+                        f"{result['recall']:>8.4f} {result['f1']:>8.4f}\n"
+                    )
+
+            if "ODD + game_stuff" in results_by_experiment and "ODD-only" in results_by_experiment:
+                out.write("\nDifferences (ODD-only minus ODD + game_stuff):\n")
                 out.write(
-                    f"{model_name:<20} "
-                    f"{new['tp'] - old['tp']:>+8} "
-                    f"{new['fp'] - old['fp']:>+8} "
-                    f"{new['fn'] - old['fn']:>+8} "
-                    f"{new['precision'] - old['precision']:>+11.4f} "
-                    f"{new['recall'] - old['recall']:>+13.4f} "
-                    f"{new['f1'] - old['f1']:>+10.4f}\n"
+                    f"{'Model':<20} {'Delta TP':>8} {'Delta FP':>8} {'Delta FN':>8} "
+                    f"{'Delta Prec':>11} {'Delta Recall':>13} {'Delta F1':>10}\n"
                 )
+                out.write("-" * 82 + "\n")
+                old_results = results_by_experiment["ODD + game_stuff"]
+                new_results = results_by_experiment["ODD-only"]
+                for model_name in MODELS:
+                    old = old_results[model_name]
+                    new = new_results[model_name]
+                    out.write(
+                        f"{model_name:<20} "
+                        f"{new['tp'] - old['tp']:>+8} "
+                        f"{new['fp'] - old['fp']:>+8} "
+                        f"{new['fn'] - old['fn']:>+8} "
+                        f"{new['precision'] - old['precision']:>+11.4f} "
+                        f"{new['recall'] - old['recall']:>+13.4f} "
+                        f"{new['f1'] - old['f1']:>+10.4f}\n"
+                    )
 
-        out.write("\nGround-truth AS hit counts by experiment/model:\n")
-        for experiment_name, results in results_by_experiment.items():
-            out.write(f"\n{experiment_name}\n")
-            out.write(f"{'Model':<20} " + " ".join(f"{name[:10]:>10}" for name in DISPLAY_NAMES.values()) + "\n")
-            out.write("-" * 90 + "\n")
-            for model_name, result in results.items():
-                counts = " ".join(f"{result['found_counts'][key]:>10}" for key in GROUND_TRUTH)
-                out.write(f"{model_name:<20} {counts}\n")
+            out.write("\nGround-truth AS hit counts by experiment/model:\n")
+            for experiment_name, results in results_by_experiment.items():
+                out.write(f"\n{experiment_name}\n")
+                out.write(f"{'Model':<20} " + " ".join(f"{name[:10]:>10}" for name in DISPLAY_NAMES.values()) + "\n")
+                out.write("-" * 90 + "\n")
+                for model_name, result in results.items():
+                    counts = " ".join(f"{result['found_counts'][key]:>10}" for key in GROUND_TRUTH)
+                    out.write(f"{model_name:<20} {counts}\n")
 
-    return output_path
+    return output_paths
 
 
 def main():
@@ -435,13 +445,14 @@ def main():
         results_by_experiment[experiment_name] = results
         report_paths.append((output_path, csv_path))
 
-    comparison_path = write_cross_experiment_comparison(results_by_experiment)
+    comparison_paths = write_cross_experiment_comparison(results_by_experiment)
 
     print("\nReports:")
     for output_path, csv_path in report_paths:
         print(f"  Detailed: {output_path}")
         print(f"  CSV:      {csv_path}")
-    print(f"  Compare:  {comparison_path}")
+    for comparison_path in comparison_paths:
+        print(f"  Compare:  {comparison_path}")
 
 
 if __name__ == "__main__":

@@ -1,13 +1,3 @@
-"""
-Run the same 3 LLM models 30 times using only the original ODD+D text.
-
-This is the ODD-only counterpart of batch_30runs.py:
-  - DeepSeek-R1
-  - Llama-3.3-70B-Instruct-Turbo
-  - Qwen2.5-7B-Instruct-Turbo
-
-The prompt intentionally excludes the extra model logic text.
-"""
 
 from together import Together
 import os
