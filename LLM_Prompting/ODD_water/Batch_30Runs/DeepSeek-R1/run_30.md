@@ -2,64 +2,56 @@
 
 ### Analysis of Distinct Action Situations for Decentralized Case (DV)
 
-**Action Situation 1: Water Withdrawal Dilemma**  
-*Tension*: Upstream farmers' water extraction reduces downstream water availability, creating asymmetric incentives. Downstream farmers face reduced agricultural yields and fish reproduction risks due to ecological thresholds.  
-
-**2-Player Normal Form Payoff Matrix**  
-*Players*:  
-- Upstream Farmer (U)  
-- Downstream Farmer (D)  
-
-*Actions*:  
-- **Low (L)**: Irrigate 5 fields (moderate withdrawal)  
-- **High (H)**: Irrigate 10 fields (high withdrawal)  
-
-*Payoffs (Agricultural Yield + Fishing Benefit)*:  
-| U \ D | L (5 fields) | H (10 fields) |
-|--------|--------------|--------------|
-| **L (5 fields)** | (6, 6)       | (3, 7)       |
-| **H (10 fields)** | (9, 1)       | (9, 1)       |
-
-*Justification*:  
-- **Spatial asymmetry**: Upstream (U) extracts water first. If U chooses High (10 fields), water scarcity propagates downstream, crippling D's agriculture.  
-- **Ecological threshold**: High withdrawals reduce lake inflow below reproduction threshold (e.g., May inflow < critical value), collapsing fish stocks. D loses fishing benefits in all cases except mutual cooperation (L,L).  
-- Payoffs reflect:  
-  - U always prefers High (9 > 6 or 3) due to water priority.  
-  - D prefers High only if U cooperates (7 > 6), but U's defection forces D to Low to avoid total loss (1 > 0 if D chose High).  
-- Social optimum (6,6) requires mutual restraint but is unstable due to U's dominant strategy to defect.  
+Based on the ODD+D description, two distinct action situations emerge in the decentralized version (DV), each reflecting unique strategic tensions related to spatial asymmetry (upstream vs. downstream) and ecological thresholds. The analysis adheres to the constraints: only DV case, max fields = 10, and focus on strategic dilemmas. 
 
 ---
 
-**Action Situation 2: Fishing Access Race**  
-*Tension*: Downstream farmers exploit fish stocks first, depleting shared resources before upstream farmers can access them. This creates a "first mover advantage" that threatens long-term fish population viability.  
+**Action Situation 1: Upstream-Downstream Water Allocation Dilemma**  
+*Strategic Tension*: Upstream farmers' water extraction reduces water availability for downstream farmers' irrigation, creating a positional advantage. Downstream farmers face reduced agricultural yields due to water scarcity, while upstream farmers prioritize their own irrigation needs.  
 
 **2-Player Normal Form Payoff Matrix**  
-*Players*:  
-- Downstream Farmer (D)  
-- Upstream Farmer (U)  
+*(Rows: Upstream Farmer U, Columns: Downstream Farmer D)*  
 
-*Actions*:  
-- **Restrain (R)**: Catch below target (50% of stock)  
-- **Exploit (E)**: Catch full target (100% of stock)  
+|            | D: Conservative (5 fields) | D: Aggressive (10 fields) |
+|------------|-----------------------------|---------------------------|
+| **U: Conservative (5 fields)** | (5, 5)                     | (2.5, 7.5)               |
+| **U: Aggressive (10 fields)**  | (7.5, 2.5)                 | (5, 5)                   |
 
-*Payoffs (Fish Catch Benefit)*:  
-| D \ U | R (Restrain) | E (Exploit) |
-|--------|--------------|--------------|
-| **R (Restrain)** | (5, 5)       | (2, 8)       |
-| **E (Exploit)**   | (8, 2)       | (4, 4)       |
-
-*Justification*:  
-- **Spatial asymmetry**: D fishes first. If D Exploits (E), U gets minimal/no catch regardless of action.  
-- **Ecological threshold**: Mutual exploitation (E,E) collapses fish stocks (payoff 4,4), failing to meet reproduction threshold. Restraint (R,R) sustains the stock (5,5).  
-- Payoffs reflect:  
-  - D has dominant strategy to Exploit (8 > 5 if U restrains; 4 > 2 if U exploits).  
-  - U prefers Restrain only if D cooperates (5 > 2), but D's defection makes Exploit optimal (2 > 0 if U restrains alone).  
-- Social dilemma: D captures short-term gains, while U bears costs of stock collapse.  
+**Justification**:  
+- **Spatial Asymmetry**: Upstream farmers (U) extract water first, leaving residual flow for downstream farmers (D). Conservative irrigation (5 fields) by U allows adequate water for D, while aggressive irrigation (10 fields) starves D.  
+- **Payoffs**: Net returns = Yield - Irrigation costs. Assumptions:  
+  - Full yield = 10 (max fields), cost/field = 0.5.  
+  - U-Aggressive/D-Conservative: U gets full yield (10 - 5 = 7.5), D suffers stress (yield = 5, cost = 2.5 → net 2.5).  
+  - Mutual aggression: Both face moderate stress (yield = 7.5 - 5 = 2.5 each).  
+- **Tension**: U dominates by being aggressive, forcing D into conservatism. D’s best response depends on U’s choice, creating a positional imbalance.  
 
 ---
 
-### Summary of Strategic Tensions  
-1. **Water Withdrawal Dilemma**: Upstream dominance creates agricultural inequality and risks ecological collapse.  
-2. **Fishing Access Race**: Downstream priority drives overexploitation, penalizing upstream agents and triggering resource collapse.  
+**Action Situation 2: Lake Threshold Coordination Dilemma**  
+*Strategic Tension*: Collective water extraction risks breaching the ecological threshold for fish reproduction in the lake. Downstream farmers (closer to the lake) prioritize fishing, while upstream farmers prioritize irrigation, leading to misaligned incentives.  
 
-Both matrices capture core tensions in DV: spatial asymmetry (upstream/downstream positions), ecological thresholds (fish reproduction), and myopic self-interest. The matrices use illustrative payoffs based on model parameters (e.g., max fields = 10, threshold-dependent benefits).
+**2-Player Normal Form Payoff Matrix**  
+*(Rows: Upstream Farmer U, Columns: Downstream Farmer D)*  
+
+|            | D: Restrict (5 fields) | D: Over-Extract (10 fields) |
+|------------|------------------------|-----------------------------|
+| **U: Restrict (5 fields)**    | (10, 12.5)             | (7.5, 10)                  |
+| **U: Over-Extract (10 fields)** | (5, 7.5)               | (2.5, 5)                   |
+
+**Justification**:  
+- **Ecological Threshold**: Water flow to the lake in May must exceed a threshold (e.g., 40 units) for fish reproduction. If unmet, fish collapse occurs.  
+- **Spatial Asymmetry**: Downstream farmers (D) access fish first and incur higher losses if the threshold is breached. Upstream farmers (U) bear lower fishing opportunity costs.  
+- **Payoffs**:  
+  - **Restrict/Restrict** (5 fields each): Lake threshold met. U: moderate irrigation (5) + low fish (5) = 10. D: moderate irrigation (5) + high fish (7.5) = 12.5.  
+  - **U Over-Extract/D Restrict**: Lake threshold breached. U: high irrigation (7.5) + no fish (0) = 7.5. D: moderate irrigation (5) + low fish (2.5) = 7.5.  
+  - **Mutual Over-Extraction**: Catastrophic collapse (yield = 2.5, fish = 2.5).  
+- **Tension**: Downstream farmers prefer mutual restriction (12.5), but upstream farmers defect to maximize irrigation. This mirrors a coordination game with unequal incentives due to spatial asymmetry.  
+
+---
+
+### Key Notes  
+1. **Spatial Asymmetry**: Embedded in both matrices via positional advantages (water access for U, fish access for D).  
+2. **Ecological Threshold**: Explicit in Situation 2 (lake reproduction threshold).  
+3. **DV-Centric**: All scenarios reflect decentralized decision-making (no regulator).  
+4. **Max Fields**: Strategy choices capped at 10 fields.  
+5. **Simplification**: Payoffs assume linear yield-water relationships and fixed costs (per ODD+D). Fish catch scales with lake inflow (threshold-dependent).

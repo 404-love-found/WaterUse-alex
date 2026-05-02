@@ -14,7 +14,8 @@ model_id = "deepseek-ai/DeepSeek-R1"
 
 N_RUNS = 30
 MAX_RETRIES = 5
-BASE_WAIT = 10  # seconds, first retry wait
+MAX_TOKENS = 16000
+RETRY_WAIT_SECONDS = 30
 COOLDOWN = 1    # seconds between successful runs (professor's suggestion)
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +41,7 @@ def build_prompt(odd_text, game_text):
     2. For each, provide a **2-player Normal Form Payoff Matrix**.
     3. **CRITICAL CONSTRAINTS**:
        - **Extract action situations ONLY for the decentralized case (DV). Do NOT extract situations for the centralized case (CV).**
+       - Ignore centralized interactions such as National Authority forecasting/allocation; only farmer decisions under DV are in scope.
        - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
        - Reflect the **Ecological Thresholds** (Tipping points).
        - Max fields = 10.
@@ -63,7 +65,7 @@ def run_single(client, prompt, run_num):
                 model=model_id,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
-                max_tokens=16000,
+                max_tokens=MAX_TOKENS,
             )
             dt = time.time() - t0
             content = response.choices[0].message.content
@@ -82,13 +84,12 @@ def run_single(client, prompt, run_num):
                 log_error(msg)
 
         except Exception as e:
-            wait = BASE_WAIT * attempt
             msg = f"  Run {run_num} attempt {attempt}/{MAX_RETRIES}: {type(e).__name__}: {e}"
             print(f"\n{msg}")
             log_error(msg)
             if attempt < MAX_RETRIES:
-                print(f"      Waiting {wait}s before retry...")
-                time.sleep(wait)
+                print(f"      Waiting {RETRY_WAIT_SECONDS}s before retry...")
+                time.sleep(RETRY_WAIT_SECONDS)
 
         # Delay between retries
         time.sleep(COOLDOWN)
@@ -109,11 +110,11 @@ def main():
     # Clear error log
     with open(error_log_path, "w", encoding="utf-8") as f:
         f.write(f"DeepSeek-R1 Batch Run Error Log\n")
-        f.write(f"max_tokens=16000, cooldown={COOLDOWN}s\n")
+        f.write(f"max_tokens={MAX_TOKENS}, cooldown={COOLDOWN}s\n")
         f.write(f"{'='*50}\n\n")
 
     print(f"{'='*60}")
-    print(f"  DeepSeek-R1  |  {N_RUNS} runs  |  max_tokens=16000")
+    print(f"  DeepSeek-R1  |  {N_RUNS} runs  |  max_tokens={MAX_TOKENS}")
     print(f"  Cooldown: {COOLDOWN}s between calls")
     print(f"{'='*60}")
 

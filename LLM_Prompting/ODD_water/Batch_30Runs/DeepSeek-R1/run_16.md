@@ -1,56 +1,42 @@
 # Run 16 — deepseek-ai/DeepSeek-R1
 
-### Extracted Action Situations for Decentralized Version (DV)
+### Analysis of Distinct Action Situations in the Decentralized Version (DV)
 
-**Title: Water Withdrawal Dilemma (Upstream vs. Downstream)**  
-**Tension**: Upstream farmers have priority access to water but risk collapsing the fish population (critical for downstream farmers). Downstream farmers face water scarcity but have fishing priority. Both must balance individual irrigation needs against collective ecosystem collapse.  
+#### **Action Situation 1: Upstream-Downstream Water Competition**  
+**Strategic Tension**: Upstream farmers prioritize water diversion for irrigation to maximize crop yields, while downstream farmers depend on residual water flows for both irrigation and fish reproduction. Aggressive water use by upstream farmers risks violating ecological thresholds for fish reproduction (lake inflow < 20 units), collapsing the fish population and harming downstream fishing income.  
 
-**Payoff Matrix (Upstream Farmer, Downstream Farmer)**:
+**Payoff Matrix** (Row: Upstream Farmer; Column: Downstream Farmer):  
+|          | Conservative (5 fields) | Aggressive (10 fields) |
+|----------|-------------------------|------------------------|
+| **Conservative (5 fields)** | (70, 70) | (50, 100) |
+| **Aggressive (10 fields)**   | (100, 50) | (100, 50) |
 
-|                    | Downstream: High Withdrawal (10 fields) | Downstream: Low Withdrawal (5 fields) |
-|--------------------|-----------------------------------------|----------------------------------------|
-| **Upstream: High Withdrawal (10 fields)** | (10A, 5A)                               | (10A + F, 5A + F)                     |
-| **Upstream: Low Withdrawal (5 fields)**   | (5A + F, 10A + F)                       | (5A + F, 5A + F)                      |
-
-**Justification**:  
-- **Spatial Asymmetry**: Upstream farmers (U) withdraw water first; downstream farmers (D) receive residual flow. U always gets full agricultural yield (A per field). D’s yield depends on water availability after U’s withdrawal.  
-- **Ecological Threshold**: If combined May withdrawals exceed inflow threshold (T), fish collapse occurs (F = 0). Here, U’s High + D’s High causes collapse (payoffs: 10A for U, 5A for D due to water stress).  
-- **Strategies**: "High" = irrigate 10 fields (max), "Low" = irrigate 5 fields.  
-- **Payoffs**:  
-  - **(High, High)**: U gets full agriculture (10A) but fish collapse (F=0). D suffers water stress (yield = 5A) and no fish.  
-  - **(High, Low)**: U gets full agriculture (10A) and fish (F). D, constrained by low water, irrigates minimally (5A) but gets fish (F).  
-  - **(Low, High)**: U restrains irrigation (5A) but gets fish (F). D gets full water access (10A) and fish (F).  
-  - **(Low, Low)**: Both restrain, preserving fish (F). Agriculture reduced (5A each).  
-- **Dilemma**: U is tempted to maximize irrigation (10A) but risks fish collapse. D must choose between high irrigation (risking water stress) or restraint (preserving fish). Mutual restraint (5A + F) outperforms mutual defection (10A, 5A) if F > 5A, but individual incentives favor over-withdrawal.  
-
----
-
-**Title: Fishing Access Dilemma (Downstream Priority)**  
-**Tension**: Downstream farmers have fishing priority but depend on upstream water restraint for fish survival. Upstream farmers can sabotage fishing by over-withdrawing, sacrificing their own fish access.  
-
-**Payoff Matrix (Downstream Farmer, Upstream Farmer)**:
-
-|                    | Upstream: High Withdrawal (10 fields) | Upstream: Low Withdrawal (5 fields) |
-|--------------------|----------------------------------------|--------------------------------------|
-| **Downstream: Fish Aggressively** | (5A, 10A)                              | (10A + F, 5A + F)                   |
-| **Downstream: Fish Conservatively** | (5A + F, 10A)                          | (5A + F, 5A + F)                    |
+**Units**: Income = Crop yield + Fish catch (arbitrary units).  
+- **Crop yield**: Conservative = 50 (5 fields × 10 yield/field), Aggressive = 100 (10 fields × 10 yield/field). Proportional reduction if water stress occurs.  
+- **Fish catch**: 20/farmer if lake inflow ≥ 20; else 0.  
+- **Water inflow**: 150 units (assumed for May).  
+- **Water threshold**: Lake inflow < 20 → fish reproduction fails.  
 
 **Justification**:  
-- **Spatial Asymmetry**: D fishes first; U fishes last (if fish remain). D’s catch is guaranteed if fish survive; U’s catch depends on residual fish stock.  
-- **Ecological Threshold**: High withdrawal by U collapses fish (F=0). Conservative fishing by D leaves more fish for U but risks lower individual catch.  
-- **Strategies**: "Fish Aggressively" = target full catch (F), "Fish Conservatively" = reduce catch by 50% (0.5F).  
-- **Payoffs**:  
-  - **(Aggressive, High)**: Fish collapse (F=0). D gets minimal agriculture (5A). U gets full agriculture (10A).  
-  - **(Conservative, High)**: Fish collapse (F=0). D restrains fishing (no benefit) and gets minimal agriculture (5A). U benefits fully (10A).  
-  - **(Aggressive, Low)**: Fish survive. D gets full agriculture (10A) and full fish (F). U gets reduced agriculture (5A) and residual fish (F).  
-  - **(Conservative, Low)**: Fish survive. D gets moderate agriculture (5A) and fish (0.5F). U gets moderate agriculture (5A) and fish (F).  
-- **Dilemma**: D must trust U’s water restraint to preserve fish. U has no incentive to cooperate if D fishes aggressively. Both prefer mutual restraint (5A + F each), but U’s dominant strategy is High withdrawal unless D fishes conservatively.  
+- **(Conservative, Conservative)**:  
+  Upstream withdraws 50 units, downstream withdraws 50. Lake inflow = 50 (≥20). Both receive full crop yield (50 each) and fish catch (20). **Payoff: (70, 70)**.  
+- **(Conservative, Aggressive)**:  
+  Upstream withdraws 50, downstream withdraws 100 (but only 100 available). Downstream gets full crop (100), upstream gets 50 crop. Lake inflow = 0 → fish collapse. **Payoff: (50, 100)**.  
+- **(Aggressive, Conservative)**:  
+  Upstream withdraws 100, downstream withdraws 50 (only 50 left). Upstream gets 100 crop, downstream gets 50 crop. Lake inflow = 0 → fish collapse. **Payoff: (100, 50)**.  
+- **(Aggressive, Aggressive)**:  
+  Upstream withdraws 100, downstream withdraws 50 (residual). Upstream gets 100 crop, downstream gets 50 crop. Lake inflow = 0 → fish collapse. **Payoff: (100, 50)**.  
 
----
+**Strategic Dilemma**:  
+- Upstream has a dominant strategy: **Aggressive** (100 > 70 if downstream conserves; 100 > 50 if downstream aggresses).  
+- Downstream’s best response: **Aggressive** if upstream conserves (100 > 70), but **indifferent** if upstream aggresses (50 = 50).  
+- **Tension**: Mutual conservation (70,70) preserves fish stocks but is unstable—upstream defects for higher crop gains (100). Downstream faces lower payoffs (50) when upstream acts aggressively, regardless of its own choice. Ecological thresholds (fish collapse) bind when combined withdrawals exceed lake inflow capacity.  
 
-### Key Constraints Addressed:
-1. **Exclusively Decentralized (DV)**: No central authority; farmers act independently.  
-2. **Spatial Asymmetry**: Upstream prioritizes water; downstream prioritizes fishing.  
-3. **Ecological Thresholds**: Fish collapse occurs if May inflow < threshold T.  
-4. **Max Fields = 10**: Embedded in strategy choices (High = 10 fields, Low = 5 fields).  
-5. **Strategic Tensions**: Each matrix captures unique conflicts (water vs. fish access, trust in restraint).
+---  
+**Key Constraints Addressed**:  
+- **Spatial asymmetry**: Upstream prioritizes water access; downstream prioritizes fishing.  
+- **Ecological threshold**: Lake inflow < 20 units → fish reproduction fails.  
+- **Max fields**: Conservative = 5 fields, Aggressive = 10 fields.  
+- **DV focus**: No coordination; farmers act independently.  
+
+**Note**: This is the only distinct action situation in DV. Fishing is non-strategic (fixed catch targets), and no other interactions (e.g., collective learning) exist per ODD+D.

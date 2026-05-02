@@ -1,40 +1,46 @@
 # Run 25 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer vs Downstream Farmer - Water Extraction
-#### Tension: 
-The upstream farmer's decision to extract water for irrigation affects the downstream farmer's water availability, leading to a strategic tension between the two.
+### Decentralized Water Use Action Situations
+#### 1. Upstream-Downstream Irrigation Dilemma
+**Tension:** Over-extraction of water by upstream farmers, affecting downstream farmers' yields.
+**Matrix:**
 
-#### Matrix:
-|  | Downstream Farmer Cooperates (Conserves Water) | Downstream Farmer Defects (Extracts More Water) |
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Conserves Water)** | Upstream: 8, Downstream: 6 | Upstream: 5, Downstream: 7 |
-| **Upstream Farmer Defects (Extracts More Water)** | Upstream: 9, Downstream: 3 | Upstream: 6, Downstream: 5 |
+| **Downstream (Cooperate)** | 8, 8 | 5, 10 |
+| **Downstream (Defect)** | 10, 5 | 6, 6 |
 
-#### Justification:
-In the decentralized case, each farmer predicts water availability at their location and decides on the number of fields to irrigate. The upstream farmer's decision to extract more water reduces the water available to the downstream farmer, affecting their yield. The matrix reflects the spatial asymmetry and ecological thresholds, where cooperation (conserving water) leads to a better outcome for both farmers, but defection (extracting more water) can lead to a higher payoff for the upstream farmer at the expense of the downstream farmer.
+**Justification:** In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have priority access to water, creating a tension between their own yield and the downstream farmers' yields. If both cooperate (irrigate fewer fields), they both get a moderate yield (8). If the upstream farmer defects (irrigates more fields), they get a higher yield (10), while the downstream farmer gets a lower yield (5). If both defect, they both get a lower yield (6) due to water stress.
 
-### Action Situation 2: Farmer vs Fish Population - Fishing and Irrigation
-#### Tension: 
-The farmer's decision to fish and irrigate affects the fish population, leading to a strategic tension between the farmer's economic goals and the ecological sustainability of the fish population.
+#### 2. Fishing and Water Extraction Trade-off
+**Tension:** Balancing fishing and irrigation needs, considering the ecological threshold for fish population survival.
+**Matrix:**
 
-#### Matrix:
-|  | Fish Population Thrives (Ecological Sustainability) | Fish Population Declines (Overfishing and Pollution) |
+|  | Fisherman (Cooperate) | Fisherman (Defect) |
 | --- | --- | --- |
-| **Farmer Cooperates (Sustainable Fishing and Irrigation)** | Farmer: 7, Fish Population: 8 | Farmer: 4, Fish Population: 2 |
-| **Farmer Defects (Overfishes and Pollutes)** | Farmer: 9, Fish Population: 1 | Farmer: 5, Fish Population: 0 |
+| **Farmer (Cooperate)** | 7, 9 | 4, 11 |
+| **Farmer (Defect)** | 10, 6 | 8, 8 |
 
-#### Justification:
-The farmer's decision to overfish and pollute affects the fish population, leading to a decline in ecological sustainability. The matrix reflects the ecological thresholds, where cooperation (sustainable fishing and irrigation) leads to a better outcome for both the farmer and the fish population, but defection (overfishing and polluting) can lead to a higher payoff for the farmer at the expense of the fish population.
+**Justification:** The fish population's survival depends on the water inflow during reproduction. Farmers and fishermen have conflicting interests. If both cooperate (limit fishing and irrigation), the fisherman gets a higher catch (9), and the farmer gets a moderate yield (7). If the fisherman defects (overfishes), they get a higher catch (11), but the farmer's yield decreases (4) due to the ecological threshold being exceeded. If both defect, they both get a moderate outcome (8).
 
-### Action Situation 3: Upstream Farmer vs Downstream Farmer - Field Expansion
-#### Tension: 
-The upstream farmer's decision to expand their fields affects the downstream farmer's water availability, leading to a strategic tension between the two.
+#### 3. Risky Irrigation Investment
+**Tension:** Deciding whether to invest in more irrigation fields, considering the uncertainty of water availability and the risk of crop failure.
+**Matrix:**
 
-#### Matrix:
-|  | Downstream Farmer Has Enough Water (Up to 6 Fields) | Downstream Farmer Has Limited Water (More than 6 Fields) |
+|  | Farmer (Invest) | Farmer (Not Invest) |
 | --- | --- | --- |
-| **Upstream Farmer Expands Fields (Up to 10 Fields)** | Upstream: 9, Downstream: 5 | Upstream: 8, Downstream: 2 |
-| **Upstream Farmer Limits Field Expansion (Up to 6 Fields)** | Upstream: 7, Downstream: 7 | Upstream: 6, Downstream: 6 |
+| **Nature (Favorable)** | 10, 10 | 8, 8 |
+| **Nature (Unfavorable)** | 2, 2 | 6, 6 |
 
-#### Justification:
-The upstream farmer's decision to expand their fields reduces the water available to the downstream farmer, affecting their yield. The matrix reflects the spatial asymmetry and ecological thresholds, where cooperation (limiting field expansion) leads to a better outcome for both farmers, but defection (expanding fields) can lead to a higher payoff for the upstream farmer at the expense of the downstream farmer. The maximum fields (10) constraint is reflected in the matrix, where expanding fields beyond 6 leads to a decline in payoff for the downstream farmer.
+**Justification:** Farmers must decide whether to invest in more irrigation fields, considering the uncertainty of water availability. If they invest and nature is favorable (high water availability), they get a high yield (10). If they invest and nature is unfavorable (low water availability), they get a low yield (2). If they don't invest, they get a moderate yield (8) if nature is favorable, or a lower yield (6) if nature is unfavorable.
+
+#### 4. Spatial Asymmetry in Water Allocation
+**Tension:** Upstream farmers' decisions affect downstream farmers' water availability, considering the maximum number of fields (10).
+**Matrix:**
+
+|  | Upstream (Limit) | Upstream (Max) |
+| --- | --- | --- |
+| **Downstream (Limit)** | 9, 9 | 6, 10 |
+| **Downstream (Max)** | 10, 6 | 8, 8 |
+
+**Justification:** Upstream farmers' decisions on the number of fields to irrigate affect downstream farmers' water availability. If both limit their fields, they both get a high yield (9). If the upstream farmer maximizes their fields (10), they get a high yield (10), while the downstream farmer gets a lower yield (6). If both maximize their fields, they both get a moderate yield (8) due to water stress.

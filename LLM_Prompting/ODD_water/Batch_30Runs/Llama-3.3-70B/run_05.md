@@ -1,49 +1,61 @@
 # Run 5 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Action Situation 1: Upstream Farmer's Irrigation Decision
-#### Title: Irrigation Dilemma
-#### Tension: The upstream farmer must decide whether to irrigate a large number of fields, potentially reducing water availability for downstream farmers, or to conserve water and possibly forgo economic benefits.
+#### Tension: Over-Irrigation vs. Conservation
 #### Matrix:
 
-|  | Downstream Farmer Cooperates (Conserves Water) | Downstream Farmer Defects (Irrigates Maximally) |
+|  | Downstream Farmer Conserves | Downstream Farmer Over-Irrigates |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Conserves Water)** | Upstream: 8, Downstream: 8 | Upstream: 6, Downstream: 9 |
-| **Upstream Farmer Defects (Irrigates Maximally)** | Upstream: 9, Downstream: 5 | Upstream: 7, Downstream: 7 |
+| **Upstream Farmer Conserves** | 5, 5 | 3, 6 |
+| **Upstream Farmer Over-Irrigates** | 6, 3 | 2, 2 |
 
-#### Justification: The upstream farmer has a strategic advantage in terms of access to water. If the upstream farmer conserves water, both farmers can achieve a moderate yield (8). However, if the upstream farmer irrigates maximally, the downstream farmer's yield will be significantly reduced (5). The downstream farmer's decision to cooperate or defect affects the upstream farmer's payoff, as excessive irrigation by both farmers leads to reduced yields for both (7).
+#### Justification: 
+In the decentralized case, an upstream farmer's decision to irrigate affects the downstream farmer's water availability. If both conserve, they both get a moderate payoff (5). If the upstream farmer over-irrigates and the downstream conserves, the upstream gets a high payoff (6) while the downstream gets a low payoff (3). If both over-irrigate, they both get a low payoff (2) due to water scarcity.
 
 ### Action Situation 2: Downstream Farmer's Fishing Decision
-#### Title: Fishing Dilemma
-#### Tension: The downstream farmer must decide whether to fish at a sustainable level, allowing the fish population to recover, or to overfish, potentially depleting the resource and affecting their own future livelihood.
+#### Tension: Over-Fishing vs. Conservation
 #### Matrix:
 
-|  | Upstream Farmer Cooperates (Conserves Water) | Upstream Farmer Defects (Irrigates Maximally) |
+|  | Upstream Farmer Conserves Water | Upstream Farmer Over-Irrigates |
 | --- | --- | --- |
-| **Downstream Farmer Cooperates (Sustainable Fishing)** | Downstream: 7, Upstream: 8 | Downstream: 5, Upstream: 7 |
-| **Downstream Farmer Defects (Overfishing)** | Downstream: 9, Upstream: 6 | Downstream: 8, Upstream: 5 |
+| **Downstream Farmer Conserves Fish** | 8, 5 | 4, 3 |
+| **Downstream Farmer Over-Fishes** | 9, 2 | 5, 1 |
 
-#### Justification: The downstream farmer's fishing decision is influenced by the upstream farmer's irrigation decision. If the upstream farmer conserves water, the downstream farmer can sustainably fish and achieve a moderate yield (7). However, if the upstream farmer irrigates maximally, the downstream farmer's fishing yield will be reduced (5). Overfishing by the downstream farmer affects the upstream farmer's payoff, as a depleted fish population reduces the overall ecosystem's resilience.
+#### Justification: 
+The downstream farmer's fishing decision is affected by the upstream farmer's irrigation decision. If the upstream farmer conserves water, the downstream farmer can conserve fish and get a high payoff (8) while the upstream gets a moderate payoff (5). If the downstream over-fishes, they get a very high payoff (9) but the upstream gets a low payoff (2). If the upstream over-irrigates, the payoffs are lower due to reduced fish population.
 
-### Action Situation 3: Farmer's Decision to Invest in Water Conservation
-#### Title: Conservation Dilemma
-#### Tension: The farmer must decide whether to invest in water conservation measures, potentially reducing their water usage and increasing the water availability for other farmers, or to maintain their current water usage, possibly leading to water scarcity and reduced yields.
+### Action Situation 3: Farmer's Decision to Expand Irrigation
+#### Tension: Expansion vs. Caution
 #### Matrix:
 
-|  | Other Farmers Cooperate (Conserve Water) | Other Farmers Defect (Do Not Conserve Water) |
+|  | Neighbor Farmer Expands | Neighbor Farmer Does Not Expand |
 | --- | --- | --- |
-| **Farmer Cooperates (Invests in Conservation)** | Farmer: 8, Others: 8 | Farmer: 7, Others: 9 |
-| **Farmer Defects (Does Not Invest in Conservation)** | Farmer: 9, Others: 6 | Farmer: 8, Others: 8 |
+| **Farmer Expands** | 4, 4 | 7, 3 |
+| **Farmer Does Not Expand** | 3, 7 | 5, 5 |
 
-#### Justification: The farmer's decision to invest in water conservation affects the overall water availability and the payoffs of other farmers. If all farmers cooperate and conserve water, each can achieve a moderate yield (8). However, if one farmer does not invest in conservation, they may achieve a higher yield (9), but the other farmers' yields will be reduced (6). The farmer's decision to defect and not conserve water leads to a reduced overall resilience of the ecosystem.
+#### Justification: 
+A farmer's decision to expand irrigation is influenced by their neighbor's decision. If both expand, they both get a moderate payoff (4) due to increased competition for water. If one expands and the other does not, the expanding farmer gets a high payoff (7) while the other gets a low payoff (3). If neither expands, they both get a moderate payoff (5) due to conservation of water resources.
 
-### Action Situation 4: Farmer's Response to Ecological Threshold
-#### Title: Threshold Dilemma
-#### Tension: The farmer must decide whether to reduce their water usage in response to an ecological threshold (e.g., low water levels), potentially reducing their yield, or to maintain their current water usage, possibly leading to catastrophic consequences for the ecosystem.
+### Action Situation 4: Farmer's Decision to Invest in Water-Saving Technologies
+#### Tension: Investment vs. Non-Investment
 #### Matrix:
 
-|  | Ecosystem Resilient | Ecosystem Vulnerable |
+|  | Neighbor Farmer Invests | Neighbor Farmer Does Not Invest |
 | --- | --- | --- |
-| **Farmer Cooperates (Reduces Water Usage)** | Farmer: 7, Ecosystem: 8 | Farmer: 5, Ecosystem: 9 |
-| **Farmer Defects (Maintains Water Usage)** | Farmer: 9, Ecosystem: 5 | Farmer: 6, Ecosystem: 6 |
+| **Farmer Invests** | 6, 6 | 8, 2 |
+| **Farmer Does Not Invest** | 2, 8 | 3, 3 |
 
-#### Justification: The farmer's decision to respond to an ecological threshold affects the overall resilience of the ecosystem. If the farmer reduces their water usage, the ecosystem can recover, and the farmer achieves a moderate yield (7). However, if the farmer maintains their current water usage, the ecosystem may collapse, leading to catastrophic consequences for the farmer (5) and the ecosystem (5). The farmer's decision to defect and maintain their water usage leads to a reduced overall resilience of the ecosystem.
+#### Justification: 
+A farmer's decision to invest in water-saving technologies is influenced by their neighbor's decision. If both invest, they both get a high payoff (6) due to increased water efficiency. If one invests and the other does not, the investing farmer gets a very high payoff (8) while the other gets a low payoff (2). If neither invests, they both get a low payoff (3) due to inefficient water use.
+
+### Action Situation 5: Farmer's Response to Ecological Thresholds
+#### Tension: Adaptive Management vs. Business-As-Usual
+#### Matrix:
+
+|  | Ecological Threshold Not Crossed | Ecological Threshold Crossed |
+| --- | --- | --- |
+| **Farmer Adapts** | 9, 9 | 5, 5 |
+| **Farmer Does Not Adapt** | 5, 5 | 1, 1 |
+
+#### Justification: 
+A farmer's response to ecological thresholds is crucial. If the threshold is not crossed and the farmer adapts, they get a very high payoff (9). If the threshold is crossed and the farmer adapts, they get a moderate payoff (5). If the farmer does not adapt, they get a low payoff (1) regardless of whether the threshold is crossed or not. This situation reflects the importance of adaptive management in the face of ecological uncertainty.

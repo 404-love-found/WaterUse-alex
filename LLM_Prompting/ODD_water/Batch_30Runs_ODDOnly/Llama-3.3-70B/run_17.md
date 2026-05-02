@@ -1,49 +1,37 @@
 # Run 17 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Action Situation 1: Upstream Farmer's Irrigation Decision
-#### Tension: Over-Irrigation vs. Conservation
+#### Title: Irrigation Dilemma
+#### Tension: An upstream farmer must decide whether to irrigate their maximum fields (10) or not, while a downstream farmer's water availability is affected by this decision.
 #### Matrix:
 
-|  | Downstream Farmer Conserves | Downstream Farmer Over-Irrigates |
+|  | Downstream Farmer: Conserve Water | Downstream Farmer: Irrigate Maximally |
 | --- | --- | --- |
-| **Upstream Farmer Conserves** | 5, 5 | 3, 6 |
-| **Upstream Farmer Over-Irrigates** | 6, 3 | 2, 2 |
+| **Upstream Farmer: Irrigate Maximally** | Upstream: 8, Downstream: 2 | Upstream: 9, Downstream: 1 |
+| **Upstream Farmer: Conserve Water** | Upstream: 5, Downstream: 6 | Upstream: 4, Downstream: 5 |
 
-#### Justification: 
-In the decentralized case, an upstream farmer's decision to irrigate can affect the water available to downstream farmers. If both conserve, they both get a moderate payoff (5). If one conserves and the other over-irrigates, the over-irrigating farmer gets a higher payoff (6) at the expense of the conserving farmer (3). If both over-irrigate, they both face reduced payoffs (2) due to water scarcity and potential ecological damage.
+#### Justification: The upstream farmer's decision affects the water availability for the downstream farmer. If the upstream farmer irrigates maximally, the downstream farmer's water availability decreases, leading to lower yields. This situation reflects the spatial asymmetry and ecological thresholds, as excessive water withdrawal can lead to tipping points in the ecosystem.
 
-### Action Situation 2: Farmer's Decision to Increase Irrigated Fields
-#### Tension: Expansion vs. Caution
+### Action Situation 2: Farmer's Fishing Decision
+#### Title: Fishing Dilemma
+#### Tension: A farmer must decide whether to fish at their target catch level or not, while another farmer's fishing decision affects the fish population.
 #### Matrix:
 
-|  | Neighbor Farmer Expands | Neighbor Farmer Does Not Expand |
+|  | Other Farmer: Fish at Target Catch | Other Farmer: Do Not Fish |
 | --- | --- | --- |
-| **Farmer Expands** | 4, 4 | 7, 2 |
-| **Farmer Does Not Expand** | 2, 7 | 5, 5 |
+| **Farmer: Fish at Target Catch** | Farmer: 6, Other Farmer: 4 | Farmer: 8, Other Farmer: 2 |
+| **Farmer: Do Not Fish** | Farmer: 3, Other Farmer: 7 | Farmer: 5, Other Farmer: 5 |
 
-#### Justification: 
-A farmer deciding whether to increase irrigated fields faces a dilemma. If both the farmer and their neighbor expand, they both get a moderate payoff (4) due to increased water demand. If one expands and the other does not, the expanding farmer gets a higher payoff (7) at the expense of the non-expanding farmer (2), who may face water scarcity. If neither expands, they both get a safe but lower payoff (5).
+#### Justification: The farmer's fishing decision affects the fish population, which in turn affects the other farmer's fishing success. If both farmers fish at their target catch level, the fish population decreases, leading to lower catches for both. This situation reflects the ecological thresholds, as overfishing can lead to a tipping point in the fish population.
 
-### Action Situation 3: Fishery Management
-#### Tension: Overfishing vs. Conservation
+### Action Situation 3: Farmer's Budget Allocation Decision
+#### Title: Budget Allocation Dilemma
+#### Tension: A farmer must decide whether to allocate their budget to irrigation or fishing, while another farmer's budget allocation decision affects the water and fish availability.
 #### Matrix:
 
-|  | Downstream Farmer Conserves Fish | Downstream Farmer Overfishes |
+|  | Other Farmer: Allocate to Irrigation | Other Farmer: Allocate to Fishing |
 | --- | --- | --- |
-| **Upstream Farmer Conserves Fish** | 6, 6 | 4, 8 |
-| **Upstream Farmer Overfishes** | 8, 4 | 3, 3 |
+| **Farmer: Allocate to Irrigation** | Farmer: 7, Other Farmer: 3 | Farmer: 9, Other Farmer: 1 |
+| **Farmer: Allocate to Fishing** | Farmer: 4, Other Farmer: 6 | Farmer: 5, Other Farmer: 5 |
 
-#### Justification: 
-In the fishing aspect, a farmer's decision to conserve or overfish affects not only their own payoff but also that of downstream farmers. If both conserve, they both get a high payoff (6). If one conserves and the other overfishes, the overfishing farmer gets a higher payoff (8) at the expense of the conserving farmer (4). If both overfish, they both face significantly reduced payoffs (3) due to depletion of the fish population.
-
-### Action Situation 4: Water Allocation Under Ecological Thresholds
-#### Tension: Immediate Gain vs. Long-Term Sustainability
-#### Matrix:
-
-|  | Downstream Farmer Prioritizes Sustainability | Downstream Farmer Prioritizes Immediate Gain |
-| --- | --- | --- |
-| **Upstream Farmer Prioritizes Sustainability** | 8, 8 | 5, 9 |
-| **Upstream Farmer Prioritizes Immediate Gain** | 9, 5 | 1, 1 |
-
-#### Justification: 
-This situation reflects the dilemma of prioritizing immediate economic gain versus long-term sustainability of water resources. If both farmers prioritize sustainability, they both achieve high payoffs (8) by maintaining ecological balance. If one prioritizes sustainability and the other immediate gain, the latter gets a higher short-term payoff (9) while the former gets a lower payoff (5). If both prioritize immediate gain, they both face severe penalties (1) due to crossing ecological thresholds, leading to significant long-term losses.
+#### Justification: The farmer's budget allocation decision affects the water and fish availability, which in turn affects the other farmer's decisions. If both farmers allocate their budget to irrigation, the water availability decreases, leading to lower yields. If both farmers allocate their budget to fishing, the fish population decreases, leading to lower catches. This situation reflects the spatial asymmetry and ecological thresholds, as excessive water withdrawal or overfishing can lead to tipping points in the ecosystem.

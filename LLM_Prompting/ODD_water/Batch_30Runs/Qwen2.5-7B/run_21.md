@@ -1,83 +1,68 @@
 # Run 21 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Strategic Tensions in Decentralized Water Use Model
+### Title: Strategic Tensions in a Decentralized Water Use Model
 
-#### 1. Strategic Tension: Water Allocation vs. Yield Maximization
-
-**Tension:**
-In the decentralized version (DV), farmers must decide between allocating more fields to maximize their yields or conserving water to avoid water stress and preserve fish populations.
-
-**Matrix:**
-
-|                | Upstream Farmer (U) | Downstream Farmer (D) |
-|----------------|---------------------|-----------------------|
-| **U: Maximize Yield** | (10, 10) | (8, 8) |
-| **U: Conserve Water** | (8, 8) | (10, 10) |
-
-**Justification:**
-- **Maximize Yield (U):** Upstream farmer allocates more fields, potentially leading to higher water stress downstream. Downstream farmer also allocates more fields, reducing water for fish and leading to lower yields for both.
-- **Conserve Water (U):** Upstream farmer conserves water, potentially leading to lower yield but higher water availability downstream for fish and downstream farmer. Downstream farmer also conserves water, leading to higher fish populations and higher yields.
-
-#### 2. Strategic Tension: Water Stress vs. Fish Population
+#### 1. Strategic Dilemma: Spatial Asymmetry - Upstream vs Downstream
 
 **Tension:**
-Farmers must decide whether to risk water stress to maximize yields or to conserve water to preserve fish populations.
-
-**Matrix:**
-
-|                | Upstream Farmer (U) | Downstream Farmer (D) |
-|----------------|---------------------|-----------------------|
-| **U: Maximize Yield** | (8, 8) | (10, 10) |
-| **U: Conserve Water** | (10, 10) | (8, 8) |
+Upstream farmers have access to water first but may face higher water stress, while downstream farmers have access to fish first but may face lower water availability.
 
 **Justification:**
-- **Maximize Yield (U):** Upstream farmer allocates more fields, potentially leading to water stress and lower fish populations downstream. Downstream farmer also allocates more fields, leading to lower yields for both.
-- **Conserve Water (U):** Upstream farmer conserves water, potentially leading to higher fish populations and higher yields for downstream farmer. Downstream farmer conserves water, leading to higher fish populations and higher yields for both.
+Spatial asymmetry creates a tension between upstream and downstream farmers. Upstream farmers have a competitive advantage in accessing water, but downstream farmers have a competitive advantage in accessing fish. This creates a strategic dilemma where upstream farmers may overuse water, leading to a decrease in downstream fish populations, and downstream farmers may overfish, leading to a decrease in fish stocks for upstream farmers.
 
-#### 3. Strategic Tension: Fish Population vs. Economic Stability
+**2-Player Normal Form Payoff Matrix:**
+
+|                    | Downstream Farmers | Downstream Farmers |
+|--------------------|--------------------|--------------------|
+| **Upstream Farmers** |                    |                    |
+| **Increase Water Use** | (5, 5)            | (10, 2)            |
+| **Do Not Increase Water Use** | (2, 10)            | (8, 8)            |
+
+- **(5, 5)**: Both upstream and downstream farmers increase water use, leading to a balanced but lower fish population.
+- **(10, 2)**: Upstream farmers increase water use, leading to a significant decrease in downstream fish populations, benefiting upstream farmers but harming downstream farmers.
+- **(2, 10)**: Downstream farmers increase fishing, leading to a significant decrease in fish populations, benefiting downstream farmers but harming upstream farmers.
+- **(8, 8)**: Both upstream and downstream farmers maintain their current strategies, leading to a balanced but lower fish population.
+
+#### 2. Strategic Dilemma: Ecological Threshold - Tipping Points
 
 **Tension:**
-Farmers must decide whether to risk economic instability by fishing or to conserve fish populations to maintain long-term economic stability.
-
-**Matrix:**
-
-|                | Upstream Farmer (U) | Downstream Farmer (D) |
-|----------------|---------------------|-----------------------|
-| **U: Fish** | (10, 8) | (8, 10) |
-| **U: Conserve Fish** | (8, 10) | (10, 8) |
+The fish population faces ecological thresholds, and if these thresholds are crossed, the fish population may collapse, leading to a significant decrease in fish catches for downstream farmers.
 
 **Justification:**
-- **Fish (U):** Upstream farmer fishes, potentially leading to lower fish populations and lower yields for downstream farmer. Downstream farmer also fishes, leading to lower yields for both.
-- **Conserve Fish (U):** Upstream farmer conserves fish, potentially leading to higher fish populations and higher yields for downstream farmer. Downstream farmer conserves fish, leading to higher fish populations and higher yields for both.
+The fish population is sensitive to changes in water flow and can collapse if ecological thresholds are crossed. This creates a strategic dilemma where upstream farmers must balance their water use to avoid crossing these thresholds and causing a significant decrease in fish catches for downstream farmers.
 
-#### 4. Strategic Tension: Spatial Asymmetry (Upstream vs. Downstream)
+**2-Player Normal Form Payoff Matrix:**
+
+|                    | Downstream Farmers | Downstream Farmers |
+|--------------------|--------------------|--------------------|
+| **Upstream Farmers** |                    |                    |
+| **Increase Water Use** | (5, 5)            | (10, 2)            |
+| **Do Not Increase Water Use** | (2, 10)            | (8, 8)            |
+
+- **(5, 5)**: Both upstream and downstream farmers increase water use, leading to a balanced but lower fish population.
+- **(10, 2)**: Upstream farmers increase water use, potentially crossing ecological thresholds and leading to a significant decrease in fish catches for downstream farmers.
+- **(2, 10)**: Downstream farmers increase fishing, potentially crossing ecological thresholds and leading to a significant decrease in fish catches for downstream farmers.
+- **(8, 8)**: Both upstream and downstream farmers maintain their current strategies, leading to a balanced but lower fish population.
+
+#### 3. Strategic Dilemma: Economic Threshold - Critical Income Threshold
 
 **Tension:**
-Upstream and downstream farmers have different incentives due to their proximity to the water source and fishing lake.
-
-**Matrix:**
-
-|                | Upstream Farmer (U) | Downstream Farmer (D) |
-|----------------|---------------------|-----------------------|
-| **U: Prioritize Yield** | (10, 8) | (8, 10) |
-| **U: Prioritize Fish** | (8, 10) | (10, 8) |
+Farmers have a critical income threshold below which they are more likely to take risks by increasing their water use, potentially leading to a decrease in fish populations for downstream farmers.
 
 **Justification:**
-- **Prioritize Yield (U):** Upstream farmer focuses on maximizing yields, potentially leading to lower fish populations and lower yields for downstream farmer. Downstream farmer focuses on maximizing yields, leading to lower yields for both.
-- **Prioritize Fish (U):** Upstream farmer focuses on conserving fish, potentially leading to higher fish populations and higher yields for downstream farmer. Downstream farmer focuses on conserving fish, leading to higher fish populations and higher yields for both.
+Farmers who have not met their income targets in previous years are more likely to take risks by increasing their water use, hoping for better water availability in the current year. This creates a strategic dilemma where upstream farmers may overuse water, leading to a decrease in downstream fish populations.
 
-#### 5. Strategic Tension: Ecological Thresholds (Tipping Points)
+**2-Player Normal Form Payoff Matrix:**
 
-**Tension:**
-Farmers must decide whether to risk crossing ecological tipping points (e.g., overfishing, excessive water stress) to maximize short-term yields or to maintain ecological balance.
+|                    | Downstream Farmers | Downstream Farmers |
+|--------------------|--------------------|--------------------|
+| **Upstream Farmers** |                    |                    |
+| **Increase Water Use** | (5, 5)            | (10, 2)            |
+| **Do Not Increase Water Use** | (2, 10)            | (8, 8)            |
 
-**Matrix:**
+- **(5, 5)**: Both upstream and downstream farmers increase water use, leading to a balanced but lower fish population.
+- **(10, 2)**: Upstream farmers increase water use, potentially leading to a significant decrease in fish catches for downstream farmers.
+- **(2, 10)**: Downstream farmers increase fishing, potentially leading to a significant decrease in fish catches for downstream farmers.
+- **(8, 8)**: Both upstream and downstream farmers maintain their current strategies, leading to a balanced but lower fish population.
 
-|                | Upstream Farmer (U) | Downstream Farmer (D) |
-|----------------|---------------------|-----------------------|
-| **U: Cross Tipping Point** | (10, 8) | (8, 10) |
-| **U: Maintain Balance** | (8, 10) | (10, 8) |
-
-**Justification:**
-- **Cross Tipping Point (U):** Upstream farmer risks crossing tipping points, potentially leading to lower fish populations and lower yields for downstream farmer. Downstream farmer also risks crossing tipping points, leading to lower yields for both.
-- **Maintain Balance (U):** Upstream farmer maintains ecological balance, potentially leading to higher fish populations and higher yields for downstream farmer. Downstream farmer maintains ecological balance, leading to higher fish populations and higher yields for both.
+These matrices reflect the strategic tensions in the decentralized water use model, considering the spatial asymmetry, ecological thresholds, and economic thresholds.

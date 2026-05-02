@@ -24,18 +24,19 @@ MODELS = {
     },
     "Llama-3.3-70B": {
         "model_id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-        "timeout": 120.0,
-        "max_tokens": 4096,
+        "timeout": 600.0,
+        "max_tokens": 16000,
     },
     "Qwen2.5-7B": {
         "model_id": "Qwen/Qwen2.5-7B-Instruct-Turbo",
-        "timeout": 120.0,
-        "max_tokens": 4096,
+        "timeout": 600.0,
+        "max_tokens": 16000,
     },
 }
 
 N_RUNS = 30
 MAX_RETRIES = 5
+RETRY_WAIT_SECONDS = 30
 
 # Paths
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -60,11 +61,13 @@ def build_prompt(odd_text, game_text):
     2. For each, provide a **2-player Normal Form Payoff Matrix**.
     3. **CRITICAL CONSTRAINTS**:
        - **Extract action situations ONLY for the decentralized case (DV). Do NOT extract situations for the centralized case (CV).**
+       - Ignore centralized interactions such as National Authority forecasting/allocation; only farmer decisions under DV are in scope.
        - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
        - Reflect the **Ecological Thresholds** (Tipping points).
        - Max fields = 10.
 
     Only output the analysis (Title, Tension, Matrix, Justification).
+    You may include your thought process, but ensure the final output is clearly structured.
     """
 
 
@@ -81,10 +84,12 @@ def run_single(client, model_id, prompt, max_tokens):
             return response.choices[0].message.content
         except Exception as e:
             error_msg = str(e).lower()
-            if any(k in error_msg for k in ["503", "service_unavailable", "timeout", "rate"]):
-                wait = 30 * (attempt + 1)
-                print(f"      ⚠️  Retry {attempt+1}/{MAX_RETRIES}, waiting {wait}s... ({e})")
-                time.sleep(wait)
+            if any(k in error_msg for k in ["503", "service_unavailable", "timeout"]):
+                print(
+                    f"      ⚠️  Retry {attempt+1}/{MAX_RETRIES}, "
+                    f"waiting {RETRY_WAIT_SECONDS}s... ({e})"
+                )
+                time.sleep(RETRY_WAIT_SECONDS)
             else:
                 print(f"      ❌ Error: {e}")
                 return None

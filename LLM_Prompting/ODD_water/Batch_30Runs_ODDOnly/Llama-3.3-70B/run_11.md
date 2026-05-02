@@ -1,49 +1,40 @@
 # Run 11 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Irrigation Decision
-#### Tension: Upstream Farmer's Irrigation Decision vs Downstream Farmer's Water Availability
+### Action Situation 1: Upstream-Downstream Water Extraction
+#### Tension: 
+Water extraction by upstream farmers affects the water availability for downstream farmers, creating a strategic tension between individual gains and collective sustainability.
+
 #### Matrix:
-
-|  | Downstream Farmer Cooperates (Conserves Water) | Downstream Farmer Defects (Over-Extracts Water) |
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Conserves Water)** | Upstream: 8, Downstream: 6 | Upstream: 5, Downstream: 4 |
-| **Upstream Farmer Defects (Over-Extracts Water)** | Upstream: 9, Downstream: 3 | Upstream: 6, Downstream: 2 |
+| **Downstream (Cooperate)** | 5, 5 | 2, 8 |
+| **Downstream (Defect)** | 8, 2 | 3, 3 |
 
-#### Justification: 
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water flows and available budget. The upstream farmer's decision to irrigate more fields can reduce the water available to the downstream farmer, creating a strategic tension. If both farmers conserve water, they can maintain a stable yield (8 for upstream, 6 for downstream). However, if the upstream farmer over-extracts water, the downstream farmer's yield will decrease significantly (3), even if they conserve water.
+#### Justification:
+In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water flows and available budget. Upstream farmers have an advantage in terms of water access, which creates a spatial asymmetry. The matrix reflects the potential outcomes where cooperation means irrigating a moderate number of fields (5), and defection means irrigating the maximum number of fields (10). If both cooperate, they both get a moderate payoff (5). If the upstream farmer defects and the downstream farmer cooperates, the upstream farmer gets a high payoff (8), while the downstream farmer gets a low payoff (2). If both defect, they both get a low payoff (3) due to the ecological threshold of water scarcity being reached.
 
-### Action Situation 2: Fishing Decision
-#### Tension: Farmer's Fishing Decision vs Fish Population Sustainability
+### Action Situation 2: Fishing Resource Management
+#### Tension: 
+The common pool resource of fish in the lake creates a strategic tension between individual fishing targets and the collective sustainability of the fish population.
+
 #### Matrix:
-
-|  | Farmer Conserves Fish (Catches Less) | Farmer Over-Exploits Fish (Catches More) |
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Farmer Conserves Fish (Catches Less)** | Farmer: 5, Fish Population: 8 | Farmer: 4, Fish Population: 3 |
-| **Farmer Over-Exploits Fish (Catches More)** | Farmer: 6, Fish Population: 4 | Farmer: 3, Fish Population: 1 |
+| **Farmer 2 (Cooperate)** | 4, 4 | 1, 6 |
+| **Farmer 2 (Defect)** | 6, 1 | 2, 2 |
 
-#### Justification: 
-The farmer's decision to catch more fish can lead to over-exploitation, reducing the fish population's sustainability. If the farmer conserves fish, the population can maintain a healthy size (8), and the farmer can still catch a moderate amount (5). However, if the farmer over-exploits the fish, the population will decline (3), and the farmer's long-term catch will also decrease (4).
+#### Justification:
+In the decentralized case, each farmer tries to catch a fixed target amount of fish. The matrix reflects the potential outcomes where cooperation means catching a moderate amount of fish (4), and defection means catching the maximum amount (10). If both cooperate, they both get a moderate payoff (4). If one farmer defects and the other cooperates, the defecting farmer gets a high payoff (6), while the cooperating farmer gets a low payoff (1). If both defect, they both get a low payoff (2) due to the ecological threshold of fish population depletion being reached.
 
-### Action Situation 3: Water Extraction vs Ecological Threshold
-#### Tension: Farmer's Water Extraction Decision vs Ecological Threshold of Water Inflow
+### Action Situation 3: Water Allocation under Ecological Thresholds
+#### Tension: 
+The variability of water inflows and the threshold for larval migration into the lake create a strategic tension between individual water allocation decisions and the collective ecological sustainability.
+
 #### Matrix:
-
-|  | Water Inflow Exceeds Threshold | Water Inflow Below Threshold |
+|  | Farmer 1 (Conservative) | Farmer 1 (Optimistic) |
 | --- | --- | --- |
-| **Farmer Extracts Water Conservatively** | Farmer: 7, Ecosystem: 9 | Farmer: 3, Ecosystem: 5 |
-| **Farmer Extracts Water Excessively** | Farmer: 8, Ecosystem: 6 | Farmer: 2, Ecosystem: 2 |
+| **Farmer 2 (Conservative)** | 3, 3 | 2, 5 |
+| **Farmer 2 (Optimistic)** | 5, 2 | 1, 1 |
 
-#### Justification: 
-The farmer's decision to extract water excessively can lead to ecological degradation if the water inflow is below a certain threshold. If the water inflow exceeds the threshold, conservative extraction allows the farmer to maintain a moderate yield (7) while preserving the ecosystem (9). However, if the water inflow is below the threshold, excessive extraction will harm the ecosystem (2) and reduce the farmer's yield (2).
-
-### Action Situation 4: Budget Allocation
-#### Tension: Farmer's Budget Allocation Decision vs Agricultural and Fishing Returns
-#### Matrix:
-
-|  | Farmer Allocates Budget to Agriculture | Farmer Allocates Budget to Fishing |
-| --- | --- | --- |
-| **Farmer Invests in Agriculture** | Farmer: 9 (Agriculture), 4 (Fishing) | Farmer: 6 (Agriculture), 6 (Fishing) |
-| **Farmer Invests in Fishing** | Farmer: 5 (Agriculture), 8 (Fishing) | Farmer: 3 (Agriculture), 9 (Fishing) |
-
-#### Justification: 
-The farmer's decision to allocate their budget to either agriculture or fishing creates a strategic tension. Investing in agriculture can lead to higher returns (9) but may limit fishing returns (4). Investing in fishing can lead to higher fishing returns (8) but may limit agricultural returns (5). The optimal allocation depends on the farmer's priorities and the ecological conditions.
+#### Justification:
+In the decentralized case, each farmer predicts water flows and decides on the number of fields to irrigate. The matrix reflects the potential outcomes where conservative allocation means irrigating a low number of fields (3), and optimistic allocation means irrigating a high number of fields (8). If both are conservative, they both get a moderate payoff (3). If one farmer is optimistic and the other is conservative, the optimistic farmer gets a high payoff (5), while the conservative farmer gets a low payoff (2). If both are optimistic, they both get a low payoff (1) due to the ecological threshold of water scarcity being reached, affecting the fish population and larval migration.

@@ -1,52 +1,53 @@
 # Run 29 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Decentralized Water Use Action Situations
-#### 1. Upstream Farmer's Irrigation Decision
-**Title:** Upstream Irrigation Dilemma
-**Tension:** Balancing individual irrigation needs with potential downstream water scarcity
-**Matrix:**
-|  | Downstream Farmer Cooperates | Downstream Farmer Defects |
-| --- | --- | --- |
-| **Upstream Farmer Cooperates** | 8, 8 | 5, 10 |
-| **Upstream Farmer Defects** | 10, 5 | 3, 3 |
-**Justification:** The upstream farmer must decide whether to irrigate extensively (defect) or conserve water for downstream use (cooperate). The downstream farmer's decision to cooperate (conserve water) or defect (irrigate extensively) affects the upstream farmer's payoff.
+### Action Situation 1: Upstream/Downstream Irrigation Dilemma
+#### Tension: 
+Over-extraction of water by upstream farmers may leave downstream farmers without sufficient water for irrigation, creating a strategic tension between individual gain and collective sustainability.
 
-#### 2. Downstream Farmer's Fishing Decision
-**Title:** Downstream Fishing Dilemma
-**Tension:** Balancing individual fishing needs with potential ecological degradation
-**Matrix:**
-|  | Upstream Farmer Cooperates | Upstream Farmer Defects |
+#### Matrix:
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Downstream Farmer Cooperates** | 9, 7 | 6, 4 |
-| **Downstream Farmer Defects** | 7, 9 | 2, 2 |
-**Justification:** The downstream farmer must decide whether to fish sustainably (cooperate) or overfish (defect), considering the upstream farmer's irrigation decision, which affects water flow and fish population.
+| **Downstream (Cooperate)** | 5, 5 | 2, 8 |
+| **Downstream (Defect)** | 8, 2 | 3, 3 |
 
-#### 3. Farmer's Field Expansion Decision
-**Title:** Field Expansion Dilemma
-**Tension:** Balancing individual economic gain with potential ecological and social costs
-**Matrix:**
-|  | Neighbor Farmer Cooperates | Neighbor Farmer Defects |
-| --- | --- | --- |
-| **Farmer Expands Fields** | 8, 8 | 12, 4 |
-| **Farmer Conserves Fields** | 4, 12 | 6, 6 |
-**Justification:** A farmer must decide whether to expand their fields (defect) or conserve land and water (cooperate), considering the potential impact on their neighbor's water availability and the ecological threshold of the fish population.
+#### Justification:
+In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have priority access to water, which may lead them to defect (irrigate more fields) to maximize their yield, leaving downstream farmers with less water. However, if both cooperate (irrigate fewer fields), they can maintain a sustainable water level, ensuring a moderate yield for both. The matrix reflects the spatial asymmetry, where upstream farmers have more power over water extraction.
 
-#### 4. Water Flow Prediction and Irrigation Decision
-**Title:** Water Flow Prediction Dilemma
-**Tension:** Balancing individual prediction accuracy with potential irrigation risks
-**Matrix:**
-|  | High Water Flow | Low Water Flow |
-| --- | --- | --- |
-| **Farmer Predicts High Flow** | 10, 10 | 2, 2 |
-| **Farmer Predicts Low Flow** | 6, 6 | 8, 8 |
-**Justification:** A farmer must decide whether to predict high water flow (defect) or low water flow (cooperate), considering the potential risks and benefits of irrigation decisions and the ecological threshold of the fish population.
+### Action Situation 2: Fishing Quota Dilemma
+#### Tension: 
+The strategic tension arises between farmers' individual interests to maximize their fish catch and the need to maintain a sustainable fish population, considering the ecological threshold of fish depletion.
 
-#### 5. Ecological Threshold and Fishing Decision
-**Title:** Ecological Threshold Dilemma
-**Tension:** Balancing individual fishing needs with potential ecological collapse
-**Matrix:**
-|  | Fish Population Above Threshold | Fish Population Below Threshold |
+#### Matrix:
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Farmer Fishes Sustainably** | 9, 9 | 5, 5 |
-| **Farmer Overfishes** | 12, 4 | 1, 1 |
-**Justification:** A farmer must decide whether to fish sustainably (cooperate) or overfish (defect), considering the potential impact on the fish population and the ecological threshold beyond which the population collapses.
+| **Downstream (Cooperate)** | 4, 4 | 1, 6 |
+| **Downstream (Defect)** | 6, 1 | 2, 2 |
+
+#### Justification:
+In the decentralized case, farmers decide on their fishing quota. The matrix reflects the tension between individual gain (defecting to catch more fish) and collective sustainability (cooperating to maintain fish populations). Downstream farmers have priority access to the fishing lake, but overfishing by either can deplete the population, crossing an ecological threshold. Cooperation ensures a moderate catch for both, while defection risks depleting the fish population.
+
+### Action Situation 3: Water Conservation vs. Expansion Dilemma
+#### Tension: 
+The tension lies between conserving water for future use and expanding irrigation to maximize current yields, considering the ecological threshold of water scarcity.
+
+#### Matrix:
+|  | Upstream (Conserve) | Upstream (Expand) |
+| --- | --- | --- |
+| **Downstream (Conserve)** | 6, 6 | 3, 9 |
+| **Downstream (Expand)** | 9, 3 | 4, 4 |
+
+#### Justification:
+In the decentralized case, farmers must decide between conserving water for future use or expanding their irrigation to maximize current yields. The matrix reflects the strategic tension between short-term gains (expanding irrigation) and long-term sustainability (conserving water). If both conserve, they ensure a stable water supply. However, if one expands while the other conserves, the expander gains more in the short term but risks crossing an ecological threshold of water scarcity.
+
+### Action Situation 4: Information Sharing Dilemma
+#### Tension: 
+The tension arises between sharing information on water availability to coordinate irrigation decisions and withholding information to maintain a competitive advantage.
+
+#### Matrix:
+|  | Upstream (Share) | Upstream (Withhold) |
+| --- | --- | --- |
+| **Downstream (Share)** | 7, 7 | 4, 10 |
+| **Downstream (Withhold)** | 10, 4 | 5, 5 |
+
+#### Justification:
+In the decentralized case, farmers may choose to share information on water availability to coordinate their irrigation decisions. The matrix reflects the tension between cooperation (sharing information) and competition (withholding information). Sharing information can lead to more efficient water use and higher yields for both, while withholding information may provide a temporary advantage but risks inefficient water use and lower overall yields.

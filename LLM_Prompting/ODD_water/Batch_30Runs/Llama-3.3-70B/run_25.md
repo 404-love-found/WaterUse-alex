@@ -1,53 +1,40 @@
 # Run 25 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer's Irrigation Decision
+### Action Situation 1: Upstream-Downstream Irrigation Dilemma
 #### Tension: 
-Over-Irrigation vs. Conservative Irrigation
+The upstream farmer has an incentive to irrigate more fields, reducing the water available for the downstream farmer, who may not have enough water to irrigate their planned fields.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Conservative Irrigation) | Downstream Farmer Defects (Over-Irrigation) |
+|  | Upstream: Irrigate 10 fields | Upstream: Irrigate 5 fields |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates** | 8, 8 | 5, 9 |
-| **Upstream Farmer Defects** | 9, 5 | 6, 6 |
+| **Downstream: Irrigate 10 fields** | Upstream: 10, Downstream: 0 | Upstream: 5, Downstream: 5 |
+| **Downstream: Irrigate 5 fields** | Upstream: 10, Downstream: 2 | Upstream: 5, Downstream: 8 |
 
 #### Justification:
-In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. The upstream farmer has a strategic dilemma: whether to irrigate conservatively or over-irrigate. If both farmers cooperate (irrigate conservatively), they both receive a moderate payoff (8). If the upstream farmer defects (over-irrigates) and the downstream farmer cooperates, the upstream farmer receives a higher payoff (9), while the downstream farmer receives a lower payoff (5). If both farmers defect, they both receive a lower payoff (6). This reflects the spatial asymmetry, as the upstream farmer has more control over the water flow.
+In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. The upstream farmer has priority access to the water, creating a strategic tension with the downstream farmer. If the upstream farmer irrigates 10 fields, the downstream farmer may not have enough water, resulting in a low payoff. The matrix reflects the spatial asymmetry and ecological thresholds, as the downstream farmer's payoff decreases when the upstream farmer irrigates more fields.
 
-### Action Situation 2: Downstream Farmer's Fishing Decision
+### Action Situation 2: Fishing and Irrigation Trade-off
 #### Tension: 
-Over-Fishing vs. Sustainable Fishing
+A farmer must decide between allocating resources to fishing or irrigation, given the limited water availability and the potential for fish population decline.
 
 #### Matrix:
-|  | Upstream Farmer Cooperates (Sustainable Irrigation) | Upstream Farmer Defects (Over-Irrigation) |
+|  | Farmer: Prioritize Fishing | Farmer: Prioritize Irrigation |
 | --- | --- | --- |
-| **Downstream Farmer Cooperates** | 7, 7 | 4, 9 |
-| **Downstream Farmer Defects** | 8, 4 | 5, 5 |
+| **Neighboring Farmer: Prioritize Fishing** | Farmer: 3, Neighboring Farmer: 3 | Farmer: 8, Neighboring Farmer: 2 |
+| **Neighboring Farmer: Prioritize Irrigation** | Farmer: 2, Neighboring Farmer: 8 | Farmer: 5, Neighboring Farmer: 5 |
 
 #### Justification:
-The downstream farmer has a strategic dilemma: whether to fish sustainably or over-fish. If both farmers cooperate (sustainable irrigation and fishing), they both receive a moderate payoff (7). If the downstream farmer defects (over-fishes) and the upstream farmer cooperates, the downstream farmer receives a higher payoff (8), while the upstream farmer receives a lower payoff (4). If the upstream farmer defects (over-irrigates), the downstream farmer's payoff is affected by the reduced water flow, reflecting the ecological threshold.
+In the decentralized case, each farmer must balance their irrigation and fishing activities, considering the potential impact on the fish population and their own water availability. The matrix reflects the trade-off between fishing and irrigation, as prioritizing one activity may lead to a decrease in the other. The ecological threshold is represented by the decline in fish population if too many farmers prioritize irrigation.
 
-### Action Situation 3: Farmer's Decision to Invest in Irrigation Infrastructure
+### Action Situation 3: Water Conservation and Risk-taking
 #### Tension: 
-Invest vs. Not Invest
+A farmer must decide whether to conserve water by irrigating fewer fields or take a risk and irrigate more fields, hoping for increased water availability in the future.
 
 #### Matrix:
-|  | Other Farmers Invest | Other Farmers Do Not Invest |
+|  | Farmer: Conserve Water | Farmer: Take Risk |
 | --- | --- | --- |
-| **Farmer Invests** | 9, 9 | 6, 5 |
-| **Farmer Does Not Invest** | 5, 6 | 4, 4 |
+| **Neighboring Farmer: Conserve Water** | Farmer: 5, Neighboring Farmer: 5 | Farmer: 8, Neighboring Farmer: 3 |
+| **Neighboring Farmer: Take Risk** | Farmer: 3, Neighboring Farmer: 8 | Farmer: 2, Neighboring Farmer: 2 |
 
 #### Justification:
-Each farmer has a strategic dilemma: whether to invest in irrigation infrastructure or not. If all farmers invest, they all receive a higher payoff (9). If one farmer invests and the others do not, the investing farmer receives a moderate payoff (6), while the non-investing farmers receive a lower payoff (5). If no farmers invest, they all receive a lower payoff (4). This reflects the ecological threshold, as investing in irrigation infrastructure can help mitigate the effects of water scarcity.
-
-### Action Situation 4: Farmer's Decision to Expand Irrigated Fields
-#### Tension: 
-Expand vs. Not Expand
-
-#### Matrix:
-|  | Other Farmers Expand | Other Farmers Do Not Expand |
-| --- | --- | --- |
-| **Farmer Expands** | 8, 8 | 10, 3 |
-| **Farmer Does Not Expand** | 3, 10 | 6, 6 |
-
-#### Justification:
-Each farmer has a strategic dilemma: whether to expand their irrigated fields or not. If all farmers expand, they all receive a moderate payoff (8). If one farmer expands and the others do not, the expanding farmer receives a higher payoff (10), while the non-expanding farmers receive a lower payoff (3). If no farmers expand, they all receive a moderate payoff (6). This reflects the spatial asymmetry and ecological threshold, as expanding irrigated fields can lead to over-irrigation and decreased water availability downstream. The maximum fields constraint (Max fields = 10) is also reflected in this action situation.
+In the decentralized case, each farmer must weigh the risks and benefits of conserving water or taking a risk and irrigating more fields. The matrix reflects the potential outcomes of these decisions, considering the spatial asymmetry and ecological thresholds. If both farmers conserve water, they may maintain a stable water availability, but if one farmer takes a risk and the other conserves, the risk-taker may gain an advantage. However, if both farmers take a risk, they may both suffer from decreased water availability.

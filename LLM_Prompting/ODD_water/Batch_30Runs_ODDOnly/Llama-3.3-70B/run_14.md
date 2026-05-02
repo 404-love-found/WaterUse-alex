@@ -1,47 +1,62 @@
 # Run 14 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Decentralized Water Use Action Situations
-
-#### 1. Upstream/Downstream Irrigation Tension
-**Tension:** Upstream farmers may over-irrigate, leaving insufficient water for downstream farmers.
+#### 1. Upstream vs Downstream Irrigation
+**Title:** Upstream Water Withdrawal
+**Tension:** Upstream farmers may withdraw more water, affecting downstream farmers' irrigation.
 **Matrix:**
 
 |  | Downstream Cooperates | Downstream Defects |
 | --- | --- | --- |
-| **Upstream Cooperates** | Upstream: 8, Downstream: 7 | Upstream: 9, Downstream: 2 |
-| **Upstream Defects** | Upstream: 10, Downstream: 1 | Upstream: 6, Downstream: 3 |
+| **Upstream Cooperates** | Upstream: 8, Downstream: 6 | Upstream: 9, Downstream: 3 |
+| **Upstream Defects** | Upstream: 10, Downstream: 2 | Upstream: 8, Downstream: 4 |
 
-**Justification:** The matrix reflects the strategic tension between upstream and downstream farmers. If both cooperate (irrigate moderately), they achieve a balanced outcome (8, 7). If the upstream farmer defects (over-irrigates), they gain more (10), but the downstream farmer suffers (1). If both defect, the outcome is worse for both (6, 3).
+**Justification:** In the decentralized case, upstream farmers may choose to irrigate more fields, reducing the water available for downstream farmers. This creates a strategic tension, as upstream farmers weigh the benefits of increased irrigation against the potential costs of reduced water availability for downstream farmers.
 
-#### 2. Fishing Quota Tension
+#### 2. Fishing Resource Management
+**Title:** Overfishing
 **Tension:** Farmers may overfish, depleting the fish population and affecting future catches.
 **Matrix:**
 
 |  | Other Farmers Cooperate | Other Farmers Defect |
 | --- | --- | --- |
-| **Farmer Cooperates** | Farmer: 5, Other: 5 | Farmer: 3, Other: 7 |
-| **Farmer Defects** | Farmer: 7, Other: 3 | Farmer: 2, Other: 2 |
+| **Farmer Cooperates** | Farmer: 5, Other Farmers: 5 | Farmer: 3, Other Farmers: 7 |
+| **Farmer Defects** | Farmer: 7, Other Farmers: 3 | Farmer: 4, Other Farmers: 4 |
 
-**Justification:** The matrix represents the tension between a farmer and other farmers. If all cooperate (catch moderately), they achieve a balanced outcome (5, 5). If a farmer defects (overfishes), they gain more (7), but other farmers suffer (3). If all defect, the outcome is worse for all (2, 2).
+**Justification:** In the decentralized case, each farmer decides how many fish to catch. Overfishing can deplete the fish population, creating a strategic tension between individual farmers' short-term gains and the long-term sustainability of the fish resource.
 
-#### 3. Water Conservation vs. Irrigation Tension
-**Tension:** Farmers must balance water conservation with irrigation needs to maintain ecological thresholds.
+#### 3. Water Conservation vs Expansion
+**Title:** Irrigation Expansion
+**Tension:** Farmers must balance water conservation with the desire to expand irrigation, considering ecological thresholds.
 **Matrix:**
 
-|  | Conserve Water | Irrigate More |
+|  | Other Farmers Conserve | Other Farmers Expand |
 | --- | --- | --- |
-| **Conserve Water** | Farmer: 6, Environment: 8 | Farmer: 4, Environment: 6 |
-| **Irrigate More** | Farmer: 8, Environment: 4 | Farmer: 5, Environment: 2 |
+| **Farmer Conserves** | Farmer: 6, Other Farmers: 6 | Farmer: 4, Other Farmers: 8 |
+| **Farmer Expands** | Farmer: 8, Other Farmers: 4 | Farmer: 7, Other Farmers: 5 |
 
-**Justification:** The matrix reflects the tension between water conservation and irrigation. If the farmer conserves water, they achieve a moderate outcome (6), and the environment benefits (8). If the farmer irrigates more, they gain more (8), but the environment suffers (4). If the farmer over-irrigates, the outcome is worse for both (5, 2).
+**Justification:** In the decentralized case, farmers must decide whether to conserve water or expand irrigation. Expanding irrigation may provide short-term benefits but can also lead to ecological thresholds being crossed, affecting the long-term sustainability of the water resource. This creates a strategic tension between individual farmers' decisions and the collective well-being of the farmer community.
 
-#### 4. Budget Allocation Tension
-**Tension:** Farmers must allocate their budget between irrigation and fishing, considering ecological thresholds.
+#### 4. Risky Irrigation Investment
+**Title:** Irrigation Investment
+**Tension:** Farmers may invest in additional irrigation, risking financial loss if water availability is low.
 **Matrix:**
 
-|  | Allocate to Irrigation | Allocate to Fishing |
+|  | Water Availability High | Water Availability Low |
 | --- | --- | --- |
-| **Allocate to Irrigation** | Farmer: 7, Fish: 3 | Farmer: 5, Fish: 5 |
-| **Allocate to Fishing** | Farmer: 4, Fish: 7 | Farmer: 3, Fish: 3 |
+| **Farmer Invests** | Farmer: 9, Water: 1 | Farmer: 1, Water: 1 |
+| **Farmer Does Not Invest** | Farmer: 5, Water: 1 | Farmer: 5, Water: 1 |
 
-**Justification:** The matrix represents the tension between allocating budget to irrigation or fishing. If the farmer allocates to irrigation, they gain more (7), but the fish population suffers (3). If the farmer allocates to fishing, they gain less (4), but the fish population benefits (7). If the farmer allocates equally, the outcome is moderate (5, 5).
+**Justification:** In the decentralized case, farmers must decide whether to invest in additional irrigation, considering the risk of low water availability. This creates a strategic tension between the potential benefits of increased irrigation and the risk of financial loss if water availability is low.
+
+#### 5. Ecological Threshold Crossing
+**Title:** Threshold Crossing
+**Tension:** Farmers' collective actions may cross ecological thresholds, affecting the fish population and water resource.
+**Matrix:**
+
+|  | Other Farmers Conserve | Other Farmers Do Not Conserve |
+| --- | --- | --- |
+| **Farmer Conserves** | Farmer: 7, Ecosystem: 7 | Farmer: 3, Ecosystem: 3 |
+| **Farmer Does Not Conserve** | Farmer: 9, Ecosystem: 1 | Farmer: 5, Ecosystem: 1 |
+
+**Justification:** In the decentralized case, farmers' collective actions may cross ecological thresholds, affecting the fish population and water resource. This creates a strategic tension between individual farmers' short-term gains and the long-term sustainability of the ecosystem.

@@ -1,45 +1,54 @@
 # Run 2 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer's Irrigation Decision
-#### Tension: Over-Irrigation vs. Conservation
+### Action Situation 1: Upstream-Downstream Water Extraction
+#### Tension: 
+The strategic tension arises between an upstream farmer and a downstream farmer when deciding how many fields to irrigate, given the uncertainty of water availability and the potential for water stress.
+
 #### Matrix:
+|  | Upstream Farmer (0 fields) | Upstream Farmer (1-5 fields) | Upstream Farmer (6-10 fields) |
+| --- | --- | --- | --- |
+| **Downstream Farmer (0 fields)** | 0, 0 | -1, 1 | -2, 2 |
+| **Downstream Farmer (1-5 fields)** | 1, -1 | 0, 0 | -1, 1 |
+| **Downstream Farmer (6-10 fields)** | 2, -2 | 1, -1 | 0, 0 |
 
-|  | Downstream Farmer Conserves | Downstream Farmer Over-Irrigates |
-| --- | --- | --- |
-| **Upstream Farmer Conserves** | 5, 5 | 3, 6 |
-| **Upstream Farmer Over-Irrigates** | 6, 3 | 2, 2 |
+#### Justification:
+In the decentralized case, farmers make individual decisions on water extraction. The upstream farmer's decision affects the downstream farmer's water availability. If both farmers extract minimal water (0 fields), they both receive 0 payoff. As the upstream farmer increases water extraction, the downstream farmer's payoff decreases due to reduced water availability. The matrix reflects the spatial asymmetry, where the upstream farmer has a greater impact on the downstream farmer's water availability.
 
-#### Justification: In the decentralized case, an upstream farmer's decision to irrigate affects the downstream farmer's water availability. If both conserve, they both get a moderate payoff (5). If one conserves and the other over-irrigates, the over-irrigating farmer gets a higher payoff (6), but the conserving farmer gets a lower payoff (3). If both over-irrigate, they both get a low payoff (2) due to water scarcity and ecological thresholds.
+### Action Situation 2: Fishing and Water Extraction
+#### Tension: 
+The strategic tension arises between a farmer who prioritizes fishing and a farmer who prioritizes water extraction for irrigation, given the shared resource of water and the potential for overfishing.
 
-### Action Situation 2: Farmer's Fishing Decision
-#### Tension: Over-Fishing vs. Sustainable Fishing
 #### Matrix:
-
-|  | Other Farmers Practice Sustainable Fishing | Other Farmers Over-Fish |
+|  | Farmer Prioritizes Fishing | Farmer Prioritizes Irrigation |
 | --- | --- | --- |
-| **Farmer Practices Sustainable Fishing** | 4, 4 | 2, 6 |
-| **Farmer Over-Fishes** | 6, 2 | 1, 1 |
+| **Farmer Prioritizes Fishing** | 0, 0 | -1, 1 |
+| **Farmer Prioritizes Irrigation** | 1, -1 | 0, 0 |
 
-#### Justification: In the decentralized case, a farmer's decision to fish sustainably or over-fish affects the fish population and other farmers' fishing outcomes. If all farmers practice sustainable fishing, they all get a moderate payoff (4). If one farmer practices sustainable fishing and others over-fish, the sustainable farmer gets a low payoff (2), while the over-fishing farmers get a higher payoff (6). If all farmers over-fish, they all get a low payoff (1) due to ecological thresholds and fish population depletion.
+#### Justification:
+In the decentralized case, farmers can choose to prioritize fishing or irrigation. If both farmers prioritize fishing, they both receive 0 payoff due to the limited fish population. If one farmer prioritizes fishing and the other prioritizes irrigation, the farmer prioritizing irrigation receives a higher payoff due to increased water availability for irrigation. However, this comes at the cost of reduced fish population, affecting the farmer prioritizing fishing.
 
-### Action Situation 3: Upstream Farmer's Water Withdrawal Decision
-#### Tension: Self-Interest vs. Cooperation
+### Action Situation 3: Ecological Threshold and Water Extraction
+#### Tension: 
+The strategic tension arises between a farmer who extracts water sustainably and a farmer who extracts water excessively, given the ecological threshold of water inflow required for fish population survival.
+
 #### Matrix:
-
-|  | Downstream Farmer Cooperates | Downstream Farmer Defects |
+|  | Sustainable Water Extraction | Excessive Water Extraction |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates** | 6, 6 | 4, 8 |
-| **Upstream Farmer Defects** | 8, 4 | 3, 3 |
+| **Sustainable Water Extraction** | 1, 1 | -1, 2 |
+| **Excessive Water Extraction** | 2, -1 | 0, 0 |
 
-#### Justification: In the decentralized case, an upstream farmer's decision to withdraw water affects the downstream farmer's water availability. If both cooperate, they both get a high payoff (6). If one cooperates and the other defects, the defecting farmer gets a higher payoff (8), but the cooperating farmer gets a lower payoff (4). If both defect, they both get a low payoff (3) due to water scarcity and ecological thresholds.
+#### Justification:
+In the decentralized case, farmers can choose to extract water sustainably or excessively. If both farmers extract water sustainably, they both receive a payoff of 1, reflecting the long-term sustainability of the fish population. If one farmer extracts water excessively, they receive a higher payoff in the short term, but the other farmer receives a lower payoff due to reduced water availability and potential ecological damage. If both farmers extract water excessively, they both receive 0 payoff due to the collapse of the fish population.
 
-### Action Situation 4: Farmer's Investment Decision
-#### Tension: Short-Term Gain vs. Long-Term Sustainability
+### Action Situation 4: Memory Capacity and Water Extraction
+#### Tension: 
+The strategic tension arises between a farmer with high memory capacity and a farmer with low memory capacity when deciding how many fields to irrigate, given the uncertainty of water availability and the potential for water stress.
+
 #### Matrix:
-
-|  | Other Farmers Invest in Sustainability | Other Farmers Prioritize Short-Term Gain |
+|  | High Memory Capacity | Low Memory Capacity |
 | --- | --- | --- |
-| **Farmer Invests in Sustainability** | 7, 7 | 5, 9 |
-| **Farmer Prioritizes Short-Term Gain** | 9, 5 | 4, 4 |
+| **High Memory Capacity** | 1, 1 | 2, 0 |
+| **Low Memory Capacity** | 0, 2 | 0, 0 |
 
-#### Justification: In the decentralized case, a farmer's decision to invest in sustainable practices or prioritize short-term gain affects their long-term outcomes and ecological thresholds. If all farmers invest in sustainability, they all get a high payoff (7). If one farmer invests in sustainability and others prioritize short-term gain, the sustainable farmer gets a moderate payoff (5), while the short-term gain farmers get a higher payoff (9). If all farmers prioritize short-term gain, they all get a moderate payoff (4) due to ecological thresholds and resource depletion.
+#### Justification:
+In the decentralized case, farmers with high memory capacity can better predict water availability and make more informed decisions. If both farmers have high memory capacity, they both receive a payoff of 1, reflecting their ability to adapt to changing water conditions. If one farmer has high memory capacity and the other has low memory capacity, the farmer with high memory capacity receives a higher payoff due to their ability to make more informed decisions. If both farmers have low memory capacity, they both receive 0 payoff due to their inability to adapt to changing water conditions.

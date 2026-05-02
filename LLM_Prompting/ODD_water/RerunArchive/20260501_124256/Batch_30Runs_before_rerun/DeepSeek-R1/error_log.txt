@@ -1,0 +1,4 @@
+DeepSeek-R1 Batch Run Error Log
+max_tokens=16000, cooldown=1s
+==================================================
+

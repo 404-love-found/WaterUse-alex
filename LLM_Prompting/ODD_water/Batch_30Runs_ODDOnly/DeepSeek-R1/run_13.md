@@ -1,64 +1,49 @@
 # Run 13 — deepseek-ai/DeepSeek-R1
 
-### Analysis of Distinct Action Situations in Decentralized Version (DV)  
-Based on the ODD+D description, the decentralized version (DV) features strategic tensions arising from **spatial asymmetry** (upstream vs. downstream positioning) and **ecological thresholds** (minimum water inflow for fish reproduction). Below are the identified action situations represented as 2-player Normal Form Games. Only the DV case is considered, with max fields = 10.  
+### Analysis of Distinct Action Situations in the Decentralized Water Use Model (DV)
+
+#### Action Situation 1: **Upstream-Downstream Water Allocation Dilemma**
+- **Strategic Tension**: Upstream farmers prioritize water withdrawal for irrigation, reducing water availability for downstream farmers. Downstream farmers face reduced agricultural yields due to water scarcity but retain fishing advantages. Both must balance individual irrigation benefits against collective ecosystem collapse from insufficient lake inflow (ecological threshold).
+  
+- **Normal Form Payoff Matrix** (Players: *Upstream Farmer (UF)* vs. *Downstream Farmer (DF)*):  
+
+  |                 | **UF: Moderate Irrigation (5 fields)** | **UF: Intensive Irrigation (10 fields)** |
+  |-----------------|-----------------------------------------|------------------------------------------|
+  | **DF: Moderate Irrigation (5 fields)** | (5Y - 5C + F, 5Y - 5C + F)             | (F, 10Y - 10C + F)                      |
+  | **DF: Intensive Irrigation (10 fields)** | (5Y - 5C + F, 5Y - 5C + F)             | (F, 10Y - 10C + F)                      |
+
+  **Justification**:
+  - **Payoff Structure**: 
+    - **UF/DF both cooperate (Moderate, 5 fields)**: Total withdrawal ≤80 units (e.g., 100 units inflow - 50 withdrawal = 50 for DF + 20 for lake). Both gain moderate agricultural yield (`5Y - 5C`) and fishing returns (`F`). Lake meets ecological threshold (20 units), sustaining fish stock.
+    - **UF defects (Intensive, 10 fields)**: Withdraws 100 units, leaving 0 for DF and lake. DF gains 0 agriculture (only fishing `F`). UF maximizes agriculture (`10Y - 10C`) but depletes lake water (threshold unmet).
+    - **DF defects (Intensive, 10 fields)**: If UF cooperates, DF uses 50 units (5 fields) of remaining water; both get moderate yields. If UF defects, DF gains 0 agriculture regardless of strategy.
+  - **Spatial Asymmetry**: Upstream priority in water access forces DF into lose-lose when UF defects. Downstream fishing advantage (`F`) partially offsets agricultural losses but depends on lake inflow.
+  - **Ecological Threshold**: Intensive irrigation by either player risks lake inflow <20 units, collapsing fish reproduction (no larvae migration). 
 
 ---
 
-#### **Action Situation 1: Water Extraction Dilemma**  
-**Tension**: Upstream farmers prioritize irrigation, risking insufficient water for downstream farmers and the lake’s fish population. Downstream farmers face reduced water access and potential fish collapse if upstream over-extracts. This reflects a trade-off between individual irrigation gains and collective resource sustainability.  
+#### Action Situation 2: **Fishing Access and Resource Depletion Dilemma**
+- **Strategic Tension**: Downstream farmers (closer to the lake) fish first, potentially depleting the fish stock before upstream farmers can access it. Upstream farmers risk zero catch if stock is overharvested, creating a "race to fish." Ecological thresholds (e.g., minimum adult fish for reproduction) amplify losses if stock collapses.
 
-**Matrix**:  
-| *Upstream \ Downstream* | *Cooperate (5 fields)* | *Defect (10 fields)* |  
-|-------------------------|------------------------|----------------------|  
-| **Cooperate (5 fields)** | (5A + F, 5A + F + Δ)   | (5A, 10A)           |  
-| **Defect (10 fields)**   | (10A, 5A - C)          | (10A - L, 10A - L)  |  
+- **Normal Form Payoff Matrix** (Players: *Downstream Farmer (DF)* vs. *Upstream Farmer (UF)*):  
 
-**Justification**:  
-- **Spatial Asymmetry**:  
-  - Upstream farmers (row player) always receive full irrigation water.  
-  - Downstream farmers (column player) receive residual water after upstream extraction. If upstream defects (10 fields), downstream faces water stress (yield loss `C`).  
-- **Ecological Threshold**:  
-  - Fish reproduction requires lake inflow ≥ threshold `T`. Mutual cooperation (5 fields each) ensures sufficient inflow; fish benefits (`F`) are shared.  
-  - Upstream defection reduces lake inflow below `T`, causing fish collapse (loss `L` for both). Downstream defection alone cannot collapse the system but amplifies losses if upstream also defects.  
-- **Payoffs**:  
-  - *Mutual Cooperation*: Balanced irrigation (5 fields) sustains fish. Downstream gains extra fish payoff (`Δ`) due to proximity to the lake.  
-  - *Upstream Defection*: Upstream maxes agriculture (10A) but starves downstream/lake. Downstream suffers yield loss (`C`) or total collapse (`L`).  
-  - *Downstream Defection*: Downstream gains short-term agriculture (10A) but risks systemic collapse if upstream also defects.  
+  |                     | **UF: Moderate Fishing (5 units)** | **UF: Intensive Fishing (10 units)** |
+  |---------------------|------------------------------------|--------------------------------------|
+  | **DF: Moderate Fishing (5 units)** | (5, 5)                             | (5, 10)                             |
+  | **DF: Intensive Fishing (10 units)** | (10, 5)                            | (0, 10)                             |
 
-**Strategic Dilemma**: Upstream has a dominant incentive to defect (10 fields), forcing downstream to defect to avoid losses, leading to mutual defection and systemic collapse (Pareto-inferior outcome).  
+  **Justification**:
+  - **Payoff Structure** (Catch units; initial stock = 20):
+    - **Both cooperate (Moderate)**: DF catches 5, UF catches 5. Stock sustains (10 left + reproduction).
+    - **DF defects (Intensive), UF cooperates**: DF catches 10, UF catches 5 (from remaining 10). Stock nears collapse.
+    - **UF defects (Intensive), DF cooperates**: DF catches 5, UF catches 10. Similar risk to stock.
+    - **Both defect (Intensive)**: DF catches 10, UF catches 0 (stock depleted to 0). Fish population collapses.
+  - **Spatial Asymmetry**: DF’s first access incentivizes overfishing. UF, as last fisher, bears highest depletion risk.
+  - **Ecological Thresholds**: Intensive fishing reduces adult fish below reproductive viability (age 5–12), triggering stock collapse. Moderate fishing preserves the threshold.
 
 ---
 
-#### **Action Situation 2: Fishing Access Race**  
-**Tension**: Downstream farmers exploit fish first due to spatial priority, depleting the stock before upstream farmers can fish. Upstream farmers must decide whether to conserve water (supporting fish reproduction) despite receiving minimal fishing benefits.  
-
-**Matrix**:  
-| *Upstream \ Downstream* | *Restrain Fishing* | *Overfish* |  
-|-------------------------|--------------------|------------|  
-| **Conserve Water**      | (5A, 5A + F)       | (5A - W, 10A + F) |  
-| **Over-Irrigate**       | (10A, 0)           | (10A - L, 10A - L) |  
-
-**Justification**:  
-- **Spatial Asymmetry**:  
-  - Downstream farmers (column player) fish first; upstream (row player) fishes last.  
-  - If downstream overfishes, upstream gets no fish.  
-- **Ecological Threshold**:  
-  - Upstream water conservation is needed to maintain lake inflow ≥ `T` for fish reproduction.  
-  - Downstream overfishing depletes adult fish stocks, collapsing the population (loss `L`).  
-- **Payoffs**:  
-  - *Mutual Restraint*: Upstream conserves water (5 fields), ensuring fish reproduction. Downstream restrains fishing, sharing benefits (`F`).  
-  - *Downstream Overfishing*: Downstream grabs short-term gains (10A + F) but triggers fish collapse if upstream also over-irrigates. Upstream bears water conservation cost (`W`) without benefit.  
-  - *Upstream Over-Irrigation*: Upstream maxes agriculture (10A) but starves the lake, collapsing fish (loss `L`).  
-
-**Strategic Dilemma**: Downstream has a dominant incentive to overfish (prioritizing immediate access), forcing upstream to over-irrigate, resulting in fish collapse. Conservation is unstable despite being socially optimal.  
-
----
-
-### Summary of Key Elements  
-- **Spatial Asymmetry**: Embedded in payoff structures (e.g., downstream fishing priority, upstream water privilege).  
-- **Ecological Thresholds**: Lake inflow < `T` eliminates fish reproduction, represented as losses (`L`) in defection outcomes.  
-- **Max Fields Constraint**: Strategies bound by 10 fields (defection = max irrigation).  
-- **Decentralized Focus**: No coordination; agents act based on local information and heuristics.  
-
-These action situations capture core strategic tensions in the DV, highlighting conflicts between individual rationality and collective resilience.
+### Summary
+- **Water Allocation Dilemma**: Upstream control of water creates a prisoner’s dilemma where defection (intensive irrigation) dominates, harming downstream agriculture and lake ecology.
+- **Fishing Access Dilemma**: Downstream fishing priority leads to a coordination game; mutual defection causes total stock collapse, while mutual cooperation sustains the resource.  
+Both situations reflect spatial asymmetry (upstream vs. downstream) and ecological thresholds (water/fish minima), with actions in one affecting outcomes in the other due to shared water-fish linkages.

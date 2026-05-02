@@ -1,53 +1,36 @@
 # Run 20 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream-Downstream Irrigation Dilemma
-#### Tension: 
-Over-extraction of water by upstream farmers may leave insufficient water for downstream farmers, creating a strategic tension between individual gain and collective sustainability.
+### Decentralized Water Use Action Situations
 
-#### Matrix:
-|  | Downstream Cooperates | Downstream Defects |
+#### 1. Upstream-Downstream Irrigation Dilemma
+**Tension:** Over-extraction of water by upstream farmers, affecting downstream farmers' irrigation needs.
+**Matrix:**
+
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Cooperates** | Upstream: 5, Downstream: 5 | Upstream: 6, Downstream: 2 |
-| **Upstream Defects** | Upstream: 8, Downstream: 1 | Upstream: 7, Downstream: 3 |
+| **Downstream (Cooperate)** | Upstream: 8, Downstream: 6 | Upstream: 10, Downstream: 0 |
+| **Downstream (Defect)** | Upstream: 4, Downstream: 8 | Upstream: 6, Downstream: 4 |
 
-#### Justification:
-In the decentralized version (DV), each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have priority access to water, which may lead them to extract more water, potentially leaving insufficient water for downstream farmers. This creates a strategic tension where upstream farmers must weigh their individual gain against the potential harm to downstream farmers. The matrix reflects this tension, with cooperation leading to a moderate payoff for both (5 fields irrigated each) and defection by the upstream farmer resulting in a higher payoff for themselves but a significantly lower payoff for the downstream farmer.
+**Justification:** In the decentralized case, each farmer decides on the number of fields to irrigate. Upstream farmers have priority access to water, creating a strategic tension with downstream farmers. If both cooperate (irrigate fewer fields), they both receive a moderate payoff. If the upstream farmer defects (irrigates more fields), they receive a higher payoff, while the downstream farmer receives nothing. If the downstream farmer defects, they receive a higher payoff, but the upstream farmer's payoff decreases.
 
-### Action Situation 2: Fishing Quota Dilemma
-#### Tension: 
-The common pool resource of fish in the lake creates a dilemma where individual farmers may overfish to maximize their catch, potentially depleting the fish population and harming future catches.
+#### 2. Fishing Quota Dilemma
+**Tension:** Overfishing by individual farmers, affecting the overall fish population and future catches.
+**Matrix:**
 
-#### Matrix:
-|  | Other Farmers Cooperate | Other Farmers Defect |
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Farmer Cooperates** | Farmer: 3, Others: 3 | Farmer: 2, Others: 4 |
-| **Farmer Defects** | Farmer: 5, Others: 1 | Farmer: 3, Others: 2 |
+| **Farmer 2 (Cooperate)** | Farmer 1: 5, Farmer 2: 5 | Farmer 1: 10, Farmer 2: 0 |
+| **Farmer 2 (Defect)** | Farmer 1: 0, Farmer 2: 10 | Farmer 1: 2, Farmer 2: 2 |
 
-#### Justification:
-In the DV, farmers have a fixed target catch level, and fishing is not costly. However, overfishing can deplete the fish population, affecting future catches. This creates a strategic tension where individual farmers must decide whether to cooperate (limit their catch) or defect (catch as much as possible). The matrix reflects this tension, with cooperation leading to a moderate catch for all farmers (3 units each) and defection resulting in a higher catch for the defecting farmer but a lower catch for cooperating farmers.
+**Justification:** In the decentralized case, each farmer decides on their fishing quota. If both cooperate (catch fewer fish), they both receive a moderate payoff. If one farmer defects (catches more fish), they receive a higher payoff, while the other farmer receives nothing. If both defect, they both receive a low payoff due to overfishing and ecological thresholds being exceeded.
 
-### Action Situation 3: Water Conservation vs. Expansion Dilemma
-#### Tension: 
-Farmers must balance the need to conserve water for future use with the desire to expand their irrigated fields to increase their yield, particularly when water availability is uncertain.
+#### 3. Water Conservation vs. Field Expansion Dilemma
+**Tension:** Individual farmers' decisions to conserve water or expand irrigated fields, affecting their own and others' water availability.
+**Matrix:**
 
-#### Matrix:
-|  | Other Farmers Conserve | Other Farmers Expand |
+|  | Farmer 1 (Conserve) | Farmer 1 (Expand) |
 | --- | --- | --- |
-| **Farmer Conserves** | Farmer: 4, Others: 4 | Farmer: 3, Others: 6 |
-| **Farmer Expands** | Farmer: 6, Others: 2 | Farmer: 5, Others: 5 |
+| **Farmer 2 (Conserve)** | Farmer 1: 7, Farmer 2: 7 | Farmer 1: 9, Farmer 2: 3 |
+| **Farmer 2 (Expand)** | Farmer 1: 3, Farmer 2: 9 | Farmer 1: 5, Farmer 2: 5 |
 
-#### Justification:
-In the DV, farmers predict water availability and decide on the number of fields to irrigate. However, water scarcity and uncertainty may lead farmers to conserve water or expand their fields to maximize yields. This creates a strategic tension where individual farmers must weigh the benefits of conservation against the potential gains from expansion. The matrix reflects this tension, with conservation leading to a moderate yield for all farmers (4 units each) and expansion resulting in a higher yield for the expanding farmer but potentially lower yields for other farmers if water becomes scarce.
-
-### Action Situation 4: Ecological Threshold Dilemma
-#### Tension: 
-The fish population's vulnerability to water inflow and fishing pressure creates a dilemma where exceeding ecological thresholds may lead to a significant decline in fish population, affecting future catches.
-
-#### Matrix:
-|  | Other Farmers Stay Below Threshold | Other Farmers Exceed Threshold |
-| --- | --- | --- |
-| **Farmer Stays Below** | Farmer: 4, Others: 4 | Farmer: 2, Others: 1 |
-| **Farmer Exceeds** | Farmer: 6, Others: 2 | Farmer: 1, Others: 0 |
-
-#### Justification:
-In the DV, the fish population is modeled with an age-structured Leslie type matrix, and exceeding ecological thresholds (e.g., water inflow, fishing pressure) may lead to a decline in the fish population. This creates a strategic tension where individual farmers must decide whether to stay below these thresholds or exceed them to maximize their catch. The matrix reflects this tension, with staying below thresholds leading to a moderate catch for all farmers (4 units each) and exceeding thresholds resulting in a higher catch for the defecting farmer but a significantly lower catch for all farmers if the fish population declines.
+**Justification:** In the decentralized case, each farmer decides on their water conservation strategy. If both conserve water, they both receive a moderate payoff. If one farmer expands their irrigated fields, they receive a higher payoff, while the other farmer receives a lower payoff due to reduced water availability. If both expand, they both receive a moderate payoff, but risk exceeding ecological thresholds and facing reduced water availability in the future.

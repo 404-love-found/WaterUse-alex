@@ -1,0 +1,15 @@
+ODD+game_stuff | DeepSeek-R1: TP=43, FP=14, FN=17, Precision=0.7544, Recall=0.7167, F1=0.7350
+ODD+game_stuff | Llama-3.3-70B: TP=54, FP=59, FN=6, Precision=0.4779, Recall=0.9000, F1=0.6243
+ODD+game_stuff | Qwen2.5-7B: TP=33, FP=58, FN=27, Precision=0.3626, Recall=0.5500, F1=0.4371
+ODD-only | DeepSeek-R1: TP=42, FP=13, FN=18, Precision=0.7636, Recall=0.7000, F1=0.7304
+ODD-only | Llama-3.3-70B: TP=56, FP=53, FN=4, Precision=0.5138, Recall=0.9333, F1=0.6627
+ODD-only | Qwen2.5-7B: TP=34, FP=60, FN=26, Precision=0.3617, Recall=0.5667, F1=0.4416
+
+Reports:
+  Detailed: /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs/Water_evaluation_ODD+game_stuff.txt
+  CSV:      /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs/Water_evaluation_summary_ODD+game_stuff.csv
+  AS audit: /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs/Water_evaluation_as_level_ODD+game_stuff.csv
+  Detailed: /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs_ODDOnly/Water_evaluation_ODD-only.txt
+  CSV:      /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs_ODDOnly/Water_evaluation_summary_ODD-only.csv
+  AS audit: /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Batch_30Runs_ODDOnly/Water_evaluation_as_level_ODD-only.csv
+  Compare:  /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_water/Water_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt

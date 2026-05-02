@@ -2,52 +2,48 @@
 
 ### Action Situation 1: Upstream Farmer's Irrigation Decision
 #### Tension: Over-Irrigation vs. Conservation
-In the decentralized case, an upstream farmer must decide how many fields to irrigate, considering the potential impact on downstream farmers and the fish population. This situation reflects a strategic tension between maximizing individual gains and conserving water for others and the environment.
-
 #### Matrix:
-|  | Upstream Farmer |  | Downstream Farmer |
-| --- | --- | --- | --- |
-| **Irrigate Max (10 fields)** | 8, 4 |  | 6, 2 |
-| **Conserve Water (5 fields)** | 5, 6 |  | 4, 8 |
 
-#### Justification:
-The upstream farmer's decision affects the water available for the downstream farmer and the fish population. Irrigating the maximum number of fields (10) may yield higher returns for the upstream farmer (8) but reduces the water available for the downstream farmer, resulting in lower returns (4). Conversely, conserving water by irrigating fewer fields (5) may reduce the upstream farmer's returns (5) but benefits the downstream farmer (6) and potentially the fish population.
+|  | Downstream Farmer Cooperates (Conserves Water) | Downstream Farmer Defects (Over-Irrigates) |
+| --- | --- | --- |
+| **Upstream Farmer Cooperates (Conserves Water)** | 8, 8 | 5, 9 |
+| **Upstream Farmer Defects (Over-Irrigates)** | 9, 5 | 3, 3 |
 
-### Action Situation 2: Downstream Farmer's Response to Upstream Irrigation
-#### Tension: Reactive Irrigation vs. Conservation
-A downstream farmer must respond to the upstream farmer's irrigation decision, considering the reduced water availability. This situation reflects a strategic tension between reacting to the upstream farmer's actions and conserving water for the fish population.
+#### Justification: 
+In the decentralized case, each farmer decides on the number of fields to irrigate. An upstream farmer's decision to over-irrigate affects the downstream farmer's water availability, creating a strategic tension. If both farmers conserve water, they both receive a moderate payoff (8). If one farmer over-irrigates while the other conserves, the over-irrigating farmer receives a higher payoff (9), while the conserving farmer receives a lower payoff (5). If both farmers over-irrigate, they both receive a low payoff (3) due to ecological thresholds being exceeded.
 
+### Action Situation 2: Downstream Farmer's Fishing Decision
+#### Tension: Over-Fishing vs. Conservation
 #### Matrix:
-|  | Downstream Farmer |  | Upstream Farmer |
-| --- | --- | --- | --- |
-| **React to Upstream (Irrigate 8 fields)** | 6, 5 |  | 4, 8 |
-| **Conserve Water (Irrigate 3 fields)** | 4, 6 |  | 8, 4 |
 
-#### Justification:
-The downstream farmer's response to the upstream farmer's irrigation decision affects their own returns and the fish population. Reacting to the upstream farmer's actions by irrigating more fields (8) may yield higher returns for the downstream farmer (6) but further reduces the water available for the fish population. Conservatively irrigating fewer fields (3) may reduce the downstream farmer's returns (4) but benefits the fish population and potentially the upstream farmer.
+|  | Upstream Farmer Cooperates (Conserves Fish) | Upstream Farmer Defects (Over-Fishes) |
+| --- | --- | --- |
+| **Downstream Farmer Cooperates (Conserves Fish)** | 6, 6 | 4, 8 |
+| **Downstream Farmer Defects (Over-Fishes)** | 8, 4 | 2, 2 |
 
-### Action Situation 3: Farmer's Fishing Decision
-#### Tension: Overfishing vs. Conservation
-A farmer must decide how many fish to catch, considering the potential impact on the fish population and their own returns. This situation reflects a strategic tension between maximizing individual gains and conserving the fish population.
+#### Justification: 
+Downstream farmers have priority access to the fishing lake. An upstream farmer's decision to over-fish affects the downstream farmer's fishing opportunities, creating a strategic tension. If both farmers conserve fish, they both receive a moderate payoff (6). If one farmer over-fishes while the other conserves, the over-fishing farmer receives a higher payoff (8), while the conserving farmer receives a lower payoff (4). If both farmers over-fish, they both receive a low payoff (2) due to exceeding ecological thresholds.
 
+### Action Situation 3: Farmer's Decision to Increase Irrigated Fields
+#### Tension: Risky Expansion vs. Cautious Conservation
 #### Matrix:
-|  | Farmer |  | Fish Population |
-| --- | --- | --- | --- |
-| **Overfish (Catch 10 fish)** | 9, 2 |  | 1, 9 |
-| **Conserve Fish (Catch 5 fish)** | 5, 8 |  | 9, 1 |
 
-#### Justification:
-The farmer's fishing decision affects their own returns and the fish population. Overfishing (catching 10 fish) may yield higher returns for the farmer (9) but severely depletes the fish population (2). Conservatively catching fewer fish (5) may reduce the farmer's returns (5) but helps maintain the fish population (8).
+|  | Neighbor Farmer Cooperates (Does Not Increase) | Neighbor Farmer Defects (Increases Irrigated Fields) |
+| --- | --- | --- |
+| **Farmer Cooperates (Does Not Increase)** | 7, 7 | 5, 9 |
+| **Farmer Defects (Increases Irrigated Fields)** | 9, 5 | 4, 4 |
 
-### Action Situation 4: Upstream-Downstream Coordination
-#### Tension: Cooperation vs. Defection
-Upstream and downstream farmers must decide whether to cooperate in their irrigation decisions or defect and prioritize their individual interests. This situation reflects a strategic tension between cooperation and defection.
+#### Justification: 
+Farmers can increase their irrigated fields, but this decision is risky due to uncertain water availability. If both farmers do not increase their fields, they both receive a moderate payoff (7). If one farmer increases their fields while the other does not, the increasing farmer receives a higher payoff (9), while the non-increasing farmer receives a lower payoff (5). If both farmers increase their fields, they both receive a low payoff (4) due to increased competition for limited water resources.
 
+### Action Situation 4: Farmer's Response to Water Stress
+#### Tension: Adaptive Management vs. Reactive Over-Use
 #### Matrix:
-|  | Upstream Farmer |  | Downstream Farmer |
-| --- | --- | --- | --- |
-| **Cooperate (Irrigate 5 fields)** | 7, 7 |  | 7, 7 |
-| **Defect (Irrigate 10 fields)** | 9, 1 |  | 1, 9 |
 
-#### Justification:
-The upstream and downstream farmers' decisions to cooperate or defect affect their individual returns and the overall water availability. Cooperating by irrigating fewer fields (5) may yield moderate returns for both farmers (7) but benefits the fish population and maintains water availability. Defecting by irrigating the maximum number of fields (10) may yield higher returns for one farmer (9) but severely reduces the water available for the other farmer (1) and the fish population.
+|  | Neighbor Farmer Cooperates (Adapts to Water Stress) | Neighbor Farmer Defects (Over-Uses Water) |
+| --- | --- | --- |
+| **Farmer Cooperates (Adapts to Water Stress)** | 8, 8 | 6, 9 |
+| **Farmer Defects (Over-Uses Water)** | 9, 6 | 3, 3 |
+
+#### Justification: 
+Farmers must respond to water stress by adapting their irrigation strategies. If both farmers adapt to water stress, they both receive a moderate payoff (8). If one farmer adapts while the other over-uses water, the over-using farmer receives a higher payoff (9), while the adapting farmer receives a lower payoff (6). If both farmers over-use water, they both receive a low payoff (3) due to exceeding ecological thresholds and depleting water resources.

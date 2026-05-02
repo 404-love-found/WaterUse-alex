@@ -2,72 +2,70 @@
 
 ### Analysis of Distinct Action Situations for Decentralized Case (DV)
 
-**Title: Water Extraction Dilemma**  
-**Tension**: Upstream and downstream farmers face conflicting incentives: Upstream agents can maximize irrigation at the cost of water scarcity for downstream agents and fish reproduction thresholds. Downstream agents must balance their own irrigation against ecological collapse, with limited control over upstream decisions.  
+#### Action Situation 1: **Upstream-Downstream Water Extraction Dilemma**
+**Strategic Tension**:  
+Upstream farmers' irrigation decisions reduce water availability for downstream farmers, creating asymmetric competition. Downstream farmers face reduced agricultural yields due to upstream over-extraction, while upstream farmers remain unaffected by downstream actions. This spatial asymmetry creates a one-sided externality where upstream agents control downstream welfare.
 
-**Matrix**:  
-```
-                Downstream Farmer
-                Cooperate (C)      Defect (D)
-                (Irrigate 5 fields) (Irrigate 10 fields)
-Upstream  C    (5Y + F, 5Y + F)   (5Y, 10Y)
-Farmer    D    (10Y, 5Y)          (10Y, 5Y)
-```  
-- **Payoff Units**: `Y` = agricultural yield per field; `F` = fishing yield (contingent on lake inflow threshold).  
-- **Actions**:  
-  - **Cooperate (C)**: Irrigate 5 fields (leaves sufficient water for downstream/lake).  
-  - **Defect (D)**: Irrigate 10 fields (maximizes agriculture but depletes water).  
+**2-Player Normal Form Payoff Matrix**  
+*Players*:  
+- Player 1: Upstream Farmer  
+- Player 2: Downstream Farmer  
+
+*Actions*:  
+- High: Irrigate 10 fields (max water demand)  
+- Low: Irrigate 5 fields (reduced water demand)  
+
+*Payoffs* (Agriculture only; current season):  
+| Upstream \ Downstream | High         | Low          |
+|------------------------|--------------|--------------|
+| **High**               | (8, 2)       | (8, 5)       |
+| **Low**                | (5, 8)       | (5, 5)       |
 
 **Justification**:  
-1. **Spatial Asymmetry**:  
-   - Upstream farmers (priority water access) control downstream water availability. Downstream farmers (priority fishing access) rely on upstream restraint to meet lake inflow thresholds.  
-   - Payoffs reflect asymmetry: Upstream always gets full irrigation yield when defecting; downstream suffers water stress if upstream defects.  
-
-2. **Ecological Threshold**:  
-   - Lake inflow < 4w (threshold) → fish collapse → `F = 0`. Only mutual cooperation (C,C) sustains `F > 0`:  
-     - (C,C): Lake inflow = 5w > 4w → fish reproduce → both gain `F`.  
-     - All other cases: Lake inflow ≤ 0 → collapse → `F = 0`.  
-
-3. **Strategic Tension**:  
-   - Upstream incentive: Defect to maximize short-term agriculture (10Y) regardless of downstream choice.  
-   - Downstream incentive: Defect if upstream cooperates (gaining 10Y vs. 5Y+F) but cooperate if upstream defects (5Y vs. 5Y).  
-   - **Dilemma**: Mutual defection (D,D) is Nash equilibrium but Pareto-inferior to (C,C) when `F > 5Y`. Upstream dominance creates vulnerability for downstream and ecosystem.  
+- **Spatial Asymmetry**: Upstream farmer (Player 1) always receives full water allocation. Downstream farmer (Player 2) receives residual water after upstream extraction.  
+  - If Upstream chooses *High*, water scarcity downstream causes severe yield loss for Downstream (*B_high_stressed = 2*).  
+  - If Upstream chooses *Low*, Downstream has ample water for high yields (*B_high = 8*).  
+- **Rationale for Payoffs**:  
+  - Upstream payoff depends *only* on its own action (8 for High, 5 for Low).  
+  - Downstream payoff depends on Upstream’s choice: High irrigation by Upstream caps Downstream’s maximum achievable yield.  
+- **No Mutual Influence**: Downstream’s actions (High/Low) do not affect Upstream’s payoff, reflecting unidirectional externality.  
+- **Dominant Strategy**: Upstream always prefers High (8 > 5), forcing Downstream to choose Low (5 > 2) to avoid severe losses. Equilibrium: (High, Low).  
 
 ---
 
-**Title: Downstream Fishing Commons Dilemma**  
-**Tension**: Downstream farmers compete for fish under sequential access rules. Early access (closest to lake) creates a "race to fish," risking stock collapse when total catch exceeds reproductive capacity.  
+#### Action Situation 2: **Ecological Threshold Coordination Dilemma**
+**Strategic Tension**:  
+Cumulative water extraction by all farmers determines whether lake inflow meets the ecological threshold (T) for fish recruitment. Crossing this threshold collapses future fish stocks, but individual farmers prioritize immediate agricultural gains over long-term fishery sustainability. Myopic agents ignore future costs, creating a tragedy of the commons.
 
-**Matrix**:  
-```
-                Downstream Farmer 2 (Near Lake)
-                Restrain (R)      Overfish (O)
-                (Catch ≤ half stock) (Catch target)  
-Downstream R   (F/2, F/2)       (0, F*)  
-Farmer 1   O   (F*, 0)          (0, 0)
-```  
-- **Payoff Units**: `F*` = target catch (if stock allows); `0` = stock collapse.  
-- **Actions**:  
-  - **Restrain (R)**: Catch ≤ half of sustainable stock.  
-  - **Overfish (O)**: Catch target level regardless of stock.  
+**2-Player Normal Form Payoff Matrix**  
+*Players*:  
+- Player 1: Representative Farmer (Upstream or Downstream)  
+- Player 2: Representative Farmer (Upstream or Downstream)  
+
+*Actions*:  
+- High: Irrigate 10 fields (risks threshold violation)  
+- Low: Irrigate 5 fields (preserves threshold)  
+
+*Payoffs* (Combined agriculture + implicit future fishing cost):  
+| Farmer 1 \ Farmer 2 | High       | Low        |
+|----------------------|------------|------------|
+| **High**             | (6, 6)     | (8, 4)     |
+| **Low**              | (4, 8)     | (7, 7)     |
 
 **Justification**:  
-1. **Spatial Asymmetry**:  
-   - Farmer 1 (closest to lake) fishes first, depleting stock before Farmer 2. Sequential access amplifies first-mover advantage.  
-
-2. **Ecological Threshold**:  
-   - Total catch > adult fish recruitment rate → stock collapse → long-term `F = 0`.  
-   - (R,R) sustains stock → both gain `F/2`.  
-   - (O,O) or asymmetric overfishing → collapse → `(0,0)`.  
-
-3. **Strategic Tension**:  
-   - Dominant strategy: Overfish (O) to secure target catch before others.  
-   - **Dilemma**: (O,O) is Nash equilibrium but mutually destructive. Restraint requires coordination, which is absent in decentralized governance.  
+- **Ecological Threshold**: If *both* choose High, lake inflow < T, causing fish collapse (–2 penalty). If *either* chooses Low, threshold is met (no penalty).  
+- **Spatial Asymmetry Embedded**: Downstream farmers incur higher fishing losses (F_D > F_U) due to preferential lake access, but matrix simplifies to representative players.  
+- **Payoff Breakdown**:  
+  - (High, High): Agriculture gains (8, 8) minus collapse penalty (–2, –2) → (6, 6).  
+  - (High, Low): High-extracting farmer gets 8 (no penalty), Low farmer gets 5 (agriculture) –1 (partial penalty) → (8, 4).  
+  - (Low, Low): Moderate agriculture (5, 5) + sustainability bonus (+2) → (7, 7).  
+- **Dominant Strategy**: High is dominant (8 > 4 for Row; 8 > 7 for Column), leading to (High, High) equilibrium despite Pareto-superior (Low, Low).  
+- **Tipping Point**: Illustrates threshold-dependent payoff discontinuity (collapse only when both defect).  
 
 ---
 
-**Constraints Addressed**:  
-- **Decentralized (DV) only**: No central authority (rules out CV coordination).  
-- **Spatial Asymmetry**: Upstream/downstream water priority; downstream fishing sequence.  
-- **Ecological Thresholds**: Lake inflow (4w) for fish reproduction; fish stock recruitment limit.  
-- **Max Fields = 10**: Embedded in action choices (5 vs. 10 fields).
+### Summary of Key Features
+1. **Spatial Asymmetry**: Upstream controls downstream water access (Action 1); downstream bears disproportionate fishery costs (Action 2).  
+2. **Ecological Thresholds**: Lake inflow threshold (T) creates nonlinear payoff discontinuities (Action 2).  
+3. **Decentralized Governance**: No coordination mechanism; agents act based on local information and myopic self-interest.  
+4. **Max Fields Constraint**: Actions bounded by 10 fields, capping water demand.

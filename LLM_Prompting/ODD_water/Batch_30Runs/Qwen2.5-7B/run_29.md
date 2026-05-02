@@ -2,56 +2,88 @@
 
 ### Title: Distinct Action Situations in the Decentralized Version (DV) of the Water Use Model
 
-### Tension 1: Spatial Asymmetry and Water Allocation Risk
-
-**Strategic Tension:**
-Downstream farmers have a higher risk of water stress due to the sequential withdrawal of water from the upstream to downstream farmers. This creates a strategic dilemma where downstream farmers must decide whether to risk increasing their number of irrigated fields based on uncertain water predictions, knowing that upstream farmers may have already depleted the water supply.
+#### 1. Strategic Tension: Water Allocation and Yield Optimization
+**Justification:**
+In the decentralized version, farmers must decide how many fields to irrigate based on their water availability predictions and budget constraints. This decision affects both their immediate yield and the water availability for downstream farmers.
 
 **2-Player Normal Form Payoff Matrix:**
 
-|                | Upstream Farmer (Risk Averse) | Upstream Farmer (Risk Taker) |
-|----------------|------------------------------|------------------------------|
-| **Downstream Farmer (Risk Averse)** | (5, 5)                        | (6, 4)                       |
-| **Downstream Farmer (Risk Taker)**  | (4, 6)                        | (7, 7)                       |
+| Farmer 2 Decision | Farmer 1 Decision | Farmer 1 Yield | Farmer 2 Yield |
+|-------------------|-------------------|----------------|----------------|
+| Increase Fields   | Increase Fields   | 0.6Y - 10     | 0.6Y - 10      |
+| Increase Fields   | Maintain Fields   | 0.6Y - 5      | 0.4Y - 5       |
+| Maintain Fields   | Increase Fields   | 0.4Y - 5      | 0.6Y - 5       |
+| Maintain Fields   | Maintain Fields   | 0.4Y - 2.5    | 0.4Y - 2.5     |
 
+**Explanation:**
+- **Farmer 1 Decision:**
+  - **Increase Fields:** Farmer 1 increases the number of fields, leading to a higher yield (0.6Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Maintain Fields:** Farmer 1 maintains the current number of fields, leading to a moderate yield (0.4Y).
+
+- **Farmer 2 Decision:**
+  - **Increase Fields:** Farmer 2 increases the number of fields, leading to a higher yield (0.6Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Maintain Fields:** Farmer 2 maintains the current number of fields, leading to a moderate yield (0.4Y).
+
+- **Payoff Calculation:**
+  - The yield is calculated as \( Y = \text{Yield per Field} \times \text{Number of Fields} \).
+  - The cost of increasing fields is assumed to be a fixed cost of 5 units per field.
+  - The cost of maintaining fields is assumed to be a lower cost of 2.5 units per field.
+
+**Critical Constraints:**
+- **Spatial Asymmetry:** Upstream farmers have access to water first, potentially leading to a higher yield but at the cost of downstream farmers.
+- **Ecological Thresholds:** If the number of fields exceeds the available water, it can lead to a critical water stress, causing a significant reduction in yields.
+
+#### 2. Strategic Tension: Risk-Taking vs. Prudent Irrigation
 **Justification:**
-- **(5, 5):** Both farmers irrigate a moderate number of fields. If the water is insufficient, both face reduced yields.
-- **(6, 4):** The downstream farmer increases the number of fields, risking further depletion by the upstream farmer. The upstream farmer is risk-averse and reduces the number of fields to avoid water stress.
-- **(4, 6):** The downstream farmer is risk-averse and reduces the number of fields. The upstream farmer takes the risk and increases the number of fields, potentially leading to water stress.
-- **(7, 7):** Both farmers take the risk and increase the number of fields. This scenario maximizes yields but risks water stress, especially if the water supply is insufficient.
-
-### Tension 2: Ecological Threshold and Fish Population Survival
-
-**Strategic Tension:**
-The ecological threshold for fish migration and survival is a critical point that affects the downstream fish population. Downstream farmers must decide whether to risk overfishing, knowing that this could lead to a collapse of the fish population.
+Farmers must decide whether to risk increasing the number of fields based on past income and water availability predictions.
 
 **2-Player Normal Form Payoff Matrix:**
 
-|                | Low Fishing Pressure (Sustainable) | High Fishing Pressure (Overfishing) |
-|----------------|-----------------------------------|-----------------------------------|
-| **Downstream Farmer (Sustainable)** | (10, 10)                          | (8, 12)                           |
-| **Downstream Farmer (Overfishing)** | (12, 8)                           | (5, 5)                            |
+| Farmer 2 Decision | Farmer 1 Decision | Farmer 1 Yield | Farmer 2 Yield |
+|-------------------|-------------------|----------------|----------------|
+| Risk              | Risk              | 0.8Y - 10      | 0.8Y - 10      |
+| Risk              | Prudent           | 0.6Y - 5       | 0.4Y - 5       |
+| Prudent           | Risk              | 0.4Y - 5       | 0.8Y - 5       |
+| Prudent           | Prudent           | 0.4Y - 2.5     | 0.4Y - 2.5     |
 
+**Explanation:**
+- **Farmer 1 Decision:**
+  - **Risk:** Farmer 1 risks increasing the number of fields, leading to a higher yield (0.8Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Prudent:** Farmer 1 maintains a prudent approach, leading to a moderate yield (0.4Y).
+
+- **Farmer 2 Decision:**
+  - **Risk:** Farmer 2 risks increasing the number of fields, leading to a higher yield (0.8Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Prudent:** Farmer 2 maintains a prudent approach, leading to a moderate yield (0.4Y).
+
+**Critical Constraints:**
+- **Spatial Asymmetry:** Upstream farmers have access to water first, potentially leading to a higher yield but at the cost of downstream farmers.
+- **Ecological Thresholds:** If the number of fields exceeds the available water, it can lead to a critical water stress, causing a significant reduction in yields.
+
+#### 3. Strategic Tension: Economic Threshold and Fishing
 **Justification:**
-- **(10, 10):** Both farmers maintain a sustainable fishing pressure, ensuring the fish population remains healthy.
-- **(8, 12):** The downstream farmer increases fishing pressure, leading to a higher yield in the short term. The upstream farmer maintains a sustainable pressure, preserving the fish population.
-- **(12, 8):** The downstream farmer maintains a high fishing pressure, leading to a potential collapse of the fish population. The upstream farmer maintains a sustainable pressure, preserving the fish population.
-- **(5, 5):** Both farmers overfish, leading to a collapse of the fish population, resulting in reduced yields and losses for both.
-
-### Tension 3: Economic Stability and Risk Aversion
-
-**Strategic Tension:**
-Downstream farmers must balance the risk of economic instability (due to water stress and fish population collapse) with the potential for higher yields and economic gains. This creates a tension between risk-taking and risk-aversion strategies.
+Farmers must decide whether to risk increasing the number of fields based on their economic threshold and past income.
 
 **2-Player Normal Form Payoff Matrix:**
 
-|                | Risk-Averse Strategy (Sustainable) | Risk-Taking Strategy (Overfishing) |
-|----------------|-----------------------------------|-----------------------------------|
-| **Downstream Farmer (Sustainable)** | (8, 8)                            | (10, 6)                           |
-| **Downstream Farmer (Overfishing)** | (6, 10)                           | (5, 5)                            |
+| Farmer 2 Decision | Farmer 1 Decision | Farmer 1 Yield | Farmer 2 Yield |
+|-------------------|-------------------|----------------|----------------|
+| Risk              | Risk              | 0.8Y - 10      | 0.8Y - 10      |
+| Risk              | Prudent           | 0.6Y - 5       | 0.4Y - 5       |
+| Prudent           | Risk              | 0.4Y - 5       | 0.8Y - 5       |
+| Prudent           | Prudent           | 0.4Y - 2.5     | 0.4Y - 2.5     |
 
-**Justification:**
-- **(8, 8):** Both farmers adopt a sustainable strategy, ensuring economic stability and avoiding the risks of water stress and fish population collapse.
-- **(10, 6):** The downstream farmer takes the risk and increases the number of fields, potentially leading to higher yields. The upstream farmer maintains a sustainable strategy, preserving economic stability.
-- **(6, 10):** The downstream farmer maintains a sustainable strategy, preserving economic stability. The upstream farmer takes the risk and increases the number of fields, potentially leading to higher yields.
-- **(5, 5):** Both farmers overfish, leading to a collapse of the fish population and reduced yields, resulting in losses for both.
+**Explanation:**
+- **Farmer 1 Decision:**
+  - **Risk:** Farmer 1 risks increasing the number of fields, leading to a higher yield (0.8Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Prudent:** Farmer 1 maintains a prudent approach, leading to a moderate yield (0.4Y).
+
+- **Farmer 2 Decision:**
+  - **Risk:** Farmer 2 risks increasing the number of fields, leading to a higher yield (0.8Y) but potentially causing water stress and lower yields for downstream farmers.
+  - **Prudent:** Farmer 2 maintains a prudent approach, leading to a moderate yield (0.4Y).
+
+**Critical Constraints:**
+- **Spatial Asymmetry:** Upstream farmers have access to water first, potentially leading to a higher yield but at the cost of downstream farmers.
+- **Ecological Thresholds:** If the number of fields exceeds the available water, it can lead to a critical water stress, causing a significant reduction in yields.
+
+### Summary:
+The analysis identifies three distinct strategic tensions in the decentralized version of the water use model, reflecting the trade-offs between water allocation, yield optimization, and economic thresholds. Each tension is represented by a 2-player normal form payoff matrix, accounting for the spatial asymmetry and ecological thresholds.

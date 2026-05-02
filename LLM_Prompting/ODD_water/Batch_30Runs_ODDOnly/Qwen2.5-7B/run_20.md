@@ -1,46 +1,57 @@
 # Run 20 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Spatial Asymmetry and Ecological Thresholds in Decentralized Water Use
+### Distinct Action Situations for the Decentralized Case (DV)
 
-### Tension: Spatial Asymmetry vs Ecological Thresholds
+#### Title: Strategic Tension Between Downstream and Upstream Farmers for Water Allocation
+
+#### Tension: 
+* **Downstream vs. Upstream Farmers**: Downstream farmers have less control over water allocation and face more severe water scarcity due to upstream extraction. Upstream farmers have more control but also face the risk of depleting the water resource, leading to negative consequences for downstream farmers.
+
+#### 2-Player Normal Form Payoff Matrix:
+
+|                | Upstream Farmer (Max Fields) = 10 | Upstream Farmer (Max Fields) = 9 |
+|----------------|----------------------------------|---------------------------------|
+| Downstream Farmer (Max Fields) = 10 | (5, 5)                           | (4, 6)                          |
+| Downstream Farmer (Max Fields) = 9  | (6, 4)                           | (4, 4)                          |
 
 #### Justification:
-In the decentralized version (DV), each farmer makes decisions based on their local water availability and budget. This leads to a strategic tension between the spatial distribution of water resources and the ecological thresholds that govern the fish population's health. Upstream farmers have less access to water and are more likely to risk additional fields to maximize their yields, while downstream farmers have more water and are more cautious. This creates a situation where the actions of upstream farmers could lead to ecological tipping points that affect all downstream farmers.
+- **Downstream Farmer (Max Fields) = 10**: If both farmers irrigate the maximum number of fields, the total water demand exceeds the available water, leading to a severe water shortage. Both farmers receive a low payoff (5, 5).
+- **Downstream Farmer (Max Fields) = 9**: If the downstream farmer irrigates fewer fields, there is a slight surplus of water, allowing the upstream farmer to irrigate the maximum number of fields. This results in a higher payoff for the upstream farmer (6, 4) and a slightly lower payoff for the downstream farmer (4, 6).
+- **Upstream Farmer (Max Fields) = 10**: If the upstream farmer irrigates the maximum number of fields, it leads to a water shortage, and both farmers receive a low payoff (4, 4).
+- **Upstream Farmer (Max Fields) = 9**: If the upstream farmer irrigates fewer fields, it allows the downstream farmer to irrigate more fields, resulting in a higher payoff for the downstream farmer (6, 4) and a slightly lower payoff for the upstream farmer (4, 4).
 
-### 2-Player Normal Form Payoff Matrix
+#### Title: Strategic Tension Between Water Allocation and Fish Population
 
-#### Players:
-- **Player 1 (Upstream Farmer)**: Decides whether to irrigate 9 or 10 fields.
-- **Player 2 (Downstream Farmer)**: Decides whether to irrigate 9 or 10 fields.
+#### Tension:
+* **Water Allocation vs. Fish Population**: Farmers must balance their water allocation to maximize their yields while ensuring the fish population remains sustainable. Over-allocation can lead to a decrease in fish population, resulting in lower future yields.
 
-#### Actions and Payoffs:
-- **If both irrigate 9 fields:**
-  - Upstream Farmer: 50 units of yield
-  - Downstream Farmer: 60 units of yield
-- **If both irrigate 10 fields:**
-  - Upstream Farmer: 60 units of yield
-  - Downstream Farmer: 40 units of yield
-- **If Upstream irrigates 9 and Downstream irrigates 10 fields:**
-  - Upstream Farmer: 45 units of yield
-  - Downstream Farmer: 50 units of yield
-- **If Upstream irrigates 10 and Downstream irrigates 9 fields:**
-  - Upstream Farmer: 65 units of yield
-  - Downstream Farmer: 45 units of yield
+#### 2-Player Normal Form Payoff Matrix:
 
-#### Payoff Matrix:
+|                | High Water Allocation (Max Fields) = 10 | Low Water Allocation (Max Fields) = 9 |
+|----------------|----------------------------------------|--------------------------------------|
+| High Fish Population (Max Fields) = 10 | (6, 6)                                 | (7, 5)                               |
+| High Fish Population (Max Fields) = 9  | (5, 7)                                 | (6, 6)                               |
 
-|            | Downstream Irrigates 9 | Downstream Irrigates 10 |
-|------------|------------------------|-------------------------|
-| **Upstream Irrigates 9** | (50, 60) | (45, 50) |
-| **Upstream Irrigates 10** | (65, 45) | (60, 40) |
+#### Justification:
+- **High Fish Population (Max Fields) = 10**: If both farmers allocate high water to their fields, the fish population is at risk due to over-allocation, leading to a low payoff for both farmers (6, 6).
+- **High Fish Population (Max Fields) = 9**: If one farmer allocates high water and the other allocates low water, the fish population remains sustainable, leading to higher yields for the farmer who allocates low water (7, 5) and slightly lower yields for the farmer who allocates high water (5, 7).
+- **Low Fish Population (Max Fields) = 10**: If both farmers allocate low water, the fish population is sustainable, leading to higher yields for both farmers (6, 6).
+- **Low Fish Population (Max Fields) = 9**: If one farmer allocates low water and the other allocates high water, the fish population is sustainable, leading to higher yields for the farmer who allocates low water (6, 6) and slightly lower yields for the farmer who allocates high water (5, 7).
 
-### Explanation:
-- **Upstream Farmer's Decision**:
-  - If the upstream farmer irrigates 9 fields, they get a yield of 50 units if the downstream farmer also irrigates 9 fields, and 45 units if the downstream farmer irrigates 10 fields.
-  - If the upstream farmer irrigates 10 fields, they get a yield of 60 units if the downstream farmer irrigates 9 fields, but only 65 units if the downstream farmer also irrigates 10 fields.
-  
-- **Downstream Farmer's Decision**:
-  - If the downstream farmer irrigates 9 fields, they get a yield of 60 units if the upstream farmer irrigates 9 fields, and 50 units if the upstream farmer irrigates 10 fields.
-  - If the downstream farmer irrigates 10 fields, they get a yield of 40 units if the upstream farmer irrigates 9 fields, but only 45 units if the upstream farmer irrigates 10 fields.
+#### Title: Strategic Tension Between Economic Gains and Environmental Sustainability
 
-This matrix reflects the strategic tension between maximizing individual yields and the ecological thresholds that could lead to the collapse of the fish population, affecting all downstream farmers.
+#### Tension:
+* **Economic Gains vs. Environmental Sustainability**: Farmers must balance their economic gains from increased water allocation with the environmental sustainability of the fish population. Over-allocation can lead to a decrease in fish population, resulting in lower future yields.
+
+#### 2-Player Normal Form Payoff Matrix:
+
+|                | High Economic Gain (Max Fields) = 10 | Low Economic Gain (Max Fields) = 9 |
+|----------------|-------------------------------------|-----------------------------------|
+| High Environmental Sustainability (Max Fields) = 10 | (5, 5)                             | (6, 6)                            |
+| High Environmental Sustainability (Max Fields) = 9  | (6, 6)                             | (7, 5)                            |
+
+#### Justification:
+- **High Environmental Sustainability (Max Fields) = 10**: If both farmers prioritize environmental sustainability, the fish population remains sustainable, leading to higher yields for both farmers (6, 6).
+- **High Environmental Sustainability (Max Fields) = 9**: If one farmer prioritizes environmental sustainability and the other prioritizes economic gains, the fish population remains sustainable, leading to higher yields for the farmer who prioritizes environmental sustainability (7, 5) and slightly lower yields for the farmer who prioritizes economic gains (6, 6).
+- **High Economic Gain (Max Fields) = 10**: If both farmers prioritize economic gains, the fish population is at risk due to over-allocation, leading to a low payoff for both farmers (5, 5).
+- **High Economic Gain (Max Fields) = 9**: If one farmer prioritizes economic gains and the other prioritizes environmental sustainability, the fish population remains sustainable, leading to higher yields for the farmer who prioritizes environmental sustainability (6, 6) and slightly lower yields for the farmer who prioritizes economic gains (5, 7).

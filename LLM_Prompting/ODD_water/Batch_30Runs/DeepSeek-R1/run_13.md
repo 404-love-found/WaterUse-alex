@@ -1,48 +1,49 @@
 # Run 13 — deepseek-ai/DeepSeek-R1
 
-### Extracted Action Situations for Decentralized Case (DV)
+### Action Situation 1: **Water Extraction Dilemma**  
+**Strategic Tension**: Upstream farmers' irrigation decisions reduce water availability for downstream farmers, creating a conflict between individual agricultural gains and collective resource access.  
 
-#### 1. **Water Extraction Dilemma with Ecological Threshold**
-- **Strategic Tension**:  
-  Upstream farmers' water extraction for irrigation reduces water availability for downstream farmers' agriculture and the lake. Downstream farmers' extraction further jeopardizes the lake's ecological threshold for fish reproduction. Both benefit from healthy fish stocks, but upstream farmers have no immediate incentive to conserve water, risking collapse of the fishery.  
-- **2-Player Normal Form Payoff Matrix** (Upstream Farmer U vs. Downstream Farmer D):  
+**Normal Form Payoff Matrix (Upstream vs. Downstream Farmer)**:
+|                | Downstream: High Irrigation (10 fields) | Downstream: Low Irrigation (5 fields) |
+|----------------|------------------------------------------|----------------------------------------|
+| **Upstream: High Irrigation (10 fields)** | (10r, \( \frac{20}{3}Y_{\text{max}} - 10c \)) | (10r, 5r)                             |
+| **Upstream: Low Irrigation (5 fields)**   | (5r, 10r)                                | (5r, 5r)                              |
 
-  | U \ D       | High (10 fields)     | Low (5 fields)       |
-  |------------|----------------------|----------------------|
-  | **High (10 fields)** | (9.83, 2.25)        | (9.83, 2.25)        |
-  | **Low (5 fields)**  | (6.50, 5.58)        | (7.00, 6.33)        |
+**Variables**:  
+- \( r = Y_{\text{max}} - c \) (net return per field under full water)  
+- \( Y_{\text{max}} \): Maximum agricultural yield per field (monetary value)  
+- \( c \): Cost per field (irrigation + maintenance)  
 
-  **Payoff Units**: Total returns (agriculture + fishing) over two years.  
-  **Illustrative Values**:  
-  - Agriculture yield: High = 8.33, Low = 5.00 (U); 0.00 (D if U High), 3.33 (D if U Low).  
-  - Fishing (current year): U = 1.00, D = 1.50.  
-  - Future fishing (low): U = 0.50, D = 0.75.  
-  - Future fishing (high): U = 1.00, D = 1.50.  
-- **Justification**:  
-  - **Spatial Asymmetry**: U’s extraction (first access) determines water available to D and the lake. D’s actions only indirectly affect U via fishery collapse.  
-  - **Ecological Threshold**: Lake inflow < threshold (e.g., 10 units) eliminates fish reproduction. Payoffs incorporate future losses (e.g., UHigh-DHigh: 30−20−20 = −10 → collapse).  
-  - **Dominant Strategy**: U prefers High (9.83 > 7.00) despite causing collapse. D prefers Low only if U chooses Low (6.33 > 5.58).  
-  - **Systemic Risk**: Social optimum (ULow-DLow = 13.33) is > Nash equilibrium (UHigh-DLow = 12.08), but U lacks incentive to cooperate.  
+**Justification**:  
+- **Spatial Asymmetry**: Upstream farmers (first to access water) can fully irrigate 10 fields, leaving residual water for downstream farmers. Downstream farmers experience water stress if upstream extraction is high, reducing their yield (e.g., \( \frac{20}{3}Y_{\text{max}} - 10c \) reflects 67% yield due to deficit).  
+- **Ecological Threshold**: Not directly included (farmers are myopic), but high extraction reduces lake inflow, threatening fish reproduction long-term.  
+- **Dominant Strategy**: Upstream farmers prefer "High Irrigation" (10r > 5r). Downstream farmers face a dilemma: if upstream chooses "High," downstream must accept reduced yields (5r) or risk further stress.  
 
 ---
 
-### Thought Process Summary
-- **Constraints Adherence**:  
-  - Focused on **DV only** (no CV elements).  
-  - Incorporated **spatial asymmetry** (upstream vs. downstream access).  
-  - Embedded **ecological thresholds** (fish reproduction dependent on lake inflow).  
-  - Set **max fields = 10** (actions: High/Low = 10/5 fields).  
-- **Key Tension Selection**:  
-  - Primary dilemma: **Water extraction conflicts** between U and D, amplified by fishery dependency.  
-  - Secondary tensions (e.g., downstream fishing competition) discarded; fishing effort is fixed (no strategic choice).  
-- **Payoff Derivation**:  
-  - **Agriculture**: Based on water stress yield equation (e.g., UHigh: 10 fields × 5/6 stress = 8.33).  
-  - **Fishing**: Fixed current income + future losses from ecological collapse (threshold breach in May).  
-  - **Two-year horizon**: Reflects agents’ myopia; future losses materialize in next cycle.  
-- **Matrix Design**:  
-  - Simplified actions (High/Low) for tractability.  
-  - Used illustrative numbers to show dominance, Pareto inefficiency, and threshold effects.  
-- **Excluded Situations**:  
-  - Centralized governance (CV) ignored per task.  
-  - Fishing competition omitted (effort not adjustable).  
-  - Intra-upstream/downstream coordination excluded (no collective structures in DV).
+### Action Situation 2: **Fishing Order Conflict**  
+**Strategic Tension**: Downstream farmers (closest to the lake) deplete fish stocks first, leaving fewer fish for upstream farmers, creating a "race to fish."  
+
+**Normal Form Payoff Matrix (Downstream vs. Upstream Farmer in Fishing)**:
+|                | Upstream: High Fishing Effort | Upstream: Low Fishing Effort |
+|----------------|-------------------------------|------------------------------|
+| **Downstream: High Fishing Effort** | (3, 1)                       | (4, 0)                      |
+| **Downstream: Low Fishing Effort**   | (2, 3)                       | (2, 2)                      |
+
+**Payoff Scale**:  
+- **High Effort**: Attempt to catch full target (fixed level).  
+- **Low Effort**: Catch less than target.  
+- Payoffs: (Downstream, Upstream) in fish catch benefits.  
+
+**Justification**:  
+- **Spatial Asymmetry**: Downstream farmers fish first; upstream farmers are last in sequence. High effort by downstream reduces stock for upstream (e.g., payoff drops to 0 or 1).  
+- **Ecological Threshold**: High cumulative fishing pressure collapses fish populations (density-dependent mortality). Low lake inflow (from high irrigation) exacerbates collapse.  
+- **Dilemma**: Downstream farmers dominate fishing access, incentivizing high effort (payoff 3–4), while upstream farmers are "forced" to accept leftovers. No cooperative mechanism exists in DV.  
+
+---
+
+**Key Insights**:  
+1. **Water Extraction** prioritizes upstream agents, creating a zero-sum conflict over irrigation water.  
+2. **Fishing Order** advantages downstream agents, leading to a tragedy of the commons in fish harvests.  
+3. **Ecological thresholds** (lake inflow for fish reproduction) are indirectly threatened by both dilemmas but are ignored by myopic agents.  
+4. **No coordination** in DV amplifies conflicts; agents optimize individually at the system’s expense.

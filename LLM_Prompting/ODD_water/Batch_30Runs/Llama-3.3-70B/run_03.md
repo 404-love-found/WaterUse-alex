@@ -1,53 +1,51 @@
 # Run 3 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream vs Downstream Irrigation Decision
-#### Tension: 
-Water usage competition between upstream and downstream farmers, where upstream farmers have priority access to water, potentially leaving downstream farmers with insufficient water for irrigation.
+### Decentralized Water Use Action Situations
 
-#### Matrix:
-|  | Upstream (High Irrigation) | Upstream (Low Irrigation) |
+#### 1. Upstream Farmer's Irrigation Decision
+**Title:** Upstream Irrigation Dilemma
+**Tension:** Balancing individual water needs with downstream consequences
+**Matrix:**
+
+|  | Downstream Farmer Cooperates (Conserves Water) | Downstream Farmer Defects (Over-Extracts Water) |
 | --- | --- | --- |
-| **Downstream (High Irrigation)** | Upstream: 8, Downstream: 2 | Upstream: 6, Downstream: 6 |
-| **Downstream (Low Irrigation)** | Upstream: 9, Downstream: 3 | Upstream: 7, Downstream: 5 |
+| **Upstream Farmer Cooperates (Conserves Water)** | 8, 8 | 5, 9 |
+| **Upstream Farmer Defects (Over-Extracts Water)** | 9, 5 | 6, 6 |
 
-#### Justification:
-In the decentralized version, each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have an advantage as they can access water first, potentially leading to a situation where downstream farmers do not have enough water for their fields. This strategic tension arises from the spatial asymmetry in water access and the competition for this limited resource.
+**Justification:** The upstream farmer must decide whether to conserve water or over-extract it, considering the potential actions of the downstream farmer. If both cooperate, they both receive a moderate payoff (8). If the upstream farmer defects and the downstream farmer cooperates, the upstream farmer receives a higher payoff (9), but the downstream farmer's payoff decreases (5). If both defect, they both receive a lower payoff (6).
 
-### Action Situation 2: Risky Irrigation Expansion
-#### Tension: 
-The decision to expand irrigation fields despite uncertainty about future water availability, with potential benefits of increased yield but also risks of water stress and reduced yields if water availability is lower than expected.
+#### 2. Downstream Farmer's Fishing Decision
+**Title:** Downstream Fishing Dilemma
+**Tension:** Balancing individual fishing needs with ecological sustainability
+**Matrix:**
 
-#### Matrix:
-|  | Expand Irrigation | Do Not Expand |
+|  | Upstream Farmer Cooperates (Conserves Water) | Upstream Farmer Defects (Over-Extracts Water) |
 | --- | --- | --- |
-| **High Water Availability** | Farmer: 9, Environment: -1 | Farmer: 6, Environment: 0 |
-| **Low Water Availability** | Farmer: 1, Environment: -3 | Farmer: 5, Environment: -2 |
+| **Downstream Farmer Cooperates (Sustainable Fishing)** | 7, 7 | 4, 9 |
+| **Downstream Farmer Defects (Over-Fishing)** | 9, 4 | 5, 5 |
 
-#### Justification:
-Farmers in the decentralized setting may choose to expand their irrigation fields to increase yields, despite the risk that water availability might be lower than predicted. This decision involves a trade-off between potential economic gains and the risk of ecological thresholds being crossed, leading to reduced yields or environmental degradation.
+**Justification:** The downstream farmer must decide whether to practice sustainable fishing or over-fish, considering the potential actions of the upstream farmer. If both cooperate, they both receive a moderate payoff (7). If the downstream farmer defects and the upstream farmer cooperates, the downstream farmer receives a higher payoff (9), but the upstream farmer's payoff decreases (4). If both defect, they both receive a lower payoff (5).
 
-### Action Situation 3: Fishing Resource Management
-#### Tension: 
-The competition for fish resources among farmers, with the potential for overfishing if each farmer tries to maximize their catch without considering the impact on the fish population's sustainability.
+#### 3. Farmer's Field Expansion Decision
+**Title:** Field Expansion Dilemma
+**Tension:** Balancing individual economic needs with environmental constraints
+**Matrix:**
 
-#### Matrix:
-|  | High Fishing Effort | Low Fishing Effort |
+|  | Neighbor Farmer Cooperates (Limits Expansion) | Neighbor Farmer Defects (Expands Fields) |
 | --- | --- | --- |
-| **Other Farmers (High Fishing Effort)** | Farmer: 4, Fish Population: -2 | Farmer: 6, Fish Population: -1 |
-| **Other Farmers (Low Fishing Effort)** | Farmer: 5, Fish Population: 0 | Farmer: 7, Fish Population: 1 |
+| **Farmer Cooperates (Limits Expansion)** | 6, 6 | 3, 8 |
+| **Farmer Defects (Expands Fields)** | 8, 3 | 5, 5 |
 
-#### Justification:
-In the decentralized scenario, farmers also engage in fishing, which introduces another strategic tension related to the management of a common pool resource. The decision to fish at a high or low level interacts with the actions of other farmers, potentially leading to overfishing and degradation of the fish population if all farmers prioritize short-term gains over sustainability.
+**Justification:** The farmer must decide whether to limit field expansion or expand fields, considering the potential actions of the neighboring farmer. If both cooperate, they both receive a moderate payoff (6). If the farmer defects and the neighbor cooperates, the farmer receives a higher payoff (8), but the neighbor's payoff decreases (3). If both defect, they both receive a lower payoff (5).
 
-### Action Situation 4: Water Conservation vs Expansion
-#### Tension: 
-The trade-off between conserving water for future use or irrigation expansion to maximize current yields, considering the ecological thresholds and potential future water scarcity.
+#### 4. Water Allocation under Ecological Thresholds
+**Title:** Threshold Water Allocation Dilemma
+**Tension:** Balancing individual water needs with ecological thresholds
+**Matrix:**
 
-#### Matrix:
-|  | Conserve Water | Expand Irrigation |
+|  | Other Farmers Cooperate (Conserve Water) | Other Farmers Defect (Over-Extract Water) |
 | --- | --- | --- |
-| **Future Water Scarcity** | Farmer: 5, Future Generations: 8 | Farmer: 3, Future Generations: 2 |
-| **Future Water Abundance** | Farmer: 6, Future Generations: 6 | Farmer: 9, Future Generations: 4 |
+| **Farmer Cooperates (Conserves Water)** | 9, 9 | 2, 10 |
+| **Farmer Defects (Over-Extracts Water)** | 10, 2 | 1, 1 |
 
-#### Justification:
-This action situation reflects the tension between short-term economic gains from expanding irrigation and the long-term sustainability of water resources. Farmers must decide whether to conserve water, considering potential future scarcity and ecological thresholds, or to maximize current yields, potentially at the expense of future water availability.
+**Justification:** The farmer must decide whether to conserve water or over-extract it, considering the potential actions of other farmers and the ecological thresholds. If all farmers cooperate, they all receive a high payoff (9). If one farmer defects and others cooperate, the defecting farmer receives a higher payoff (10), but the cooperating farmers' payoffs decrease (2). If all farmers defect, they all receive a very low payoff (1), representing the ecological collapse.

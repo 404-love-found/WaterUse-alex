@@ -7,7 +7,9 @@ import os
 api_key = os.environ.get("TOGETHER_API_KEY")
 if not api_key:
     raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
-client = Together(api_key=api_key)
+REQUEST_TIMEOUT = 600.0
+MAX_TOKENS = 16000
+client = Together(api_key=api_key, timeout=REQUEST_TIMEOUT)
 
 model_name = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
 
@@ -51,8 +53,9 @@ def run_llama_3_3_70b_txts():
         ### Task Requirements:
         1. Identify the distinct strategic dilemmas.
         2. For each, provide a **2-player Normal Form Payoff Matrix**.
-        3. **CRITICAL CONSTRAINTS**: 
+    3. **CRITICAL CONSTRAINTS**: 
            - **Extract action situations ONLY for the decentralized case (DV). Do NOT extract situations for the centralized case (CV).**
+           - Ignore centralized interactions such as National Authority forecasting/allocation; only farmer decisions under DV are in scope.
            - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
            - Reflect the **Ecological Thresholds** (Tipping points).
            - Max fields = 10.
@@ -65,7 +68,8 @@ def run_llama_3_3_70b_txts():
         response = client.chat.completions.create(
             model=model_name,
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.6
+            temperature=0.6,
+            max_tokens=MAX_TOKENS
         )
         content = response.choices[0].message.content
 

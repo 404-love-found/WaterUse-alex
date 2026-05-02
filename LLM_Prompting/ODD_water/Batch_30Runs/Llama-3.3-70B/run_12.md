@@ -1,40 +1,49 @@
 # Run 12 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Action Situation 1: Upstream Farmer's Irrigation Decision
-#### IAD Framework Tension: 
-Overuse of water resources by upstream farmers may harm downstream farmers, creating a spatial asymmetry dilemma.
-#### 2-Player Normal Form Payoff Matrix:
+#### Title: Irrigation Dilemma
+#### Tension: An upstream farmer must decide whether to irrigate a high or low number of fields, affecting their own yield and the water availability for downstream farmers.
+#### Matrix:
 
-|  | Downstream Farmer Cooperates (Irrigates) | Downstream Farmer Defects (Does not Irrigate) |
+|  | Downstream Farmer: Low Irrigation | Downstream Farmer: High Irrigation |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Conserves Water)** | Upstream: 6, Downstream: 8 | Upstream: 7, Downstream: 5 |
-| **Upstream Farmer Defects (Overuses Water)** | Upstream: 9, Downstream: 2 | Upstream: 8, Downstream: 4 |
+| **Upstream Farmer: Low Irrigation** | (8, 6) | (7, 5) |
+| **Upstream Farmer: High Irrigation** | (9, 4) | (6, 3) |
 
-#### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate. Upstream farmers have priority access to water, which may lead to overuse and harm downstream farmers. The matrix reflects this spatial asymmetry, where the upstream farmer's decision to conserve water (cooperate) or overuse it (defect) affects the downstream farmer's payoff. The numbers represent the maximum fields each farmer can irrigate, with upstream farmers having an advantage.
+#### Justification: The upstream farmer's decision to irrigate a high or low number of fields affects the water availability for the downstream farmer. If the upstream farmer irrigates a high number of fields, the downstream farmer will have less water available, leading to a lower yield. The matrix reflects the spatial asymmetry, where the upstream farmer has more control over the water resource.
 
-### Action Situation 2: Farmer's Decision to Fish
-#### IAD Framework Tension: 
-Overfishing by one farmer may deplete the fish population, affecting all farmers and creating an ecological threshold dilemma.
-#### 2-Player Normal Form Payoff Matrix:
+### Action Situation 2: Downstream Farmer's Fishing Decision
+#### Title: Fishing Dilemma
+#### Tension: A downstream farmer must decide whether to fish a high or low amount, affecting their own income and the fish population's sustainability.
+#### Matrix:
 
-|  | Other Farmers Cooperate (Sustainably Fish) | Other Farmers Defect (Overfish) |
+|  | Other Downstream Farmers: Low Fishing | Other Downstream Farmers: High Fishing |
 | --- | --- | --- |
-| **Farmer Cooperates (Sustainably Fishes)** | Farmer: 4, Others: 4 | Farmer: 2, Others: 6 |
-| **Farmer Defects (Overfishes)** | Farmer: 6, Others: 2 | Farmer: 3, Others: 3 |
+| **Downstream Farmer: Low Fishing** | (5, 5) | (4, 6) |
+| **Downstream Farmer: High Fishing** | (6, 4) | (3, 3) |
 
-#### Justification:
-In the decentralized case, each farmer decides how much to catch from the fishing lake. Overfishing by one farmer can deplete the fish population, affecting all farmers. The matrix reflects this ecological threshold dilemma, where a farmer's decision to sustainably fish (cooperate) or overfish (defect) affects their own payoff and that of other farmers. The numbers represent the fish catch, with sustainable fishing ensuring a stable population.
+#### Justification: The downstream farmer's decision to fish a high or low amount affects their own income and the sustainability of the fish population. If multiple downstream farmers fish a high amount, the fish population may collapse, leading to a lower income for all. The matrix reflects the ecological threshold, where overfishing can lead to a tipping point.
 
-### Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-#### IAD Framework Tension: 
-A farmer's decision to increase irrigated fields may lead to water scarcity, affecting their own and other farmers' future payoffs, creating a temporal dilemma.
-#### 2-Player Normal Form Payoff Matrix:
+### Action Situation 3: Farmer's Field Expansion Decision
+#### Title: Expansion Dilemma
+#### Tension: A farmer must decide whether to expand their fields to the maximum (10 fields) or maintain a lower number of fields, affecting their own yield and the water availability for other farmers.
+#### Matrix:
 
-|  | Farmer has Sufficient Water (Can Irrigate More) | Farmer Faces Water Scarcity (Cannot Irrigate More) |
+|  | Other Farmers: Low Expansion | Other Farmers: High Expansion |
 | --- | --- | --- |
-| **Farmer Increases Irrigated Fields** | Farmer: 8, Future: 6 | Farmer: 2, Future: 4 |
-| **Farmer Does Not Increase Irrigated Fields** | Farmer: 6, Future: 8 | Farmer: 4, Future: 6 |
+| **Farmer: Low Expansion** | (6, 6) | (5, 8) |
+| **Farmer: High Expansion** | (8, 5) | (4, 4) |
 
-#### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate. Increasing irrigated fields may lead to water scarcity, affecting future payoffs. The matrix reflects this temporal dilemma, where a farmer's decision to increase irrigated fields (defect) or not (cooperate) affects their current and future payoffs. The numbers represent the maximum fields each farmer can irrigate, with water scarcity limiting future options.
+#### Justification: The farmer's decision to expand their fields to the maximum affects their own yield and the water availability for other farmers. If multiple farmers expand their fields, the water resource may become scarce, leading to a lower yield for all. The matrix reflects the critical constraint of max fields = 10 and the spatial asymmetry, where farmers compete for the water resource.
+
+### Action Situation 4: Farmer's Risk-Taking Decision
+#### Title: Risk-Taking Dilemma
+#### Tension: A farmer must decide whether to take a risk and increase their irrigated fields by one, hoping for more water availability, or play it safe and maintain their current fields.
+#### Matrix:
+
+|  | Water Availability: High | Water Availability: Low |
+| --- | --- | --- |
+| **Farmer: Risk-Taking** | (9, 9) | (2, 2) |
+| **Farmer: Safe** | (6, 6) | (5, 5) |
+
+#### Justification: The farmer's decision to take a risk and increase their irrigated fields affects their own yield and income. If the water availability is high, the farmer will benefit from taking the risk, but if the water availability is low, they will suffer. The matrix reflects the uncertainty and risk associated with the farmer's decision, as well as the ecological threshold, where low water availability can lead to a tipping point.

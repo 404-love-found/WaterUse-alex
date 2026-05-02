@@ -1,42 +1,56 @@
 # Run 20 — deepseek-ai/DeepSeek-R1
 
-### Distinct Action Situations for Decentralized Case (DV)  
+### Action Situation 1: **Water Extraction Dilemma under Spatial Asymmetry**  
+**Strategic Tension**: Upstream farmers' water extraction decisions directly reduce water availability for downstream farmers, creating a conflict between individual irrigation benefits and collective resource sustainability.  
 
-**Action Situation 1: Upstream-Downstream Water Extraction Dilemma**  
-**Tension**: Upstream farmers prioritize maximizing irrigation at the expense of downstream water availability, causing asymmetric water stress. Downstream farmers face reduced irrigation capacity due to upstream choices but cannot influence upstream behavior.  
+#### 2-Player Normal Form Payoff Matrix:  
+**Players**:  
+- Player 1 (P1): Upstream Farmer  
+- Player 2 (P2): Downstream Farmer  
 
-**2-Player Normal Form Payoff Matrix (Upstream vs. Downstream Farmer)**:  
-|                     | Downstream: High (10 fields) | Downstream: Low (5 fields) |  
-|---------------------|-------------------------------|-----------------------------|  
-| **Upstream: High (10 fields)** | (10, 2)                      | (10, 2)                    |  
-| **Upstream: Low (5 fields)**   | (5, 7)                       | (5, 5)                     |  
+**Strategies**:  
+- **High Extraction**: Irrigate 10 fields (max)  
+- **Low Extraction**: Irrigate 5 fields  
+
+**Payoffs (P1, P2)**:  
+| P1 \ P2       | High Extraction | Low Extraction |  
+|---------------|------------------|----------------|  
+| **High Extraction** | (10, 2)         | (10, 2)        |  
+| **Low Extraction**  | (5, 7)          | (8, 8)         |  
 
 **Justification**:  
-- **Spatial Asymmetry**: Upstream farmers extract water first; their choice directly limits downstream water access.  
-- **Payoffs**:  
-  - Upstream always benefits from high extraction (10 fields = max crop yield).  
-  - Downstream receives minimal water if upstream extracts high (2 fields yield regardless of downstream choice).  
-  - If upstream restricts (5 fields), downstream can achieve moderate yield (7 fields) by choosing high or sustain with low (5 fields).  
-- **Tension**: Upstream has no incentive to cooperate, forcing downstream into vulnerability. Downstream’s choices are irrelevant if upstream extracts high.  
+- **Spatial Asymmetry**: Upstream farmers (P1) extract water first. If P1 chooses **High**, they secure maximum agricultural yield (10) but leave only 2 units of water for P2 (yield = 2), regardless of P2’s choice.  
+- **Ecological Threshold**: Total extraction >10 units causes lake inflow to drop below the reproduction threshold (T), collapsing fish stocks (no fish payoff).  
+- **Dilemma**: P1’s dominant strategy is **High Extraction** (higher payoff: 10 > 5 or 8), forcing P2 into low yields (2) and triggering fish collapse. Socially optimal outcome (**Low/Low**, payoff 8/8) is unattainable without coordination.  
 
 ---
 
-**Action Situation 2: Fish Threshold Coordination Dilemma**  
-**Tension**: Both farmers must restrict irrigation to ensure sufficient water reaches the lake for fish reproduction (ecological threshold). However, each farmer has an individual incentive to maximize irrigation, risking fish collapse and future losses.  
+### Action Situation 2: **Fishing Access Dilemma under Sequential Harvesting**  
+**Strategic Tension**: Downstream farmers (closer to the lake) harvest fish first, depleting stocks for upstream farmers and creating a "race to fish" that threatens long-term stock resilience.  
 
-**2-Player Normal Form Payoff Matrix (Upstream vs. Downstream Farmer)**:  
-|                     | Downstream: High (10 fields) | Downstream: Low (3 fields) |  
-|---------------------|-------------------------------|-----------------------------|  
-| **Upstream: High (10 fields)** | (10, 2)                      | (10, 2)                    |  
-| **Upstream: Low (3 fields)**   | (3, 9)                       | (10, 10)                   |  
+#### 2-Player Normal Form Payoff Matrix:  
+**Players**:  
+- Player 1 (P1): Downstream Farmer (fishes first)  
+- Player 2 (P2): Upstream Farmer (fishes second)  
+
+**Strategies**:  
+- **High Harvest**: Target full catch (T)  
+- **Low Harvest**: Target half catch (0.5T)  
+
+**Payoffs (P1, P2)**:  
+| P1 \ P2       | High Harvest | Low Harvest |  
+|---------------|--------------|-------------|  
+| **High Harvest** | (T, 0.5T)   | (T, 0.5T)   |  
+| **Low Harvest**  | (0.5T, T)   | (0.5T, 0.5T)|  
 
 **Justification**:  
-- **Ecological Threshold**: Lake requires ≥30 units in May for fish larvae survival.  
-- **Strategies**:  
-  - **Low (3 fields)**: Each extracts 15 units (total 30), leaving 30 for the lake (threshold met).  
-  - **High (10 fields)**: Extracts 50 units, collapsing lake inflow.  
-- **Payoffs**:  
-  - **(High, High)**: Immediate crop gains (10, 2) but fish collapse → future losses (not captured in matrix due to myopia).  
-  - **(Low, Low)**: Sacrifices immediate crop (3, 3) but secures fish future. Added *hypothetical future value* (e.g., +7) to illustrate long-term incentive (10, 10).  
-  - **(Low, High)**: Upstream sacrifices (3) while downstream exploits (9), but lake collapses.  
-- **Tension**: Farmers face trade-off between immediate crop maximization and ecological sustainability. Mutual low extraction is optimal for resilience but requires coordination.
+- **Spatial Asymmetry**: P1 fishes first. If P1 chooses **High Harvest**, they catch full target (T), leaving only 0.5T for P2 regardless of P2’s choice.  
+- **Ecological Tipping Point**: High harvest rates reduce adult fish stocks, risking population collapse if repeated (ignored in payoffs due to agents’ lack of foresight).  
+- **Dilemma**: P1’s dominant strategy is **High Harvest** (T > 0.5T), forcing P2 into reduced catches (0.5T). P2 prefers P1 to choose **Low** (to get T), but cannot influence P1. This ensures suboptimal collective outcomes (e.g., (T, 0.5T) vs. Pareto-efficient (0.5T, 0.5T)).  
+
+---
+
+### Summary of Strategic Tensions:  
+1. **Water Extraction**: Upstream dominance sacrifices downstream welfare and ecosystem thresholds.  
+2. **Fishing Access**: First-mover advantage depletes shared resources for later users.  
+Both dilemmas highlight how spatial asymmetry and myopic self-interest undermine resilience in decentralized governance.

@@ -1,40 +1,53 @@
 # Run 30 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer Increases Irrigation, Downstream Farmer's Water Stress
+### Action Situation 1: Upstream-Downstream Water Allocation
 #### Tension: 
-Upstream farmer's increase in irrigation fields reduces water availability for downstream farmer, causing water stress and affecting yields.
+The strategic tension arises from the asymmetric access to water resources between upstream and downstream farmers, where upstream farmers have priority access to water, potentially leaving downstream farmers with insufficient water for irrigation.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Irrigates Less) | Downstream Farmer Defects (Irrigates More) |
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Irrigates Less)** | Upstream: 8, Downstream: 7 | Upstream: 9, Downstream: 4 |
-| **Upstream Farmer Defects (Irrigates More)** | Upstream: 10, Downstream: 3 | Upstream: 8, Downstream: 2 |
+| **Downstream (Cooperate)** | 8, 6 | 4, 9 |
+| **Downstream (Defect)** | 9, 4 | 5, 5 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. The upstream farmer has priority access to water, creating a strategic tension with the downstream farmer. If the upstream farmer increases irrigation, the downstream farmer faces water stress, reducing their yield. The matrix reflects the trade-off between cooperation (irrigating less) and defection (irrigating more), with the upstream farmer having an advantage due to spatial asymmetry.
+In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have an advantage in accessing water first, which can lead to a situation where they prioritize their own irrigation needs over the needs of downstream farmers. The matrix reflects the potential payoffs for each farmer based on their decision to cooperate (irrigate fewer fields to conserve water for downstream farmers) or defect (irrigate the maximum number of fields, potentially leaving insufficient water for downstream farmers). The numbers represent the potential yields for each farmer, with upstream farmers having a higher yield when they defect and downstream farmers having a lower yield when upstream farmers defect.
 
-### Action Situation 2: Farmer's Irrigation Decision vs. Ecological Threshold for Fish Population
+### Action Situation 2: Fishing Resource Management
 #### Tension: 
-Farmer's irrigation decision affects the water inflow into the lake, impacting the fish population's survival and the farmer's future fishing income.
+The strategic tension arises from the common-pool resource dilemma, where multiple farmers have access to the fishing lake and can overexploit the fish population, leading to a decline in the resource.
 
 #### Matrix:
-|  | Farmer Irrigates Sustainably (Less Water) | Farmer Irrigates Unsustainably (More Water) |
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Fish Population Above Threshold** | Farmer: 6 (fishing income) + 5 (agriculture), Fish: Survives | Farmer: 8 (agriculture), Fish: Declines |
-| **Fish Population Below Threshold** | Farmer: 4 (fishing income) + 4 (agriculture), Fish: Extinct | Farmer: 7 (agriculture), Fish: Extinct |
+| **Farmer 2 (Cooperate)** | 6, 6 | 3, 8 |
+| **Farmer 2 (Defect)** | 8, 3 | 4, 4 |
 
 #### Justification:
-The farmer's irrigation decision has a direct impact on the fish population's survival, which in turn affects the farmer's future fishing income. The matrix reflects the trade-off between sustainable and unsustainable irrigation practices, considering the ecological threshold for the fish population. If the fish population is above the threshold, the farmer can maintain a balance between fishing and agriculture income. However, if the population is below the threshold, the farmer's unsustainable irrigation practices lead to the decline or extinction of the fish population, resulting in lost fishing income.
+In the decentralized case, each farmer has access to the fishing lake and can decide how many fish to catch. The matrix reflects the potential payoffs for each farmer based on their decision to cooperate (catch a sustainable number of fish) or defect (catch the maximum number of fish, potentially leading to overexploitation). The numbers represent the potential fish catch for each farmer, with both farmers having a higher catch when they cooperate and a lower catch when both defect.
 
-### Action Situation 3: Upstream and Downstream Farmers' Irrigation Decisions with Limited Water Availability
+### Action Situation 3: Irrigation Investment vs. Ecological Thresholds
 #### Tension: 
-Upstream and downstream farmers compete for limited water resources, with each farmer's irrigation decision affecting the other's water availability and yield.
+The strategic tension arises from the trade-off between investing in irrigation to increase yields and the potential ecological consequences of over-irrigation, which can lead to water scarcity and degradation of the fish population.
 
 #### Matrix:
-|  | Downstream Farmer Irrigates 5 Fields | Downstream Farmer Irrigates 10 Fields |
+|  | Invest in Irrigation | Conserve Water |
 | --- | --- | --- |
-| **Upstream Farmer Irrigates 5 Fields** | Upstream: 7, Downstream: 6 | Upstream: 8, Downstream: 3 |
-| **Upstream Farmer Irrigates 10 Fields** | Upstream: 10, Downstream: 2 | Upstream: 9, Downstream: 1 |
+| **Invest in Irrigation** | 9, 9 | 6, 8 |
+| **Conserve Water** | 8, 6 | 5, 5 |
 
 #### Justification:
-In the decentralized case, upstream and downstream farmers compete for limited water resources. The matrix reflects the strategic tension between the two farmers, with each farmer's irrigation decision affecting the other's water availability and yield. The upstream farmer has an advantage due to spatial asymmetry, but the downstream farmer can still affect the upstream farmer's yield by irrigating more or less. The limited water availability creates a trade-off between the two farmers, with each trying to maximize their yield while considering the other's actions.
+In the decentralized case, each farmer must decide whether to invest in irrigation to increase yields or conserve water to protect the ecological balance. The matrix reflects the potential payoffs for each farmer based on their decision to invest in irrigation or conserve water. The numbers represent the potential yields for each farmer, with both farmers having a higher yield when they invest in irrigation, but with a risk of ecological degradation, and a lower yield when they conserve water, but with a benefit of protecting the ecological balance.
+
+### Action Situation 4: Upstream-Downstream Water Allocation with Ecological Thresholds
+#### Tension: 
+The strategic tension arises from the asymmetric access to water resources between upstream and downstream farmers, where upstream farmers have priority access to water, potentially leaving downstream farmers with insufficient water for irrigation, and the potential ecological consequences of over-irrigation.
+
+#### Matrix:
+|  | Upstream (Cooperate) | Upstream (Defect) |
+| --- | --- | --- |
+| **Downstream (Cooperate)** | 7, 5 | 3, 8 |
+| **Downstream (Defect)** | 8, 3 | 4, 4 |
+
+#### Justification:
+In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate, taking into account the potential ecological consequences of over-irrigation. The matrix reflects the potential payoffs for each farmer based on their decision to cooperate (irrigate fewer fields to conserve water for downstream farmers and protect the ecological balance) or defect (irrigate the maximum number of fields, potentially leading to over-irrigation and ecological degradation). The numbers represent the potential yields for each farmer, with upstream farmers having a higher yield when they defect, but with a risk of ecological degradation, and downstream farmers having a lower yield when upstream farmers defect.

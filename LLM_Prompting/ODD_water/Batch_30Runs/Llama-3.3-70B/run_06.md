@@ -1,40 +1,40 @@
 # Run 6 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer's Irrigation Decision
+### Action Situation 1: Upstream Farmer vs Downstream Farmer - Water Extraction
 #### Tension: 
-Over-irrigation by upstream farmers may reduce water availability for downstream farmers, creating a strategic tension between individual gain and collective well-being.
+The upstream farmer has to decide how many fields to irrigate, which affects the water available for the downstream farmer. The downstream farmer, on the other hand, has to decide how many fields to irrigate based on the expected water availability, which is influenced by the upstream farmer's decision.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Irrigates Less) | Downstream Farmer Defects (Irrigates More) |
+|  | Downstream Farmer (Cooperate - Irrigate 5 fields) | Downstream Farmer (Defect - Irrigate 10 fields) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Irrigates Less)** | Upstream: 8, Downstream: 8 | Upstream: 9, Downstream: 6 |
-| **Upstream Farmer Defects (Irrigates More)** | Upstream: 10, Downstream: 4 | Upstream: 7, Downstream: 7 |
+| **Upstream Farmer (Cooperate - Irrigate 5 fields)** | Upstream: 20, Downstream: 15 | Upstream: 25, Downstream: 0 |
+| **Upstream Farmer (Defect - Irrigate 10 fields)** | Upstream: 15, Downstream: 0 | Upstream: 20, Downstream: 0 |
 
-#### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have priority access to water, which creates a spatial asymmetry. If an upstream farmer irrigates more, they may increase their yield (up to a maximum of 10 fields), but this reduces the water available for downstream farmers, potentially decreasing their yield. The matrix reflects this tension, where cooperation (irrigating less) leads to a more balanced outcome, while defection (irrigating more) can lead to higher individual gains for the upstream farmer but at the expense of the downstream farmer.
+#### Justification: 
+In this action situation, both farmers have to make a decision about how many fields to irrigate. The upstream farmer's decision affects the water available for the downstream farmer. If both farmers cooperate and irrigate 5 fields, they both receive a moderate payoff. If the upstream farmer defects and irrigates 10 fields, the downstream farmer receives no payoff, regardless of their decision. This reflects the spatial asymmetry and ecological thresholds in the model.
 
-### Action Situation 2: Farmer's Decision to Fish
+### Action Situation 2: Farmer vs Fish Population - Fishing and Irrigation
 #### Tension: 
-The decision to fish affects the fish population, which has ecological thresholds. Overfishing can lead to a tipping point, depleting the fish population and affecting future fishing yields.
+The farmer has to decide how many fields to irrigate and how much to fish, which affects the fish population. The fish population's growth is influenced by the farmer's decision, and the farmer's payoff is affected by the fish population's abundance.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Fish Less) | Other Farmers Defect (Fish More) |
+|  | Fish Population (Resilient - Above Threshold) | Fish Population (Depleted - Below Threshold) |
 | --- | --- | --- |
-| **Farmer Cooperates (Fishes Less)** | Farmer: 5, Others: 5 | Farmer: 4, Others: 6 |
-| **Farmer Defects (Fishes More)** | Farmer: 7, Others: 3 | Farmer: 2, Others: 2 |
+| **Farmer (Cooperate - Irrigate 5 fields, Fish 50%)** | Farmer: 25, Fish: 10 | Farmer: 10, Fish: 0 |
+| **Farmer (Defect - Irrigate 10 fields, Fish 100%)** | Farmer: 30, Fish: 0 | Farmer: 0, Fish: 0 |
 
-#### Justification:
-The fish population is modeled with an age-structured Leslie type matrix, which includes ecological thresholds for survival and reproduction. If a farmer decides to fish more, they may increase their immediate catch, but this can lead to overfishing, potentially depleting the fish population and affecting future catches. The matrix reflects this tension, where cooperation (fishing less) maintains a sustainable fish population, while defection (fishing more) can lead to short-term gains but risks long-term depletion of the fish population.
+#### Justification: 
+In this action situation, the farmer's decision affects the fish population, and the fish population's state affects the farmer's payoff. If the farmer cooperates and irrigates 5 fields, and fishes at a sustainable level, the fish population remains resilient, and the farmer receives a moderate payoff. If the farmer defects and irrigates 10 fields, and fishes at an unsustainable level, the fish population becomes depleted, and the farmer receives no payoff. This reflects the ecological thresholds in the model.
 
-### Action Situation 3: Farmer's Investment in Irrigation vs. Fishing
+### Action Situation 3: Upstream Farmer vs Downstream Farmer - Information Sharing
 #### Tension: 
-Farmers must decide how to allocate their resources between irrigation for agriculture and fishing, considering the spatial asymmetry and ecological thresholds.
+The upstream farmer has to decide whether to share information about the water availability with the downstream farmer. The downstream farmer has to decide whether to trust the upstream farmer's information and adjust their irrigation decision accordingly.
 
 #### Matrix:
-|  | Other Farmers Invest in Irrigation | Other Farmers Invest in Fishing |
+|  | Downstream Farmer (Trust - Adjust Irrigation) | Downstream Farmer (Don't Trust - Don't Adjust) |
 | --- | --- | --- |
-| **Farmer Invests in Irrigation** | Farmer: 8, Others: 6 | Farmer: 9, Others: 5 |
-| **Farmer Invests in Fishing** | Farmer: 6, Others: 8 | Farmer: 7, Others: 7 |
+| **Upstream Farmer (Share Information)** | Upstream: 20, Downstream: 20 | Upstream: 15, Downstream: 10 |
+| **Upstream Farmer (Don't Share Information)** | Upstream: 25, Downstream: 5 | Upstream: 20, Downstream: 10 |
 
-#### Justification:
-Farmers have a limited budget and must decide how to allocate it between irrigation (which affects their agricultural yield) and fishing (which affects their fish catch). The spatial asymmetry and ecological thresholds influence this decision. Investing in irrigation may increase agricultural yields but could reduce water availability for other farmers or the fish population. Investing in fishing may increase fish catches but could lead to overfishing if not managed sustainably. The matrix reflects this tension, where investing in irrigation or fishing has different outcomes depending on what other farmers choose, highlighting the need for strategic decision-making that considers both individual and collective well-being.
+#### Justification: 
+In this action situation, the upstream farmer's decision to share information affects the downstream farmer's decision. If the upstream farmer shares information, and the downstream farmer trusts it, both farmers receive a moderate payoff. If the upstream farmer doesn't share information, the downstream farmer receives a low payoff, regardless of their decision. This reflects the spatial asymmetry and information sharing in the model.

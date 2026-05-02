@@ -1,66 +1,49 @@
 # Run 15 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream-Downstream Water Allocation
-#### Tension: 
-Water usage by upstream farmers affects the availability of water for downstream farmers, creating a strategic tension between individual water usage and collective water availability.
-
+### Action Situation 1: Upstream Farmer's Irrigation Decision
+#### Title: Irrigation Dilemma
+#### Tension: An upstream farmer must decide whether to irrigate a high or low number of fields, affecting their own yield and the water availability for downstream farmers.
 #### Matrix:
-|  | Upstream (Cooperate) | Upstream (Defect) |
+
+|  | Downstream Farmer Cooperates (Irrigates Low) | Downstream Farmer Defects (Irrigates High) |
 | --- | --- | --- |
-| **Downstream (Cooperate)** | 5, 5 | 2, 8 |
-| **Downstream (Defect)** | 8, 2 | 3, 3 |
+| **Upstream Farmer Cooperates (Irrigates Low)** | Upstream: 6, Downstream: 6 | Upstream: 4, Downstream: 8 |
+| **Upstream Farmer Defects (Irrigates High)** | Upstream: 8, Downstream: 4 | Upstream: 5, Downstream: 5 |
 
-#### Justification:
-In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have priority access to water, which may lead them to defect (use more water), affecting downstream farmers. The matrix reflects the spatial asymmetry, where cooperation (limiting water usage) yields moderate payoffs (5) for both, while defection by the upstream farmer results in higher payoffs for them (8) but lower for the downstream farmer (2).
+#### Justification: In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. An upstream farmer has more control over the water flow, creating a strategic tension. If both farmers cooperate (irrigate a low number of fields), they both receive a moderate yield (6). If the upstream farmer defects (irrigates a high number of fields) and the downstream farmer cooperates, the upstream farmer receives a higher yield (8), while the downstream farmer receives a lower yield (4). If both farmers defect, they both receive a lower yield (5) due to water stress.
 
-### Action Situation 2: Overfishing
-#### Tension: 
-The strategic tension arises from individual fishing decisions impacting the collective fish population, potentially leading to overfishing and ecological thresholds being crossed.
-
+### Action Situation 2: Farmer's Fishing Decision
+#### Title: Fishing Dilemma
+#### Tension: A downstream farmer must decide whether to fish a high or low amount, affecting their own income and the fish population.
 #### Matrix:
-|  | Upstream (Cooperate) | Upstream (Defect) |
+
+|  | Other Farmers Cooperate (Fish Low) | Other Farmers Defect (Fish High) |
 | --- | --- | --- |
-| **Downstream (Cooperate)** | 4, 4 | 1, 6 |
-| **Downstream (Defect)** | 6, 1 | 2, 2 |
+| **Downstream Farmer Cooperates (Fishes Low)** | Downstream: 5, Others: 5 | Downstream: 3, Others: 7 |
+| **Downstream Farmer Defects (Fishes High)** | Downstream: 7, Others: 3 | Downstream: 4, Others: 4 |
 
-#### Justification:
-In the DV, farmers fish according to a fixed target catch level without considering the impact on the fish population. The matrix shows that if both cooperate (limit fishing), they receive moderate payoffs (4). However, if one defects (overfishes), they gain a higher payoff (6) at the expense of the other (1), reflecting the risk of crossing ecological thresholds and depleting the fish population.
+#### Justification: In the decentralized case, each farmer tries to catch a fixed target amount of fish. A downstream farmer has priority access to the fishing lake, creating a strategic tension. If all farmers cooperate (fish a low amount), they all receive a moderate income (5). If a downstream farmer defects (fishes a high amount) and other farmers cooperate, the downstream farmer receives a higher income (7), while other farmers receive a lower income (3). If all farmers defect, they all receive a lower income (4) due to overfishing.
 
-### Action Situation 3: Field Expansion
-#### Tension: 
-The tension lies in the decision to expand irrigated fields, which is influenced by water availability predictions and budget constraints, potentially leading to water stress and affecting yields.
-
+### Action Situation 3: Farmer's Field Expansion Decision
+#### Title: Expansion Dilemma
+#### Tension: A farmer must decide whether to expand their fields, affecting their own budget and the water availability for other farmers.
 #### Matrix:
-|  | Upstream (Expand) | Upstream (Limit) |
+
+|  | Other Farmers Cooperate (Do Not Expand) | Other Farmers Defect (Expand) |
 | --- | --- | --- |
-| **Downstream (Expand)** | 3, 3 | 5, 2 |
-| **Downstream (Limit)** | 2, 5 | 4, 4 |
+| **Farmer Cooperates (Does Not Expand)** | Farmer: 5, Others: 5 | Farmer: 4, Others: 6 |
+| **Farmer Defects (Expands)** | Farmer: 6, Others: 4 | Farmer: 5, Others: 5 |
 
-#### Justification:
-Farmers decide on the number of fields to irrigate based on predicted water availability and budget. The matrix illustrates the trade-off between expanding fields for potentially higher yields and limiting expansion to avoid water stress. If both expand, they face reduced payoffs (3) due to water stress, while cooperation (one limits expansion) can lead to higher payoffs for the limiting farmer (5), reflecting the importance of considering ecological thresholds in decision-making.
+#### Justification: In the decentralized case, each farmer assesses their income situation and decides on the number of fields to irrigate. A farmer's decision to expand their fields creates a strategic tension. If all farmers cooperate (do not expand), they all receive a moderate budget (5). If a farmer defects (expands) and other farmers cooperate, the farmer receives a higher budget (6), while other farmers receive a lower budget (4). If all farmers defect, they all receive a moderate budget (5) due to the max fields constraint (10).
 
-### Action Situation 4: Risk Taking in Irrigation Decisions
-#### Tension: 
-The strategic tension arises from the decision to risk increasing the number of irrigated fields when income is below a critical threshold, potentially leading to higher yields but also increased water stress.
-
+### Action Situation 4: Ecological Threshold Dilemma
+#### Title: Ecological Threshold
+#### Tension: Farmers must collectively manage the fish population to avoid exceeding the ecological threshold, affecting their own income and the long-term sustainability of the fish population.
 #### Matrix:
-|  | Upstream (Risk) | Upstream (Conservative) |
+
+|  | Other Farmers Cooperate (Sustainably Manage) | Other Farmers Defect (Overfish) |
 | --- | --- | --- |
-| **Downstream (Risk)** | 6, 6 | 4, 8 |
-| **Downstream (Conservative)** | 8, 4 | 5, 5 |
+| **Farmer Cooperates (Sustainably Manages)** | Farmer: 5, Others: 5 | Farmer: 3, Others: 7 |
+| **Farmer Defects (Overfishes)** | Farmer: 7, Others: 3 | Farmer: 0, Others: 0 |
 
-#### Justification:
-When a farmer's income is below a threshold, they may choose to risk increasing irrigated fields. The matrix shows that if both risk, they could achieve high payoffs (6) but also face the risk of water stress. If one risks and the other is conservative, the risk-taker may achieve higher payoffs (8) at the expense of the conservative farmer (4), highlighting the spatial asymmetry and ecological thresholds in irrigation decisions.
-
-### Action Situation 5: Adaptive Management of Water Resources
-#### Tension: 
-The tension lies in balancing short-term gains from water usage with long-term sustainability, considering the adaptive capacity of farmers to respond to changes in water availability.
-
-#### Matrix:
-|  | Upstream (Adaptive) | Upstream (Non-Adaptive) |
-| --- | --- | --- |
-| **Downstream (Adaptive)** | 7, 7 | 3, 9 |
-| **Downstream (Non-Adaptive)** | 9, 3 | 4, 4 |
-
-#### Justification:
-Farmers can adapt their water usage based on past experiences and predictions. The matrix illustrates that if both are adaptive, they can achieve high payoffs (7) by balancing short-term and long-term needs. If one is adaptive and the other is not, the adaptive farmer may achieve higher payoffs (9) by adjusting to changing conditions, while the non-adaptive farmer faces reduced payoffs (3), reflecting the importance of adaptive management in navigating ecological thresholds and spatial asymmetry.
+#### Justification: In the decentralized case, each farmer's fishing decision affects the fish population. If all farmers cooperate (sustainably manage), they all receive a moderate income (5). If a farmer defects (overfishes) and other farmers cooperate, the farmer receives a higher income (7), while other farmers receive a lower income (3). If all farmers defect, they all receive no income (0) due to the collapse of the fish population, exceeding the ecological threshold.

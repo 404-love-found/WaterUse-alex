@@ -1,60 +1,60 @@
 # Run 18 — deepseek-ai/DeepSeek-R1
 
-### Action Situation 1: Upstream-Downstream Water Rivalry for Agriculture  
-**Tension**: Upstream farmers' water extraction for irrigation reduces water availability for downstream farmers, creating a zero-sum conflict over limited water resources. Downstream farmers face yield losses due to water stress caused by upstream choices.  
-
-**Matrix**:  
-*Players*: Upstream Farmer (UF), Downstream Farmer (DF)  
-*Strategies*:  
-- **High (H)**: Irrigate 10 fields  
-- **Low (L)**: Irrigate 5 fields  
-
-| UF \ DF | H         | L         |  
-|---------|-----------|-----------|  
-| **H**   | (10k, 0)  | (10k, 0) |  
-| **L**   | (5k, 5k)  | (5k, 5k) |  
-
-**Justification**:  
-- Assumes water inflow = 100 units, demand = 10 units/field.  
-- **UF dominates**: Choosing **H** secures full yield (10k) by exhausting water, leaving DF with 0 regardless of DF's choice.  
-- **DF powerless**: No strategic choice affects outcome; yield depends solely on UF's decision.  
-- Reflects **spatial asymmetry**: Upstream position grants priority access, forcing downstream farmers into vulnerability.  
+### Thought Process:
+To identify distinct action situations in the decentralized (DV) case using the IAD framework:
+1. **Focus on DV only**: Ignore centralized (CV) elements.
+2. **Key tensions**:
+   - **Spatial asymmetry**: Upstream farmers access water first; downstream farmers access fish first.
+   - **Ecological thresholds**: Water flow into the lake must exceed a threshold for fish reproduction.
+   - **Resource competition**: Water extraction reduces availability for downstream agents and fish.
+3. **Agent decisions**:
+   - Farmers decide irrigated fields annually (0-10 fields) based on water predictions, budget, and past income.
+   - Fishing effort is fixed (target catch), but actual catch depends on resource availability.
+4. **Strategic dilemmas**:
+   - **Upstream-downstream water conflict**: Upstream over-extraction harms downstream irrigation and fish stocks.
+   - **Downstream fishing competition**: Sequential access creates a "race to fish" when stocks are low.
+5. **Matrix design**:
+   - Use simplified strategies (Low/High irrigation) to capture core tensions.
+   - Payoffs reflect trade-offs between agricultural income and fishing losses.
 
 ---
 
-### Action Situation 2: May Water Extraction for Fish Reproduction Threshold  
-**Tension**: Collective over-extraction in May pushes lake inflow below ecological thresholds, collapsing fish reproduction. Farmers face trade-offs between individual irrigation gains and shared fishing losses.  
+### Action Situation 1: Upstream-Downstream Water Allocation Dilemma
+**Title**: Water Extraction Conflict  
+**Tension**: Upstream farmers prioritizing irrigation reduce water availability for downstream farmers and fish reproduction, triggering a threshold collapse in fish stocks. Downstream farmers face reduced irrigation and fishing yields.  
 
-**Matrix**:  
-*Players*: Upstream Farmer (UF), Downstream Farmer (DF)  
-*Strategies*:  
-- **High (H)**: Irrigate 10 fields in May  
-- **Low (L)**: Irrigate 5 fields in May  
-
-| UF \ DF | H           | L             |  
-|---------|-------------|---------------|  
-| **H**   | (10k, 5k)   | (10k, 5k)    |  
-| **L**   | (5k, 10k)   | (5k+B, 5k+B) |  
-
-**Assumptions**:  
-- May inflow = 150 units, threshold (T) = 50 units, fishing benefit B > 5k (e.g., B = 7k).  
-- Water/field = 10 units. Payoffs: agricultural payoff (k/field) + fishing benefit (B) if threshold met.  
+|                | Downstream: Low (2 fields) | Downstream: High (10 fields) |
+|----------------|-----------------------------|-------------------------------|
+| **Upstream: Low (2 fields)** | (4, 4) | (2, 7) |
+| **Upstream: High (10 fields)** | (10, -1) | (10, -9) |
 
 **Justification**:  
-- **Threshold mechanism**: Only **(L, L)** meets lake threshold (150 - 50 - 50 = 50 ≥ T), enabling fishing benefits (B).  
-- **Spatial asymmetry**:  
-  - **UF**: Higher irrigation payoff when choosing **H** (extracts 100 units first).  
-  - **DF**: Higher irrigation payoff only if UF chooses **L** (extracts 100 units if UF conserves).  
-- **Dilemma**:  
-  - **(L, L)** is Pareto-optimal (5k+B > 10k if B>5k) but requires mutual cooperation.  
-  - **UF tempted to defect**: Chooses **H** if expecting DF to choose **L** (gains 10k > 5k+B).  
-  - **DF tempted to defect**: Chooses **H** if UF chooses **L** (gains 10k > 5k+B).  
-- **Risk of collapse**: Unilateral defection or mutual defection **(H, H)/(H, L)/(L, H)** misses threshold, losing B.  
+- **Strategies**: Low (2 fields) conserves water; High (10 fields) maximizes irrigation.  
+- **Payoffs**:  
+  - **(4,4)**: Both conserve → lake water > threshold → fish thrive → moderate agriculture + full fishing income.  
+  - **(2,7)**: Upstream conserves, downstream over-extracts → lake water < threshold → fish collapse → upstream loses fishing income; downstream gains agriculture.  
+  - **(10,-1)**: Upstream over-extracts, downstream conserves → downstream agriculture fails; minimal fish catch.  
+  - **(10,-9)**: Both over-extract → lake dries → no fish + downstream agricultural losses.  
+- **Threshold**: Water flow to lake < 50 units (e.g., 100 initial - 100 extracted) eliminates fish reproduction.  
+- **Incentives**: Upstream always prefers High (dominant strategy). Downstream prefers High if Upstream chooses Low (free-riding) but must choose Low to mitigate losses if Upstream chooses High.  
 
---- 
+---
 
-**Key Reflections**:  
-1. **Spatial asymmetry** is fundamental: Upstream dominates water access; downstream dominates fishing access.  
-2. **Ecological thresholds** create nonlinear tipping points (fish collapse) when May lake inflow < 50 units.  
-3. **Max fields = 10** bounds extraction intensity, defining strategy spaces.  
-4. **Decentralized focus**: No coordination exists; agents act based on local information and myopic goals.
+### Action Situation 2: Downstream Fishing Race  
+**Title**: Sequential Fishing Access Dilemma  
+**Tension**: When fish stocks are low due to water shortages, downstream farmers compete to fish first. Earlier access yields higher catches, but depletes stocks for later fishers.  
+
+|                | Late Downstream: Moderate Catch | Late Downstream: High Catch |
+|----------------|-----------------------------------|------------------------------|
+| **Early Downstream: Moderate Catch** | (3, 3) | (3, 1) |
+| **Early Downstream: High Catch** | (4, 0) | (4, 0) |
+
+**Justification**:  
+- **Players**: Two adjacent downstream farmers (Early = closer to lake; Late = next upstream).  
+- **Strategies**: Moderate (half of target) vs. High (full target) fishing effort.  
+- **Payoffs**:  
+  - **(3,3)**: Both fish moderately → sustainable stock → equal catch.  
+  - **(3,1)**: Early moderates, Late over-fishes → stock depleted → Late catches less.  
+  - **(4,0)**: Early over-fishes → stock collapses → Late catches nothing.  
+- **Ecological threshold**: Fish stock viability requires >50% of carrying capacity. High catch by Early reduces stock below viability.  
+- **Incentives**: Early prefers High (maximizes immediate gain). Late prefers Moderate but is forced to compete if Early chooses High.

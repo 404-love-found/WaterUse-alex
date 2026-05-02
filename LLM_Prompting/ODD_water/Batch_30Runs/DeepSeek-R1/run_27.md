@@ -1,51 +1,61 @@
 # Run 27 — deepseek-ai/DeepSeek-R1
 
-### Analysis of Distinct Action Situations in Decentralized Governance (DV)
+### Extracted Action Situations for Decentralized Case (DV)
 
-#### **Action Situation 1: Water Rivalry between Upstream and Downstream Farmers**  
-**Tension**: Upstream farmers' water extraction reduces water availability for downstream farmers, creating a conflict between individual irrigation benefits and collective resource sustainability. Downstream farmers face reduced agricultural yields due to upstream over-extraction, while upstream farmers prioritize immediate gains without accounting for downstream impacts.  
+#### 1. **Water Extraction Dilemma (Upstream-Downstream)**
+**Strategic Tension**:  
+Upstream farmers prioritize maximizing irrigation at the expense of downstream water availability, while downstream farmers face water scarcity that reduces agricultural yields. This creates a conflict between individual profit maximization and collective resource sustainability, especially given the ecological threshold for fish reproduction (water inflow ≥ 20 units).  
 
-**Payoff Matrix** (Row: Upstream Farmer, Column: Downstream Farmer):  
-| Strategies          | Downstream: Low (5 fields) | Downstream: High (10 fields) |
-|---------------------|----------------------------|------------------------------|
-| **Upstream: Low (5 fields)** | (60, 60)                 | (60, 70)                    |
-| **Upstream: High (10 fields)** | (70, 60)               | (20, 30)                    |
+**2-Player Normal Form Payoff Matrix**  
+*Players*:  
+- **Upstream Farmer (U)**: Strategies = Conservative (C: 4 fields) or Risky (R: 5 fields)  
+- **Downstream Farmer (D)**: Strategies = Conservative (C: 4 fields) or Risky (R: 5 fields)  
+
+*Payoffs (U, D)*:  
+| U \ D       | Conservative | Risky      |
+|-------------|--------------|------------|
+| **Conservative** | (35, 35)     | (35, 20)   |
+| **Risky**       | (50, 10)     | (50, -10)  |  
 
 **Justification**:  
-- **Spatial Asymmetry**: Upstream farmers (row player) access water first; their high extraction (10 fields) leaves less water for downstream farmers (column player), reducing downstream agricultural yields.  
-- **Ecological Threshold**: When both irrigate 10 fields, total water extraction exceeds the lake's inflow threshold (10 units), collapsing fish populations. Downstream farmers retain partial fishing access (first priority) but suffer agricultural losses.  
-- **Payoff Calculation**:  
-  - *(Low, Low)*: Moderate agriculture (5 fields × 2 yield = 10) + full fishing (50 fish × 1 value = 50) = 60 each.  
-  - *(High, Low)*: Upstream gains high agriculture (10 fields × 2 = 20) + fishing (50); downstream gets moderate agriculture (5 fields × 2 = 10) + fishing (50).  
-  - *(Low, High)*: Upstream: moderate agriculture (10) + fishing (50); downstream: high agriculture (20) + fishing (50).  
-  - *(High, High)*: Fish collapse (10 fish total). Upstream: high agriculture (20) + no fish (0). Downstream: high agriculture (20) + minimal fish (10).  
-- **Strategic Dilemma**: Upstream prefers high extraction (70 > 60), forcing downstream to counter with low extraction to avoid worst outcomes (30 vs. 60). Nash equilibria are asymmetric: (High, Low) and (Low, High).  
+- **Spatial asymmetry**: Upstream farmers (U) access water first. If U chooses Risky (5 fields), they extract 50 water units, leaving less for D. Downstream farmers (D) receive residual water, causing stress (e.g., if U is Risky and D is Conservative, D gets only 10 units for 4 fields → reduced yield).  
+- **Ecological threshold**: If total extraction leaves <20 units for the lake (e.g., when both choose Risky: 100 - 50 - 50 = 0), fish reproduction collapses, adding a penalty (-10 for D due to future stock loss).  
+- **Max fields constraint**: At 5 fields (Risky), demand = 50 units (10/field). Conservative (4 fields) = 40 units.  
+- Payoffs assume:  
+  - Full yield = 10/field; cost = 5/field → net profit = 5/field.  
+  - Yield reduction: If water received < demand, profit scales linearly (e.g., 20 units for 5 fields → 40% yield).  
+  - Penalty = -10 for crossing ecological threshold.  
 
 ---
 
-#### **Action Situation 2: Collective Water Use vs. Fish Population Viability**  
-**Tension**: All farmers face a public goods dilemma: individual water extraction for irrigation reduces water reaching the lake, threatening fish population collapse if cumulative extraction breaches ecological thresholds. Downstream farmers bear higher fishing opportunity costs.  
+#### 2. **Fishing Access Dilemma (Downstream-Upstream)**  
+**Strategic Tension**:  
+Downstream farmers fish first and may deplete shared fish stocks before upstream farmers can access them. Upstream farmers risk reduced catches but have no mechanism to coordinate, creating a "race to fish" that threatens long-term stock viability.  
 
-**Payoff Matrix** (Row: Representative Farmer, Column: Collective Community):  
-| Strategies          | Community: Restrain (Avg 5 fields) | Community: Over-Irrigate (Avg 10 fields) |
-|---------------------|-----------------------------------|------------------------------------------|
-| **Farmer: Restrain (5 fields)** | (60, 60)                         | (40, 30)                                |
-| **Farmer: Over-Irrigate (10 fields)** | (70, 50)                       | (20, 20)                                |
+**2-Player Normal Form Payoff Matrix**  
+*Players*:  
+- **Downstream Farmer (D)**: Strategies = Moderate (M: 50% of stock) or High (H: 70% of stock)  
+- **Upstream Farmer (U)**: Strategies = Moderate (M: 30% of stock) or High (H: 50% of stock)  
+
+*Payoffs (D, U)*:  
+| D \ U       | Moderate     | High        |
+|-------------|--------------|-------------|
+| **Moderate** | (40, 30)     | (40, 10)    |
+| **High**     | (70, 0)      | (60, -20)   |  
 
 **Justification**:  
-- **Ecological Threshold**: Fish collapse occurs if total water extraction >15 units (e.g., 9 farmers × 10 fields = 90 units vs. inflow = 25). Restraint (5 fields/farmer) preserves fish.  
-- **Spatial Asymmetry**: Downstream farmers lose more from fish collapse (fishing priority), while upstream farmers prioritize water access.  
-- **Payoff Calculation**:  
-  - *(Restrain, Restrain)*: Sustainable fish + moderate agriculture = 60.  
-  - *(Over-Irrigate, Restrain)*: Free-rider gains high agriculture (20) + fishing (50) = 70; community suffers reduced fish (50 → 30).  
-  - *(Restrain, Over-Irrigate)*: Fish collapse; restrained farmer gets agriculture (10) + minimal fish (10) = 20; community gets 20.  
-  - *(Over-Irrigate, Over-Irrigate)*: Fish collapse; high agriculture (20) + no fish = 20.  
-- **Strategic Dilemma**: Individual incentives to over-irrigate (70 > 60) lead to collective collapse if all defect. Downstream farmers face higher losses (30 → 20) and may act as "canaries" for ecosystem collapse.  
+- **Spatial asymmetry**: Downstream farmers (D) access the lake first. If D chooses High (70% of stock), U may get nothing (e.g., (H, M) → U: 0).  
+- **Ecological threshold**: If total catch exceeds stock recovery rate (e.g., (H, H) = 120% of stock), the population collapses, imposing penalties (-20 for U).  
+- Payoffs assume:  
+  - Base fish income = 50 per farmer.  
+  - Moderate catch: D gets 40, U gets 30 (scaled to 70% of stock).  
+  - High catch: D gets 70, U gets 10 (if U moderates) or -20 (if both overfish).  
+- No direct cost to fish, but depletion reduces future income.  
 
 ---
 
-### Key Insights  
-- **Spatial Asymmetry** is critical: Upstream dominates water access; downstream dominates fishing access.  
-- **Ecological Thresholds** create non-linear payoffs (e.g., fish collapse at 10-unit water deficit).  
-- **Max Fields Constraint** (10) caps individual extraction but amplifies collective risk when widely adopted.  
-Both situations highlight trade-offs between individual rationality (maximizing irrigation) and group resilience (sustaining fish populations).
+### Summary of Key Constraints Addressed:  
+- **Decentralized governance (DV)**: No central authority; farmers act independently.  
+- **Spatial asymmetry**: Upstream prioritizes water, downstream prioritizes fish.  
+- **Ecological thresholds**: Water inflow <20 units → fish collapse; overfishing → stock collapse.  
+- **Max fields = 10**: Strategies capped at 5 fields (Risky) to reflect real-world limits.

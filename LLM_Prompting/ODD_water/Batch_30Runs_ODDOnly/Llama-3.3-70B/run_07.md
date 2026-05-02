@@ -1,39 +1,40 @@
 # Run 7 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Decentralized Water Use Action Situations
+### Action Situation 1: Upstream-Downstream Water Extraction
+#### Tension: 
+Spatial asymmetry in water extraction, where upstream farmers have priority access to water, potentially affecting downstream farmers' irrigation and fishing activities.
 
-#### 1. Upstream vs Downstream Irrigation Decision
-**Title:** Spatial Asymmetry in Water Use
-**Tension:** Upstream farmers may irrigate more, reducing downstream water availability.
-**Matrix:**
-
-|  | Downstream (Cooperate) | Downstream (Defect) |
+#### Matrix:
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream (Cooperate)** | 5, 5 | 6, 3 |
-| **Upstream (Defect)** | 3, 6 | 4, 4 |
+| **Downstream (Cooperate)** | Upstream: 8, Downstream: 6 | Upstream: 10, Downstream: 0 |
+| **Downstream (Defect)** | Upstream: 5, Downstream: 8 | Upstream: 8, Downstream: 5 |
 
-**Justification:** The matrix reflects the strategic tension between upstream and downstream farmers. If both cooperate (irrigate fewer fields), they both get a moderate payoff (5). If the upstream farmer defects (irrigates more), they get a higher payoff (6), but the downstream farmer gets a lower payoff (3). If both defect, they both get a lower payoff (4) due to water scarcity.
+#### Justification:
+In the decentralized version (DV), each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have priority access to water, which may lead to downstream farmers facing water stress. The matrix reflects the strategic tension between upstream and downstream farmers. If both cooperate (irrigate fewer fields), they receive moderate payoffs (8, 6). If the upstream farmer defects (irrigates more fields), they receive a higher payoff (10), while the downstream farmer receives nothing (0). If the downstream farmer defects, they may still receive some payoff (8) if they have sufficient water, but the upstream farmer's payoff decreases (5).
 
-#### 2. Fishing vs Agricultural Water Use
-**Title:** Ecological Thresholds in Water Allocation
-**Tension:** Farmers must balance fishing and agricultural water use to avoid ecological thresholds.
-**Matrix:**
+### Action Situation 2: Fishing Resource Management
+#### Tension: 
+Ecological threshold in fish population, where overfishing by upstream farmers may deplete the resource, affecting downstream farmers' fishing activities.
 
-|  | Fishing (Cooperate) | Fishing (Defect) |
+#### Matrix:
+|  | Upstream (Sustainable Fishing) | Upstream (Overfishing) |
 | --- | --- | --- |
-| **Agriculture (Cooperate)** | 4, 4 | 3, 6 |
-| **Agriculture (Defect)** | 6, 3 | 2, 2 |
+| **Downstream (Sustainable Fishing)** | Upstream: 4, Downstream: 4 | Upstream: 6, Downstream: 0 |
+| **Downstream (Overfishing)** | Upstream: 2, Downstream: 6 | Upstream: 4, Downstream: 4 |
 
-**Justification:** The matrix reflects the strategic tension between fishing and agricultural water use. If both cooperate (balance water use), they both get a moderate payoff (4). If agriculture defects (uses more water), they get a higher payoff (6), but fishing gets a lower payoff (3). If fishing defects (overfishes), they get a higher payoff (6), but agriculture gets a lower payoff (3). If both defect, they both get a low payoff (2) due to ecological thresholds being exceeded.
+#### Justification:
+The fish population is modeled with an age-structured Leslie type matrix, with ecological thresholds (e.g., migration depends on water inflow). Upstream farmers may overfish, depleting the resource for downstream farmers. The matrix reflects the strategic tension between upstream and downstream farmers. If both practice sustainable fishing, they receive moderate payoffs (4, 4). If the upstream farmer overfishes, they receive a higher payoff (6), while the downstream farmer receives nothing (0). If the downstream farmer overfishes, they may still receive some payoff (6) if the resource is not depleted, but the upstream farmer's payoff decreases (2).
 
-#### 3. Short-term vs Long-term Water Use
-**Title:** Intertemporal Tradeoffs in Water Use
-**Tension:** Farmers must balance short-term and long-term water use to avoid depleting the resource.
-**Matrix:**
+### Action Situation 3: Irrigation Investment
+#### Tension: 
+Risk of water stress and ecological thresholds, where farmers must balance irrigation investments with potential water availability and fish population sustainability.
 
-|  | Long-term (Cooperate) | Long-term (Defect) |
+#### Matrix:
+|  | Farmer 1 (Conservative Investment) | Farmer 1 (Aggressive Investment) |
 | --- | --- | --- |
-| **Short-term (Cooperate)** | 5, 5 | 4, 6 |
-| **Short-term (Defect)** | 6, 4 | 3, 3 |
+| **Farmer 2 (Conservative Investment)** | Farmer 1: 5, Farmer 2: 5 | Farmer 1: 8, Farmer 2: 2 |
+| **Farmer 2 (Aggressive Investment)** | Farmer 1: 2, Farmer 2: 8 | Farmer 1: 5, Farmer 2: 5 |
 
-**Justification:** The matrix reflects the strategic tension between short-term and long-term water use. If both cooperate (balance short-term and long-term use), they both get a moderate payoff (5). If short-term use defects (overuses water), they get a higher payoff (6), but long-term use gets a lower payoff (4). If long-term use defects (conserves too much water), they get a higher payoff (6), but short-term use gets a lower payoff (4). If both defect, they both get a low payoff (3) due to water scarcity and ecological degradation.
+#### Justification:
+Farmers must decide on the number of fields to irrigate, balancing potential water availability and fish population sustainability. The matrix reflects the strategic tension between two farmers. If both invest conservatively, they receive moderate payoffs (5, 5). If one farmer invests aggressively, they receive a higher payoff (8), while the other farmer receives a lower payoff (2). If both invest aggressively, they may face water stress and ecological thresholds, resulting in moderate payoffs (5, 5).

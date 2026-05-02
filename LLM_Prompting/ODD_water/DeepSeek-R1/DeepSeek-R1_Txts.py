@@ -8,8 +8,10 @@ import time
 api_key = os.environ.get("TOGETHER_API_KEY")
 if not api_key:
     raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
+REQUEST_TIMEOUT = 600.0
+MAX_TOKENS = 16000
 # Set a long timeout (10 minutes) to allow DeepSeek-R1 to finish reasoning
-client = Together(api_key=api_key, timeout=600.0)
+client = Together(api_key=api_key, timeout=REQUEST_TIMEOUT)
 
 model_name = "deepseek-ai/DeepSeek-R1"
 
@@ -54,6 +56,7 @@ def run_deepseek_r1_txts():
     2. For each, provide a **2-player Normal Form Payoff Matrix**.
     3. **CRITICAL CONSTRAINTS**: 
        - **Extract action situations ONLY for the decentralized case (DV). Do NOT extract situations for the centralized case (CV).**
+       - Ignore centralized interactions such as National Authority forecasting/allocation; only farmer decisions under DV are in scope.
        - Reflect the **Spatial Asymmetry** (Upstream vs Downstream).
        - Reflect the **Ecological Thresholds** (Tipping points).
        - Max fields = 10.
@@ -72,7 +75,7 @@ def run_deepseek_r1_txts():
                 model=model_name,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
-                max_tokens=8192
+                max_tokens=MAX_TOKENS
             )
             content = response.choices[0].message.content
 

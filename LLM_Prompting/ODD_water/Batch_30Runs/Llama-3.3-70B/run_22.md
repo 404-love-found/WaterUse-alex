@@ -1,51 +1,57 @@
 # Run 22 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Decentralized Water Use Action Situations
+### Action Situation 1: Upstream Farmer's Irrigation Decision
+#### Tension: Over-Irrigation vs. Conservation
+In the decentralized case, an upstream farmer must decide how many fields to irrigate, considering the potential impact on downstream farmers and the fish population. This situation reflects a strategic tension between maximizing individual yields and conserving water for downstream users and the ecosystem.
 
-#### 1. Upstream Farmer Exploitation
-**Title:** Upstream Dominance
-**Tension:** Upstream farmers may over-irrigate, leaving downstream farmers with insufficient water.
-**Matrix:**
+#### Matrix:
 
-|  | Downstream Cooperates | Downstream Defects |
+|  | Downstream Farmer Conserves Water | Downstream Farmer Over-Irrigates |
 | --- | --- | --- |
-| **Upstream Cooperates** | 5, 5 | 3, 6 |
-| **Upstream Defects** | 6, 3 | 4, 4 |
+| **Upstream Farmer Conserves Water** | 8, 8 | 6, 9 |
+| **Upstream Farmer Over-Irrigates** | 9, 5 | 7, 7 |
 
-**Justification:** In the decentralized case, upstream farmers have priority access to water. They may choose to cooperate (irrigate moderately) or defect (over-irrigate). Downstream farmers, who have less access to water, may also cooperate (accept less water) or defect (try to take more water). The matrix reflects the strategic tension between upstream and downstream farmers, with upstream farmers having more power due to spatial asymmetry.
+#### Justification:
+The matrix reflects the spatial asymmetry, where the upstream farmer's decision affects the downstream farmer. If both conserve water, they both receive a moderate payoff (8). If the upstream farmer over-irrigates and the downstream farmer conserves, the upstream farmer receives a higher payoff (9), but the downstream farmer's payoff decreases (5). If both over-irrigate, they both receive a lower payoff (7), reflecting the ecological threshold of water scarcity.
 
-#### 2. Fishery Conservation
-**Title:** Fish Population Conservation
-**Tension:** Farmers may overfish, threatening the fish population and their own livelihoods.
-**Matrix:**
+### Action Situation 2: Downstream Farmer's Fishing Decision
+#### Tension: Over-Fishing vs. Conservation
+A downstream farmer must decide how many fish to catch, considering the potential impact on the fish population and the ecosystem. This situation reflects a strategic tension between maximizing individual fish catch and conserving the fish population.
 
-|  | Other Farmers Cooperate | Other Farmers Defect |
+#### Matrix:
+
+|  | Other Downstream Farmers Conserve Fish | Other Downstream Farmers Over-Fish |
 | --- | --- | --- |
-| **Farmer Cooperates** | 4, 4 | 2, 6 |
-| **Farmer Defects** | 6, 2 | 3, 3 |
+| **Downstream Farmer Conserves Fish** | 7, 7 | 5, 9 |
+| **Downstream Farmer Over-Fishes** | 9, 5 | 6, 6 |
 
-**Justification:** In the decentralized case, each farmer decides how much to fish. They may cooperate (fish sustainably) or defect (overfish). The matrix reflects the strategic tension between individual farmers and the collective well-being of the fish population. If all farmers cooperate, the fish population thrives, and each farmer gets a moderate payoff. If one farmer defects, they may get a higher payoff, but the fish population declines, affecting all farmers.
+#### Justification:
+The matrix reflects the ecological threshold of fish population collapse. If all downstream farmers conserve fish, they both receive a moderate payoff (7). If a downstream farmer over-fishes while others conserve, they receive a higher payoff (9), but the others' payoff decreases (5). If all over-fish, they both receive a lower payoff (6), reflecting the ecological threshold of fish population depletion.
 
-#### 3. Water Conservation vs. Irrigation
-**Title:** Irrigation Dilemma
-**Tension:** Farmers must balance irrigation needs with water conservation to avoid ecological thresholds.
-**Matrix:**
+### Action Situation 3: Upstream Farmer's Field Expansion Decision
+#### Tension: Expansion vs. Stability
+An upstream farmer must decide whether to expand their irrigated fields, considering the potential impact on water availability and the ecosystem. This situation reflects a strategic tension between maximizing individual yields and maintaining ecosystem stability.
 
-|  | Other Farmers Conserve | Other Farmers Irrigate |
+#### Matrix:
+
+|  | Ecological Threshold Not Reached | Ecological Threshold Reached |
 | --- | --- | --- |
-| **Farmer Conserves** | 3, 3 | 1, 5 |
-| **Farmer Irrigates** | 5, 1 | 2, 2 |
+| **Upstream Farmer Expands Fields** | 9, 8 | 5, 5 |
+| **Upstream Farmer Maintains Fields** | 8, 9 | 7, 7 |
 
-**Justification:** In the decentralized case, each farmer decides how much water to use for irrigation. They may conserve (use less water) or irrigate (use more water). The matrix reflects the strategic tension between individual farmers' irrigation needs and the collective need to conserve water to avoid ecological thresholds. If all farmers conserve, the water resource is protected, but individual payoffs may be lower. If one farmer irrigates, they may get a higher payoff, but the water resource declines, affecting all farmers.
+#### Justification:
+The matrix reflects the ecological threshold of water scarcity and ecosystem collapse. If the upstream farmer expands fields and the ecological threshold is not reached, they receive a higher payoff (9). However, if the threshold is reached, both the upstream and downstream farmers receive a lower payoff (5). If the upstream farmer maintains their fields, they receive a moderate payoff (8), and the downstream farmer receives a higher payoff (9) if the threshold is not reached.
 
-#### 4. Field Expansion
-**Title:** Field Expansion Dilemma
-**Tension:** Farmers must balance field expansion with water availability and ecological thresholds.
-**Matrix:**
+### Action Situation 4: Downstream Farmer's Irrigation Decision
+#### Tension: Irrigation vs. Conservation
+A downstream farmer must decide how many fields to irrigate, considering the potential impact on the remaining water availability and the ecosystem. This situation reflects a strategic tension between maximizing individual yields and conserving water for the ecosystem.
 
-|  | Other Farmers Expand | Other Farmers Conserve |
+#### Matrix:
+
+|  | Upstream Farmers Conserve Water | Upstream Farmers Over-Irrigate |
 | --- | --- | --- |
-| **Farmer Expands** | 2, 2 | 4, 1 |
-| **Farmer Conserves** | 1, 4 | 3, 3 |
+| **Downstream Farmer Irrigates** | 8, 8 | 5, 9 |
+| **Downstream Farmer Conserves Water** | 7, 7 | 6, 6 |
 
-**Justification:** In the decentralized case, each farmer decides how many fields to irrigate. They may expand (irrigate more fields) or conserve (irrigate fewer fields). The matrix reflects the strategic tension between individual farmers' desires to expand their fields and the collective need to conserve water and avoid ecological thresholds. If all farmers expand, the water resource declines, and individual payoffs may be lower. If one farmer conserves, they may get a lower payoff, but the water resource is protected, benefiting all farmers.
+#### Justification:
+The matrix reflects the spatial asymmetry and ecological threshold of water scarcity. If upstream farmers conserve water and the downstream farmer irrigates, they both receive a moderate payoff (8). If upstream farmers over-irrigate and the downstream farmer irrigates, the downstream farmer's payoff decreases (5), while the upstream farmers receive a higher payoff (9). If the downstream farmer conserves water, they receive a lower payoff (7) if upstream farmers conserve, and a moderate payoff (6) if upstream farmers over-irrigate.

@@ -1,74 +1,77 @@
 # Run 7 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Analysis: Distinct Action Situations in the Decentralized Case (DV)
+### Distinct Action Situations in the Decentralized Case (DV) Using the IAD Framework
 
-#### Title: Strategic Tensions in Decentralized Water Use Management
+#### Title: Decentralized Water Allocation and Fishing Strategies
 
-#### 1. Strategic Tension: Irrigation Risk vs. Profit
+#### Tension 1: Balancing Water Allocation and Income
 
-**Tension:** Downstream farmers face a dilemma between taking a risk to increase their irrigated fields and potentially increasing their profits, versus maintaining a safe number of fields to ensure consistent yields.
+**Strategic Tension:**
+Upstream farmers must decide whether to risk increasing the number of irrigated fields to potentially increase their water allocation and income, or to play it safe based on past water availability. This decision is spatially asymmetric, with upstream farmers having less information about downstream water allocation.
 
-**2-Player Normal Form Payoff Matrix:**
+**Matrix:**
 
-| Upstream Farmer's Choice | Downstream Farmer's Choice | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
-|--------------------------|----------------------------|--------------------------|----------------------------|
-| Increase Fields (Risk)   | Increase Fields (Risk)     | 100                      | 100                        |
-| Increase Fields (Risk)   | Maintain Fields (Safety)    | 150                      | 50                         |
-| Maintain Fields (Safety) | Increase Fields (Risk)     | 50                       | 100                        |
-| Maintain Fields (Safety) | Maintain Fields (Safety)    | 75                       | 75                         |
-
-**Justification:**
-- **Upstream Farmer's Choice:**
-  - **Increase Fields (Risk):** If the downstream farmer also increases fields, both face higher water stress but potentially higher yields.
-  - **Maintain Fields (Safety):** Ensures a moderate level of safety but lower potential profits.
-- **Downstream Farmer's Choice:**
-  - **Increase Fields (Risk):** If the upstream farmer also increases fields, both face higher water stress but potentially higher yields.
-  - **Maintain Fields (Safety):** Ensures a moderate level of safety but lower potential profits.
-- **Spatial Asymmetry:** Downstream farmers have the advantage of accessing the fishing lake first, potentially leading to higher fish catches.
-- **Ecological Thresholds:** If too many fields are irrigated, the water flow might drop below a critical threshold, leading to a collapse in fish population and downstream farmer's catch.
-
-#### 2. Strategic Tension: Water Stress vs. Avoiding Loss
-
-**Tension:** Farmers must decide whether to irrigate all planned fields to avoid losing investment or to irrigate fewer fields to ensure sufficient water for downstream farmers and avoid water stress.
-
-**2-Player Normal Form Payoff Matrix:**
-
-| Upstream Farmer's Choice | Downstream Farmer's Choice | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
-|--------------------------|----------------------------|--------------------------|----------------------------|
-| Irrigate All Fields      | Irrigate All Fields        | 120                      | 120                        |
-| Irrigate All Fields      | Irrigate Fewer Fields      | 150                      | 90                         |
-| Irrigate Fewer Fields    | Irrigate All Fields        | 90                       | 120                        |
-| Irrigate Fewer Fields    | Irrigate Fewer Fields      | 100                      | 100                        |
+| Upstream Farmer's Action | Downstream Farmer's Action | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
+|--------------------------|---------------------------|--------------------------|---------------------------|
+| Increase Irrigated Fields | Increase Irrigated Fields | +5 (Income) -1 (Water Stress) | +3 (Income) -2 (Water Stress) |
+| Increase Irrigated Fields | Play It Safe | +4 (Income) -1 (Water Stress) | +2 (Income) -1 (Water Stress) |
+| Play It Safe | Increase Irrigated Fields | +3 (Income) -1 (Water Stress) | +2 (Income) -2 (Water Stress) |
+| Play It Safe | Play It Safe | +2 (Income) -1 (Water Stress) | +2 (Income) -1 (Water Stress) |
 
 **Justification:**
-- **Upstream Farmer's Choice:**
-  - **Irrigate All Fields:** Ensures no loss but may lead to water stress for downstream farmers.
-  - **Irrigate Fewer Fields:** Avoids water stress but may lead to investment loss.
-- **Downstream Farmer's Choice:**
-  - **Irrigate All Fields:** Ensures no loss but may lead to water stress for the upstream farmer.
-  - **Irrigate Fewer Fields:** Avoids water stress but may lead to investment loss.
-- **Spatial Asymmetry:** Downstream farmers may have a higher tolerance for water stress due to their earlier access to the fishing lake.
-- **Ecological Thresholds:** If water stress is high, it can lead to a collapse in fish population and downstream farmer's catch.
+- **Increase Irrigated Fields:**
+  - Upstream: Increased water allocation and potential higher income, but also higher risk of water stress.
+  - Downstream: Increased competition for water, potentially lower income due to reduced water availability.
+- **Play It Safe:**
+  - Upstream: Lower risk of water stress, but potentially lower income.
+  - Downstream: Lower risk of water stress, but also lower income due to reduced competition.
 
-#### 3. Strategic Tension: Memory Capacity vs. Current Water Flow
+#### Tension 2: Fishing vs. Agricultural Water Use
 
-**Tension:** Farmers must decide whether to rely on their memory of past water flows or current water flow predictions to determine the number of fields to irrigate.
+**Strategic Tension:**
+Farmers must decide whether to prioritize fishing or agricultural water use, considering the ecological threshold for fish population survival and the potential for overfishing.
 
-**2-Player Normal Form Payoff Matrix:**
+**Matrix:**
 
-| Upstream Farmer's Choice | Downstream Farmer's Choice | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
-|--------------------------|----------------------------|--------------------------|----------------------------|
-| Rely on Memory           | Rely on Memory             | 80                       | 80                        |
-| Rely on Memory           | Rely on Current Flow       | 90                       | 70                         |
-| Rely on Current Flow     | Rely on Memory             | 70                       | 90                        |
-| Rely on Current Flow     | Rely on Current Flow       | 100                      | 100                        |
+| Upstream Farmer's Action | Downstream Farmer's Action | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
+|--------------------------|---------------------------|--------------------------|---------------------------|
+| Prioritize Fishing | Prioritize Fishing | +4 (Income) -1 (Fish Population Stress) | +3 (Income) -2 (Fish Population Stress) |
+| Prioritize Fishing | Prioritize Agriculture | +3 (Income) -1 (Fish Population Stress) | +2 (Income) -1 (Fish Population Stress) |
+| Prioritize Agriculture | Prioritize Fishing | +2 (Income) -2 (Fish Population Stress) | +1 (Income) -1 (Fish Population Stress) |
+| Prioritize Agriculture | Prioritize Agriculture | +1 (Income) -1 (Fish Population Stress) | +1 (Income) -1 (Fish Population Stress) |
 
 **Justification:**
-- **Upstream Farmer's Choice:**
-  - **Rely on Memory:** Uses past water flows to make a decision.
-  - **Rely on Current Flow:** Uses current water flow predictions to make a decision.
-- **Downstream Farmer's Choice:**
-  - **Rely on Memory:** Uses past water flows to make a decision.
-  - **Rely on Current Flow:** Uses current water flow predictions to make a decision.
-- **Spatial Asymmetry:** Downstream farmers may have a higher tolerance for using current flow predictions due to their earlier access to the fishing lake.
-- **Ecological Thresholds:** Incorrect reliance on memory or current flow can lead to water stress and a collapse in fish population.
+- **Prioritize Fishing:**
+  - Upstream: Higher income from fishing, but higher risk of fish population stress.
+  - Downstream: Lower competition for water, but higher risk of fish population stress.
+- **Prioritize Agriculture:**
+  - Upstream: Lower risk of fish population stress, but lower income from fishing.
+  - Downstream: Lower risk of fish population stress, but also lower income from fishing.
+
+#### Tension 3: Spatial Asymmetry and Water Stress
+
+**Strategic Tension:**
+Upstream and downstream farmers face different levels of water stress due to the sequential withdrawal of water. Upstream farmers have more control over water allocation but face higher risks of water stress, while downstream farmers face lower risks but also lower income.
+
+**Matrix:**
+
+| Upstream Farmer's Action | Downstream Farmer's Action | Upstream Farmer's Payoff | Downstream Farmer's Payoff |
+|--------------------------|---------------------------|--------------------------|---------------------------|
+| Increase Irrigated Fields | Play It Safe | +4 (Income) -2 (Water Stress) | +2 (Income) -1 (Water Stress) |
+| Play It Safe | Increase Irrigated Fields | +3 (Income) -1 (Water Stress) | +1 (Income) -2 (Water Stress) |
+| Increase Irrigated Fields | Increase Irrigated Fields | +5 (Income) -3 (Water Stress) | +3 (Income) -3 (Water Stress) |
+| Play It Safe | Play It Safe | +2 (Income) -1 (Water Stress) | +2 (Income) -1 (Water Stress) |
+
+**Justification:**
+- **Upstream Farmer's Action:**
+  - Increasing fields: Higher income but higher risk of water stress.
+  - Playing it safe: Lower risk of water stress but lower income.
+- **Downstream Farmer's Action:**
+  - Increasing fields: Higher income but lower water stress.
+  - Playing it safe: Lower income but lower risk of water stress.
+
+### Summary of Strategic Tensions in the Decentralized Case
+
+1. **Balancing Water Allocation and Income:** This tension captures the trade-off between increasing water allocation to boost income and the risk of water stress.
+2. **Fishing vs. Agricultural Water Use:** This tension reflects the choice between prioritizing fishing and agricultural activities, considering the ecological impact.
+3. **Spatial Asymmetry and Water Stress:** This tension highlights the different water stress levels faced by upstream and downstream farmers and the resulting strategic decisions.

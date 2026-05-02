@@ -1,53 +1,53 @@
 # Run 2 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer's Irrigation Decision
+### Action Situation 1: Upstream-Downstream Water Allocation
 #### Tension: 
-Over-irrigation by upstream farmers may reduce water availability for downstream farmers, creating a strategic tension between individual gain and collective sustainability.
+Water allocation between upstream and downstream farmers, where upstream farmers have priority access to water, creating a strategic tension between maximizing individual irrigation and ensuring sufficient water for downstream farmers.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Irrigates Less) | Downstream Farmer Defects (Irrigates More) |
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Irrigates Less)** | 8, 8 | 5, 9 |
-| **Upstream Farmer Defects (Irrigates More)** | 9, 5 | 6, 6 |
+| **Downstream (Cooperate)** | 8, 6 | 4, 9 |
+| **Downstream (Defect)** | 9, 4 | 5, 5 |
 
 #### Justification:
-In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have priority access to water, creating a spatial asymmetry. If both farmers cooperate (irrigate less), they both receive a moderate payoff (8). If the upstream farmer defects (irrigates more) and the downstream farmer cooperates, the upstream farmer receives a higher payoff (9) while the downstream farmer receives a lower payoff (5). This reflects the strategic tension between individual gain and collective sustainability.
+In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have priority access to water, which creates a strategic tension. If both cooperate (irrigate fewer fields), they both receive a moderate payoff (8 for upstream, 6 for downstream). If the upstream farmer defects (irrigates more fields), they receive a higher payoff (9), but the downstream farmer receives a lower payoff (4). If the downstream farmer defects (tries to irrigate more fields), they receive a lower payoff (4 or 5), regardless of the upstream farmer's action.
 
-### Action Situation 2: Downstream Farmer's Fishing Decision
+### Action Situation 2: Over-Exploitation of Fish Population
 #### Tension: 
-Overfishing by downstream farmers may deplete the fish population, creating a strategic tension between short-term gains and long-term sustainability.
+Over-exploitation of the fish population, where each farmer tries to maximize their fish catch, potentially exceeding the ecological threshold and depleting the population.
 
 #### Matrix:
-|  | Other Downstream Farmers Cooperate (Fish Less) | Other Downstream Farmers Defect (Fish More) |
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Downstream Farmer Cooperates (Fishes Less)** | 7, 7 | 4, 8 |
-| **Downstream Farmer Defects (Fishes More)** | 8, 4 | 5, 5 |
+| **Farmer 2 (Cooperate)** | 6, 6 | 3, 9 |
+| **Farmer 2 (Defect)** | 9, 3 | 5, 5 |
 
 #### Justification:
-In the decentralized case, each farmer tries to catch a fixed target amount of fish. Downstream farmers have priority access to the fishing lake, creating a spatial asymmetry. If all downstream farmers cooperate (fish less), they each receive a moderate payoff (7). If one downstream farmer defects (fishes more) and the others cooperate, the defector receives a higher payoff (8) while the cooperators receive a lower payoff (4). This reflects the strategic tension between short-term gains and long-term sustainability.
+In the decentralized case, each farmer tries to maximize their fish catch. If both cooperate (catch fewer fish), they both receive a moderate payoff (6). If one farmer defects (catches more fish), they receive a higher payoff (9), but the other farmer receives a lower payoff (3). If both defect, they both receive a lower payoff (5), as the fish population is depleted.
 
-### Action Situation 3: Farmer's Decision to Increase Irrigated Fields
+### Action Situation 3: Irrigation vs. Fishing Trade-Off
 #### Tension: 
-Increasing the number of irrigated fields may lead to water stress and reduced yields, creating a strategic tension between risk-taking and risk-aversion.
+Trade-off between irrigation and fishing, where farmers must allocate their resources between maximizing agricultural yields and maximizing fish catch, considering the ecological thresholds and spatial asymmetry.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Do Not Increase) | Other Farmers Defect (Increase) |
+|  | Farmer (Irrigation) | Farmer (Fishing) |
 | --- | --- | --- |
-| **Farmer Cooperates (Does Not Increase)** | 6, 6 | 3, 7 |
-| **Farmer Defects (Increases)** | 7, 3 | 4, 4 |
+| **Farmer (Irrigation)** | 8, 8 | 4, 9 |
+| **Farmer (Fishing)** | 9, 4 | 5, 5 |
 
 #### Justification:
-In the decentralized case, each farmer decides whether to increase the number of irrigated fields based on their income situation and water flow predictions. If all farmers cooperate (do not increase), they each receive a moderate payoff (6). If one farmer defects (increases) and the others cooperate, the defector receives a higher payoff (7) while the cooperators receive a lower payoff (3). This reflects the strategic tension between risk-taking and risk-aversion.
+In the decentralized case, farmers must allocate their resources between irrigation and fishing. If a farmer focuses on irrigation, they receive a moderate payoff (8). If they focus on fishing, they receive a higher payoff (9), but only if the fish population is not depleted. If both farmers focus on irrigation, they both receive a moderate payoff (8). If one farmer focuses on fishing, they receive a higher payoff (9), but the other farmer receives a lower payoff (4).
 
-### Action Situation 4: Farmer's Response to Ecological Thresholds
+### Action Situation 4: Water Conservation vs. Maximization
 #### Tension: 
-Exceeding ecological thresholds (e.g., water stress, fish population decline) may lead to catastrophic consequences, creating a strategic tension between short-term gains and long-term resilience.
+Tension between conserving water for future use and maximizing current water allocation, considering the ecological thresholds and spatial asymmetry.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Reduce Irrigation/Fishing) | Other Farmers Defect (Maintain Irrigation/Fishing) |
+|  | Upstream (Conserve) | Upstream (Maximize) |
 | --- | --- | --- |
-| **Farmer Cooperates (Reduces Irrigation/Fishing)** | 9, 9 | 2, 10 |
-| **Farmer Defects (Maintains Irrigation/Fishing)** | 10, 2 | 1, 1 |
+| **Downstream (Conserve)** | 7, 7 | 3, 10 |
+| **Downstream (Maximize)** | 10, 3 | 6, 6 |
 
 #### Justification:
-In the decentralized case, each farmer must respond to ecological thresholds (e.g., water stress, fish population decline). If all farmers cooperate (reduce irrigation/fishing), they each receive a high payoff (9). If one farmer defects (maintains irrigation/fishing) and the others cooperate, the defector receives a higher payoff (10) while the cooperators receive a lower payoff (2). If all farmers defect, they each receive a very low payoff (1), reflecting the catastrophic consequences of exceeding ecological thresholds. This reflects the strategic tension between short-term gains and long-term resilience.
+In the decentralized case, farmers must decide whether to conserve water for future use or maximize current water allocation. If both conserve, they both receive a moderate payoff (7). If the upstream farmer maximizes, they receive a higher payoff (10), but the downstream farmer receives a lower payoff (3). If the downstream farmer maximizes, they receive a higher payoff (10), but only if the upstream farmer conserves. If both maximize, they both receive a moderate payoff (6).

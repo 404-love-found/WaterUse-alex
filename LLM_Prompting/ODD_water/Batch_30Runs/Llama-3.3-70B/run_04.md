@@ -1,40 +1,53 @@
 # Run 4 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream-Downstream Water Extraction
+### Action Situation 1: Upstream Farmer Exploitation
 #### Tension: 
-Water Scarcity Dilemma - Upstream farmers may extract more water, affecting downstream farmers' access to water for irrigation.
+Over-extraction of water by upstream farmers, affecting downstream farmers' irrigation and fishing activities.
 
 #### Matrix:
-|  | Upstream (Cooperate) | Upstream (Defect) |
+|  | Downstream Cooperates | Downstream Defects |
 | --- | --- | --- |
-| **Downstream (Cooperate)** | 5, 5 | 2, 8 |
-| **Downstream (Defect)** | 8, 2 | 3, 3 |
+| **Upstream Cooperates** | Upstream: 5, Downstream: 5 | Upstream: 6, Downstream: 2 |
+| **Upstream Defects** | Upstream: 8, Downstream: 1 | Upstream: 7, Downstream: 3 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate. The upstream farmer has priority access to water, creating a strategic tension. If the upstream farmer cooperates (extracts less water), both farmers can irrigate 5 fields. If the upstream farmer defects (extracts more water), the downstream farmer can only irrigate 2 fields, while the upstream farmer can irrigate 8 fields. The matrix reflects the spatial asymmetry, where the upstream farmer has more control over the water resource.
+In the decentralized case, upstream farmers have priority access to water. If an upstream farmer defects (extracts more water), it directly affects the downstream farmer's ability to irrigate and fish, leading to reduced yields and catches. The matrix reflects the strategic tension, where cooperation leads to moderate gains for both, while defection by the upstream farmer results in significant losses for the downstream farmer.
 
-### Action Situation 2: Fishing Quota Competition
+### Action Situation 2: Fishing Quota Management
 #### Tension: 
-Fish Overexploitation Dilemma - Farmers may overfish to maximize their catch, depleting the fish population.
+Competition for fish resources between farmers, with potential for overfishing and ecological degradation.
 
 #### Matrix:
-|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
+|  | Downstream Restricts Catch | Downstream Overfishes |
 | --- | --- | --- |
-| **Farmer 2 (Cooperate)** | 4, 4 | 1, 6 |
-| **Farmer 2 (Defect)** | 6, 1 | 2, 2 |
+| **Upstream Restricts Catch** | Upstream: 4, Downstream: 4 | Upstream: 3, Downstream: 5 |
+| **Upstream Overfishes** | Upstream: 5, Downstream: 2 | Upstream: 6, Downstream: 1 |
 
 #### Justification:
-In the decentralized case, each farmer tries to catch a fixed target amount of fish. The strategic tension arises from the competition for the fish resource. If both farmers cooperate (catch fewer fish), they each catch 4 units. If one farmer defects (catches more fish), they catch 6 units, while the other farmer catches only 1 unit. The matrix reflects the ecological threshold, where overfishing can deplete the fish population.
+The fishing activity is a common-pool resource, and overfishing can lead to ecological thresholds being crossed. The matrix represents the tension between restricting catch to maintain sustainability and overfishing for short-term gains. Cooperation (restricting catch) leads to moderate gains, while defection (overfishing) results in significant losses for both farmers, reflecting the ecological consequences of overexploitation.
 
-### Action Situation 3: Irrigation Expansion vs. Ecological Conservation
+### Action Situation 3: Irrigation Investment
 #### Tension: 
-Ecological Trade-off Dilemma - Farmers may expand irrigation, potentially exceeding the ecological threshold and affecting the fish population.
+Investment in irrigation infrastructure by farmers, with potential for increased water extraction and ecological impacts.
 
 #### Matrix:
-|  | Farmer (Irrigation Expansion) | Farmer (Ecological Conservation) |
+|  | Downstream Invests | Downstream Does Not Invest |
 | --- | --- | --- |
-| **Ecological Threshold (Not Exceeded)** | 8, 5 | 5, 8 |
-| **Ecological Threshold (Exceeded)** | 6, 2 | 4, 6 |
+| **Upstream Invests** | Upstream: 7, Downstream: 3 | Upstream: 9, Downstream: 1 |
+| **Upstream Does Not Invest** | Upstream: 4, Downstream: 6 | Upstream: 5, Downstream: 5 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate, potentially affecting the ecological threshold. The strategic tension arises from the trade-off between irrigation expansion and ecological conservation. If the farmer expands irrigation, they may exceed the ecological threshold, affecting the fish population and receiving a lower payoff. If the farmer conserves the ecology, they receive a higher payoff, but may not maximize their irrigation potential. The matrix reflects the ecological threshold, where exceeding it can have negative consequences.
+The investment in irrigation infrastructure can increase water extraction, affecting the downstream farmer's access to water. The matrix reflects the strategic tension, where investment by both farmers leads to moderate gains, while investment by only the upstream farmer results in significant gains for the upstream farmer at the expense of the downstream farmer. This situation highlights the spatial asymmetry and potential for ecological degradation due to increased water extraction.
+
+### Action Situation 4: Water Conservation
+#### Tension: 
+Conservation of water resources by farmers, with potential for increased resilience to ecological thresholds.
+
+#### Matrix:
+|  | Downstream Conserves | Downstream Does Not Conserve |
+| --- | --- | --- |
+| **Upstream Conserves** | Upstream: 6, Downstream: 6 | Upstream: 5, Downstream: 4 |
+| **Upstream Does Not Conserve** | Upstream: 8, Downstream: 2 | Upstream: 7, Downstream: 3 |
+
+#### Justification:
+The conservation of water resources can increase resilience to ecological thresholds, such as droughts or water scarcity. The matrix represents the tension between conserving water and not conserving water, where cooperation (conservation) leads to moderate gains, while defection (not conserving) results in significant losses for the downstream farmer. This situation highlights the importance of cooperation in managing common-pool resources and mitigating ecological risks.

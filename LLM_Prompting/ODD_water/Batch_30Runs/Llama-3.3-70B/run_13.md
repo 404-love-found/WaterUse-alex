@@ -1,40 +1,43 @@
 # Run 13 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Action Situation 1: Upstream Farmer's Irrigation Decision
-#### Tension: 
-Over-irrigation by upstream farmers may lead to reduced water availability for downstream farmers, causing a strategic tension between individual gain and collective well-being.
+#### Tension: Over-Irrigation vs. Conservation
+In the decentralized case, an upstream farmer must decide how many fields to irrigate, considering the potential impact on downstream farmers and the fish population. This situation reflects a strategic tension between the upstream farmer's desire to maximize their yield and the need to conserve water for downstream users and the ecosystem.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Irrigates Less) | Downstream Farmer Defects (Irrigates More) |
+
+|  | Upstream Farmer Irrigates 5 Fields | Upstream Farmer Irrigates 10 Fields |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates (Irrigates Less)** | Upstream: 8, Downstream: 8 | Upstream: 9, Downstream: 6 |
-| **Upstream Farmer Defects (Irrigates More)** | Upstream: 10, Downstream: 5 | Upstream: 7, Downstream: 4 |
+| **Downstream Farmer Cooperates** | Upstream: 8, Downstream: 6 | Upstream: 10, Downstream: 2 |
+| **Downstream Farmer Defects** | Upstream: 6, Downstream: 8 | Upstream: 8, Downstream: 4 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. An upstream farmer has a strategic advantage in terms of water access. If both farmers cooperate and irrigate less, they both achieve a moderate yield (8). If the upstream farmer defects and irrigates more, they gain a higher yield (10), but the downstream farmer's yield decreases (5) due to reduced water availability. This situation reflects the spatial asymmetry and ecological thresholds, as over-irrigation can lead to water scarcity and decreased yields.
+The matrix reflects the spatial asymmetry, where the upstream farmer's decision affects the downstream farmer's outcome. If the upstream farmer irrigates 10 fields, the downstream farmer's yield decreases due to reduced water availability. The ecological threshold is represented by the decreased payoff for both farmers when the upstream farmer over-irrigates, simulating the negative impact on the fish population and the ecosystem.
 
-### Action Situation 2: Farmer's Decision to Fish
-#### Tension: 
-The decision to fish by multiple farmers may lead to overfishing, causing a strategic tension between individual gain and collective well-being.
+### Action Situation 2: Downstream Farmer's Fishing Decision
+#### Tension: Over-Fishing vs. Conservation
+In the decentralized case, a downstream farmer must decide how much to fish, considering the potential impact on the fish population and their own future catches. This situation reflects a strategic tension between the downstream farmer's desire to maximize their catch and the need to conserve the fish population for future generations.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Fish Less) | Other Farmers Defect (Fish More) |
+
+|  | Downstream Farmer Catches 50% of Target | Downstream Farmer Catches 100% of Target |
 | --- | --- | --- |
-| **Farmer Cooperates (Fishes Less)** | Farmer: 2, Others: 2 | Farmer: 1, Others: 3 |
-| **Farmer Defects (Fishes More)** | Farmer: 3, Others: 1 | Farmer: 2, Others: 2 |
+| **Upstream Farmer Cooperates** | Downstream: 7, Upstream: 7 | Downstream: 9, Upstream: 5 |
+| **Upstream Farmer Defects** | Downstream: 5, Upstream: 9 | Downstream: 3, Upstream: 7 |
 
 #### Justification:
-In the decentralized case, each farmer decides how much to fish based on their target catch level. If all farmers cooperate and fish less, they each achieve a moderate catch (2). If a farmer defects and fishes more, they gain a higher catch (3), but other farmers' catches decrease (1) due to overfishing. This situation reflects the ecological thresholds, as overfishing can lead to depletion of the fish population.
+The matrix reflects the ecological threshold, where over-fishing decreases the payoff for both farmers due to the decline of the fish population. The spatial asymmetry is represented by the upstream farmer's decision affecting the downstream farmer's catch, as reduced water flow can impact fish migration and survival.
 
-### Action Situation 3: Farmer's Decision to Increase Irrigated Fields
-#### Tension: 
-A farmer's decision to increase irrigated fields may lead to water scarcity for other farmers, causing a strategic tension between individual gain and collective well-being.
+### Action Situation 3: Farmer's Decision to Invest in Water-Saving Technologies
+#### Tension: Short-Term Gain vs. Long-Term Sustainability
+In the decentralized case, a farmer must decide whether to invest in water-saving technologies, considering the potential impact on their yield and the ecosystem. This situation reflects a strategic tension between the farmer's desire for short-term gains and the need for long-term sustainability.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Irrigate Less) | Other Farmers Defect (Irrigate More) |
+
+|  | Farmer Invests in Water-Saving Technologies | Farmer Does Not Invest |
 | --- | --- | --- |
-| **Farmer Cooperates (Irrigates Less)** | Farmer: 6, Others: 6 | Farmer: 5, Others: 7 |
-| **Farmer Defects (Irrigates More)** | Farmer: 8, Others: 4 | Farmer: 6, Others: 5 |
+| **Other Farmers Cooperate** | Farmer: 8, Other Farmers: 8 | Farmer: 9, Other Farmers: 6 |
+| **Other Farmers Defect** | Farmer: 6, Other Farmers: 9 | Farmer: 5, Other Farmers: 8 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. If a farmer cooperates and irrigates less, they achieve a moderate yield (6). If a farmer defects and irrigates more, they gain a higher yield (8), but other farmers' yields decrease (4) due to reduced water availability. This situation reflects the spatial asymmetry and ecological thresholds, as over-irrigation can lead to water scarcity and decreased yields. The maximum fields (10) constraint limits the farmer's ability to increase irrigated fields indefinitely.
+The matrix reflects the ecological threshold, where the farmer's decision to invest in water-saving technologies can lead to a more sustainable outcome for all farmers. The spatial asymmetry is represented by the impact of one farmer's decision on the outcomes of other farmers, as reduced water consumption can benefit downstream users and the ecosystem.

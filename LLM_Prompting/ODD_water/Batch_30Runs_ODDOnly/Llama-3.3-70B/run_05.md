@@ -1,47 +1,49 @@
 # Run 5 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Decentralized Water Use Action Situations
+### Action Situation 1: Upstream vs Downstream Irrigation Decision
+#### Tension: Spatial Asymmetry in Water Access
+#### Matrix:
 
-#### 1. Upstream/Downstream Irrigation Tension
-**Tension:** Upstream farmers may irrigate more, reducing water availability for downstream farmers.
-**Matrix:**
-
-|  | Downstream (Conservative) | Downstream (Aggressive) |
+|  | Upstream (Cooperate: Irrigate 5 fields) | Upstream (Defect: Irrigate 10 fields) |
 | --- | --- | --- |
-| **Upstream (Conservative)** | Upstream: 5, Downstream: 5 | Upstream: 5, Downstream: 3 |
-| **Upstream (Aggressive)** | Upstream: 8, Downstream: 2 | Upstream: 6, Downstream: 1 |
+| **Downstream (Cooperate: Irrigate 5 fields)** | Upstream: 20, Downstream: 15 | Upstream: 30, Downstream: 0 |
+| **Downstream (Defect: Irrigate 10 fields)** | Upstream: 0, Downstream: 20 | Upstream: 0, Downstream: 0 |
 
-**Justification:** In the decentralized case, upstream farmers have more control over water use, potentially leaving less for downstream farmers. This matrix reflects the strategic tension between upstream and downstream farmers, where conservative strategies yield more equal payoffs, while aggressive strategies by either party can lead to significant losses for the other.
+#### Justification:
+In the decentralized case, each farmer decides on the number of fields to irrigate. The upstream farmer's decision affects the downstream farmer's water availability. If both cooperate (irrigate 5 fields), they receive moderate payoffs. If the upstream farmer defects (irrigates 10 fields), the downstream farmer receives no water, resulting in a payoff of 0. This situation reflects the spatial asymmetry in water access.
 
-#### 2. Fishing Resource Competition Tension
-**Tension:** Multiple farmers competing for the fishing resource may overexploit it, reducing its availability.
-**Matrix:**
+### Action Situation 2: Risking Water Shortage vs Playing it Safe
+#### Tension: Ecological Thresholds in Water Availability
+#### Matrix:
 
-|  | Farmer 2 (Conservative) | Farmer 2 (Aggressive) |
+|  | Farmer 1 (Cooperate: Irrigate 5 fields) | Farmer 1 (Defect: Irrigate 10 fields) |
 | --- | --- | --- |
-| **Farmer 1 (Conservative)** | Farmer 1: 3, Farmer 2: 3 | Farmer 1: 2, Farmer 2: 4 |
-| **Farmer 1 (Aggressive)** | Farmer 1: 4, Farmer 2: 2 | Farmer 1: 1, Farmer 2: 1 |
+| **Farmer 2 (Cooperate: Irrigate 5 fields)** | Farmer 1: 20, Farmer 2: 20 | Farmer 1: 30, Farmer 2: 10 |
+| **Farmer 2 (Defect: Irrigate 10 fields)** | Farmer 1: 10, Farmer 2: 30 | Farmer 1: 0, Farmer 2: 0 |
 
-**Justification:** This matrix models the competition between two farmers for the fishing resource. Conservative strategies by both farmers lead to balanced payoffs, while one farmer being aggressive can temporarily gain but risks depleting the resource, leading to mutual loss if both are aggressive.
+#### Justification:
+Farmers must decide whether to risk irrigating more fields, potentially exceeding the ecological threshold of water availability. If both cooperate (irrigate 5 fields), they receive moderate payoffs. If one defects (irrigates 10 fields) and the water availability is below the threshold, both receive low payoffs. This situation reflects the ecological thresholds in water availability.
 
-#### 3. Ecological Threshold Tension
-**Tension:** Farmers' irrigation decisions may exceed ecological thresholds, harming the fish population and their own livelihoods.
-**Matrix:**
+### Action Situation 3: Fishing Competition
+#### Tension: Common-Pool Resource Management
+#### Matrix:
 
-|  | Farmer 2 (Sustainable) | Farmer 2 (Overexploit) |
+|  | Farmer 1 (Cooperate: Catch 50 fish) | Farmer 1 (Defect: Catch 100 fish) |
 | --- | --- | --- |
-| **Farmer 1 (Sustainable)** | Farmer 1: 6, Farmer 2: 6 | Farmer 1: 4, Farmer 2: 8 |
-| **Farmer 1 (Overexploit)** | Farmer 1: 8, Farmer 2: 4 | Farmer 1: 0, Farmer 2: 0 |
+| **Farmer 2 (Cooperate: Catch 50 fish)** | Farmer 1: 10, Farmer 2: 10 | Farmer 1: 20, Farmer 2: 0 |
+| **Farmer 2 (Defect: Catch 100 fish)** | Farmer 1: 0, Farmer 2: 20 | Farmer 1: 0, Farmer 2: 0 |
 
-**Justification:** This matrix highlights the tension between sustainable and overexploitative strategies. Sustainable strategies by both farmers yield high payoffs, reflecting healthy fish populations and livelihoods. Overexploitation by one or both farmers leads to significantly reduced payoffs or total loss, simulating the ecological threshold beyond which the fish population collapses.
+#### Justification:
+Farmers compete for fish in the common-pool resource. If both cooperate (catch 50 fish), they receive moderate payoffs. If one defects (catches 100 fish), the other receives a low payoff due to overfishing. This situation reflects the common-pool resource management dilemma.
 
-#### 4. Budget and Field Expansion Tension
-**Tension:** Farmers must balance budget constraints with the desire to expand irrigated fields, under uncertainty about water availability.
-**Matrix:**
+### Action Situation 4: Budget Allocation between Irrigation and Fishing
+#### Tension: Trade-off between Agricultural and Fishing Activities
+#### Matrix:
 
-|  | Farmer 2 (Cautious) | Farmer 2 (Ambitious) |
+|  | Farmer 1 (Cooperate: Allocate 50% to Irrigation) | Farmer 1 (Defect: Allocate 100% to Irrigation) |
 | --- | --- | --- |
-| **Farmer 1 (Cautious)** | Farmer 1: 4, Farmer 2: 4 | Farmer 1: 3, Farmer 2: 6 |
-| **Farmer 1 (Ambitious)** | Farmer 1: 6, Farmer 2: 3 | Farmer 1: 5, Farmer 2: 5 |
+| **Farmer 2 (Cooperate: Allocate 50% to Irrigation)** | Farmer 1: 15, Farmer 2: 15 | Farmer 1: 30, Farmer 2: 5 |
+| **Farmer 2 (Defect: Allocate 100% to Irrigation)** | Farmer 1: 5, Farmer 2: 30 | Farmer 1: 0, Farmer 2: 0 |
 
-**Justification:** This matrix reflects the strategic tension between cautious and ambitious expansion strategies under budget and water availability constraints. Cautious strategies ensure stable but potentially lower payoffs, while ambitious strategies can lead to higher payoffs but also risk significant losses if water availability is insufficient.
+#### Justification:
+Farmers must allocate their budget between irrigation and fishing activities. If both cooperate (allocate 50% to irrigation), they receive moderate payoffs. If one defects (allocates 100% to irrigation), the other receives a low payoff due to the trade-off between agricultural and fishing activities. This situation reflects the budget allocation dilemma.

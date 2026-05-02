@@ -1,13 +1,13 @@
 """
-Evaluate water-use action-situation extraction outputs.
+Evaluate water-use action-situation extraction outputs against the confirmed
+two correct decentralized action situations.
 
-Ground truth:
-  AS1: Upstream and downstream withdrawal decisions
-  AS2: Fish extraction common pool resource game
-
-This is the single scorer for both experiments:
-  - ODD+game_stuff: Batch_30Runs/
-  - ODD-only:       Batch_30Runs_ODDOnly/
+Metrics:
+  TP = How many LLM-generated ASs were in the correct set of ASs
+  FN = How many correct ASs the LLM missed
+  FP = How many LLM-generated ASs were not in the correct set of ASs
+  Precision = TP / (TP + FP)
+  Recall    = TP / (TP + FN)
 """
 
 from __future__ import annotations
@@ -26,15 +26,27 @@ EXPERIMENTS = {
         "batch_dir": CURRENT_DIR / "Batch_30Runs",
         "report_name": "Water_evaluation_ODD+game_stuff.txt",
         "csv_name": "Water_evaluation_summary_ODD+game_stuff.csv",
+        "as_csv_name": "Water_evaluation_as_level_ODD+game_stuff.csv",
     },
     "ODD-only": {
         "batch_dir": CURRENT_DIR / "Batch_30Runs_ODDOnly",
         "report_name": "Water_evaluation_ODD-only.txt",
         "csv_name": "Water_evaluation_summary_ODD-only.csv",
+        "as_csv_name": "Water_evaluation_as_level_ODD-only.csv",
     },
 }
 
 MODELS = ("DeepSeek-R1", "Llama-3.3-70B", "Qwen2.5-7B")
+
+
+@dataclass(frozen=True)
+class GroundTruthAS:
+    key: str
+    title: str
+
+    @property
+    def label(self) -> str:
+        return f"{self.key}: {self.title}"
 
 
 @dataclass(frozen=True)
@@ -45,35 +57,51 @@ class ActionSituation:
     has_payoff_evidence: bool
 
 
+@dataclass(frozen=True)
+class ASReview:
+    index: int
+    line_no: int
+    title: str
+    matched_gt: str
+    decision: str
+    reason: str
+    has_payoff_evidence: bool
+
+
 @dataclass
 class RunResult:
     tp: int
-    fp: int
     fn: int
-    total_as: int
+    fp: int
     precision: float
     recall: float
-    f1: float
-    found_water: bool
-    found_fish: bool
+    total_as: int
+    found_gt: set[str] = field(default_factory=set)
     details: list[str] = field(default_factory=list)
     fp_titles: list[str] = field(default_factory=list)
+    as_reviews: list[ASReview] = field(default_factory=list)
+
+
+GROUND_TRUTH = {
+    "AS1": GroundTruthAS("AS1", "Upstream and downstream withdrawal decisions"),
+    "AS2": GroundTruthAS("AS2", "Fish extraction common pool resource game"),
+}
 
 
 def clean_markdown(text: str) -> str:
-    """Strip Markdown markers while preserving the semantic title text."""
     cleaned = text.strip()
     cleaned = re.sub(r"^#{1,6}\s*", "", cleaned)
     cleaned = re.sub(r"^\s*[-*]\s+", "", cleaned)
-    cleaned = cleaned.strip()
-    cleaned = re.sub(r"^\*+|\*+$", "", cleaned)
+    cleaned = re.sub(r"^\*+|\*+$", "", cleaned.strip())
+    cleaned = cleaned.replace("**", "")
     cleaned = re.sub(r"`", "", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned)
     return cleaned.strip(" :-")
 
 
 def canonical_title(text: str) -> str:
-    title = clean_markdown(text)
+    title = clean_markdown(text).replace("**", "")
+    title = re.sub(r"^\*\*(title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*)\*\*\s*[:.-]\s*", "", title, flags=re.I)
     title = re.sub(r"^title\s*[:.-]\s*", "", title, flags=re.IGNORECASE)
     title = re.sub(
         r"^(?:action\s+situation|strategic\s+dilemma|tension)\s*\d*\s*[:.)-]\s*",
@@ -91,12 +119,11 @@ def canonical_title(text: str) -> str:
 
 
 def is_terminal_heading(title: str) -> bool:
-    lower = title.lower()
     return bool(
         re.match(
             r"^(summary|conclusion|notes?|key\s+(constraints|notes|insights|reflections)|"
             r"thought\s+process|final\s+answer|reflections?)\b",
-            lower,
+            title.lower(),
         )
     )
 
@@ -113,11 +140,7 @@ def is_generic_heading(title: str) -> bool:
         return True
     if lower.startswith("title:"):
         stripped = re.sub(r"^title:\s*", "", lower).strip()
-        if re.search(
-            r"\b(model|analysis|action situations?|strategic tensions?|strategic dilemmas?|"
-            r"decentralized water use)\b",
-            stripped,
-        ):
+        if re.search(r"\b(model|analysis|action situations?|strategic tensions?|strategic dilemmas?)\b", stripped):
             return True
     if re.search(r"\b(action situations?|strategic tensions?)\b", lower) and re.search(
         r"\b(analysis|model|decentralized|distinct|version)\b", lower
@@ -132,25 +155,31 @@ def is_candidate_start(raw_line: str) -> bool:
         return False
 
     is_heading = bool(re.match(r"^#{2,6}\s+", stripped))
-    is_bold_title = bool(
-        re.match(r"^\*\*(?:title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*)\s*:", stripped, re.I)
-    )
+    is_bold_title = bool(re.match(r"^\*\*(?:title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*)", stripped, re.I))
     if not is_heading and not is_bold_title:
         return False
 
     title = clean_markdown(stripped)
-    lower = title.lower()
     if is_generic_heading(title):
         return False
 
+    lower = title.lower()
     candidate_patterns = (
         r"\baction\s+situation\s*\d*\b.+",
         r"^(?:\d+\s*[.)]\s*)?(?:strategic\s+)?(?:tension|dilemma)\s*\d*\s*[:.-].+",
-        r"^(?:title\s*[:.-]\s*)?.*\b(upstream|downstream|water|irrigat|withdraw|extract|allocat|"
-        r"fish|fishing|fishery|fisheries|catch|harvest|overfish|common[- ]pool|commons|cpr|"
-        r"lake|threshold|risk|budget|memory|income|yield|conservation|sustainability)\b.*",
+        r"^(?:title\s*[:.-]\s*)?.*\b(upstream|downstream|farmer|water|irrigat|withdraw|extract|"
+        r"allocat|forecast|trust|national\s+authority|fish|fishing|fishery|catch|harvest|"
+        r"overfish|larv|reproduction|threshold|budget|income|yield|conservation)\b.*",
     )
     return any(re.search(pattern, lower, re.IGNORECASE) for pattern in candidate_patterns)
+
+
+def is_title_only_line(raw_line: str) -> bool:
+    return bool(re.match(r"^\s*(?:#{2,6}\s*)?\*\*title(?:\*\*)?\s*[:.-]", raw_line, flags=re.I))
+
+
+def is_action_situation_label_line(raw_line: str) -> bool:
+    return bool(re.search(r"\baction\s+situation\s*\d*\b", clean_markdown(raw_line), flags=re.I))
 
 
 def has_payoff_evidence(block: str) -> bool:
@@ -169,6 +198,13 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
 
     for index, line in enumerate(lines):
         if is_candidate_start(line):
+            if (
+                is_title_only_line(line)
+                and starts
+                and index - starts[-1][0] <= 2
+                and is_action_situation_label_line(lines[starts[-1][0]])
+            ):
+                continue
             starts.append((index, canonical_title(line)))
 
     situations: list[ActionSituation] = []
@@ -185,16 +221,8 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
                     break
 
         block = "\n".join(lines[start_index + 1 : end_index]).strip()
-        if not title or len(title) < 4:
-            continue
-        situations.append(
-            ActionSituation(
-                title=title,
-                block=block,
-                line_no=start_index + 1,
-                has_payoff_evidence=has_payoff_evidence(block),
-            )
-        )
+        if title and len(title) >= 4:
+            situations.append(ActionSituation(title, block, start_index + 1, has_payoff_evidence(block)))
 
     situations_with_evidence = [s for s in situations if s.has_payoff_evidence]
     if situations_with_evidence:
@@ -208,177 +236,283 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
             if title and not title.startswith("Run ") and not is_generic_heading(title):
                 fallback_title = canonical_title(title)
                 break
-        return [
-            ActionSituation(
-                title=fallback_title,
-                block=full_text,
-                line_no=1,
-                has_payoff_evidence=True,
-            )
-        ]
+        return [ActionSituation(fallback_title, full_text, 1, True)]
 
     return situations
 
 
-def has_water_as(text: str) -> bool:
-    lower = text.lower()
-    has_spatial_players = bool(re.search(r"\b(upstream|downstream)\b|spatial\s+asymmetr", lower))
-    has_withdrawal_decision = bool(
-        re.search(r"\b(water|irrigat|withdraw|extraction|allocation|fields?|flow|demand)\b", lower)
+def normalize(text: str) -> str:
+    text = clean_markdown(text).lower()
+    return text.replace("‐", "-").replace("–", "-").replace("—", "-")
+
+
+def has_any(text: str, patterns: tuple[str, ...]) -> bool:
+    return any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in patterns)
+
+
+def is_centralized_or_forecast_as(text: str) -> bool:
+    return has_any(
+        text,
+        (
+            r"\bcentralized\s+version\b|\bcv\b",
+            r"\bnational\s+authority\b|\bforecaster\b|\ballocator\b",
+            r"\bforecast(?:ing|s|er)?\b",
+            r"\brepresentative\s+farmer\b",
+            r"\btrust\s+interaction\b|\btrust\s+game\b",
+        ),
     )
-    return has_spatial_players and has_withdrawal_decision
 
 
-def has_fish_cpr_as(text: str) -> bool:
-    lower = text.lower()
-    has_fish_resource = bool(re.search(r"\b(fish|fishing|fishery|fisheries)\b", lower))
-    has_extraction_action = bool(
-        re.search(
-            r"\b(fishing\s+(decision|effort|access|competition|pressure|level|needs)|"
-            r"decision\s+to\s+fish|fish(?:ing)?\s+decision|fish(?:ing)?\s+commons|"
-            r"common[- ]pool\s+fish|fish\s+extraction|sustainable\s+fishing|"
-            r"fish\s+responsibly|fish(?:es|ing)?\s+\d+|fish\s+(more|less)|"
-            r"fishing\s+activities|over[- ]?fish(?:ing)?|target\s+catch|catch\s+level|"
-            r"catch\s+(amount|level|more|less)|amount\s+of\s+fish|fish\s+catch\s+decision|"
-            r"fish\s+harvest|harvest\s+fish|harvest\s+sustainably|over[- ]?harvest|"
-            r"over-catch|race\s+to\s+fish)\b",
-            lower,
-        )
+def is_fish_reproduction_only(text: str) -> bool:
+    reproduction_cues = has_any(
+        text,
+        (
+            r"\bfish[- ]?reproduction\b|\breproduction\b|\breproductive\b",
+            r"\blarv(?:a|ae|al)\b|\brecruitment\b",
+            r"\bmay\b.*\b(irrigat|flow|withdraw|conserv|delay)\b",
+            r"\bthreshold\b.*\b(fish|larv|lake|inflow|reproduction|stock)\b",
+            r"\b(fish|lake)\b.*\bthreshold\b",
+            r"\bhold\s+irrigation\b|\bdelay\b.*\birrigat",
+        ),
     )
-    return has_fish_resource and has_extraction_action
+    extraction_cues = has_any(
+        text,
+        (
+            r"\bcatch(?:es|ing)?\b|\btarget\s+catch\b|\bcatch\s+level\b",
+            r"\bharvest(?:ing|ed|s)?\b|\bover[- ]?harvest(?:ing|ed|s)?\b",
+            r"\bfishing\s+(decision|effort|access|competition|priority|order|race|resource|management|game|dilemma)\b",
+            r"\bfish\s+extraction\b|\bover[- ]?fish(?:ing)?\b",
+        ),
+    )
+    return reproduction_cues and not extraction_cues
 
 
-def classify_action_situation(situation: ActionSituation) -> str:
-    title_text = situation.title
-    full_text = f"{situation.title}\n{situation.block}"
+def matches_fish_extraction_cpr(title_text: str, full_text: str) -> bool:
+    direct_extraction = has_any(
+        full_text,
+        (
+            r"\bfish\s+extraction\b",
+            r"\bfishing\s+(decision|effort|access|competition|priority|order|race|resource|management|game|dilemma|lake)\b",
+            r"\bfishing\s+over(?:exploitation|extraction)\b",
+            r"\bfishery\b|\bfisheries\b|\bfisher\b",
+            r"\bcatch(?:es|ing)?\b|\btarget\s+catch\b|\bcatch\s+level\b|\bamount\s+of\s+fish\b",
+            r"\bharvest(?:ing|ed|s)?\b|\bover[- ]?harvest(?:ing|ed|s)?\b",
+            r"\bover[- ]?fish(?:ing)?\b|\bsustainable\s+catch\b",
+            r"\bcommon[- ]pool\s+fish(?:ery|eries|resource)?\b",
+        ),
+    )
+    strategic_resource = has_any(
+        full_text,
+        (
+            r"\bcommon[- ]pool\b|\bcpr\b",
+            r"\bstock\s+(collapse|depletion|sustainability|coordination|management)\b",
+            r"\bpopulation\s+(declines?|collapse|sustainability|healthy)\b",
+            r"\bover(?:exploitation|harvest|fishing)\b",
+            r"\bconserv(?:e|es|ation)\b",
+            r"\bcoordination\b|\bassurance\b|\bstag[- ]?hunt\b|\bdilemma\b|\bgame\b",
+        ),
+    )
+    title_is_fish_cpr = has_any(
+        title_text,
+        (
+            r"\bfish(?:ing|ery)?\b.*\b(common[- ]pool|over[- ]?exploitation|harvest|catch|coordination|sustainability|dilemma|game|competition|access|priority|race)\b",
+            r"\b(common[- ]pool|over[- ]?exploitation|harvest|catch|coordination|sustainability|dilemma|game|competition|access|priority|race)\b.*\bfish(?:ing|ery)?\b",
+            r"\bover[- ]?exploitation\b.*\bfish\b|\bfish\b.*\bover[- ]?exploitation\b",
+        ),
+    )
+    return (direct_extraction and strategic_resource) or title_is_fish_cpr
 
-    title_is_water = has_water_as(title_text)
-    title_is_fish = has_fish_cpr_as(title_text)
 
-    if title_is_water and not title_is_fish:
-        return "water"
-    if title_is_fish and not title_is_water:
-        return "fish"
-    if has_water_as(full_text) and not has_fish_cpr_as(title_text):
-        return "water"
-    if has_fish_cpr_as(full_text):
-        return "fish"
-    return "other"
+def matches_upstream_downstream_withdrawal(title_text: str, full_text: str) -> bool:
+    spatial = has_any(
+        full_text,
+        (
+            r"\bupstream\b",
+            r"\bdownstream\b",
+            r"\bspatial\s+asymmetr",
+            r"\briver\s+position\b",
+        ),
+    )
+    withdrawal = has_any(
+        full_text,
+        (
+            r"\bwithdraw(?:al|s|ing)?\b",
+            r"\bwater\s+(extraction|withdrawal|allocation|use|demand|scarcity|stress|access)\b",
+            r"\birrigat(?:e|ion|ing)?\b",
+            r"\bfields?\b",
+            r"\bconserv(?:e|es|ing|ation)\s+water\b",
+            r"\bover[- ]?extract(?:ion|s|ing)?\b",
+        ),
+    )
+    title_support = has_any(
+        title_text,
+        (
+            r"\bupstream\b|\bdownstream\b|\bspatial\s+asymmetr",
+            r"\bwater\b|\birrigat|\bwithdraw|\bextraction\b|\ballocation\b",
+        ),
+    )
+    title_not_other_as = not has_any(
+        title_text,
+        (
+            r"\bfish[- ]?reproduction\b|\blarv|\bforecast|\bnational\s+authority\b|\btrust\b",
+            r"\bbudget\s+constraints?\b",
+        ),
+    )
+    return spatial and withdrawal and title_support and title_not_other_as
 
 
-def calculate_metrics(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
+def classify_against_correct_set(situation: ActionSituation) -> str | None:
+    title_text = normalize(situation.title)
+    full_text = normalize(f"{situation.title}\n{situation.block}")
+
+    if is_centralized_or_forecast_as(full_text):
+        return None
+
+    water_match = matches_upstream_downstream_withdrawal(title_text, full_text)
+    fish_match = matches_fish_extraction_cpr(title_text, full_text) and not is_fish_reproduction_only(full_text)
+    title_is_explicit_fish = has_any(
+        title_text,
+        (
+            r"\bfish(?:ing|ery)?\b",
+            r"\bcatch\b|\bharvest\b|\bover[- ]?fish|\bover[- ]?exploitation\b",
+        ),
+    )
+
+    if water_match and not title_is_explicit_fish:
+        return "AS1"
+
+    if fish_match:
+        return "AS2"
+
+    if water_match:
+        return "AS1"
+
+    return None
+
+
+def calculate_metrics(tp: int, fn: int, fp: int) -> tuple[float, float]:
     precision = tp / (tp + fp) if (tp + fp) else 0.0
     recall = tp / (tp + fn) if (tp + fn) else 0.0
-    f1 = 2 * precision * recall / (precision + recall) if (precision + recall) else 0.0
-    return precision, recall, f1
+    return precision, recall
 
 
 def evaluate_run(filepath: Path) -> RunResult:
     situations = extract_action_situations(filepath)
-    found_water = False
-    found_fish = False
+    found_gt: set[str] = set()
     fp = 0
     details: list[str] = []
     fp_titles: list[str] = []
+    as_reviews: list[ASReview] = []
 
-    for situation in situations:
-        category = classify_action_situation(situation)
+    for as_index, situation in enumerate(situations, start=1):
+        matched_key = classify_against_correct_set(situation)
         title = f"L{situation.line_no}: {situation.title}"
 
-        if category == "water" and not found_water:
-            found_water = True
-            details.append(f"TP [water] {title}")
-        elif category == "fish" and not found_fish:
-            found_fish = True
-            details.append(f"TP [fish]  {title}")
+        if matched_key and matched_key not in found_gt:
+            found_gt.add(matched_key)
+            matched_label = GROUND_TRUTH[matched_key].label
+            decision = "TP"
+            reason = f"generated AS matches {matched_label}"
+            details.append(f"TP [{matched_label}] {title}")
         else:
             fp += 1
-            label = "duplicate" if category in {"water", "fish"} else "wrong"
-            details.append(f"FP [{label}] {title}")
+            if matched_key:
+                matched_label = GROUND_TRUTH[matched_key].label
+                decision = "FP-duplicate"
+                reason = f"duplicate generated AS for {matched_label}"
+            else:
+                matched_label = "None"
+                decision = "FP-wrong"
+                reason = "generated AS is not one of the two confirmed correct ASs"
+            details.append(f"{decision} [{matched_label}] {title}")
             fp_titles.append(situation.title)
 
-    tp = int(found_water) + int(found_fish)
-    fn = int(not found_water) + int(not found_fish)
-    if not found_water:
-        details.append("FN missed: Upstream and downstream withdrawal decisions")
-    if not found_fish:
-        details.append("FN missed: Fish extraction common pool resource game")
+        as_reviews.append(
+            ASReview(
+                index=as_index,
+                line_no=situation.line_no,
+                title=situation.title,
+                matched_gt=matched_label,
+                decision=decision,
+                reason=reason,
+                has_payoff_evidence=situation.has_payoff_evidence,
+            )
+        )
 
-    precision, recall, f1 = calculate_metrics(tp, fp, fn)
-    return RunResult(
-        tp=tp,
-        fp=fp,
-        fn=fn,
-        total_as=len(situations),
-        precision=precision,
-        recall=recall,
-        f1=f1,
-        found_water=found_water,
-        found_fish=found_fish,
-        details=details,
-        fp_titles=fp_titles,
-    )
+    tp = len(found_gt)
+    fn = len(GROUND_TRUTH) - tp
+    for key, gt_as in GROUND_TRUTH.items():
+        if key not in found_gt:
+            details.append(f"FN missed: {gt_as.label}")
+
+    if tp + fp != len(situations):
+        raise ValueError(f"Metric invariant failed for {filepath}: TP + FP must equal generated AS count.")
+    if tp + fn != len(GROUND_TRUTH):
+        raise ValueError(
+            f"Metric invariant failed for {filepath}: TP + FN must equal {len(GROUND_TRUTH)} correct ASs."
+        )
+
+    precision, recall = calculate_metrics(tp, fn, fp)
+    return RunResult(tp, fn, fp, precision, recall, len(situations), found_gt, details, fp_titles, as_reviews)
 
 
 def write_report_header(out, experiment_name: str) -> None:
     out.write("=" * 78 + "\n")
-    out.write(f"FINAL EVALUATION: TP / FP / FN ({experiment_name})\n")
+    out.write(f"TWO-GT EVALUATION: TP / FN / FP ({experiment_name})\n")
     out.write("=" * 78 + "\n\n")
-    out.write("Ground Truth (2 correct action situations):\n")
-    out.write("  AS1: Upstream and downstream withdrawal decisions\n")
-    out.write("  AS2: Fish extraction common pool resource game\n\n")
-    out.write("Metrics:\n")
-    out.write("  TP = How many LLM-generated ASs were correct\n")
+    out.write(f"Correct action situations ({len(GROUND_TRUTH)}):\n")
+    for gt_as in GROUND_TRUTH.values():
+        out.write(f"  {gt_as.label}\n")
+    out.write("\nMetrics:\n")
+    out.write("  TP = How many LLM-generated ASs were in the correct set of ASs\n")
     out.write("  FN = How many correct ASs the LLM missed\n")
-    out.write("  FP = How many LLM-generated ASs were wrong\n")
+    out.write("  FP = How many LLM-generated ASs were not in the correct set of ASs\n")
     out.write("  Precision = TP / (TP + FP)\n")
-    out.write("  Recall    = TP / (TP + FN)\n")
-    out.write("  F1 Score  = 2 * Precision * Recall / (Precision + Recall)\n\n")
+    out.write("  Recall    = TP / (TP + FN)\n\n")
+    out.write("Scoring rules:\n")
+    out.write("  Each generated AS is reviewed against only the two confirmed correct ASs.\n")
+    out.write("  The first generated AS matching a correct AS counts as TP.\n")
+    out.write("  Additional generated ASs matching the same correct AS count as FP-duplicate.\n")
+    out.write("  Generated ASs matching neither correct AS count as FP-wrong.\n")
+    out.write(f"  Missing correct ASs count as FN, so TP + FN = {len(GROUND_TRUTH)} for every run.\n")
+    out.write("  Generated AS titles are included with body/matrix text when judging correctness.\n\n")
 
 
-def summarize_failure_pattern(result: dict) -> str:
-    if result["fp"] > result["fn"]:
-        return "main loss: extra or duplicate action situations"
-    if result["fn"] > result["fp"]:
-        return "main loss: missed ground-truth action situations"
-    if result["fp"] == 0 and result["fn"] == 0:
-        return "perfect against this scorer"
-    return "balanced FP/FN errors"
-
-
-def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path, Path]:
+def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path, Path, Path]:
     batch_dir = config["batch_dir"]
     report_path = batch_dir / config["report_name"]
     csv_path = batch_dir / config["csv_name"]
+    as_csv_path = batch_dir / config["as_csv_name"]
     model_results: dict[str, dict] = {}
 
-    with report_path.open("w", encoding="utf-8") as out, csv_path.open("w", newline="", encoding="utf-8") as csvf:
+    with (
+        report_path.open("w", encoding="utf-8") as out,
+        csv_path.open("w", newline="", encoding="utf-8") as csvf,
+        as_csv_path.open("w", newline="", encoding="utf-8") as as_csvf,
+    ):
         writer = csv.writer(csvf)
-        writer.writerow(
+        as_writer = csv.writer(as_csvf)
+        writer.writerow(["Experiment", "Model", "Run", "TP", "FN", "FP", "Precision", "Recall"])
+        as_writer.writerow(
             [
                 "Experiment",
                 "Model",
                 "Run",
-                "TP",
-                "FP",
-                "FN",
-                "Total_AS",
-                "Precision",
-                "Recall",
-                "F1",
-                "Found_Water",
-                "Found_Fish",
+                "AS_Index",
+                "Line",
+                "Title",
+                "Matched_GT",
+                "Decision",
+                "Reason",
+                "Has_Payoff_Evidence",
             ]
         )
 
         write_report_header(out, experiment_name)
 
         for model_index, model_name in enumerate(MODELS, start=1):
-            model_dir = batch_dir / model_name
-            files = sorted(model_dir.glob("run_*.md"))
+            files = sorted((batch_dir / model_name).glob("run_*.md"))
             totals = Counter()
-            water_found_count = 0
-            fish_found_count = 0
             fp_title_counter: Counter[str] = Counter()
 
             out.write("\n" + "#" * 78 + "\n")
@@ -387,17 +521,13 @@ def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path,
 
             for filepath in files:
                 run_result = evaluate_run(filepath)
-                totals.update({"tp": run_result.tp, "fp": run_result.fp, "fn": run_result.fn})
-                water_found_count += int(run_result.found_water)
-                fish_found_count += int(run_result.found_fish)
+                totals.update({"tp": run_result.tp, "fn": run_result.fn, "fp": run_result.fp})
                 fp_title_counter.update(run_result.fp_titles)
 
                 out.write(
-                    f"\n{filepath.name} | TP={run_result.tp} FP={run_result.fp} FN={run_result.fn} "
-                    f"Precision={run_result.precision:.4f} Recall={run_result.recall:.4f} "
-                    f"F1={run_result.f1:.4f}\n"
+                    f"\n{filepath.name} | TP={run_result.tp} FN={run_result.fn} FP={run_result.fp} "
+                    f"Precision={run_result.precision:.4f} Recall={run_result.recall:.4f}\n"
                 )
-                out.write(f"Generated ASs evaluated: {run_result.total_as}\n")
                 for detail in run_result.details:
                     out.write(f"  {detail}\n")
 
@@ -407,190 +537,138 @@ def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path,
                         model_name,
                         filepath.name,
                         run_result.tp,
-                        run_result.fp,
                         run_result.fn,
-                        run_result.total_as,
+                        run_result.fp,
                         f"{run_result.precision:.4f}",
                         f"{run_result.recall:.4f}",
-                        f"{run_result.f1:.4f}",
-                        1 if run_result.found_water else 0,
-                        1 if run_result.found_fish else 0,
                     ]
                 )
+                for review in run_result.as_reviews:
+                    as_writer.writerow(
+                        [
+                            experiment_name,
+                            model_name,
+                            filepath.name,
+                            review.index,
+                            review.line_no,
+                            review.title,
+                            review.matched_gt,
+                            review.decision,
+                            review.reason,
+                            1 if review.has_payoff_evidence else 0,
+                        ]
+                    )
 
-            n_runs = len(files)
             tp = totals["tp"]
-            fp = totals["fp"]
             fn = totals["fn"]
-            precision, recall, f1 = calculate_metrics(tp, fp, fn)
-            result = {
+            fp = totals["fp"]
+            precision, recall = calculate_metrics(tp, fn, fp)
+            model_results[model_name] = {
                 "tp": tp,
-                "fp": fp,
                 "fn": fn,
-                "runs": n_runs,
+                "fp": fp,
+                "runs": len(files),
                 "precision": precision,
                 "recall": recall,
-                "f1": f1,
-                "water_count": water_found_count,
-                "fish_count": fish_found_count,
-                "water_pct": water_found_count / n_runs * 100 if n_runs else 0.0,
-                "fish_pct": fish_found_count / n_runs * 100 if n_runs else 0.0,
                 "top_fp_titles": fp_title_counter.most_common(5),
             }
-            model_results[model_name] = result
 
             out.write("\n" + "-" * 78 + "\n")
             out.write(f"{model_name} TOTALS\n")
             out.write("-" * 78 + "\n")
-            out.write(f"TP = {tp:<5} FP = {fp:<5} FN = {fn}\n")
-            out.write(f"Avg/run: TP={tp / n_runs:.2f} FP={fp / n_runs:.2f} FN={fn / n_runs:.2f}\n")
+            out.write(f"TP = {tp:<5} FN = {fn:<5} FP = {fp}\n")
             out.write(f"Precision = TP/(TP+FP) = {tp}/({tp}+{fp}) = {precision:.4f}\n")
             out.write(f"Recall    = TP/(TP+FN) = {tp}/({tp}+{fn}) = {recall:.4f}\n")
-            out.write(f"F1 Score  = {f1:.4f}\n")
-            out.write(f"Water AS correctly identified: {water_found_count}/{n_runs} runs ({result['water_pct']:.1f}%)\n")
-            out.write(f"Fish  AS correctly identified: {fish_found_count}/{n_runs} runs ({result['fish_pct']:.1f}%)\n")
-            out.write(f"Assessment: {summarize_failure_pattern(result)}\n")
-            if fp_title_counter:
-                out.write("Most common FP titles:\n")
-                for title, count in fp_title_counter.most_common(5):
-                    out.write(f"  {count}x {title}\n")
 
             print(
-                f"{experiment_name} | {model_name}: TP={tp}, FP={fp}, FN={fn}, "
-                f"Precision={precision:.4f}, Recall={recall:.4f}, F1={f1:.4f}"
+                f"{experiment_name} | {model_name}: TP={tp}, FN={fn}, FP={fp}, "
+                f"Precision={precision:.4f}, Recall={recall:.4f}"
             )
 
         out.write("\n\n" + "#" * 78 + "\n")
         out.write(f"FINAL MODEL COMPARISON: {experiment_name}\n")
         out.write("#" * 78 + "\n\n")
-        out.write(f"{'Model':<20} {'TP':>4} {'FP':>4} {'FN':>4} {'Precision':>10} {'Recall':>8} {'F1':>8}\n")
-        out.write("-" * 78 + "\n")
+        out.write(f"{'Model':<20} {'TP':>4} {'FN':>4} {'FP':>4} {'Precision':>10} {'Recall':>8}\n")
+        out.write("-" * 70 + "\n")
         for model_name, result in model_results.items():
             out.write(
-                f"{model_name:<20} {result['tp']:>4} {result['fp']:>4} {result['fn']:>4} "
-                f"{result['precision']:>10.4f} {result['recall']:>8.4f} {result['f1']:>8.4f}\n"
+                f"{model_name:<20} {result['tp']:>4} {result['fn']:>4} {result['fp']:>4} "
+                f"{result['precision']:>10.4f} {result['recall']:>8.4f}\n"
             )
 
-    return model_results, report_path, csv_path
-
-
-def explain_delta(game_result: dict, odd_result: dict) -> str:
-    delta_f1 = game_result["f1"] - odd_result["f1"]
-    delta_fp = game_result["fp"] - odd_result["fp"]
-    delta_fn = game_result["fn"] - odd_result["fn"]
-
-    if delta_f1 > 0:
-        return "ODD+game_stuff is better: higher F1 under the same scorer."
-    if delta_f1 == 0:
-        return "Tie: both prompts have the same F1 under the same scorer."
-    if delta_fp > 0 and delta_fn <= 0:
-        return "ODD+game_stuff is worse mainly because it generated more extra or duplicate ASs."
-    if delta_fn > 0 and delta_fp <= 0:
-        return "ODD+game_stuff is worse mainly because it missed more ground-truth ASs."
-    return "ODD+game_stuff is worse because the FP/FN tradeoff lowered F1."
+    return model_results, report_path, csv_path, as_csv_path
 
 
 def write_cross_comparison(results_by_experiment: dict[str, dict]) -> Path:
     comparison_path = CURRENT_DIR / "Water_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt"
-    game_results = results_by_experiment["ODD+game_stuff"]
-    odd_results = results_by_experiment["ODD-only"]
 
     with comparison_path.open("w", encoding="utf-8") as out:
         out.write("=" * 78 + "\n")
-        out.write("COMPARISON EVALUATION: ODD+game_stuff VS ODD-only\n")
+        out.write("TWO-GT COMPARISON: ODD+game_stuff VS ODD-only\n")
         out.write("=" * 78 + "\n\n")
-        out.write("Ground Truth (2 correct action situations):\n")
-        out.write("  AS1: Upstream and downstream withdrawal decisions\n")
-        out.write("  AS2: Fish extraction common pool resource game\n\n")
-        out.write("Both experiments were evaluated with the same Markdown parser and scorer.\n\n")
+        out.write(f"Correct action situations ({len(GROUND_TRUTH)}):\n")
+        for gt_as in GROUND_TRUTH.values():
+            out.write(f"  {gt_as.label}\n")
+        out.write("\n")
 
         out.write("Side-by-side totals:\n")
         out.write(
-            f"{'Model':<20} {'Evaluation':<16} {'TP':>4} {'FP':>4} {'FN':>4} "
-            f"{'Precision':>10} {'Recall':>8} {'F1':>8} {'Water':>12} {'Fish':>12}\n"
+            f"{'Model':<20} {'Evaluation':<16} {'TP':>4} {'FN':>4} {'FP':>4} "
+            f"{'Precision':>10} {'Recall':>8}\n"
         )
-        out.write("-" * 110 + "\n")
+        out.write("-" * 76 + "\n")
         for model_name in MODELS:
             for experiment_name in ("ODD+game_stuff", "ODD-only"):
                 result = results_by_experiment[experiment_name][model_name]
-                water = f"{result['water_count']}/{result['runs']}"
-                fish = f"{result['fish_count']}/{result['runs']}"
                 out.write(
                     f"{model_name:<20} {experiment_name:<16} {result['tp']:>4} "
-                    f"{result['fp']:>4} {result['fn']:>4} {result['precision']:>10.4f} "
-                    f"{result['recall']:>8.4f} {result['f1']:>8.4f} {water:>12} {fish:>12}\n"
+                    f"{result['fn']:>4} {result['fp']:>4} {result['precision']:>10.4f} "
+                    f"{result['recall']:>8.4f}\n"
                 )
 
         out.write("\nDifferences (ODD+game_stuff minus ODD-only):\n")
         out.write(
-            f"{'Model':<20} {'Delta TP':>8} {'Delta FP':>8} {'Delta FN':>8} "
-            f"{'Delta Prec':>11} {'Delta Recall':>13} {'Delta F1':>10} "
-            f"{'Delta Water':>13} {'Delta Fish':>11}\n"
+            f"{'Model':<20} {'Delta TP':>8} {'Delta FN':>8} {'Delta FP':>8} "
+            f"{'Delta Prec':>11} {'Delta Recall':>13}\n"
         )
-        out.write("-" * 112 + "\n")
+        out.write("-" * 78 + "\n")
         for model_name in MODELS:
-            game = game_results[model_name]
-            odd = odd_results[model_name]
+            game = results_by_experiment["ODD+game_stuff"][model_name]
+            odd = results_by_experiment["ODD-only"][model_name]
             out.write(
                 f"{model_name:<20} "
                 f"{game['tp'] - odd['tp']:>+8} "
-                f"{game['fp'] - odd['fp']:>+8} "
                 f"{game['fn'] - odd['fn']:>+8} "
+                f"{game['fp'] - odd['fp']:>+8} "
                 f"{game['precision'] - odd['precision']:>+11.4f} "
-                f"{game['recall'] - odd['recall']:>+13.4f} "
-                f"{game['f1'] - odd['f1']:>+10.4f} "
-                f"{game['water_count'] - odd['water_count']:>+13} "
-                f"{game['fish_count'] - odd['fish_count']:>+11}\n"
+                f"{game['recall'] - odd['recall']:>+13.4f}\n"
             )
 
-        out.write("\nExpectation check:\n")
-        out.write("  Expected: ODD+game_stuff should outperform ODD-only.\n")
-        for model_name in MODELS:
-            game = game_results[model_name]
-            odd = odd_results[model_name]
-            out.write(f"  {model_name}: {explain_delta(game, odd)}\n")
-            if game["f1"] < odd["f1"]:
-                out.write(f"    ODD+game_stuff top FP titles: {format_top_titles(game['top_fp_titles'])}\n")
-                out.write(f"    ODD-only top FP titles:       {format_top_titles(odd['top_fp_titles'])}\n")
-
-        out.write("\nInput and scorer audit notes:\n")
-        out.write("  Batch_30Runs is generated from Txts/odd.txt + Txts/game_stuff.txt.\n")
-        out.write("  Batch_30Runs_ODDOnly is generated from Txts/odd.txt only.\n")
-        out.write(
-            "  Txts/odd.txt already contains detailed Fishing, Fish population growth, "
-            "WaterFlow, and Budget calculation submodel text, so ODD-only is not a "
-            "minimal baseline without game mechanics.\n"
-        )
-        out.write(
-            "  The scorer skips document-level Title headings and only evaluates blocks "
-            "with payoff-matrix evidence; fish AS detection requires fish extraction "
-            "actions such as fishing decision, overfishing, catch level, or harvest.\n"
-        )
+        out.write("\nAudit notes:\n")
+        out.write("  Only TP, FN, FP, Precision, and Recall are evaluated.\n")
+        out.write("  AS-level CSVs list every generated AS and whether it is TP, FP-duplicate, or FP-wrong.\n")
+        out.write(f"  Per-run invariant: TP + FN = {len(GROUND_TRUTH)} confirmed correct ASs.\n")
+        out.write("  Generated AS titles are included with body/matrix text when judging correctness.\n")
 
     return comparison_path
 
 
-def format_top_titles(items: list[tuple[str, int]]) -> str:
-    if not items:
-        return "none"
-    return "; ".join(f"{count}x {title}" for title, count in items[:3])
-
-
 def main() -> None:
     results_by_experiment: dict[str, dict] = {}
-    report_paths: list[tuple[Path, Path]] = []
+    report_paths: list[tuple[Path, Path, Path]] = []
 
     for experiment_name, config in EXPERIMENTS.items():
-        results, report_path, csv_path = evaluate_experiment(experiment_name, config)
+        results, report_path, csv_path, as_csv_path = evaluate_experiment(experiment_name, config)
         results_by_experiment[experiment_name] = results
-        report_paths.append((report_path, csv_path))
+        report_paths.append((report_path, csv_path, as_csv_path))
 
     comparison_path = write_cross_comparison(results_by_experiment)
 
     print("\nReports:")
-    for report_path, csv_path in report_paths:
+    for report_path, csv_path, as_csv_path in report_paths:
         print(f"  Detailed: {report_path}")
         print(f"  CSV:      {csv_path}")
+        print(f"  AS audit: {as_csv_path}")
     print(f"  Compare:  {comparison_path}")
 
 

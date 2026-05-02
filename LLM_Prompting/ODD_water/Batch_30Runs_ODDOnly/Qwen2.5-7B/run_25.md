@@ -2,35 +2,83 @@
 
 ### Title: Strategic Tensions in Decentralized Water Use Model
 
-### Tension: Spatial Asymmetry vs. Ecological Thresholds
+#### 1. Action Situation 1: Risk vs. Reward for Upstream and Downstream Farmers
 
-#### Description:
-In the decentralized version (DV) of the model, farmers face a strategic tension between managing their water use based on their spatial position along the river (upstream vs. downstream) and the ecological thresholds that determine the viability of the fish population. Downstream farmers have access to the fishing lake and must balance their crop and fish yields against the ecological limits set by the fish population dynamics.
+**Tension:** Upstream farmers face a dilemma between increasing their water usage to potentially benefit from higher yields (risk) or maintaining current levels to preserve water for downstream farmers (reward).
 
-#### 2-Player Normal Form Payoff Matrix:
+**Justification:** Upstream farmers are closer to the water source and have more control over water allocation. They can choose to irrigate more fields, potentially increasing their yields but reducing the water available for downstream farmers, who rely on the same water source. Downstream farmers are more vulnerable to water shortages, as they have less control over water allocation.
 
-|               | Upstream Farmer (U) | Downstream Farmer (D) |
-|---------------|---------------------|-----------------------|
-| **U: 10 Fields** | (100, 100)          | (150, 80)             |
-| **U: 9 Fields**  | (120, 120)          | (140, 90)             |
-| **U: 8 Fields**  | (130, 130)          | (130, 100)            |
-| **U: 7 Fields**  | (140, 140)          | (120, 110)            |
-| **U: 6 Fields**  | (150, 150)          | (110, 120)            |
+**2-Player Normal Form Payoff Matrix:**
 
-#### Justification:
+|       | Upstream Irrigates More | Upstream Irrigates Less |
+|-------|------------------------|------------------------|
+| Downstream Irrigates More | (2, 2) | (1, 3) |
+| Downstream Irrigates Less | (3, 1) | (1, 1) |
 
-1. **Spatial Asymmetry**:
-   - **Upstream Farmer (U)**: Farmers further upstream have less access to the fishing lake and thus depend more on agriculture for their income and well-being.
-   - **Downstream Farmer (D)**: Farmers downstream have access to the fishing lake and can benefit from both agricultural and fishing activities, which provides them with a more diversified income.
+- **(2, 2):** Both irrigate more, resulting in moderate benefits for both, but risking ecological thresholds.
+- **(1, 3):** Upstream irrigates more, downstream irrigates more, downstream benefits more.
+- **(3, 1):** Upstream irrigates more, downstream irrigates less, upstream benefits more.
+- **(1, 1):** Both irrigate less, maintaining water for downstream, but with lower yields for both.
 
-2. **Ecological Thresholds**:
-   - The ecological threshold for the fish population is a critical factor. If the number of fields irrigated exceeds the ecological threshold (which is likely to be higher for downstream farmers due to their access to the lake and the associated higher fish yield), it can lead to a tipping point where the fish population declines, affecting the downstream farmers' ability to harvest fish.
+**CRITICAL CONSTRAINTS:**
+- **Spatial Asymmetry:** Upstream farmers have more control over water allocation.
+- **Ecological Thresholds:** Over-irrigation could lead to ecological tipping points, affecting fish populations and overall water quality.
 
-3. **Action Situations**:
-   - **U: 10 Fields vs. D: 10 Fields**: Both farmers irrigate the maximum number of fields, which could lead to a significant stress on the fish population, potentially causing a decline.
-   - **U: 10 Fields vs. D: 9 Fields**: Upstream farmer irrigates the maximum, while downstream farmer irrigates 9 fields, reducing the likelihood of a fish population crash.
-   - **U: 9 Fields vs. D: 10 Fields**: Upstream farmer irrigates 9 fields, while downstream farmer irrigates the maximum, which could still push the system towards the tipping point.
-   - **U: 8 Fields vs. D: 9 Fields**: Both farmers irrigate a moderate number of fields, balancing their actions to avoid ecological collapse.
-   - **U: 6 Fields vs. D: 7 Fields**: Both farmers irrigate a lower number of fields, ensuring that the fish population remains within its ecological threshold.
+#### 2. Action Situation 2: Yield vs. Budget for Individual Farmers
 
-By reflecting these strategic tensions, the matrix captures the complex interplay between spatial positioning and ecological sustainability in the decentralized water use model.
+**Tension:** Farmers must balance the number of fields they irrigate based on their budget and anticipated water availability, risking financial losses if they over-irrigate.
+
+**Justification:** Each farmer has a budget and must decide how many fields to irrigate based on their expectations of water availability. Over-irrigation can lead to financial losses if the actual water flow is lower than expected.
+
+**2-Player Normal Form Payoff Matrix:**
+
+|       | Irrigate 5 Fields | Irrigate 7 Fields | Irrigate 10 Fields |
+|-------|------------------|------------------|--------------------|
+| Irrigate 5 Fields | (10, 10) | (8, 12) | (5, 15) |
+| Irrigate 7 Fields | (12, 8) | (11, 11) | (7, 13) |
+| Irrigate 10 Fields | (15, 5) | (13, 7) | (10, 10) |
+
+- **(10, 10):** Both irrigate 5 fields, balanced and optimal within budget.
+- **(8, 12):** One irrigates 5 fields, the other irrigates 7 fields, with one benefiting more.
+- **(5, 15):** One irrigates 5 fields, the other irrigates 10 fields, with one benefiting more.
+- **(12, 8):** One irrigates 7 fields, the other irrigates 5 fields, with one benefiting more.
+- **(11, 11):** Both irrigate 7 fields, balanced but slightly less optimal.
+- **(7, 13):** One irrigates 7 fields, the other irrigates 10 fields, with one benefiting more.
+- **(15, 5):** One irrigates 10 fields, the other irrigates 5 fields, with one benefiting more.
+- **(13, 7):** One irrigates 10 fields, the other irrigates 7 fields, with one benefiting more.
+- **(10, 10):** Both irrigate 10 fields, balanced but potentially risky.
+
+**CRITICAL CONSTRAINTS:**
+- **Budget Limitation:** Maximum fields = 10.
+- **Uncertainty:** Farmers must predict future water availability, which is uncertain.
+
+#### 3. Action Situation 3: Fish Population Management
+
+**Tension:** Farmers must decide how much fish to catch, balancing their need for resources with the health of the fish population.
+
+**Justification:** The fish population is age-structured, and overfishing can lead to ecological thresholds and tipping points. Farmers must decide how many fish to catch to maximize their yield while maintaining the health of the fish population.
+
+**2-Player Normal Form Payoff Matrix:**
+
+|       | Catch 20 Fish | Catch 40 Fish | Catch 60 Fish |
+|-------|--------------|--------------|--------------|
+| Catch 20 Fish | (10, 10) | (8, 12) | (6, 14) |
+| Catch 40 Fish | (12, 8) | (10, 10) | (8, 12) |
+| Catch 60 Fish | (14, 6) | (12, 8) | (10, 10) |
+
+- **(10, 10):** Both farmers catch 20 fish, balanced and optimal for maintaining fish population.
+- **(8, 12):** One farmer catches 20 fish, the other catches 40 fish, with one benefiting more.
+- **(6, 14):** One farmer catches 20 fish, the other catches 60 fish, with one benefiting more.
+- **(12, 8):** One farmer catches 40 fish, the other catches 20 fish, with one benefiting more.
+- **(10, 10):** Both farmers catch 40 fish, balanced but potentially risky.
+- **(8, 12):** One farmer catches 40 fish, the other catches 60 fish, with one benefiting more.
+- **(6, 14):** One farmer catches 60 fish, the other catches 20 fish, with one benefiting more.
+- **(8, 12):** One farmer catches 60 fish, the other catches 40 fish, with one benefiting more.
+- **(10, 10):** Both farmers catch 60 fish, balanced but potentially risky.
+
+**CRITICAL CONSTRAINTS:**
+- **Ecological Thresholds:** Overfishing can lead to ecological thresholds and tipping points.
+- **Age-Structured Model:** Fish population is age-structured, with different survival rates for different age classes.
+
+### Summary
+The decentralized model highlights several strategic tensions, particularly in balancing resource use and ecological sustainability. The matrices reflect the choices farmers must make, considering both immediate benefits and long-term ecological impacts.

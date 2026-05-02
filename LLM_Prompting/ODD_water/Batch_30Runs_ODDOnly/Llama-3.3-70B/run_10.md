@@ -1,40 +1,40 @@
 # Run 10 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream-Downstream Water Withdrawal
+### Action Situation 1: Upstream-Downstream Irrigation Dilemma
 #### Tension: 
-Withdrawal of water by upstream farmers may leave insufficient water for downstream farmers, creating a strategic tension between individual gain and collective sustainability.
+The upstream farmer has an incentive to irrigate more fields, potentially leaving insufficient water for the downstream farmer, creating a strategic tension between the two.
 
 #### Matrix:
-|  | Upstream (High Withdrawal) | Upstream (Low Withdrawal) |
+|  | Downstream Farmer Cooperates (Irrigates Less) | Downstream Farmer Defects (Irrigates More) |
 | --- | --- | --- |
-| **Downstream (High Withdrawal)** | Upstream: 8, Downstream: 2 | Upstream: 6, Downstream: 6 |
-| **Downstream (Low Withdrawal)** | Upstream: 9, Downstream: 1 | Upstream: 7, Downstream: 7 |
+| **Upstream Farmer Cooperates (Irrigates Less)** | Upstream: 6, Downstream: 6 | Upstream: 8, Downstream: 2 |
+| **Upstream Farmer Defects (Irrigates More)** | Upstream: 9, Downstream: 1 | Upstream: 5, Downstream: 5 |
 
 #### Justification:
-In the decentralized version, each farmer decides on water withdrawal independently. Upstream farmers have the first access to water, which can lead to a situation where they withdraw more water, leaving less for downstream farmers. This creates a tension where upstream farmers must balance their own needs with the potential negative impact on downstream farmers. The matrix reflects this tension, showing that if both upstream and downstream farmers withdraw a high amount of water, they both suffer (Upstream: 8, Downstream: 2), but if the upstream farmer withdraws less, both can benefit more (Upstream: 6, Downstream: 6).
+In the decentralized version, each farmer predicts water availability and decides on the number of fields to irrigate based on their prediction and available budget. The upstream farmer has a first-mover advantage, as they can withdraw water before it reaches the downstream farmer. This creates a strategic tension, as the upstream farmer may choose to irrigate more fields, potentially leaving the downstream farmer with insufficient water. The matrix reflects the spatial asymmetry, with the upstream farmer having more flexibility in their decision. The payoffs are based on the number of fields each farmer can irrigate, assuming a maximum of 10 fields.
 
-### Action Situation 2: Overfishing
+### Action Situation 2: Fishing Quota Dilemma
 #### Tension: 
-The decision to fish more to meet immediate needs may deplete fish populations, affecting future fishing possibilities for all farmers.
+The farmers have a common-pool resource (the fish population) and must decide how many fish to catch, creating a strategic tension between overfishing and conservation.
 
 #### Matrix:
-|  | Farmer 1 (Overfish) | Farmer 1 (Sustainable Fishing) |
+|  | Downstream Farmer Cooperates (Catches Less) | Downstream Farmer Defects (Catches More) |
 | --- | --- | --- |
-| **Farmer 2 (Overfish)** | Farmer 1: 5, Farmer 2: 5 | Farmer 1: 7, Farmer 2: 3 |
-| **Farmer 2 (Sustainable Fishing)** | Farmer 1: 4, Farmer 2: 6 | Farmer 1: 8, Farmer 2: 8 |
+| **Upstream Farmer Cooperates (Catches Less)** | Upstream: 4, Downstream: 4 | Upstream: 3, Downstream: 6 |
+| **Upstream Farmer Defects (Catches More)** | Upstream: 6, Downstream: 2 | Upstream: 2, Downstream: 2 |
 
 #### Justification:
-This action situation reflects the tension between short-term gains from overfishing and the long-term sustainability of the fish population. If both farmers overfish, they both receive a moderate payoff (Farmer 1: 5, Farmer 2: 5), but if one fishes sustainably while the other overfishes, the sustainable fisher receives a higher payoff in the long run (Farmer 1: 8, Farmer 2: 8 if both fish sustainably). This situation is critical because it involves ecological thresholds; once the fish population drops below a certain threshold, it may not recover.
+The fish population is a common-pool resource, and the farmers must decide how many fish to catch. Overfishing can lead to a decline in the fish population, affecting future catches. The matrix reflects the strategic tension between cooperation (conservation) and defection (overfishing). The payoffs are based on the number of fish each farmer can catch, assuming a fixed target catch level. The ecological threshold is reflected in the payoffs, as overfishing leads to a decline in the fish population and reduced catches for both farmers.
 
-### Action Situation 3: Irrigation Expansion
+### Action Situation 3: Water Conservation vs. Irrigation Expansion
 #### Tension: 
-The decision to expand irrigation fields may increase individual yields but could also lead to water scarcity and decreased yields for other farmers, especially downstream.
+The farmer must balance the need to conserve water with the desire to expand irrigation, creating a strategic tension between short-term gains and long-term sustainability.
 
 #### Matrix:
-|  | Farmer 1 (Expand) | Farmer 1 (No Expansion) |
+|  | Farmer Cooperates (Conserves Water) | Farmer Defects (Expands Irrigation) |
 | --- | --- | --- |
-| **Farmer 2 (Expand)** | Farmer 1: 6, Farmer 2: 4 | Farmer 1: 8, Farmer 2: 5 |
-| **Farmer 2 (No Expansion)** | Farmer 1: 9, Farmer 2: 3 | Farmer 1: 7, Farmer 2: 9 |
+| **Farmer Cooperates (Conserves Water)** | Farmer: 5, Future Self: 8 | Farmer: 7, Future Self: 3 |
+| **Farmer Defects (Expands Irrigation)** | Farmer: 8, Future Self: 2 | Farmer: 4, Future Self: 4 |
 
 #### Justification:
-This situation captures the tension between expanding irrigation for higher yields and the potential for reduced water availability for other farmers. If both farmers expand, they both face reduced payoffs due to water scarcity (Farmer 1: 6, Farmer 2: 4). However, if one farmer expands while the other does not, the expanding farmer may initially gain more (Farmer 1: 9, Farmer 2: 3), but this comes at the cost of the other farmer's potential yields, reflecting the spatial asymmetry and ecological thresholds in water use.
+The farmer must decide whether to conserve water or expand irrigation, creating a strategic tension between short-term gains and long-term sustainability. The matrix reflects the trade-off between current and future benefits, with the farmer weighing the benefits of expanded irrigation against the potential long-term costs of water scarcity. The ecological threshold is reflected in the payoffs, as over-expansion of irrigation can lead to water scarcity and reduced future benefits. The spatial asymmetry is reflected in the fact that the farmer's decision affects not only their current benefits but also their future self.

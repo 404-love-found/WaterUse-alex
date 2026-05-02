@@ -1,52 +1,53 @@
 # Run 17 — deepseek-ai/DeepSeek-R1
 
-### Action Situations for Decentralized Version (DV)
+### Analysis of Distinct Action Situations in the Decentralized Model (DV)
 
-#### **Action Situation 1: Water Extraction Dilemma between Upstream and Downstream Farmers**  
-**Strategic Tension**: Upstream farmers prioritize maximizing irrigation at the expense of downstream water availability, while downstream farmers face water scarcity and reduced agricultural yields due to upstream over-extraction. Spatial asymmetry creates an externality where upstream decisions directly constrain downstream options.  
+#### **Title: Water Withdrawal Tension Between Upstream and Downstream Farmers**  
+**Tension**: Upstream farmers prioritizing irrigation (maximizing agricultural yield) versus downstream farmers facing reduced water access and potential collapse of fish stocks due to insufficient lake inflow.  
+**Payoff Matrix**:  
 
-**Payoff Matrix** (Upstream Farmer vs. Downstream Farmer):  
-| Upstream Farmer \ Downstream Farmer | Conservative (5 fields) | Aggressive (10 fields) |
-|------------------------------------|-------------------------|------------------------|
-| **Conservative (5 fields)**        | (M, M)                 | (M, H)                |
-| **Aggressive (10 fields)**         | (H, L)                 | (H, L)                |  
+| Upstream \ Downstream | High Irrigation (10 fields) | Low Irrigation (5 fields) |
+|------------------------|-----------------------------|----------------------------|
+| **High Irrigation (10 fields)** | (-20, -40)               | (60, -15)                |
+| **Low Irrigation (5 fields)**   | (25, 10)                  | (35, 35)                 |
 
-**Legend**:  
-- **M**: Moderate yield (sustainable water use)  
-- **H**: High yield (maximized irrigation)  
-- **L**: Low yield (water stress)  
 **Justification**:  
-- Upstream farmers control water access: Aggressive extraction (10 fields) secures high yields but leaves insufficient water for downstream peers, causing low yields regardless of downstream strategy.  
-- Downstream farmers only achieve high yields if upstream acts conservatively. Spatial asymmetry creates a dominant strategy for upstream to be aggressive, imposing negative externalities on downstream agents.  
-- Reflects spatial asymmetry (upstream priority) and ecological tipping points (water stress reduces yields non-linearly).  
+- **Spatial Asymmetry**: Upstream farmers (first to withdraw water) can irrigate fully at the expense of downstream farmers. Downstream farmers receive residual water and prioritize fishing but face catastrophic fish collapse if lake inflow falls below ecological thresholds.  
+- **Ecological Threshold**: If May lake inflow < 50 units (threshold), fish population collapses (S = 5 fish); otherwise, it thrives (S = 20 fish). High irrigation by both ensures collapse (0 lake inflow), eliminating fishing income.  
+- **Payoff Calculation**:  
+  - *Agriculture*: Yield = 10 × fields × water satisfaction ratio. Cost = 5 × fields.  
+    - *Upstream High*: Receives full water (600 units), yield = 100, cost = 50, net = 50.  
+    - *Downstream High*: With residual water, yield = 0, cost = 50, net = -50.  
+  - *Fishing*: Value = 2 per fish. Downstream fishes first; upstream gets residuals.  
+    - If lake inflow ≥ 50: Downstream catches 5 fish (10), upstream catches 5 fish (10).  
+    - If lake inflow < 50: Downstream catches 5 fish (10), upstream catches 0 (0).  
+- **Nash Equilibrium**: (High, Low) is dominant for upstream (60 > 25, -20 > 35) but suboptimal collectively. Downstream prefers (Low, Low) but lacks leverage.  
 
 ---
 
-#### **Action Situation 2: Fishing Competition under Water Scarcity**  
-**Strategic Tension**: Downstream farmers prioritize fishing access to offset agricultural losses from upstream water scarcity, but excessive fishing depletes shared fish stocks. Ecological thresholds (reproduction failure below water-inflow thresholds) amplify collapse risks when combined with overfishing.  
+#### **Title: Fishing Priority Tension Among Downstream Farmers**  
+**Tension**: Proximity-based fishing access causes downstream farmers to compete for dwindling fish stocks when lake inflows are low, risking stock collapse.  
+**Payoff Matrix**:  
 
-**Payoff Matrix** (Downstream Farmer 1 vs. Downstream Farmer 2):  
-| Farmer 1 \ Farmer 2 | Moderate Catch (5 fish) | Aggressive Catch (10 fish) |
-|---------------------|-------------------------|----------------------------|
-| **Moderate Catch (5 fish)** | (M + F, M + F)         | (M, H + F)                |
-| **Aggressive Catch (10 fish)** | (H + F, M)            | (L, L)                    |  
+| Downstream Farmer A \ Farmer B | High Fishing Effort (Catch 5) | Low Fishing Effort (Catch 2) |
+|--------------------------------|-------------------------------|------------------------------|
+| **High Fishing Effort (Catch 5)** | (0, 0)                      | (10, 5)                     |
+| **Low Fishing Effort (Catch 2)** | (5, 10)                     | (8, 8)                      |
 
-**Legend**:  
-- **M**: Moderate income (base yield from 5 fields)  
-- **H**: High income (base yield from 10 fields)  
-- **F**: Fishing income (scaled by catch success)  
-- **L**: Low income (fish stock collapse)  
 **Justification**:  
-- Downstream farmers fish first but face trade-offs: Aggressive catch (10 fish) yields short-term gains but risks stock collapse if all defect, especially when water scarcity (from upstream extraction) already stresses fish reproduction.  
-- Ecological thresholds: Water inflow below critical levels in May prevents larval survival, collapsing future stocks. Myopic agents ignore this, but systemic risk emerges when combined with overfishing.  
-- Reflects spatial asymmetry (downstream fishing priority) and ecological thresholds (non-linear collapse).  
+- **Spatial Asymmetry**: Farmers closest to the lake (most downstream) fish first. If fish stocks are low (S = 5), early fishers deplete resources, leaving nothing for later fishers.  
+- **Ecological Threshold**: Low lake inflow (<50) reduces fish population to S = 5, making stock highly sensitive to overfishing. High effort by any farmer triggers collapse.  
+- **Payoff Calculation**:  
+  - *High Effort*: Catches 5 fish if stock allows (value = 10).  
+  - *Low Effort*: Catches 2 fish (value = 4), leaving stock for others.  
+  - If both fish high: Stock collapses (0 payoff).  
+  - If one fishes high: High fisher gets 10, low fisher gets scraps (5 if stock remains).  
+- **Dominant Strategy**: Both defect to high effort (tragedy of the commons), but mutual low effort (8, 8) preserves stocks.  
 
 ---
 
-**Key Constraints Addressed**:  
-1. **Exclusively DV**: Both matrices focus on farmer-level decisions without central coordination.  
-2. **Spatial Asymmetry**: Upstream/downstream positions define water/fishing access.  
-3. **Ecological Thresholds**: Water stress (Action 1) and fish reproduction thresholds (Action 2) create non-linear system risks.  
-4. **Max Fields = 10**: Aggressive strategies use maximum fields, exhausting resources.  
+### Summary of Strategic Dilemmas  
+1. **Water Withdrawal Tension**: Upstream farmers sacrifice downstream water access for agriculture, causing fish collapse and inequity.  
+2. **Fishing Priority Tension**: Downstream farmers overfish due to positional advantage, accelerating resource depletion.  
 
-**Note**: Agents lack foresight and learning (model constraints), leading to dominant aggressive strategies that undermine collective resilience.
+Both situations reflect spatial asymmetry (upstream/downstream access) and ecological thresholds (fish collapse below 50 units of May inflow). Farmers act without foresight, prioritizing immediate gains despite systemic risks.

@@ -1,40 +1,53 @@
 # Run 19 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream-Downstream Irrigation Dilemma
+### Action Situation 1: Upstream-Downstream Water Allocation
 #### Tension: 
-Over-extraction of water by upstream farmers versus downstream farmers' need for water, considering the ecological threshold of water flow.
+Upstream farmers may allocate more water for irrigation, reducing the water available for downstream farmers, who may then overfish to compensate for lost agricultural income.
 
 #### Matrix:
-|  | Upstream (High Extraction) | Upstream (Low Extraction) |
+|  | Downstream Conserves | Downstream Overfishes |
 | --- | --- | --- |
-| **Downstream (High Extraction)** | Upstream: 8, Downstream: 2 | Upstream: 6, Downstream: 6 |
-| **Downstream (Low Extraction)** | Upstream: 9, Downstream: 1 | Upstream: 7, Downstream: 7 |
+| **Upstream Irrigates** | Upstream: 8, Downstream: 6 | Upstream: 8, Downstream: 4 |
+| **Upstream Conserves** | Upstream: 4, Downstream: 8 | Upstream: 4, Downstream: 6 |
 
 #### Justification:
-In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water availability. Upstream farmers have priority access to water, which creates a strategic tension with downstream farmers who need water for their fields. The matrix reflects the trade-off between upstream and downstream farmers, considering the maximum fields (10) and the ecological threshold of water flow. If both farmers extract water heavily (High Extraction), the upstream farmer gets a higher payoff (8), while the downstream farmer gets a lower payoff (2) due to reduced water availability. If the upstream farmer extracts water at a low level, both farmers can get a moderate payoff (6 or 7), reflecting a more sustainable use of water resources.
+In the decentralized case, upstream farmers have priority access to water. If they choose to irrigate more, downstream farmers will have less water available, potentially leading to overfishing to supplement their income. The matrix reflects the strategic tension between upstream and downstream farmers, with upstream farmers preferring to irrigate and downstream farmers preferring to conserve or overfish depending on the upstream decision.
 
-### Action Situation 2: Fishing and Water Extraction Trade-off
+### Action Situation 2: Farmer's Dilemma - Irrigation vs. Conservation
 #### Tension: 
-Balancing fishing activities with water extraction for irrigation, considering the ecological threshold of fish population.
+A farmer must decide whether to irrigate more fields, potentially exceeding the ecological threshold and damaging the fish population, or conserve water and risk losing income.
 
 #### Matrix:
-|  | Farmer (High Fishing) | Farmer (Low Fishing) |
+|  | Farmer Conserves | Farmer Irrigates |
 | --- | --- | --- |
-| **Farmer (High Water Extraction)** | Farmer: 5, Fish Population: -2 | Farmer: 7, Fish Population: 0 |
-| **Farmer (Low Water Extraction)** | Farmer: 3, Fish Population: 2 | Farmer: 6, Fish Population: 4 |
+| **Ecological Threshold Not Exceeded** | Farmer: 6, Environment: 8 | Farmer: 8, Environment: 4 |
+| **Ecological Threshold Exceeded** | Farmer: 4, Environment: 6 | Farmer: 2, Environment: 2 |
 
 #### Justification:
-In the decentralized case, farmers can engage in fishing activities in addition to irrigation. However, overfishing and excessive water extraction can harm the fish population, creating a strategic tension. The matrix reflects the trade-off between fishing and water extraction, considering the ecological threshold of fish population. If a farmer prioritizes fishing (High Fishing) and also extracts a lot of water (High Water Extraction), the fish population declines (-2), and the farmer's payoff is moderate (5). If the farmer balances fishing and water extraction (Low Fishing and Low Water Extraction), the fish population thrives (4), and the farmer's payoff is higher (6).
+In the decentralized case, each farmer must balance their own income needs with the potential environmental impact of their actions. If a farmer chooses to irrigate more, they risk exceeding the ecological threshold and damaging the fish population. The matrix reflects the strategic tension between the farmer's income and environmental conservation, with the farmer preferring to irrigate and the environment preferring conservation.
 
-### Action Situation 3: Information Sharing and Cooperation
+### Action Situation 3: Fishery Management - Harvesting vs. Conservation
 #### Tension: 
-Sharing information on water availability and cooperating on irrigation decisions versus acting independently, considering the spatial asymmetry of upstream and downstream locations.
+Downstream farmers may overharvest fish to compensate for lost agricultural income, while upstream farmers may prefer to conserve the fish population to maintain ecosystem services.
 
 #### Matrix:
-|  | Upstream (Share Info) | Upstream (Don't Share Info) |
+|  | Upstream Conserves Fish | Upstream Overharvests Fish |
 | --- | --- | --- |
-| **Downstream (Cooperate)** | Upstream: 8, Downstream: 8 | Upstream: 9, Downstream: 1 |
-| **Downstream (Don't Cooperate)** | Upstream: 2, Downstream: 6 | Upstream: 7, Downstream: 3 |
+| **Downstream Conserves Fish** | Upstream: 6, Downstream: 6 | Upstream: 4, Downstream: 4 |
+| **Downstream Overharvests Fish** | Upstream: 4, Downstream: 8 | Upstream: 2, Downstream: 6 |
 
 #### Justification:
-In the decentralized case, farmers can choose to share information on water availability and cooperate on irrigation decisions. The matrix reflects the strategic tension between upstream and downstream farmers, considering the spatial asymmetry of their locations. If both farmers share information and cooperate (Share Info and! Cooperate), they can achieve a high payoff (8) by optimizing water use. If the upstream farmer shares information but the downstream farmer doesn't cooperate, the upstream farmer's payoff is low (2), while the downstream farmer's payoff is moderate (6). If neither farmer shares information or cooperates, the upstream farmer's payoff is higher (7), while the downstream farmer's payoff is lower (3), reflecting the upstream farmer's priority access to water.
+In the decentralized case, downstream farmers may overharvest fish to compensate for lost agricultural income, while upstream farmers may prefer to conserve the fish population. The matrix reflects the strategic tension between upstream and downstream farmers, with upstream farmers preferring to conserve fish and downstream farmers preferring to overharvest.
+
+### Action Situation 4: Budget Allocation - Irrigation vs. Fishing
+#### Tension: 
+A farmer must allocate their budget between irrigation and fishing, balancing the potential income from each activity.
+
+#### Matrix:
+|  | Farmer Allocates to Fishing | Farmer Allocates to Irrigation |
+| --- | --- | --- |
+| **Farmer Has Sufficient Budget** | Farmer: 8, Budget: 8 | Farmer: 6, Budget: 6 |
+| **Farmer Has Insufficient Budget** | Farmer: 4, Budget: 4 | Farmer: 2, Budget: 2 |
+
+#### Justification:
+In the decentralized case, each farmer must allocate their budget between irrigation and fishing. If a farmer chooses to allocate more to fishing, they may lose potential income from irrigation. The matrix reflects the strategic tension between allocating budget to fishing or irrigation, with the farmer preferring to allocate to the activity that maximizes their income.

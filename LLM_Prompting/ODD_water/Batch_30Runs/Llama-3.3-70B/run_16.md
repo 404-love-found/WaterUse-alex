@@ -1,53 +1,53 @@
 # Run 16 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Upstream Farmer's Irrigation Decision
+### Action Situation 1: Upstream-Downstream Water Allocation
 #### Tension: 
-Over-Irrigation vs. Conservative Irrigation
+Water allocation between upstream and downstream farmers, where upstream farmers have priority access to water, but downstream farmers have priority access to fish.
 
 #### Matrix:
-|  | Downstream Farmer Cooperates (Conservative Irrigation) | Downstream Farmer Defects (Over-Irrigation) |
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Farmer Cooperates** | 8, 8 | 5, 9 |
-| **Upstream Farmer Defects** | 9, 5 | 6, 6 |
+| **Downstream (Cooperate)** | Upstream: 8, Downstream: 6 | Upstream: 9, Downstream: 3 |
+| **Downstream (Defect)** | Upstream: 5, Downstream: 7 | Upstream: 6, Downstream: 4 |
 
 #### Justification:
-In the decentralized case, an upstream farmer's decision to irrigate more (defect) or less (cooperate) affects the downstream farmer's water availability. If both cooperate, they both get a moderate payoff (8). If one defects and the other cooperates, the defector gets a higher payoff (9) at the expense of the cooperator (5). If both defect, they both suffer from reduced water availability and get a lower payoff (6). This situation reflects the strategic tension between individual gain and collective sustainability.
+In the decentralized case, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have priority access to water, which may lead to a strategic tension with downstream farmers who have priority access to fish. The matrix reflects the trade-off between cooperating (allocating water fairly) and defecting (using more water than needed). If both cooperate, they receive moderate payoffs (8, 6). If the upstream farmer defects, they receive a higher payoff (9), but the downstream farmer receives a lower payoff (3). If the downstream farmer defects, they receive a higher payoff (7), but the upstream farmer receives a lower payoff (5).
 
-### Action Situation 2: Farmer's Fishing Decision
+### Action Situation 2: Fishing Quota Allocation
 #### Tension: 
-Over-Fishing vs. Sustainable Fishing
+Fishing quota allocation between farmers, where each farmer tries to catch a fixed target catch level, but the fish population is sensitive to ecological thresholds.
 
 #### Matrix:
-|  | Other Farmers Cooperate (Sustainable Fishing) | Other Farmers Defect (Over-Fishing) |
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Farmer Cooperates** | 7, 7 | 4, 8 |
-| **Farmer Defects** | 8, 4 | 5, 5 |
+| **Farmer 2 (Cooperate)** | Farmer 1: 5, Farmer 2: 5 | Farmer 1: 7, Farmer 2: 2 |
+| **Farmer 2 (Defect)** | Farmer 1: 2, Farmer 2: 7 | Farmer 1: 3, Farmer 2: 3 |
 
 #### Justification:
-In the decentralized case, a farmer's decision to fish sustainably (cooperate) or over-fish (defect) affects the overall fish population. If all farmers cooperate, they all get a moderate payoff (7). If one defects and others cooperate, the defector gets a higher payoff (8) at the expense of the cooperators (4). If all defect, they all suffer from reduced fish populations and get a lower payoff (5). This situation reflects the strategic tension between individual gain and collective resource management.
+In the decentralized case, each farmer tries to catch a fixed target catch level, but the fish population is sensitive to ecological thresholds. If both farmers cooperate and catch their target level, they receive moderate payoffs (5, 5). If one farmer defects and catches more fish, they receive a higher payoff (7), but the other farmer receives a lower payoff (2). If both farmers defect, they both receive lower payoffs (3, 3) due to the ecological threshold being exceeded.
 
-### Action Situation 3: Upstream Farmer's Water Withdrawal Decision
+### Action Situation 3: Irrigation Investment
 #### Tension: 
-Excessive Withdrawal vs. Conservative Withdrawal
+Irrigation investment decision between farmers, where each farmer must decide whether to invest in irrigation infrastructure, considering the spatial asymmetry and ecological thresholds.
 
 #### Matrix:
-|  | Downstream Farmer Has Low Water Demand | Downstream Farmer Has High Water Demand |
+|  | Farmer 1 (Invest) | Farmer 1 (Not Invest) |
 | --- | --- | --- |
-| **Upstream Farmer Withdraws Excessively** | 9, 3 | 7, 1 |
-| **Upstream Farmer Withdraws Conservatively** | 6, 6 | 4, 4 |
+| **Farmer 2 (Invest)** | Farmer 1: 6, Farmer 2: 6 | Farmer 1: 4, Farmer 2: 8 |
+| **Farmer 2 (Not Invest)** | Farmer 1: 8, Farmer 2: 4 | Farmer 1: 5, Farmer 2: 5 |
 
 #### Justification:
-In the decentralized case, an upstream farmer's decision to withdraw water excessively (defect) or conservatively (cooperate) affects the downstream farmer's water availability. If the downstream farmer has low water demand, the upstream farmer's excessive withdrawal results in a high payoff (9) for themselves but a low payoff (3) for the downstream farmer. If the downstream farmer has high water demand, the upstream farmer's excessive withdrawal results in a moderate payoff (7) for themselves but a very low payoff (1) for the downstream farmer. This situation reflects the strategic tension between individual gain and downstream water security.
+In the decentralized case, each farmer must decide whether to invest in irrigation infrastructure, considering the spatial asymmetry and ecological thresholds. If both farmers invest, they receive moderate payoffs (6, 6). If one farmer invests and the other does not, the investing farmer receives a higher payoff (8), but the non-investing farmer receives a lower payoff (4). If neither farmer invests, they both receive moderate payoffs (5, 5). The matrix reflects the trade-off between investing in irrigation infrastructure and not investing, considering the spatial asymmetry and ecological thresholds.
 
-### Action Situation 4: Farmer's Field Expansion Decision
+### Action Situation 4: Water Conservation
 #### Tension: 
-Expansion vs. Conservation
+Water conservation decision between farmers, where each farmer must decide whether to conserve water, considering the ecological thresholds and spatial asymmetry.
 
 #### Matrix:
-|  | Other Farmers Expand Fields | Other Farmers Conserve Fields |
+|  | Farmer 1 (Conserve) | Farmer 1 (Not Conserve) |
 | --- | --- | --- |
-| **Farmer Expands Fields** | 8, 8 (if total fields ≤ 10), 2, 2 (if total fields > 10) | 9, 5 |
-| **Farmer Conserves Fields** | 5, 9 | 7, 7 |
+| **Farmer 2 (Conserve)** | Farmer 1: 7, Farmer 2: 7 | Farmer 1: 5, Farmer 2: 9 |
+| **Farmer 2 (Not Conserve)** | Farmer 1: 9, Farmer 2: 5 | Farmer 1: 6, Farmer 2: 6 |
 
 #### Justification:
-In the decentralized case, a farmer's decision to expand fields (defect) or conserve fields (cooperate) affects the overall water availability and ecological sustainability. If all farmers expand fields within the ecological limit (total fields ≤ 10), they all get a moderate payoff (8). If they exceed the limit, they all suffer from severe ecological degradation and get a very low payoff (2). If one expands fields while others conserve, the expander gets a higher payoff (9) at the expense of the conservers (5). If all conserve fields, they all get a moderate payoff (7). This situation reflects the strategic tension between individual gain and collective ecological conservation.
+In the decentralized case, each farmer must decide whether to conserve water, considering the ecological thresholds and spatial asymmetry. If both farmers conserve water, they receive high payoffs (7, 7). If one farmer conserves water and the other does not, the conserving farmer receives a lower payoff (5), but the non-conserving farmer receives a higher payoff (9). If neither farmer conserves water, they both receive moderate payoffs (6, 6). The matrix reflects the trade-off between conserving water and not conserving water, considering the ecological thresholds and spatial asymmetry.

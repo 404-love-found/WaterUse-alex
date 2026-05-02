@@ -1,46 +1,53 @@
 # Run 13 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Decentralized Water Use Action Situations
-#### 1. Upstream-Downstream Irrigation Dilemma
-**Tension:** Upstream farmers may irrigate more, reducing water for downstream farmers.
-**Matrix:**
+### Action Situation 1: Upstream-Downstream Water Withdrawal
+#### Tension: 
+Spatial asymmetry in water access leads to a strategic dilemma between upstream and downstream farmers, where upstream farmers may prioritize their own irrigation needs over downstream farmers.
 
-|  | Downstream Cooperates | Downstream Defects |
+#### Matrix:
+|  | Upstream (Cooperate) | Upstream (Defect) |
 | --- | --- | --- |
-| **Upstream Cooperates** | Upstream: 5, Downstream: 5 | Upstream: 6, Downstream: 3 |
-| **Upstream Defects** | Upstream: 8, Downstream: 2 | Upstream: 7, Downstream: 4 |
+| **Downstream (Cooperate)** | 8, 6 | 2, 9 |
+| **Downstream (Defect)** | 9, 2 | 5, 5 |
 
-**Justification:** In the decentralized version, each farmer predicts water availability and decides on the number of fields to irrigate. Upstream farmers have an advantage in accessing water first, creating a strategic tension where they must decide whether to cooperate (irrigate fewer fields) or defect (irrigate more fields), affecting downstream farmers' water availability.
+#### Justification:
+In the decentralized case, each farmer decides on the number of fields to irrigate based on their prediction of water flows and available budget. Upstream farmers have priority access to water, creating a strategic tension with downstream farmers. If both cooperate (irrigate fewer fields), they both receive a moderate payoff (8, 6). If the upstream farmer defects (irrigates more fields), they receive a high payoff (9), while the downstream farmer receives a low payoff (2). If the downstream farmer defects, they may still receive a moderate payoff (5, 5) due to the limited water availability.
 
-#### 2. Fishing Resource Management Dilemma
-**Tension:** Farmers must balance fishing activities to avoid overfishing and depleting the fish population.
-**Matrix:**
+### Action Situation 2: Fishing Resource Management
+#### Tension: 
+Ecological thresholds in fish population growth lead to a strategic dilemma between farmers, where overfishing by one farmer may harm the entire fish population.
 
-|  | Other Farmers Cooperate | Other Farmers Defect |
+#### Matrix:
+|  | Farmer 1 (Cooperate) | Farmer 1 (Defect) |
 | --- | --- | --- |
-| **Farmer Cooperates** | Farmer: 4, Other Farmers: 4 | Farmer: 3, Other Farmers: 5 |
-| **Farmer Defects** | Farmer: 6, Other Farmers: 2 | Farmer: 5, Other Farmers: 5 |
+| **Farmer 2 (Cooperate)** | 6, 6 | 3, 8 |
+| **Farmer 2 (Defect)** | 8, 3 | 4, 4 |
 
-**Justification:** The fish population growth is modelled using an age-structured Leslie type matrix, and fishing activities can affect the population's sustainability. Farmers must decide whether to cooperate (catch fewer fish) or defect (catch more fish), considering the potential consequences on the fish population and their own future catches.
+#### Justification:
+In the decentralized case, farmers have access to the fishing lake and can choose to cooperate (catch fewer fish) or defect (catch more fish). If both cooperate, they both receive a moderate payoff (6, 6). If one farmer defects, they receive a high payoff (8), while the other farmer receives a low payoff (3). If both defect, they both receive a low payoff (4, 4) due to the depletion of the fish population.
 
-#### 3. Water Allocation under Ecological Thresholds Dilemma
-**Tension:** Farmers must allocate water while considering ecological thresholds, such as the minimum water flow required for fish migration.
-**Matrix:**
+### Action Situation 3: Irrigation Investment
+#### Tension: 
+Farmers face a strategic dilemma in deciding how many fields to irrigate, given the uncertainty of water flows and the potential for water stress.
 
-|  | Other Farmers Prioritize Ecology | Other Farmers Prioritize Irrigation |
+#### Matrix:
+|  | Farmer 1 (Conservative) | Farmer 1 (Aggressive) |
 | --- | --- | --- |
-| **Farmer Prioritizes Ecology** | Farmer: 4, Other Farmers: 4 | Farmer: 3, Other Farmers: 6 |
-| **Farmer Prioritizes Irrigation** | Farmer: 6, Other Farmers: 3 | Farmer: 5, Other Farmers: 5 |
+| **Farmer 2 (Conservative)** | 5, 5 | 2, 7 |
+| **Farmer 2 (Aggressive)** | 7, 2 | 4, 4 |
 
-**Justification:** The model includes ecological thresholds, such as the minimum water flow required for fish migration. Farmers must decide whether to prioritize ecological sustainability or irrigation, considering the potential consequences on the fish population and their own agricultural activities.
+#### Justification:
+In the decentralized case, farmers must decide how many fields to irrigate, given the uncertainty of water flows. A conservative approach (irrigating fewer fields) may lead to a moderate payoff (5, 5), while an aggressive approach (irrigating more fields) may lead to a high payoff (7) if water flows are sufficient. However, if water flows are insufficient, an aggressive approach may lead to a low payoff (2). If both farmers are aggressive, they both receive a low payoff (4, 4) due to water stress.
 
-#### 4. Budget and Risk Management Dilemma
-**Tension:** Farmers must manage their budgets and decide whether to risk increasing irrigation areas or play it safe.
-**Matrix:**
+### Action Situation 4: Water Flow Prediction
+#### Tension: 
+Farmers face a strategic dilemma in predicting water flows, given the uncertainty and variability of the water resource.
 
-|  | Other Farmers Take Risk | Other Farmers Play Safe |
+#### Matrix:
+|  | Farmer 1 (Optimistic) | Farmer 1 (Pessimistic) |
 | --- | --- | --- |
-| **Farmer Takes Risk** | Farmer: 7, Other Farmers: 4 | Farmer: 6, Other Farmers: 5 |
-| **Farmer Plays Safe** | Farmer: 5, Other Farmers: 6 | Farmer: 4, Other Farmers: 4 |
+| **Farmer 2 (Optimistic)** | 8, 8 | 4, 6 |
+| **Farmer 2 (Pessimistic)** | 6, 4 | 5, 5 |
 
-**Justification:** In the decentralized version, farmers have a minimum income threshold and must decide whether to risk increasing irrigation areas or play it safe. This creates a strategic tension, as farmers must balance their budget management with the potential consequences of their decisions on their agricultural activities and overall well-being.
+#### Justification:
+In the decentralized case, farmers must predict water flows to decide on the number of fields to irrigate. An optimistic prediction (high water flows) may lead to a high payoff (8, 8) if water flows are indeed high. However, if water flows are low, an optimistic prediction may lead to a low payoff (4). A pessimistic prediction (low water flows) may lead to a moderate payoff (5, 5) if water flows are indeed low. If one farmer is optimistic and the other is pessimistic, they receive asymmetric payoffs (6, 4).

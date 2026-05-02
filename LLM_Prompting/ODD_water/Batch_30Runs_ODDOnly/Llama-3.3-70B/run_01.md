@@ -5,49 +5,53 @@
 Over-Irrigation vs. Conservative Irrigation
 
 #### Matrix:
-|  | Upstream Farmer Irrigates 5 fields | Upstream Farmer Irrigates 10 fields |
+
+|  | Downstream Farmer Conserves Water | Downstream Farmer Over-Irrigates |
 | --- | --- | --- |
-| **Downstream Farmer Irrigates 5 fields** | Upstream: 20, Downstream: 15 | Upstream: 30, Downstream: 0 |
-| **Downstream Farmer Irrigates 10 fields** | Upstream: 20, Downstream: 10 | Upstream: 30, Downstream: 0 |
+| **Upstream Farmer Conserves Water** | 5, 5 | 3, 6 |
+| **Upstream Farmer Over-Irrigates** | 6, 3 | 2, 2 |
 
 #### Justification:
-In the decentralized case, an upstream farmer's decision to irrigate more fields can lead to less water availability for the downstream farmer, creating a strategic tension. The upstream farmer may choose to irrigate more fields to increase their yield, but this could leave the downstream farmer with insufficient water, resulting in a lower yield or even no yield at all. This situation reflects the spatial asymmetry and ecological thresholds, as the upstream farmer's actions can affect the downstream farmer's outcomes and the overall water availability.
+In the decentralized case, an upstream farmer's decision to irrigate can affect the water availability for downstream farmers. If both farmers conserve water, they both receive a moderate payoff (5). If the upstream farmer over-irrigates and the downstream farmer conserves, the upstream farmer receives a higher payoff (6) while the downstream farmer receives a lower payoff (3). If both farmers over-irrigate, they both receive a low payoff (2) due to water scarcity.
 
 ### Action Situation 2: Farmer's Decision to Increase Irrigated Fields
 #### Tension: 
-Risk-taking vs. Risk-aversion
+Expansion vs. Caution
 
 #### Matrix:
-|  | Farmer Increases Irrigated Fields | Farmer Maintains Current Fields |
+
+|  | Farmer Has Sufficient Budget | Farmer Has Insufficient Budget |
 | --- | --- | --- |
-| **Water Availability is High** | Farmer: 25, System: 20 | Farmer: 20, System: 25 |
-| **Water Availability is Low** | Farmer: 0, System: 15 | Farmer: 15, System: 20 |
+| **Increase Irrigated Fields** | 8, 8 | 4, 4 |
+| **Maintain Current Fields** | 6, 6 | 5, 5 |
 
 #### Justification:
-In the decentralized case, a farmer's decision to increase the number of irrigated fields can be risky, as it depends on the water availability. If the water availability is high, increasing the irrigated fields can lead to higher yields, but if the water availability is low, it can result in crop failure. This situation reflects the ecological thresholds, as the farmer's actions can affect the overall water availability and the system's resilience.
+A farmer's decision to increase irrigated fields depends on their budget. If they have a sufficient budget, increasing fields can lead to higher payoffs (8) if they can irrigate them adequately. If they have an insufficient budget, increasing fields can lead to lower payoffs (4) due to water stress. Maintaining current fields provides a moderate payoff (6) with a sufficient budget and a slightly lower payoff (5) with an insufficient budget.
 
-### Action Situation 3: Farmer's Decision to Fish
+### Action Situation 3: Farmer's Response to Ecological Thresholds
 #### Tension: 
-Over-fishing vs. Sustainable Fishing
+Precaution vs. Exploitation
 
 #### Matrix:
-|  | Farmer Fishes at High Level | Farmer Fishes at Low Level |
+
+|  | Fish Population Below Threshold | Fish Population Above Threshold |
 | --- | --- | --- |
-| **Other Farmers Fish at High Level** | Farmer: 10, Fish Population: 5 | Farmer: 15, Fish Population: 10 |
-| **Other Farmers Fish at Low Level** | Farmer: 15, Fish Population: 15 | Farmer: 20, Fish Population: 20 |
+| **Reduce Fishing Effort** | 4, 4 | 7, 7 |
+| **Maintain Fishing Effort** | 6, 6 | 3, 3 |
 
 #### Justification:
-In the decentralized case, a farmer's decision to fish can affect the fish population and the overall ecosystem. If multiple farmers fish at a high level, it can lead to over-fishing and depletion of the fish population, while sustainable fishing practices can maintain the fish population. This situation reflects the ecological thresholds, as the farmers' actions can affect the overall ecosystem and the system's resilience.
+A farmer's decision to reduce fishing effort depends on the fish population's ecological threshold. If the population is below the threshold, reducing effort can help replenish the population, leading to higher payoffs (7) in the long run. If the population is above the threshold, maintaining effort can provide higher short-term payoffs (6) but risks depleting the population. Reducing effort when the population is below the threshold provides a moderate payoff (4), while maintaining effort when the population is above the threshold leads to lower payoffs (3) due to overfishing.
 
-### Action Situation 4: Upstream and Downstream Farmers' Irrigation Decisions with Ecological Thresholds
+### Action Situation 4: Upstream-Downstream Conflict Over Water Allocation
 #### Tension: 
-Coordinated Conservation vs. Uncoordinated Over-Use
+Cooperation vs. Competition
 
 #### Matrix:
-|  | Upstream Farmer Irrigates 5 fields | Upstream Farmer Irrigates 10 fields |
+
+|  | Downstream Farmer Cooperates | Downstream Farmer Competes |
 | --- | --- | --- |
-| **Downstream Farmer Irrigates 5 fields, Water Availability is High** | Upstream: 20, Downstream: 20, System: 30 | Upstream: 25, Downstream: 15, System: 20 |
-| **Downstream Farmer Irrigates 10 fields, Water Availability is Low** | Upstream: 15, Downstream: 0, System: 10 | Upstream: 20, Downstream: 0, System: 5 |
+| **Upstream Farmer Cooperates** | 7, 7 | 2, 8 |
+| **Upstream Farmer Competes** | 8, 2 | 3, 3 |
 
 #### Justification:
-In the decentralized case, the upstream and downstream farmers' irrigation decisions can affect the overall water availability and the system's resilience. If both farmers irrigate at a high level when the water availability is low, it can lead to a tipping point, resulting in severe consequences for the system. This situation reflects the spatial asymmetry and ecological thresholds, as the farmers' actions can affect the overall water availability and the system's resilience.
+The upstream-downstream conflict over water allocation creates a tension between cooperation and competition. If both farmers cooperate, they can allocate water efficiently, leading to higher payoffs (7) for both. If the upstream farmer competes and the downstream farmer cooperates, the upstream farmer receives a higher payoff (8) while the downstream farmer receives a lower payoff (2). If both farmers compete, they both receive lower payoffs (3) due to water scarcity and inefficiency.
