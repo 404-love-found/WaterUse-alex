@@ -2,107 +2,223 @@
 
 ### Action Situation 1: Capacitor Adoption Assurance (AS1)
 
-#### Title
-Capacitor Adoption Assurance
+**Title:** Capacitor Adoption Assurance
 
-#### Tension
-Mutual cooperation is Pareto-dominant, but risky due to the potential for unilateral defection.
+**Tension:** Mutual Cooperation vs. Free-Rider Dilemma
 
-#### 2-player Normal Form Payoff Matrix
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Farmer B: No Capacitor | Farmer B: Capacitor |
+  |--------------|-----------------------|--------------------|
+  | A: No Capacitor | (0, 0)                | (0, 1)             |
+  | A: Capacitor   | (1, 0)                | (2, 2)             |
+  ```
+- **Sequential Representation:**
+  ```
+  (A, B)
+  Farmer A: [No Capacitor, Capacitor]
+  Farmer B: [No Capacitor, Capacitor]
+  ```
 
-|                  | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|------------------|------------------|-------------------------|
-| **Farmer 1 Invests** | (5, 5)              | (3, 0)                  |
-| **Farmer 1 Does Not Invest** | (0, 3)              | (4, 4)                  |
+**Justification:** This action situation involves two neighboring farmers deciding whether to invest in a capacitor to stabilize electricity voltage. Mutual investment yields shared improvement, while unilateral investment offers no additional private benefit, creating a coordination problem with mutual cooperation being Pareto-dominant but risky.
 
-#### Justification
-- **Farmer 1 Invests**: If both invest, both gain a collective benefit of 5. However, if only one invests, the investor gains 3, and the non-investor gains 0.
-- **Farmer 1 Does Not Invest**: If both do not invest, each gains 4. However, if only one does not invest, the non-investor gains 3, and the investor gains 0.
-- This situation reflects the coordination problem where mutual investment is optimal but risky due to the potential for one party to defect and free-ride.
+### Action Situation 2: Transformer Capacity Authorization Dilemma (AS3)
 
----
+**Title:** Transformer Capacity Authorization Dilemma
 
-### Action Situation 2: Transformer-Authorization Dilemma (AS3)
+**Tension:** Formal Cooperation vs. Free-Rider Dilemma
 
-#### Title
-Transformer-Authorization Dilemma
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Farmer A: No Authorization | Farmer A: Authorization |
+  |--------------|--------------------------|-----------------------|
+  | B: No Authorization | (0, 0)                   | (0, 1)                |
+  | B: Authorization   | (1, 0)                   | (2, 2)                |
+  ```
+- **Sequential Representation:**
+  ```
+  (A, B)
+  Farmer A: [No Authorization, Authorization]
+  Farmer B: [No Authorization, Authorization]
+  ```
 
-#### Tension
-A free-rider incentive exists where the cost of investment falls on the authorizer, while the non-investor benefits more.
-
-#### 2-player Normal Form Payoff Matrix
-
-|                  | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|------------------|------------------|-------------------------|
-| **Farmer 1 Invests** | (5, 5)              | (0, 10)                 |
-| **Farmer 1 Does Not Invest** | (10, 0)             | (4, 4)                  |
-
-#### Justification
-- **Farmer 1 Invests**: If both invest, both gain a collective benefit of 5. However, if only one invests, the authorizer (Farmer 1) incurs a cost of 10, while the non-investor (Farmer 2) gains 10.
-- **Farmer 1 Does Not Invest**: If both do not invest, each gains 4. However, if only one does not invest, the non-investor gains 10, and the investor gains 0.
-- This situation reflects the free-rider problem where the cost of an improvement is borne by one party, while the benefits are shared.
-
----
+**Justification:** This action situation involves two farmers deciding whether to request authorization for transformer capacity upgrades. Mutual authorization benefits both by raising voltage quality, but costs fall solely on the authorizer, creating a free-rider incentive and uneven payoffs.
 
 ### Action Situation 3: Mutual-Exchange Coordination (AS4)
 
-#### Title
-Mutual-Exchange Coordination
+**Title:** Mutual-Exchange Coordination
 
-#### Tension
-Reciprocal benefit arises only when both parties engage in informal exchange.
+**Tension:** Informal Exchange vs. Formal Compliance
 
-#### 2-player Normal Form Payoff Matrix
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Staff: No Exchange | Staff: Exchange |
+  |--------------|--------------------|----------------|
+  | Farmer: No Exchange | (0, 0)            | (0, 1)         |
+  | Farmer: Exchange   | (1, 0)            | (2, 2)         |
+  ```
+- **Sequential Representation:**
+  ```
+  (F, S)
+  Farmer: [No Exchange, Exchange]
+  Staff: [No Exchange, Exchange]
+  ```
 
-|                  | Staff Invests | Staff Does Not Invest |
-|------------------|---------------|----------------------|
-| **Farmer Invests** | (5, 5)             | (3, 0)               |
-| **Farmer Does Not Invest** | (0, 3)             | (4, 4)               |
+**Justification:** This action situation involves a farmer and sub-station staff deciding whether to engage in informal exchanges. Reciprocal benefit arises only when both engage, and unilateral engagement results in a loss for the offerer and no additional gain for the recipient.
 
-#### Justification
-- **Farmer Invests**: If both engage in informal exchange, both gain a collective benefit of 5. However, if only one engages, the offerer (Farmer) gains 3, and the other (Staff) gains 0.
-- **Farmer Does Not Invest**: If both do not engage, each gains 4. However, if only one does not engage, the non-engager gains 3, and the other gains 0.
-- This situation reflects the coordination problem where mutual engagement is necessary for mutual gain, but there is an incentive for one party to free-ride.
+### Action Situation 4: Groundwater Extraction Prisoner's Dilemma (AS6)
 
----
+**Title:** Groundwater Extraction Prisoner's Dilemma
 
-### Action Situation 4: Formal vs. Informal Authorization (AS5)
+**Tension:** Mutual Restraint vs. Unilateral Over-Extraction
 
-#### Title
-Formal vs. Informal Authorization
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Farmer A: Restrain | Farmer A: Over-Extract |
+  |--------------|--------------------|-----------------------|
+  | B: Restrain   | (1, 1)             | (0, 2)                |
+  | B: Over-Extract | (2, 0)            | (0, 0)                |
+  ```
+- **Sequential Representation:**
+  ```
+  (A, B)
+  Farmer A: [Restrain, Over-Extract]
+  Farmer B: [Restrain, Over-Extract]
+  ```
 
-#### Tension
-Mutual formal cooperation is collectively optimal, but there are asymmetric incentives between legality and opportunism.
+**Justification:** This action situation involves two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-#### 2-player Normal Form Payoff Matrix
+### Action Situation 5: Asymmetric Authorization-Enforcement Dilemma (AS5)
 
-|                  | Staff Invests | Staff Withholds |
-|------------------|---------------|----------------|
-| **Farmer Makes Formal Request** | (5, 5)             | (0, 0)              |
-| **Farmer Makes Informal Request** | (4, 5)             | (3, 3)              |
+**Title:** Asymmetric Authorization-Enforcement Dilemma
 
-#### Justification
-- **Farmer Makes Formal Request**: If both cooperate formally, both gain a collective benefit of 5. If the staff withholds, the farmer incurs a loss of 0, while the staff saves an effort or cost of 0. If the farmer makes an informal request and the staff invests, the farmer gains 4, and the staff gains 5. If both abstain, each gains 3.
-- This situation reflects the asymmetric incentives where mutual formal cooperation is optimal, but there is an incentive for the farmer to make an informal request to save formal fees or for the staff to invest under an informal request to gain more.
+**Tension:** Formal Cooperation vs. Opportunism
 
----
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Staff: No Investment | Staff: Investment |
+  |--------------|---------------------|------------------|
+  | Farmer: Formal Request | (0, 0)              | (0, 1)           |
+  | Farmer: Informal Request | (1, 0)             | (2, 2)           |
+  ```
+- **Sequential Representation:**
+  ```
+  (F, S)
+  Farmer: [Formal Request, Informal Request]
+  Staff: [No Investment, Investment]
+  ```
 
-### Action Situation 5: Groundwater Extraction Prisoner’s Dilemma (AS6)
+**Justification:** This action situation involves a farmer and sub-station staff deciding on formal or informal requests for transformer capacity investment. Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost. If the farmer makes an informal request and the staff invest, the farmer gains more while the staff bear the cost without the formal fee.
 
-#### Title
-Groundwater Extraction Prisoner’s Dilemma
+### Action Situation 6: Social Learning (AS2)
 
-#### Tension
-Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+**Title:** Social Learning in Capacitor Adoption
 
-#### 2-player Normal Form Payoff Matrix
+**Tension:** Learning from Success vs. Free-Rider Dilemma
 
-|                  | Farmer 2 Restraints | Farmer 2 Over-Extracts |
-|------------------|---------------------|------------------------|
-| **Farmer 1 Restraints** | (5, 5)               | (10, 3)                |
-| **Farmer 1 Over-Extracts** | (3, 10)              | (4, 4)                 |
+**Matrix/Sequential Representation:**
+- **Sequential Representation:**
+  ```
+  (F1, F2)
+  Farmer 1: [Adopt Capacitor, No Capacitor]
+  Farmer 2: [Adopt Capacitor, No Capacitor]
+  ```
 
-#### Justification
-- **Farmer 1 Restraints**: If both restrain, each gains 5. If only one over-extracts, the over-extractor gains 10, and the restrainer gains 3.
-- **Farmer 1 Over-Extracts**: If both over-extract, each gains 4. If only one restrains, the over-extractor gains 10, and the restrainer gains 3.
-- This situation reflects the prisoner’s dilemma where mutual restraint is optimal but risky due to the potential for one party to over-extract and gain a short-term benefit.
+**Justification:** This action situation involves a sequential learning process where farmers observe the outcomes of their peers and decide whether to adopt capacitors based on the observed success. Diffusion occurs only after a successful coordinated trial has been observed.
+
+### Action Situation 7: Asymmetric Coordination Game (AS1, AS5)
+
+**Title:** Asymmetric Coordination Game
+
+**Tension:** Formal Cooperation vs. Opportunism
+
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Staff: No Investment | Staff: Investment |
+  |--------------|---------------------|------------------|
+  | Farmer: Formal Request | (0, 0)              | (0, 1)           |
+  | Farmer: Informal Request | (1, 0)             | (2, 2)           |
+  ```
+- **Sequential Representation:**
+  ```
+  (F, S)
+  Farmer: [Formal Request, Informal Request]
+  Staff: [No Investment, Investment]
+  ```
+
+**Justification:** This action situation involves a farmer and sub-station staff deciding on formal or informal requests for transformer capacity investment. Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost. If the farmer makes an informal request and the staff invest, the farmer gains more while the staff bear the cost without the formal fee.
+
+### Action Situation 8: Farmer-Farmer Coordination (AS1, AS3, AS6)
+
+**Title:** Farmer-Farmer Coordination
+
+**Tension:** Mutual Cooperation vs. Free-Rider Dilemma
+
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Farmer B: No Investment | Farmer B: Investment |
+  |--------------|------------------------|---------------------|
+  | Farmer A: No Investment | (0, 0)                | (0, 1)              |
+  | Farmer A: Investment   | (1, 0)                | (2, 2)              |
+  ```
+- **Sequential Representation:**
+  ```
+  (A, B)
+  Farmer A: [No Investment, Investment]
+  Farmer B: [No Investment, Investment]
+  ```
+
+**Justification:** This action situation involves two farmers deciding whether to invest in transformer capacity upgrades, groundwater extraction, or other coordination efforts. Mutual investment benefits both, but costs fall on the individual who initiates the investment, creating a free-rider incentive.
+
+### Action Situation 9: Farmer-Staff Interaction (AS4, AS5)
+
+**Title:** Farmer-Staff Interaction
+
+**Tension:** Informal Exchange vs. Formal Compliance
+
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Staff: No Exchange | Staff: Exchange |
+  |--------------|--------------------|----------------|
+  | Farmer: No Exchange | (0, 0)            | (0, 1)         |
+  | Farmer: Exchange   | (1, 0)            | (2, 2)         |
+  ```
+- **Sequential Representation:**
+  ```
+  (F, S)
+  Farmer: [No Exchange, Exchange]
+  Staff: [No Exchange, Exchange]
+  ```
+
+**Justification:** This action situation involves farmers and sub-station staff deciding whether to engage in informal exchanges or formal compliance. Reciprocal benefit arises only when both engage, and unilateral engagement results in a loss for the offerer and no additional gain for the recipient.
+
+### Action Situation 10: Bounded Rationality (AS1, AS3, AS4, AS5, AS6)
+
+**Title:** Bounded Rationality
+
+**Tension:** Rational Decision-Making vs. Behavioral Biases
+
+**Matrix/Sequential Representation:**
+- **Matrix Representation:**
+  ```
+  |              | Farmer: No Capacitor | Farmer: Capacitor |
+  |--------------|---------------------|------------------|
+  | Staff: No Authorization | (0, 0)              | (0, 1)           |
+  | Staff: Authorization   | (1, 0)              | (2, 2)           |
+  ```
+- **Sequential Representation:**
+  ```
+  (F, S)
+  Farmer: [No Capacitor, Capacitor]
+  Staff: [No Authorization, Authorization]
+  ```
+
+**Justification:** This action situation reflects the bounded rationality of farmers and staff, who make decisions based on heuristics and social learning rather than optimal rationality. Behavioral biases such as social learning and trust networks can lead to suboptimal outcomes.

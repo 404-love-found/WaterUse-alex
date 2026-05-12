@@ -1,56 +1,49 @@
 # Run 26 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance
-#### Tension: 
-Coordination problem between two neighboring farmers deciding whether to invest in voltage-stabilizing equipment.
-#### Matrix: 
-|  | Farmer 2 Adopts | Farmer 2 Does Not Adopt |
+### Action Situation 1: Capacitor Adoption Coordination
+#### Title: Coordination Dilemma in Capacitor Adoption
+#### Tension: Farmers must decide whether to invest in capacitors to improve voltage stability, with benefits strongest when adoption is coordinated.
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Adopts Capacitor | Farmer 2 Does Not Adopt Capacitor |
 | --- | --- | --- |
-| **Farmer 1 Adopts** | 3, 3 | 1, 2 |
-| **Farmer 1 Does Not Adopt** | 2, 1 | 2, 2 |
-#### Justification: 
-Mutual adoption yields shared improvement (3, 3), while unilateral adoption yields no added private benefit (1, 2), creating a coordination problem.
+| **Farmer 1 Adopts Capacitor** | 3, 3 (Mutual benefit) | 1, 2 (Farmer 1 bears cost, Farmer 2 free-rides) |
+| **Farmer 1 Does Not Adopt Capacitor** | 2, 1 (Farmer 2 bears cost, Farmer 1 free-rides) | 0, 0 (No improvement) |
+#### Justification: This action situation reflects the strategic tension between farmers who must decide whether to invest in capacitors. The payoff matrix shows that mutual adoption yields the highest benefit, but unilateral adoption can lead to free-riding.
 
-### Action Situation 2: Transformer Capacity Authorization Dilemma
-#### Tension: 
-Asymmetric interdependence between two farmers where one farmer’s authorization or investment benefits both but costs fall solely on the authorizer.
-#### Matrix: 
+### Action Situation 2: Transformer Capacity Contribution
+#### Title: Contribution Dilemma in Transformer Capacity
+#### Tension: Farmers must decide whether to contribute to authorized transformer capacity, with uneven costs and benefits.
+#### Matrix/Sequential Representation:
 |  | Farmer 2 Contributes | Farmer 2 Does Not Contribute |
 | --- | --- | --- |
-| **Farmer 1 Contributes** | 3, 3 | 1, 4 |
-| **Farmer 1 Does Not Contribute** | 4, 1 | 2, 2 |
-#### Justification: 
-Contributor bears cost while non-contributor benefits more if only one invests, generating a free-rider incentive.
+| **Farmer 1 Contributes** | 3, 3 (Mutual benefit) | 1, 2 (Farmer 1 bears cost, Farmer 2 free-rides) |
+| **Farmer 1 Does Not Contribute** | 2, 1 (Farmer 2 bears cost, Farmer 1 free-rides) | 0, 0 (No improvement) |
+#### Justification: This action situation reflects the strategic tension between farmers who must decide whether to contribute to transformer capacity. The payoff matrix shows that mutual contribution yields the highest benefit, but unilateral contribution can lead to free-riding.
 
-### Action Situation 3: Mutual Exchange Coordination
-#### Tension: 
-Reciprocal benefit between a farmer and sub-station staff when both engage in informal exchange.
-#### Matrix: 
-|  | Staff Engages in Informal Exchange | Staff Does Not Engage |
-| --- | --- | --- |
-| **Farmer Engages in Informal Exchange** | 4, 4 | 1, 3 |
-| **Farmer Does Not Engage** | 3, 1 | 2, 2 |
-#### Justification: 
-Mutual engagement yields reciprocal benefit (4, 4), while mismatched expectations create losses for the cooperating party.
+### Action Situation 3: Farmer-Staff Interaction - Authorization and Enforcement
+#### Title: Dilemma in Authorization and Enforcement
+#### Tension: Farmers and staff must interact under formal electricity rules and informal local relationships, with trade-offs between compliance and informal exchange.
+#### Sequential Representation:
+1. Farmer requests formal access or seeks informal access.
+2. Staff decides to enforce rules, tolerate informal access, or invest in capacity.
+#### Justification: This action situation reflects the strategic tension between farmers and staff who must interact under formal and informal rules. The sequential representation shows that the farmer's decision affects the staff's response, with trade-offs between compliance and informal exchange.
 
-### Action Situation 4: Authorization and Enforcement Asymmetric Coordination
-#### Tension: 
-Asymmetric incentives between a farmer and staff regarding formal authorization and capacity investment.
-#### Matrix: 
-|  | Staff Invests in Capacity | Staff Does Not Invest |
+### Action Situation 4: Groundwater Extraction
+#### Title: Prisoner's Dilemma in Groundwater Extraction
+#### Tension: Farmers must decide how much groundwater to extract, with individual benefits but collective costs.
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Extracts High | Farmer 2 Extracts Low |
 | --- | --- | --- |
-| **Farmer Seeks Formal Access** | 3, 2 | 1, 4 |
-| **Farmer Seeks Informal Access** | 4, 1 | 2, 3 |
-#### Justification: 
-Mutual formal cooperation is collectively optimal, but staff may prefer not to invest, and farmers may prefer informal access to reduce costs.
+| **Farmer 1 Extracts High** | 2, 2 (Mutual depletion) | 3, 1 (Farmer 1 benefits, Farmer 2 loses) |
+| **Farmer 1 Extracts Low** | 1, 3 (Farmer 1 loses, Farmer 2 benefits) | 0, 0 (Mutual conservation) |
+#### Justification: This action situation reflects the strategic tension between farmers who must decide how much groundwater to extract. The payoff matrix shows that individual high extraction dominates in the short run, but mutual high extraction leads to depletion and collective costs.
 
-### Action Situation 5: Groundwater Extraction Prisoner’s Dilemma
-#### Tension: 
-Conflict between individual short-term gain and collective long-term sustainability in groundwater extraction.
-#### Matrix: 
-|  | Farmer 2 Restraints | Farmer 2 Over-Extracts |
+### Action Situation 5: Informal Exchange between Farmer and Staff
+#### Title: Mutual Exchange Dilemma
+#### Tension: Farmers and staff must decide whether to engage in informal exchange, with benefits only when both parties cooperate.
+#### Matrix/Sequential Representation:
+|  | Staff Cooperates | Staff Does Not Cooperate |
 | --- | --- | --- |
-| **Farmer 1 Restraints** | 3, 3 | 1, 4 |
-| **Farmer 1 Over-Extracts** | 4, 1 | 2, 2 |
-#### Justification: 
-Mutual restraint sustains yields (3, 3), but unilateral over-extraction offers short-term gain (4, 1), accelerating depletion.
+| **Farmer Cooperates** | 3, 3 (Mutual benefit) | 1, 2 (Farmer loses, Staff gains) |
+| **Farmer Does Not Cooperate** | 2, 1 (Farmer gains, Staff loses) | 0, 0 (No benefit) |
+#### Justification: This action situation reflects the strategic tension between farmers and staff who must decide whether to engage in informal exchange. The payoff matrix shows that mutual cooperation yields the highest benefit, but unilateral cooperation can lead to losses.

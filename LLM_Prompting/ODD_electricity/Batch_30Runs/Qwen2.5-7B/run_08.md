@@ -1,103 +1,174 @@
 # Run 8 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Capacitor Adoption Assurance Game (AS1)
+### Action Situation 1: Capacitor Adoption Assurance (AS1)
+#### Tension:
+Two neighboring farmers must decide whether to invest in voltage-stabilizing equipment (capacitors). Mutual investment yields shared improvement, but unilateral investment yields no added private benefit.
 
-### Tension: Farmer-Farmer Coordination Dilemma
-Farmers face a coordination problem where mutual investment in capacitors yields shared improvement, but unilateral investment yields no added private benefit.
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Cap} & \text{Farmer 2: No Cap} \\
+\hline
+\text{Farmer 1: Cap} & (2, 2) & (1, 0) \\
+\text{Farmer 1: No Cap} & (0, 1) & (1, 1) \\
+\end{array}
+\]
 
-### Matrix:
-|           | Farmer B: Invest | Farmer B: Do Not Invest |
-|-----------|------------------|------------------------|
-| **Farmer A: Invest** | (3, 3) | (1, 0) |
-| **Farmer A: Do Not Invest** | (0, 1) | (2, 2) |
+#### Justification:
+This represents the coordination problem where mutual investment is Pareto-dominant but risky. If one farmer invests and the other does not, the investor bears the cost without gaining the full benefit.
 
-### Justification:
-- **Mutual Investment (3, 3)**: Both farmers invest in capacitors, improving local transformer load and voltage stability. This creates a shared improvement in electricity quality and reliability.
-- **Unilateral Investment (1, 0)**: Farmer A invests, but Farmer B does not. Farmer A benefits from the improved voltage stability (3), while Farmer B does not see any benefit (0).
-- **Unilateral Non-Investment (0, 1)**: Farmer A does not invest, but Farmer B does. Farmer B benefits from the improved voltage stability (3), while Farmer A does not see any benefit (0).
-- **Mutual Non-Investment (2, 2)**: Both farmers do not invest, maintaining the current voltage stability but not improving it. Both benefit equally from the current level of reliability (2).
+### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+#### Tension:
+Two farmers must decide whether to authorize capacity improvements or not. One farmer's authorization benefits both but incurs a cost to the authorizer.
 
-### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+#### Sequential Representation (Game Tree):
+```
+                  Farmer 1
+                  /   \
+             Authorize  No Authorize
+            /       \       \
+Farmer 2    Authorize  No Authorize  Authorize
+            /     \       /       \
+(2, 2)     (1, 1)  (1, 1)  (0, 2)
+```
 
-### Tension: Farmer-Staff Free-Rider Dilemma
-A farmer’s authorization or investment benefits both by raising voltage quality, but costs fall solely on the authorizer, generating a free-rider incentive and uneven payoffs.
+#### Justification:
+This represents the free-rider problem where one farmer must bear the cost of the improvement while both benefit. The cost is only incurred if the first farmer authorizes, making it a sequential decision where the first mover has to decide whether to invest.
 
-### Matrix:
-|           | Staff: Authorize | Staff: Do Not Authorize |
-|-----------|------------------|------------------------|
-| **Farmer: Authorize** | (1, 1) | (2, 0) |
-| **Farmer: Do Not Authorize** | (0, 2) | (3, 3) |
+### Action Situation 3: Mutual-Exchange Coordination Game (AS4)
+#### Tension:
+A farmer and sub-station personnel must decide whether to engage in informal exchanges or not. Mutual engagement yields reciprocal benefit, but unilateral engagement incurs a loss.
 
-### Justification:
-- **Mutual Authorization (1, 1)**: Both the farmer and staff authorize the connection, improving voltage quality and reducing transformer failure risk. Both benefit equally (1).
-- **Farmer Authorizes, Staff Does Not (2, 0)**: The farmer authorizes, but the staff does not invest in capacity or maintenance. The farmer incurs the cost (2), while the staff benefits (0) from the improved voltage without additional effort.
-- **Farmer Does Not Authorize, Staff Authorizes (0, 2)**: The staff authorizes, but the farmer does not invest. The staff incurs the cost (2), while the farmer benefits (0) from the improved voltage without additional cost.
-- **Mutual Non-authorization (3, 3)**: Neither the farmer nor the staff authorize the connection, maintaining the current voltage quality. Both benefit equally from the current level of reliability (3).
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station Staff: Exchange} & \text{Sub-station Staff: No Exchange} \\
+\hline
+\text{Farmer: Exchange} & (1, 1) & (0, 0) \\
+\text{Farmer: No Exchange} & (0, 0) & (0, 0) \\
+\end{array}
+\]
 
-### Title: Groundwater Extraction Prisoner's Dilemma (AS6)
+#### Justification:
+This represents the coordination problem where mutual exchange is necessary for reciprocal benefit, but both sides must trust each other to avoid losses. The game is symmetric, but the context of trust and informal relationships is critical.
 
-### Tension: Farmer-Farmer Extraction Dilemma
-Farmers face a situation where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+### Action Situation 4: Groundwater Extraction Prisoner's Dilemma (AS6)
+#### Tension:
+Two farmers drawing from the same aquifer must decide whether to restrain or over-extract groundwater. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-### Matrix:
-|           | Farmer B: Restrain | Farmer B: Over-Extract |
-|-----------|--------------------|-----------------------|
-| **Farmer A: Restrain** | (2, 2) | (3, 1) |
-| **Farmer A: Over-Extract** | (1, 3) | (1, 1) |
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Restrain} & \text{Farmer 2: Over-Extract} \\
+\hline
+\text{Farmer 1: Restrain} & (2, 2) & (1, 3) \\
+\text{Farmer 1: Over-Extract} & (3, 1) & (1, 1) \\
+\end{array}
+\]
 
-### Justification:
-- **Mutual Restraint (2, 2)**: Both farmers restrain their extraction, maintaining the aquifer and sustaining long-term yields. Both benefit equally (2).
-- **Farmer A Restraints, Farmer B Over-Extracts (3, 1)**: Farmer A restrains, but Farmer B over-extracts, leading to higher short-term benefits for Farmer B (1) and potential depletion for both (3).
-- **Farmer A Over-Extracts, Farmer B Restraints (1, 3)**: Farmer A over-extracts, but Farmer B restrains, leading to higher short-term benefits for Farmer A (1) and potential depletion for both (3).
-- **Mutual Over-Extraction (1, 1)**: Both farmers over-extract, leading to rapid depletion and lower yields for both. Both benefit equally from the short-term gain (1).
+#### Justification:
+This represents the prisoner's dilemma where mutual restraint is the best outcome, but unilateral over-extraction offers short-term gain at the cost of long-term sustainability.
 
-### Title: Mutual-Exchange Coordination Game (AS4)
+### Action Situation 5: Sequential Social-Learning Process (AS2)
+#### Tension:
+Farmers must decide whether to adopt capacitors based on the outcome of a visible coordinated trial.
 
-### Tension: Farmer-Staff Informal Exchange Dilemma
-Reciprocal benefit arises only when both engage in informal exchange, but if either abstains, the offerer bears a loss while the other reverts to baseline.
+#### Sequential Representation (Game Tree):
+```
+                  Farmer 1
+                  /   \
+             Adopt  No Adopt
+            /       \
+Farmer 2    Adopt  No Adopt
+            /     \
+(2, 2)     (1, 0)
+```
 
-### Matrix:
-|           | Staff: Exchange | Staff: No Exchange |
-|-----------|-----------------|--------------------|
-| **Farmer: Exchange** | (2, 2) | (1, 1) |
-| **Farmer: No Exchange** | (1, 1) | (3, 3) |
+#### Justification:
+This represents the sequential process where farmers observe and imitate the outcome of a coordinated trial. The first farmer decides whether to adopt based on the observed outcome, and the second farmer then decides based on the same information.
 
-### Justification:
-- **Mutual Exchange (2, 2)**: Both the farmer and staff engage in informal exchange, leading to mutual benefit (2).
-- **Farmer Exchanges, Staff Does Not (1, 1)**: The farmer engages in informal exchange, but the staff does not. The farmer incurs the cost (1), while the staff reverts to baseline (1).
-- **Farmer Does Not Exchange, Staff Exchanges (1, 1)**: The staff engages in informal exchange, but the farmer does not. The staff incurs the cost (1), while the farmer reverts to baseline (1).
-- **Mutual No Exchange (3, 3)**: Neither the farmer nor the staff engage in informal exchange, reverting to baseline (3).
+### Action Situation 6: Asymmetric Authorization-Enforcement Dilemma (AS5)
+#### Tension:
+A farmer must decide whether to make a formal request for authorization, and sub-station personnel must decide whether to invest in capacity or withhold.
 
-### Title: Authorization and Investment Asymmetric Coordination Game (AS5)
+#### Sequential Representation (Game Tree):
+```
+                  Farmer
+                  /   \
+             Formal  Informal
+            /       \
+Sub-station Staff    Invest  Withhold
+            /       \
+(2, 2)     (1, 0)  (0, 1)
+```
 
-### Tension: Farmer-Staff Formal Compliance Dilemma
-Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost.
+#### Justification:
+This represents the asymmetric incentives where formal cooperation is collectively optimal, but there are individual costs and benefits. The farmer incurs a formal fee, while the sub-station personnel may save effort but bear the cost of investment.
 
-### Matrix:
-|           | Staff: Authorize | Staff: No Authorize |
-|-----------|------------------|--------------------|
-| **Farmer: Authorize** | (1, 2) | (2, 1) |
-| **Farmer: No Authorize** | (3, 0) | (0, 3) |
+### Action Situation 7: Farmer-Farmer Coordination on Transformer Capacity (AS7)
+#### Tension:
+Farmers must decide whether to contribute to transformer capacity improvements.
 
-### Justification:
-- **Mutual Authorization (1, 2)**: Both the farmer and staff authorize the connection, improving voltage quality and reducing transformer failure risk. The farmer incurs some cost (1), while the staff benefits (2) from formal compliance.
-- **Farmer Authorizes, Staff Does Not (2, 1)**: The farmer authorizes, but the staff does not invest in capacity or maintenance. The farmer incurs the cost (2), while the staff saves effort or cost (1).
-- **Farmer Does Not Authorize, Staff Authorizes (3, 0)**: The staff authorizes, but the farmer does not invest. The staff incurs the cost (3), while the farmer reverts to baseline (0).
-- **Mutual Non-authorization (0, 3)**: Neither the farmer nor the staff authorize the connection, maintaining the current voltage quality. Both revert to baseline (3).
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Contribute} & \text{Farmer 2: Not Contribute} \\
+\hline
+\text{Farmer 1: Contribute} & (2, 2) & (1, 1) \\
+\text{Farmer 1: Not Contribute} & (1, 1) & (1, 1) \\
+\end{array}
+\]
 
-### Title: Sequential Social-Learning Process (AS2)
+#### Justification:
+This represents the free-rider problem where mutual contribution benefits the group, but individual farmers may prefer to free-ride on the contributions of others.
 
-### Tension: Diffusion of Capacitor Adoption
-Diffusion occurs only after a successful coordinated trial has been observed.
+### Action Situation 8: Farmer-Sub-station Personnel Compliance or Informal Exchange (AS8)
+#### Tension:
+Farmers and sub-station personnel must decide whether to seek formal authorization or informal exchange.
 
-### Matrix:
-|           | Farmer B: Adopt | Farmer B: Do Not Adopt |
-|-----------|-----------------|-----------------------|
-| **Farmer A: Adopt** | (3, 3) | (2, 2) |
-| **Farmer A: Do Not Adopt** | (2, 2) | (1, 1) |
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station Staff: Formal} & \text{Sub-station Staff: Informal} \\
+\hline
+\text{Farmer: Formal} & (1, 1) & (0, 0) \\
+\text{Farmer: Informal} & (0, 0) & (1, 1) \\
+\end{array}
+\]
 
-### Justification:
-- **Mutual Adoption (3, 3)**: Both farmers adopt capacitors, improving local transformer load and voltage stability. Both benefit equally (3).
-- **Farmer A Adopts, Farmer B Does Not (2, 2)**: Farmer A adopts, but Farmer B does not. Both benefit from the improved voltage stability (2).
-- **Farmer A Does Not Adopt, Farmer B Adopts (2, 2)**: Farmer B adopts, but Farmer A does not. Both benefit from the improved voltage stability (2).
-- **Mutual Non-Adoption (1, 1)**: Neither farmer adopts, maintaining the current voltage stability. Both revert to baseline (1).
+#### Justification:
+This represents the compliance dilemma where formal authorization is costly but ensures legitimacy, while informal exchange is cheaper but may lead to reputational risks and enforcement issues.
+
+### Action Situation 9: Transformer Reliability and Contribution Imbalance (AS9)
+#### Tension:
+Farmers must decide whether to contribute to transformer capacity based on the risk of overloading and the benefit of improved reliability.
+
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Contribute} & \text{Farmer 2: Not Contribute} \\
+\hline
+\text{Farmer 1: Contribute} & (2, 2) & (1, 1) \\
+\text{Farmer 1: Not Contribute} & (1, 1) & (1, 1) \\
+\end{array}
+\]
+
+#### Justification:
+This represents the free-rider problem where the risk of transformer overload creates a coordination issue. Mutual contribution is necessary for reliability, but individual farmers may prefer to free-ride.
+
+### Action Situation 10: Informal Staff-Farmer Networks (AS10)
+#### Tension:
+Sub-station personnel and farmers must decide whether to engage in informal exchanges or formal compliance.
+
+#### Matrix Representation:
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station Staff: Formal} & \text{Sub-station Staff: Informal} \\
+\hline
+\text{Farmer: Formal} & (1, 1) & (0, 0) \\
+\text{Farmer: Informal} & (0, 0) & (1, 1) \\
+\end{array}
+\]
+
+#### Justification:
+This represents the dilemma where mutual engagement is beneficial but may lead to reputational risks and enforcement issues. The game is symmetric, but the context of informal relationships is critical.

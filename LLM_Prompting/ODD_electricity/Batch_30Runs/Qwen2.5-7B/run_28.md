@@ -1,141 +1,139 @@
 # Run 28 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance
+### Action Situation Analysis
 
-**Title:** Capacitor Adoption Assurance
+#### 1. Farmer-Farmer Capacitor Coordination (AS1)
 
-**Tension:** Mutual Cooperation vs. Unilateral Investment
+**Title:** Capacitor Coordination Dilemma
 
-**Matrix:**
+**Tension:** Mutual Cooperation vs. Free-Rider
 
-|               | **Farmer 2 Invests** | **Farmer 2 Does Not Invest** |
-|---------------|----------------------|-----------------------------|
-| **Farmer 1 Invests** | (3, 3) | (2, 4) |
-| **Farmer 1 Does Not Invest** | (4, 2) | (1, 1) |
+**Matrix Representation:**
 
-**Justification:** This action situation captures the coordination problem where mutual investment in capacitors yields shared improvement in electricity quality, while unilateral investment does not provide additional private benefit. The payoff matrix reflects the ordinal rankings of outcomes based on the coordination requirements and mutual cooperation being Pareto-dominant.
+| Farmer 2's Action | Farmer 1 Invests | Farmer 1 Does Not Invest |
+|------------------|-----------------|-------------------------|
+| **Farmer 2 Invests** | (3, 3) | (0, 2) |
+| **Farmer 2 Does Not Invest** | (2, 0) | (1, 1) |
 
-### Action Situation 2: Transformer Capacity Authorization
+**Justification:** This represents the coordination between two neighboring farmers to invest in capacitors. Mutual investment improves voltage quality and pump efficiency, but unilateral investment does not provide any private benefit, creating a free-rider problem.
 
-**Title:** Transformer Capacity Authorization
+#### 2. Sequential Groundwater Extraction (AS6)
 
-**Tension:** Mutual Contribution vs. Free-Rider Incentives
+**Title:** Groundwater Extraction Dilemma
 
-**Matrix:**
+**Sequential Representation (Game Tree):**
 
-|               | **Farmer 2 Invests** | **Farmer 2 Does Not Invest** |
-|---------------|----------------------|-----------------------------|
-| **Farmer 1 Invests** | (2, 2) | (3, 1) |
-| **Farmer 1 Does Not Invest** | (1, 3) | (1, 1) |
+```
+          Farmers
+           / \
+          /   \
+         /     \
+    Extraction | Extraction
+    (1, 1)    (2, 0)    (0, 2)    (0, 0)
+```
 
-**Justification:** This action situation models the asymmetric coordination dilemma where mutual investment in transformer capacity benefits both farmers, but the cost falls on the investor, creating a free-rider incentive. The matrix reflects the ordinal rankings of outcomes based on the shared benefits and private costs associated with formal transformer capacity upgrades.
+**Justification:** This represents the sequential decision-making process where two farmers decide whether to extract groundwater. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. The game tree shows the sequence of decisions and outcomes.
 
-### Action Situation 3: Groundwater Extraction Prisoner’s Dilemma
-
-**Title:** Groundwater Extraction Prisoner’s Dilemma
-
-**Tension:** Mutual Restraint vs. Unilateral Extraction
-
-**Matrix:**
-
-|               | **Farmer 2 Extracts** | **Farmer 2 Does Not Extract** |
-|---------------|----------------------|-----------------------------|
-| **Farmer 1 Extracts** | (2, 2) | (3, 1) |
-| **Farmer 1 Does Not Extract** | (1, 3) | (1, 1) |
-
-**Justification:** This action situation captures the strategic dilemma where mutual restraint sustains groundwater yields, but unilateral extraction offers short-term gain and accelerates depletion. The matrix reflects the ordinal rankings of outcomes based on the collective benefits of mutual restraint versus the individual benefits of unilateral extraction.
-
-### Action Situation 4: Informal Exchange Coordination
+#### 3. Farmer-Staff Informal Exchange (AS4)
 
 **Title:** Informal Exchange Coordination
 
-**Tension:** Mutual Reciprocity vs. Opportunistic Behavior
+**Matrix Representation:**
 
-**Matrix:**
+| Staff's Action | Farmer Cooperates | Farmer Does Not Cooperate |
+|----------------|------------------|--------------------------|
+| **Staff Cooperates** | (2, 2) | (1, 1) |
+| **Staff Does Not Cooperate** | (1, 1) | (0, 0) |
 
-|               | **Staff Tolerates** | **Staff Enforces** |
-|---------------|---------------------|--------------------|
-| **Farmer Requests Informal Access** | (2, 2) | (1, 3) |
-| **Farmer Requests Formal Access** | (3, 1) | (2, 2) |
+**Justification:** This represents the interaction between a farmer and sub-station personnel. Mutual cooperation yields reciprocal benefit, but if either side abstains, the offerer bears a loss while the other reverts to baseline. The matrix shows the payoffs for both parties.
 
-**Justification:** This action situation models the mutual exchange coordination game where reciprocal benefit arises only when both parties engage in informal exchange. The matrix reflects the ordinal rankings of outcomes based on the benefits of mutual cooperation and the losses from opportunistic behavior.
+#### 4. Farmer-Staff Formal Authorization (AS5)
 
-### Action Situation 5: Formal vs. Informal Authorization
+**Title:** Formal Authorization Dilemma
 
-**Title:** Formal vs. Informal Authorization
+**Matrix Representation:**
 
-**Tension:** Formal Cooperation vs. Opportunistic Deviation
+| Staff's Action | Farmer Requests Formal | Farmer Requests Informal |
+|----------------|-----------------------|-------------------------|
+| **Staff Grants Formal** | (2, 2) | (1, 1) |
+| **Staff Grants Informal** | (1, 1) | (0, 0) |
 
-**Matrix:**
+**Justification:** This represents the decision between formal and informal access to electricity. Mutual formal cooperation is collectively optimal, but unilateral formal requests or informal tolerance can lead to losses. The matrix shows the payoffs for both parties.
 
-|               | **Staff Invests** | **Staff Withholds** |
-|---------------|-------------------|--------------------|
-| **Farmer Requests Formal Access** | (2, 2) | (1, 3) |
-| **Farmer Requests Informal Access** | (3, 1) | (2, 2) |
+#### 5. Transformer Capacity Authorization (AS3)
 
-**Justification:** This action situation captures the asymmetric coordination game where mutual formal cooperation is collectively optimal, but the farmer incurs a loss if staff withholds, and staff saves effort if the farmer makes an informal request. The matrix reflects the ordinal rankings of outcomes based on the benefits of formal cooperation and the losses from opportunistic deviations.
+**Title:** Transformer Capacity Authorization Dilemma
 
-### Action Situation 6: Capacitor Adoption Social Learning
+**Matrix Representation:**
 
-**Title:** Capacitor Adoption Social Learning
+| Farmer 2's Action | Farmer 1 Invests | Farmer 1 Does Not Invest |
+|------------------|-----------------|-------------------------|
+| **Farmer 2 Invests** | (2, 2) | (1, 1) |
+| **Farmer 2 Does Not Invest** | (1, 1) | (0, 0) |
 
-**Tension:** Imitation of Successful Peers vs. Free-Rider Incentives
+**Justification:** This represents the decision to invest in transformer capacity. Mutual investment improves voltage quality, but unilateral investment leads to higher costs without private benefit. The matrix shows the payoffs for both parties.
 
-|               | **Farmer 2 Invests** | **Farmer 2 Does Not Invest** |
-|---------------|----------------------|-----------------------------|
-| **Farmer 1 Invests** | (3, 3) | (2, 4) |
-| **Farmer 1 Does Not Invest** | (4, 2) | (1, 1) |
+#### 6. Social Learning and Capacitor Adoption (AS2)
 
-**Justification:** This action situation models the diffusion of capacitor adoption through social learning. The matrix reflects the ordinal rankings of outcomes based on the imitation of successful peers, where mutual adoption can spread through the social network, but unilateral adoption may not yield significant benefits due to free-rider incentives.
+**Title:** Social Learning Dilemma
 
-### Action Situation 7: Farmer-Staff Informal Tolerance
+**Matrix Representation:**
 
-**Title:** Farmer-Staff Informal Tolerance
+| Farmer's Action | Adopt Capacitor | Do Not Adopt Capacitor |
+|-----------------|-----------------|------------------------|
+| **Neighbors Adopt** | (2, 2) | (1, 1) |
+| **Neighbors Do Not Adopt** | (1, 1) | (0, 0) |
 
-**Tension:** Mutual Reciprocity vs. Strict Enforcement
+**Justification:** This represents the farmer's decision to adopt capacitors based on neighbors' outcomes. Successful coordinated adoption spreads through the social network, but isolated adoption may not be attractive due to weak reliability improvements. The matrix shows the payoffs for adopting or not adopting capacitors.
 
-|               | **Staff Tolerates** | **Staff Enforces** |
-|---------------|---------------------|--------------------|
-| **Farmer Requests Informal Access** | (2, 2) | (1, 3) |
-| **Farmer Requests Formal Access** | (3, 1) | (2, 2) |
+#### 7. Bounded Rationality and Sensing (AS7)
 
-**Justification:** This action situation captures the informal exchange between farmers and staff. The matrix reflects the ordinal rankings of outcomes based on the benefits of mutual reciprocity and the losses from strict enforcement, where mismatched expectations can lead to losses for the party that offers cooperation.
+**Title:** Bounded Rationality and Sensing Dilemma
 
-### Action Situation 8: Farmer-Staff Formal Cooperation
+**Matrix Representation:**
 
-**Title:** Farmer-Staff Formal Cooperation
+| Farmer's Action | Invest in Capacitor | Do Not Invest in Capacitor |
+|-----------------|---------------------|---------------------------|
+| **Sensing Reliable** | (2, 2) | (1, 1) |
+| **Sensing Unreliable** | (1, 1) | (0, 0) |
 
-**Tension:** Mutual Benefit vs. Opportunistic Deviation
+**Justification:** This represents the farmer's decision to invest in capacitors based on local observations. Reliable sensing promotes adoption, while unreliable sensing can lead to hesitance. The matrix shows the payoffs for investing or not investing based on sensing outcomes.
 
-|               | **Staff Invests** | **Staff Withholds** |
-|---------------|-------------------|--------------------|
-| **Farmer Requests Formal Access** | (2, 2) | (1, 3) |
-| **Farmer Requests Informal Access** | (3, 1) | (2, 2) |
+#### 8. Grid Reliability and Transformer Dynamics (AS8)
 
-**Justification:** This action situation models the mutual exchange coordination game between farmers and staff. The matrix reflects the ordinal rankings of outcomes based on the benefits of mutual cooperation and the losses from opportunistic deviations, where staff gain modestly even under formal cooperation due to investment burden.
+**Title:** Grid Reliability and Transformer Dynamics Dilemma
 
-### Action Situation 9: Groundwater Extraction Feedback Loop
+**Matrix Representation:**
 
-**Title:** Groundwater Extraction Feedback Loop
+| Farmer's Action | Invest in Capacitor | Do Not Invest in Capacitor |
+|-----------------|---------------------|---------------------------|
+| **Transformer Reliable** | (2, 2) | (1, 1) |
+| **Transformer Unreliable** | (1, 1) | (0, 0) |
 
-**Tension:** Short-Term Gain vs. Long-Term Sustainability
+**Justification:** This represents the farmer's decision to invest in capacitors based on transformer reliability. Reliable transformers promote adoption, while unreliable transformers discourage it. The matrix shows the payoffs for investing or not investing based on transformer reliability.
 
-|               | **Farmer 2 Extracts** | **Farmer 2 Does Not Extract** |
-|---------------|----------------------|-----------------------------|
-| **Farmer 1 Extracts** | (2, 2) | (3, 1) |
-| **Farmer 1 Does Not Extract** | (1, 3) | (1, 1) |
+#### 9. Farmer-Farmer Informal Exchange (AS9)
 
-**Justification:** This action situation captures the strategic dilemma where short-term extraction gains may come at the cost of long-term sustainability. The matrix reflects the ordinal rankings of outcomes based on the collective benefits of mutual restraint versus the individual benefits of unilateral extraction, which can lead to accelerated depletion.
+**Title:** Informal Exchange Dilemma
 
-### Action Situation 10: Farmer-Staff Trust Networks
+**Matrix Representation:**
 
-**Title:** Farmer-Staff Trust Networks
+| Farmer 2's Action | Farmer Cooperates | Farmer Does Not Cooperate |
+|------------------|------------------|--------------------------|
+| **Farmer Cooperates** | (2, 2) | (1, 1) |
+| **Farmer Does Not Cooperate** | (1, 1) | (0, 0) |
 
-**Tension:** Cooperative Trust vs. Opportunistic Behavior
+**Justification:** This represents the farmer-farmer interaction where mutual cooperation offers reciprocal benefit, but unilateral cooperation can be disadvantageous. The matrix shows the payoffs for both parties.
 
-|               | **Staff Tolerates** | **Staff Enforces** |
-|---------------|---------------------|--------------------|
-| **Farmer Requests Informal Access** | (2, 2) | (1, 3) |
-| **Farmer Requests Formal Access** | (3, 1) | (2, 2) |
+#### 10. Farmer-Farmer Coordination on Transformer Capacity (AS10)
 
-**Justification:** This action situation models the cooperative trust between farmers and staff. The matrix reflects the ordinal rankings of outcomes based on the benefits of mutual reciprocity and the losses from opportunistic behavior, where trust networks can sustain either formal compliance or informal exchange as stable outcomes.
+**Title:** Transformer Capacity Coordination Dilemma
+
+**Matrix Representation:**
+
+| Farmer 2's Action | Farmer 1 Invests | Farmer 1 Does Not Invest |
+|------------------|-----------------|-------------------------|
+| **Farmer 2 Invests** | (2, 2) | (1, 1) |
+| **Farmer 2 Does Not Invest** | (1, 1) | (0, 0) |
+
+**Justification:** This represents the farmer-farmer coordination on transformer capacity investments. Mutual investment benefits both, but unilateral investment leads to higher costs without private benefit. The matrix shows the payoffs for both parties.

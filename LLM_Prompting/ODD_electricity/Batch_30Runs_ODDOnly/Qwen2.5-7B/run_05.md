@@ -1,89 +1,157 @@
 # Run 5 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance (AS1)
-**Tension:** Farmer-Farmer Coordination
+### Title: Distinct Action Situations in the Irrigation Electricity Governance Model
+
+#### 1. Farmer-Farmer Coordination on Capacitor Adoption (AS1)
+
+**Tension:** Mutual coordination on capacitor adoption to improve voltage stability versus unilateral investment without mutual benefit.
 
 **Matrix:**
+```
+          Farmer 2
+          | No Capacitor | Capacitor
+        +----------------+
+Farmer 1 | 3, 3          | 1, 0
+        +----------------+
+          | 0, 1          | 2, 2
+```
 
-|           | Farmer 2: Adopt Capacitor | Farmer 2: No Capacitor |
-|-----------|--------------------------|-----------------------|
-| **Farmer 1: Adopt Capacitor** | (3, 3) | (0, 2) |
-| **Farmer 1: No Capacitor**   | (2, 0) | (1, 1) |
+**Justification:** This represents the coordination between two neighboring farmers on whether to invest in capacitors. Mutual investment (capacitor, capacitor) yields a higher benefit for both, while unilateral investment (capacitor, no capacitor) offers no private benefit.
 
-**Justification:** 
-In this situation, mutual investment in capacitors provides shared benefits (improved voltage stability and reduced equipment wear). However, unilateral investment provides no private benefit, creating a coordination problem. The Nash equilibrium is for neither to invest, but mutual cooperation is Pareto-dominant.
+#### 2. Asymmetric Transformer Capacity Authorization Dilemma (AS3)
 
----
-
-### Action Situation 2: Sequential Social-Learning in Capacitor Adoption (AS2)
-**Tension:** Social Learning and Diffusion of Technology
-
-**Matrix:**
-
-|           | Farmer 2: Adopt Capacitor | Farmer 2: No Capacitor |
-|-----------|--------------------------|-----------------------|
-| **Farmer 1: Adopt Capacitor** | (3, 3) | (0, 2) |
-| **Farmer 1: No Capacitor**   | (2, 0) | (1, 1) |
-
-**Justification:** 
-This scenario reflects the process by which farmers learn from each other's experiences. Diffusion occurs only after a successful coordinated trial is observed. The Nash equilibrium is for neither to adopt, but mutual cooperation is Pareto-dominant.
-
----
-
-### Action Situation 3: Transformer-Capacity Authorization Dilemma (AS3)
-**Tension:** Farmer-Farmer Free-Rider Problem
+**Tension:** Farmer's authorization of transformer capacity versus the associated private costs.
 
 **Matrix:**
+```
+          Farmer 2
+          | No Authorization | Authorization
+        +----------------+
+Farmer 1 | 1, 1            | -2, 0
+        +----------------+
+          | 0, -1           | 0, 0
+```
 
-|           | Farmer 2: Authorize Connection | Farmer 2: No Connection |
-|-----------|--------------------------|-----------------------|
-| **Farmer 1: Authorize Connection** | (2, 2) | (3, 1) |
-| **Farmer 1: No Connection**        | (1, 3) | (1, 1) |
+**Justification:** This captures the dilemma where one farmer’s authorization of transformer capacity benefits both, but the costs fall solely on the authorizing farmer, creating a free-rider incentive.
 
-**Justification:** 
-Authorizing a connection benefits both but places the entire cost on the authorizing farmer, creating a free-rider problem. The Nash equilibrium is for neither to authorize, but mutual cooperation yields the highest payoff.
+#### 3. Mutual-Exchange Coordination between Farmer and Staff (AS4)
 
----
-
-### Action Situation 4: Mutual-Exchange Coordination with Staff (AS4)
-**Tension:** Farmer-Staff Reciprocal Benefit
-
-**Matrix:**
-
-|           | Staff: Provide Capacity | Staff: Withhold Capacity |
-|-----------|------------------------|------------------------|
-| **Farmer: Provide Exchange** | (2, 2) | (3, 1) |
-| **Farmer: Withhold Exchange** | (1, 3) | (1, 1) |
-
-**Justification:** 
-Reciprocal benefit occurs only when both engage in informal exchange. The Nash equilibrium is for neither to engage, but mutual cooperation yields the highest payoff.
-
----
-
-### Action Situation 5: Formal vs. Informal Authorization (AS5)
-**Tension:** Legal vs. Opportunistic Behavior
+**Tension:** Farmer's and staff's willingness to engage in informal exchange.
 
 **Matrix:**
+```
+          Staff
+          | No Exchange | Exchange
+        +----------------+
+Farmer  | 0, 0          | 1, 1
+        +----------------+
+          | 1, 0          | 0, 0
+```
 
-|           | Staff: Provide Capacity | Staff: Withhold Capacity |
-|-----------|------------------------|------------------------|
-| **Farmer: Formal Request** | (1, 1) | (2, 0) |
-| **Farmer: Informal Request** | (2, 0) | (1, 1) |
+**Justification:** This represents the mutual exchange coordination where both parties benefit only if they engage in informal exchange, otherwise, one party incurs a loss.
 
-**Justification:** 
-Formal cooperation is collectively optimal, but staff may save effort by withholding capacity under a formal request. The Nash equilibrium is for the farmer to make an informal request and staff to invest, yielding a modest gain for staff.
+#### 4. Asymmetric Authorization and Investment Game between Farmer and Staff (AS5)
 
----
-
-### Action Situation 6: Groundwater Extraction Prisoner’s Dilemma (AS6)
-**Tension:** Farmer-Farmer Over-Extraction
+**Tension:** Farmer's formal or informal request versus staff's investment decision.
 
 **Matrix:**
+```
+          Staff
+          | No Investment | Investment
+        +----------------+
+Farmer  | -1, 0          | 1, 1
+        +----------------+
+          | 1, -1           | 0, 0
+```
 
-|           | Farmer 2: Restrain Extraction | Farmer 2: Over-Extract |
-|-----------|-----------------------------|-----------------------|
-| **Farmer 1: Restrain Extraction** | (2, 2) | (3, 1) |
-| **Farmer 1: Over-Extract**        | (1, 3) | (1, 1) |
+**Justification:** This captures the asymmetric coordination game where mutual formal cooperation is collectively optimal, but unilateral actions lead to losses for the requesting farmer and gains for the staff under different conditions.
 
-**Justification:** 
-Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. The Nash equilibrium is for neither to restrain, but mutual cooperation yields the highest payoff.
+#### 5. Groundwater Extraction Prisoner’s Dilemma (AS6)
+
+**Tension:** Mutual restraint versus unilateral over-extraction.
+
+**Matrix:**
+```
+          Farmer 2
+          | Restrain | Over-extract
+        +----------------+
+Farmer 1 | 2, 2       | 1, 3
+        +----------------+
+          | 3, 1       | 1, 1
+```
+
+**Justification:** This represents the dilemma where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+#### 6. Sequential Social Learning Process in Capacitor Adoption (AS2)
+
+**Sequential Representation:**
+```
+1. Farmer 1 decides whether to adopt a capacitor.
+2. Farmer 2 observes Farmer 1's action and decides whether to adopt a capacitor.
+```
+
+**Justification:** This captures the sequential process where each farmer learns from the outcomes of the previous farmer's actions and decides whether to adopt a capacitor based on social learning.
+
+#### 7. Asymmetric Authorization Dilemma (AS2)
+
+**Tension:** Farmer's authorization of transformer capacity versus the associated private costs.
+
+**Matrix:**
+```
+          Farmer 2
+          | No Authorization | Authorization
+        +----------------+
+Farmer 1 | 1, 1            | -2, 0
+        +----------------+
+          | 0, -1           | 0, 0
+```
+
+**Justification:** This represents the dilemma where one farmer’s authorization of transformer capacity benefits both, but the costs fall solely on the authorizing farmer, creating a free-rider incentive.
+
+#### 8. Farmer-Farmer Coordination on Transformer Capacity (AS3)
+
+**Tension:** Mutual coordination on transformer capacity versus unilateral investment.
+
+**Matrix:**
+```
+          Farmer 2
+          | No Capacity | Capacity
+        +----------------+
+Farmer 1 | 1, 1          | -2, 0
+        +----------------+
+          | 0, -1           | 0, 0
+```
+
+**Justification:** This captures the coordination between two farmers on whether to invest in transformer capacity, where mutual investment benefits both, but unilateral investment incurs private costs.
+
+#### 9. Farmer-Farmer Coordination on Water Extraction (AS6)
+
+**Tension:** Mutual restraint versus unilateral over-extraction.
+
+**Matrix:**
+```
+          Farmer 2
+          | Restrain | Over-extract
+        +----------------+
+Farmer 1 | 2, 2       | 1, 3
+        +----------------+
+          | 3, 1       | 1, 1
+```
+
+**Justification:** This represents the dilemma where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+#### 10. Farmer-Staff Mutual Exchange Coordination (AS4)
+
+**Tension:** Farmer's and staff's willingness to engage in informal exchange.
+
+**Matrix:**
+```
+          Staff
+          | No Exchange | Exchange
+        +----------------+
+Farmer  | 0, 0          | 1, 1
+        +----------------+
+          | 1, 0          | 0, 0
+```
+
+**Justification:** This captures the mutual exchange coordination where both parties benefit only if they engage in informal exchange, otherwise, one party incurs a loss.

@@ -1,180 +1,121 @@
 # Run 27 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Coordination (Farmer-Farmer Coordination)
-**Title:** Capacitor Coordination (Farmer-Farmer Coordination)
+### Title: Capacitor Adoption Assurance Game (AS1)
 
-**Tension:** Mutual Investment vs. Free-Rider
+### Tension: Coordination and Assurance
+**Justification:** Farmers need to coordinate their investment in capacitors to achieve voltage stabilization benefits. However, unilateral investment does not yield private benefits, creating a coordination problem.
 
-**Matrix:**
-|               | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|---------------|------------------|-------------------------|
-| Farmer 1 Invests | (1, 1)          | (2, 0)                  |
-| Farmer 1 Does Not Invest | (0, 2)         | (0, 0)                  |
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: No Capacitor | Farmer B: Capacitor |
+|---------------|-----------------------|---------------------|
+| **Farmer A: No Capacitor** | (0, 0)                 | (0, 0)              |
+| **Farmer A: Capacitor**     | (0, 0)                 | (1, 1)              |
 
-**Justification:** 
-- **Farmer 1 Invests and Farmer 2 Invests (1, 1):** Both farmers benefit from improved voltage stability and pump efficiency, making mutual investment Pareto-dominant.
-- **Farmer 1 Invests and Farmer 2 Does Not Invest (2, 0):** Farmer 1 bears the cost while Farmer 2 benefits, creating a free-rider dilemma.
-- **Farmer 1 Does Not Invest and Farmer 2 Invests (0, 2):** Farmer 2 bears the cost while Farmer 1 benefits, creating a free-rider dilemma.
-- **Farmer 1 Does Not Invest and Farmer 2 Does Not Invest (0, 0):** Both face poor voltage stability and pump efficiency, but no cost is borne by either.
+### Title: Sequential Social-Learning Process in Capacitor Adoption (AS2)
 
-### Action Situation 2: Transformer Capacity Authorization (Farmer-Substation Personnel)
+### Tension: Sequential Decision-Making and Social Learning
+**Justification:** Farmers observe each other's outcomes and decide whether to adopt capacitors based on observed success. Diffusion occurs only after a successful coordinated trial.
 
-**Title:** Transformer Capacity Authorization (Farmer-Substation Personnel)
+#### Sequential Representation (Game Tree)
+```
+  [Farmer A]
+   /  \
+  /    \
+(0,0)  [Farmer B]
+      /  \
+     /    \
+    (0,0) (1,1)
+```
 
-**Tension:** Formal Cooperation vs. Informal Exchange
+### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-**Matrix:**
-|               | Substation Personnel Invest | Substation Personnel Do Not Invest |
-|---------------|-----------------------------|-----------------------------------|
-| Farmer Invests | (2, 2)                      | (1, 0)                            |
-| Farmer Does Not Invest | (0, 1)                     | (0, 0)                            |
+### Tension: Free-Rider Incentive
+**Justification:** One farmer's authorization or investment benefits both by raising voltage quality, but costs fall solely on the authorizer, creating a free-rider incentive.
 
-**Justification:** 
-- **Farmer Invests and Substation Personnel Invest (2, 2):** Both benefit from improved transformer capacity and reliability, making formal cooperation Pareto-dominant.
-- **Farmer Invests and Substation Personnel Do Not Invest (1, 0):** Farmer incurs costs without receiving benefits, while Substation Personnel save effort and cost.
-- **Farmer Does Not Invest and Substation Personnel Invest (0, 1):** Farmer benefits from improved reliability without cost, while Substation Personnel bear costs and effort.
-- **Farmer Does Not Invest and Substation Personnel Do Not Invest (0, 0):** Both face poor reliability, but no costs are incurred by either.
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: No Investment | Farmer B: Investment |
+|---------------|-----------------------|---------------------|
+| **Farmer A: No Investment** | (0, 0)                 | (0, 0)              |
+| **Farmer A: Investment**     | (0, 0)                 | (1, -1)             |
 
-### Action Situation 3: Groundwater Extraction (Farmer-Farmer Coordination)
+### Title: Mutual-Exchange Coordination Game (AS4)
 
-**Title:** Groundwater Extraction (Farmer-Farmer Coordination)
+### Tension: Reciprocity and Informal Exchange
+**Justification:** Reciprocal benefit arises only when both parties engage in informal exchange, but if either party abstains, the offerer bears a loss.
 
-**Tension:** Mutual Restraint vs. Unilateral Extraction
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: No Exchange | Farmer B: Exchange |
+|---------------|-----------------------|--------------------|
+| **Farmer A: No Exchange** | (0, 0)                 | (0, 0)              |
+| **Farmer A: Exchange**     | (0, 0)                 | (1, 1)              |
 
-**Matrix:**
-|               | Farmer 2 Restraints | Farmer 2 Extracts |
-|---------------|---------------------|-------------------|
-| Farmer 1 Restraints | (1, 1)             | (0, 2)            |
-| Farmer 1 Extracts | (2, 0)             | (0, 0)            |
+### Title: Authorization and Investment Asymmetric Coordination Game (AS5)
 
-**Justification:** 
-- **Farmer 1 Restraints and Farmer 2 Restraints (1, 1):** Both benefit from sustained yields, making mutual restraint Pareto-dominant.
-- **Farmer 1 Restraints and Farmer 2 Extracts (0, 2):** Farmer 1 faces depletion while Farmer 2 benefits, creating a free-rider dilemma.
-- **Farmer 1 Extracts and Farmer 2 Restraints (2, 0):** Farmer 1 benefits while Farmer 2 faces depletion, creating a free-rider dilemma.
-- **Farmer 1 Extracts and Farmer 2 Extracts (0, 0):** Both face depletion, but no benefits are realized.
+### Tension: Asymmetric Incentives Between Formal and Informal Cooperation
+**Justification:** Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost.
 
-### Action Situation 4: Mutual-Exchange Coordination (Farmer-Substation Personnel)
+#### 2-Player Normal Form Payoff Matrix
+|               | Staff: No Investment | Staff: Investment |
+|---------------|---------------------|------------------|
+| **Farmer: Formal Request** | (-1, 0)              | (0, 1)            |
+| **Farmer: Informal Request** | (1, -1)              | (1, 0)            |
 
-**Title:** Mutual-Exchange Coordination (Farmer-Substation Personnel)
+### Title: Groundwater Extraction Prisoner’s Dilemma (AS6)
 
-**Tension:** Reciprocal Benefit vs. Unilateral Exchange
+### Tension: Over-Extraction and Depletion
+**Justification:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-**Matrix:**
-|               | Substation Personnel Exchange | Substation Personnel Do Not Exchange |
-|---------------|--------------------------------|--------------------------------------|
-| Farmer Exchanges | (2, 2)                        | (1, 0)                               |
-| Farmer Does Not Exchange | (0, 1)                       | (0, 0)                               |
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: Restraint | Farmer B: Over-Extraction |
+|---------------|---------------------|--------------------------|
+| **Farmer A: Restraint** | (1, 1)                 | (0, 2)                    |
+| **Farmer A: Over-Extraction** | (2, 0)                 | (0, 0)                    |
 
-**Justification:** 
-- **Farmer Exchanges and Substation Personnel Exchange (2, 2):** Both benefit from reciprocal cooperation, making mutual exchange Pareto-dominant.
-- **Farmer Exchanges and Substation Personnel Do Not Exchange (1, 0):** Farmer incurs costs without receiving benefits, while Substation Personnel save effort and cost.
-- **Farmer Does Not Exchange and Substation Personnel Exchange (0, 1):** Farmer benefits from exchange without cost, while Substation Personnel bear costs and effort.
-- **Farmer Does Not Exchange and Substation Personnel Do Not Exchange (0, 0):** Both face baseline conditions, but no benefits are realized.
+### Title: Farmer and Sub-Station Personnel Interaction (AS7)
 
-### Action Situation 5: Informal Exchange (Farmer-Substation Personnel)
+### Tension: Formal Compliance vs. Informal Exchange
+**Justification:** Farmers and sub-station personnel interact under formal and informal rules, with formal compliance involving authorization fees and staff effort.
 
-**Title:** Informal Exchange (Farmer-Substation Personnel)
+#### Sequential Representation (Game Tree)
+```
+  [Farmer]
+   /  \
+  /    \
+(0,0)  [Sub-Station Personnel]
+      /  \
+     /    \
+    (0,0) (1,1)
+```
 
-**Tension:** Reciprocal Benefit vs. Unilateral Exchange
+### Title: Transformer Capacity and Contribution Imbalance (AS8)
 
-**Matrix:**
-|               | Substation Personnel Exchange | Substation Personnel Do Not Exchange |
-|---------------|--------------------------------|--------------------------------------|
-| Farmer Exchanges | (2, 2)                        | (1, 0)                               |
-| Farmer Does Not Exchange | (0, 1)                       | (0, 0)                               |
+### Tension: Free-Rider Incentive and Uneven Payoff
+**Justification:** Capacity upgrades and authorized connections can improve reliability, but costs are not always shared evenly among farmers.
 
-**Justification:** 
-- **Farmer Exchanges and Substation Personnel Exchange (2, 2):** Both benefit from reciprocal cooperation, making mutual exchange Pareto-dominant.
-- **Farmer Exchanges and Substation Personnel Do Not Exchange (1, 0):** Farmer incurs costs without receiving benefits, while Substation Personnel save effort and cost.
-- **Farmer Does Not Exchange and Substation Personnel Exchange (0, 1):** Farmer benefits from exchange without cost, while Substation Personnel bear costs and effort.
-- **Farmer Does Not Exchange and Substation Personnel Do Not Exchange (0, 0):** Both face baseline conditions, but no benefits are realized.
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: No Contribution | Farmer B: Contribution |
+|---------------|--------------------------|-----------------------|
+| **Farmer A: No Contribution** | (0, 0)                    | (0, 0)                |
+| **Farmer A: Contribution**     | (0, 0)                    | (1, -1)               |
 
-### Action Situation 6: Social Learning (Farmer)
+### Title: Bounded Rationality and Sensing (AS9)
 
-**Title:** Social Learning (Farmer)
+### Tension: Misattribution of Causes
+**Justification:** Farmers rely on local experience and visibility, but these can lead to incorrect attributions and suboptimal decisions.
 
-**Tension:** Imitate Successful Neighbors vs. Free-Ride
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: Correct Attribution | Farmer B: Incorrect Attribution |
+|---------------|------------------------------|--------------------------------|
+| **Farmer A: Correct Attribution** | (1, 1)                        | (0, 0)                         |
+| **Farmer A: Incorrect Attribution** | (0, 0)                        | (1, 1)                         |
 
-**Matrix:**
-|               | Neighbor Invests | Neighbor Does Not Invest |
-|---------------|------------------|-------------------------|
-| Invest | (1, 1)          | (0, 0)                  |
-| Do Not Invest | (0, 2)         | (2, 0)                  |
+### Title: Social Norms and Informal Institutions (AS10)
 
-**Justification:** 
-- **Both Invest (1, 1):** Both farmers benefit from improved voltage stability and pump efficiency.
-- **Invest and Do Not Invest (0, 0):** Both face poor voltage stability and pump efficiency.
-- **Do Not Invest and Invest (0, 2):** Neighbor incurs costs while the investor benefits.
-- **Do Not Invest and Do Not Invest (2, 0):** Both benefit from the visible improvement despite not contributing.
+### Tension: Collusive Relationships and Trust Networks
+**Justification:** Solidarity among farmers, kinship ties, and trust networks can persist in either coordinated or collusive forms.
 
-### Action Situation 7: Bounded Rationality (Farmer)
-
-**Title:** Bounded Rationality (Farmer)
-
-**Tension:** Correct Attribution vs. Misattribution
-
-**Matrix:**
-|               | Neighbor's Outcome | Neighbor's Outcome |
-|---------------|--------------------|--------------------|
-| Correct Attrib | (1, 1)             | (0, 0)             |
-| Misattribute | (0, 2)             | (2, 0)             |
-
-**Justification:** 
-- **Correct Attrib and Correct Attrib (1, 1):** Both farmers correctly attribute outcomes and make rational decisions.
-- **Correct Attrib and Misattribute (0, 0):** Both farmers face poor outcomes due to misattribution.
-- **Misattribute and Correct Attrib (0, 2):** Neighbor correctly attributes and benefits, while the misattributing farmer incurs costs.
-- **Misattribute and Misattribute (2, 0):** Neighbor incurs costs while the misattributing farmer benefits.
-
-### Action Situation 8: Transformer Capacity (Farmer)
-
-**Title:** Transformer Capacity (Farmer)
-
-**Tension:** Contribute to Capacity vs. Free-Ride
-
-**Matrix:**
-|               | Contribute to Capacity | Do Not Contribute to Capacity |
-|---------------|------------------------|--------------------------------|
-| Contribute to Capacity | (2, 2)                 | (1, 0)                         |
-| Do Not Contribute to Capacity | (0, 1)                | (0, 0)                         |
-
-**Justification:** 
-- **Both Contribute (2, 2):** Both farmers benefit from improved voltage stability and pump efficiency.
-- **Contribute and Do Not Contribute (1, 0):** Contributor incurs costs while the non-contributor benefits.
-- **Do Not Contribute and Contribute (0, 1):** Non-contributor benefits while the contributor incurs costs.
-- **Both Do Not Contribute (0, 0):** Both face poor voltage stability and pump efficiency.
-
-### Action Situation 9: Formal vs. Informal Authorization (Farmer-Substation Personnel)
-
-**Title:** Formal vs. Informal Authorization (Farmer-Substation Personnel)
-
-**Tension:** Formal Cooperation vs. Informal Exchange
-
-**Matrix:**
-|               | Substation Personnel Formal | Substation Personnel Informal |
-|---------------|-----------------------------|--------------------------------|
-| Farmer Formal | (2, 2)                      | (1, 0)                         |
-| Farmer Informal | (0, 1)                     | (0, 0)                         |
-
-**Justification:** 
-- **Both Formal (2, 2):** Both benefit from improved transformer capacity and reliability.
-- **Formal and Informal (1, 0):** Farmer incurs costs while Substation Personnel save effort and cost.
-- **Informal and Formal (0, 1):** Farmer benefits while Substation Personnel bear costs and effort.
-- **Both Informal (0, 0):** Both face poor reliability, but no costs are incurred by either.
-
-### Action Situation 10: Groundwater Depletion vs. Conservation (Farmer)
-
-**Title:** Groundwater Depletion vs. Conservation (Farmer)
-
-**Tension:** Individual Benefit vs. Collective Benefit
-
-**Matrix:**
-|               | Extract Groundwater | Conserve Groundwater |
-|---------------|---------------------|----------------------|
-| Extract Groundwater | (1, 1)             | (0, 2)               |
-| Conserve Groundwater | (2, 0)             | (0, 0)               |
-
-**Justification:** 
-- **Both Extract (1, 1):** Both farmers benefit in the short run but face depletion in the long run.
-- **Extract and Conserve (0, 2):** Farmer incurs costs while the conserving farmer benefits.
-- **Conserve and Extract (2, 0):** Farmer benefits while the conserving farmer incurs costs.
-- **Both Conserve (0, 0):** Both farmers benefit from sustainable groundwater access.
+#### 2-Player Normal Form Payoff Matrix
+|               | Farmer B: Coordination | Farmer B: Collusion |
+|---------------|-----------------------|--------------------|
+| **Farmer A: Coordination** | (1, 1)                 | (0, 0)              |
+| **Farmer A: Collusion**     | (0, 0)                 | (1, 1)              |

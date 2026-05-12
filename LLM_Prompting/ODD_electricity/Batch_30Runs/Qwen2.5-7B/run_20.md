@@ -1,189 +1,141 @@
 # Run 20 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Coordination (Farmer-Farmer Coordination)
-**Title:** Capacitor Coordination
+### Action Situation 1: Capacitor Adoption Assurance (AS1)
 
-**Tension:** Mutual cooperation vs. Free-riding
+#### Title: Farmer-Farmer Capacitor Coordination
 
-**Matrix:**
+#### Tension: Mutual Cooperation vs. Free-Rider Incentives
+
+#### Matrix Representation:
+|                | Farmer B: Install Capacitor | Farmer B: No Capacitor |
+|----------------|-----------------------------|------------------------|
+| **Farmer A: Install Capacitor** | (3, 3) | (2, 4) |
+| **Farmer A: No Capacitor**     | (4, 2) | (1, 1) |
+
+#### Justification:
+This action situation involves two neighboring farmers deciding whether to install a capacitor to improve voltage stability. Mutual installation yields a collective benefit of improved service quality, but unilateral installation provides no private benefit. This creates a free-rider incentive, where one farmer might benefit from the other's investment without contributing themselves.
+
+### Action Situation 2: Sequential Social-Learning Process (AS2)
+
+#### Title: Sequential Capacitor Adoption
+
+#### Sequential Representation (Game Tree):
 ```
-                 Farmer 2
-                 Cooperate    Free-ride
-Farmer 1
-Cooperate       (3, 3)        (5, 1)
-Free-ride       (1, 5)        (4, 4)
-```
-
-**Justification:** 
-- **Cooperate (Install Capacitor):** Both farmers install capacitors, which improves voltage stability and pump efficiency. The benefit is shared, making mutual cooperation Pareto-dominant.
-- **Free-ride (No Capacitor):** One farmer installs a capacitor, while the other does not. The farmer who installed the capacitor benefits more, while the free-rider gets no additional benefit, creating a free-rider incentive.
-
-### Action Situation 2: Transformer Capacity Authorization (Farmer-Sub-station Personnel)
-**Title:** Transformer Capacity Authorization
-
-**Tension:** Formal Compliance vs. Informal Exchange
-
-**Matrix:**
-```
-                 Sub-station Personnel
-                 Formal Access    Informal Access
-Farmer
-Formal Access    (2, 2)        (1, 3)
-Informal Access  (3, 1)        (4, 4)
+[Farmer A]
+  \Install Capacitor (C) /No Capacitor (NC)
+    [Farmer B]
+      \Install Capacitor (C) /No Capacitor (NC)
 ```
 
-**Justification:** 
-- **Formal Access:** The farmer pays for formal authorization, which improves transformer capacity and reliability. The sub-station personnel enforce this, ensuring that the farmer gets reliable service.
-- **Informal Access:** The farmer seeks unauthorized access, and the sub-station personnel tolerate this. The farmer gets cheaper access, but the system records become unreliable, and the transformer remains under-maintained.
+#### Justification:
+Farmer A decides whether to install a capacitor based on the outcome of Farmer B's previous decision. If Farmer B successfully improved service quality with a capacitor, Farmer A will imitate this behavior. If Farmer B did not improve service quality, Farmer A will not adopt a capacitor. This process is sequential and reflects the social learning mechanism where outcomes are observed and imitated.
 
-### Action Situation 3: Groundwater Extraction Prisoner's Dilemma
+### Action Situation 3: Asymmetric Transformer Capacity Authorization (AS3)
 
-**Title:** Groundwater Extraction Prisoner's Dilemma
+#### Title: Farmer-Farmer Authorization Dilemma
 
-**Tension:** Mutual Restraint vs. Unilateral Over-extraction
+#### Matrix Representation:
+|                | Farmer B: Authorize (A) | Farmer B: No Authorization (NA) |
+|----------------|-------------------------|--------------------------------|
+| **Farmer A: Authorize (A)** | (2, 2) | (5, 1) |
+| **Farmer A: No Authorization (NA)** | (1, 5) | (3, 3) |
 
-**Matrix:**
+#### Justification:
+This situation involves two farmers deciding whether to authorize a connection to a transformer. Mutual authorization benefits both by improving voltage quality, but the cost falls entirely on the authorizing farmer. This creates a free-rider incentive, where the non-authorizing farmer benefits without contributing.
+
+### Action Situation 4: Mutual-Exchange Coordination (AS4)
+
+#### Title: Farmer-Staff Informal Exchange
+
+#### Sequential Representation (Game Tree):
 ```
-                 Farmer 2
-                 Restrain    Over-extract
-Farmer 1
-Restrain        (2, 2)        (1, 3)
-Over-extract    (3, 1)        (4, 4)
-```
-
-**Justification:** 
-- **Restrain:** Both farmers restrain groundwater extraction, maintaining sustainable yields and avoiding depletion. The benefit is shared.
-- **Over-extract:** One farmer over-extracts, benefiting in the short run by drawing more water. However, this accelerates depletion and raises future pumping and electricity costs for all.
-
-### Action Situation 4: Mutual-Exchange Coordination (Farmer-Sub-station Personnel)
-
-**Title:** Mutual-Exchange Coordination
-
-**Tension:** Reciprocal Benefit vs. Unilateral Cooperation
-
-**Matrix:**
-```
-                 Sub-station Personnel
-                 Cooperate    Defect
-Farmer
-Cooperate       (2, 2)        (1, 3)
-Defect          (3, 1)        (4, 4)
+[Farmer]
+  \Request Formal Access (F) /Request Informal Access (I)
+    [Sub-station Personnel]
+      \Grant Formal Access (F) /Grant Informal Access (I)
 ```
 
-**Justification:** 
-- **Cooperate:** Both the farmer and sub-station personnel engage in reciprocal exchange, which yields mutual benefit. Each side gains from the exchange.
-- **Defect:** The farmer offers exchange but the sub-station personnel defect, seeking to avoid effort costs. The farmer incurs a loss, while the sub-station personnel gain a modest benefit without the formal fee.
+#### Justification:
+The farmer decides whether to request formal or informal access to electricity. If the farmer requests formal access and the sub-station personnel grant it, both parties benefit. If the farmer requests informal access, the sub-station personnel may grant it or withhold it based on trust and oversight risk. This sequential interaction captures the reciprocal benefit or loss depending on the match of expectations.
 
-### Action Situation 5: Asymmetric Authorization Dilemma
+### Action Situation 5: Capacitor-Installation Asymmetric Coordination (AS5)
 
-**Title:** Asymmetric Authorization Dilemma
+#### Title: Farmer-Sub-station Personnel Capacitor Coordination
 
-**Tension:** Farmer Contribution vs. Staff Reluctance
+#### Matrix Representation:
+|                | Sub-station Personnel: Invest (I) | Sub-station Personnel: Withhold (W) |
+|----------------|------------------------------------|-------------------------------------|
+| **Farmer: Formal Request (F)** | (2, 2) | (1, 0) |
+| **Farmer: Informal Request (I)** | (0, 1) | (3, 3) |
 
-**Matrix:**
+#### Justification:
+The farmer decides whether to make a formal or informal request for capacitor installation. The sub-station personnel decide whether to invest or withhold capacity. Formal cooperation yields mutual benefit, but withholding capacity under formal request results in a loss for the farmer. Informal requests can yield higher benefits for the farmer but require trust and low detection risk.
+
+### Action Situation 6: Groundwater Extraction Prisoner's Dilemma (AS6)
+
+#### Title: Farmer-Farmer Groundwater Extraction
+
+#### Matrix Representation:
+|                | Farmer B: Restrain (R) | Farmer B: Extract (E) |
+|----------------|------------------------|-----------------------|
+| **Farmer A: Restrain (R)** | (3, 3) | (1, 5) |
+| **Farmer A: Extract (E)** | (5, 1) | (2, 2) |
+
+#### Justification:
+This situation involves two farmers drawing from the same aquifer. Mutual restraint sustains yields, but unilateral extraction offers short-term gain and accelerates depletion. This creates a prisoner's dilemma where mutual restraint is the best collective outcome but unilateral extraction can be individually beneficial.
+
+### Action Situation 7: Bounded Rationality and Sensing (AS7)
+
+#### Title: Farmer Sensing and Learning
+
+#### Matrix Representation:
+|                | Farmer B: Adopt Capacitor (C) | Farmer B: No Capacitor (NC) |
+|----------------|------------------------------|-----------------------------|
+| **Farmer A: Adopt Capacitor (C)** | (4, 4) | (2, 6) |
+| **Farmer A: No Capacitor (NC)** | (6, 2) | (3, 3) |
+
+#### Justification:
+Farmer A decides whether to adopt a capacitor based on the outcome of Farmer B's previous decision. If Farmer B successfully improved service quality with a capacitor, Farmer A will imitate this behavior. If Farmer B did not improve service quality, Farmer A will not adopt a capacitor. This reflects the bounded rationality and social learning mechanisms where outcomes are observed and imitated.
+
+### Action Situation 8: Informal Staff-Farmer Networks (AS8)
+
+#### Title: Farmer-Sub-station Personnel Informal Exchange
+
+#### Sequential Representation (Game Tree):
 ```
-                 Sub-station Personnel
-                 Invest       Withhold
-Farmer
-Invest          (2, 2)        (1, 3)
-Withhold        (3, 1)        (4, 4)
-```
-
-**Justification:** 
-- **Invest:** The farmer invests in transformer capacity, which improves reliability. The sub-station personnel invest in maintenance, ensuring that the farmer gets reliable service.
-- **Withhold:** The farmer invests but the sub-station personnel withhold maintenance, leading to service interruptions. The farmer incurs a loss, while the sub-station personnel save effort.
-
-### Action Situation 6: Social Learning and Imitation
-
-**Title:** Social Learning and Imitation
-
-**Tension:** Successful Imitation vs. Failed Imitation
-
-**Matrix:**
-```
-                 Farmer 2
-                 Imitate    Do Not Imitate
-Farmer 1
-Imitate         (2, 2)        (1, 3)
-Do Not Imitate  (3, 1)        (4, 4)
-```
-
-**Justification:** 
-- **Imitate:** The farmer imitates a successful neighbor who has installed a capacitor, which improves voltage stability. The benefit is shared, making imitation attractive.
-- **Do Not Imitate:** The farmer does not imitate a failed or isolated adoption, which can discourage later uptake. The farmer does not benefit from the imitation.
-
-### Action Situation 7: Bounded Rationality and Sensing
-
-**Title:** Bounded Rationality and Sensing
-
-**Tension:** Correct Attribution vs. Misattribution
-
-**Matrix:**
-```
-                 Farmer 2
-                 Correct    Misattribution
-Farmer 1
-Correct         (2, 2)        (1, 3)
-Misattribution  (3, 1)        (4, 4)
+[Farmer]
+  \Request Formal Access (F) /Request Informal Access (I)
+    [Sub-station Personnel]
+      \Grant Formal Access (F) /Grant Informal Access (I)
 ```
 
-**Justification:** 
-- **Correct Attribution:** The farmer correctly attributes voltage drops or pump failures to the right cause, leading to better decision-making.
-- **Misattribution:** The farmer misattributes voltage drops or pump failures to the wrong cause, leading to poor decision-making.
+#### Justification:
+The farmer decides whether to request formal or informal access to electricity. If the farmer requests formal access and the sub-station personnel grant it, both parties benefit. If the farmer requests informal access, the sub-station personnel may grant it or withhold it based on trust and oversight risk. This sequential interaction captures the reciprocal benefit or loss depending on the match of expectations.
 
-### Action Situation 8: Groundwater Depletion Feedback
+### Action Situation 9: Transformer Reliability and Capacity (AS9)
 
-**Title:** Groundwater Depletion Feedback
+#### Title: Farmer-Sub-station Personnel Transformer Maintenance
 
-**Tension:** Sustainable Extraction vs. Over-extraction
+#### Matrix Representation:
+|                | Sub-station Personnel: Maintain (M) | Sub-station Personnel: Ignore (I) |
+|----------------|-------------------------------------|----------------------------------|
+| **Farmer: Contribute (C)** | (2, 2) | (1, 0) |
+| **Farmer: Not Contribute (NC)** | (0, 1) | (3, 3) |
 
-**Matrix:**
+#### Justification:
+The farmer decides whether to contribute to transformer maintenance. The sub-station personnel decide whether to maintain or ignore the transformer. Mutual cooperation yields collective benefits, but the farmer bears the cost of contribution while the sub-station personnel benefit from reduced maintenance burden.
+
+### Action Situation 10: Groundwater Extraction Dynamics (AS10)
+
+#### Title: Farmer Groundwater Extraction
+
+#### Sequential Representation (Game Tree):
 ```
-                 Farmer 2
-                 Sustainable Extraction    Over-extraction
-Farmer 1
-Sustainable Extraction    (2, 2)        (1, 3)
-Over-extraction          (3, 1)        (4, 4)
-```
-
-**Justification:** 
-- **Sustainable Extraction:** Both farmers sustainably extract groundwater, maintaining sustainable yields. The benefit is shared.
-- **Over-extraction:** One farmer over-extracts, benefiting in the short run but depleting the groundwater, raising future pumping and electricity costs for all.
-
-### Action Situation 9: Formal vs. Informal Compliance
-
-**Title:** Formal vs. Informal Compliance
-
-**Tension:** Legality vs. Opportunism
-
-**Matrix:**
-```
-                 Sub-station Personnel
-                 Formal Access    Informal Access
-Farmer
-Formal Access    (2, 2)        (1, 3)
-Informal Access  (3, 1)        (4, 4)
+[Farmer]
+  \Extract Groundwater (E) /Refrain Extraction (R)
+    [Aquifer]
+      \Recharge (R) /Deplete (D)
 ```
 
-**Justification:** 
-- **Formal Access:** The farmer pays for formal authorization, which improves transformer capacity and reliability. The sub-station personnel enforce this, ensuring that the farmer gets reliable service.
-- **Informal Access:** The farmer seeks unauthorized access, and the sub-station personnel tolerate this. The farmer gets cheaper access, but the system records become unreliable, and the transformer remains under-maintained.
-
-### Action Situation 10: Transformer Capacity and Contribution Imbalance
-
-**Title:** Transformer Capacity and Contribution Imbalance
-
-**Tension:** Uneven Cost Distribution
-
-**Matrix:**
-```
-                 Farmer 2
-                 Contribute    Do Not Contribute
-Farmer 1
-Contribute       (2, 2)        (1, 3)
-Do Not Contribute    (3, 1)        (4, 4)
-```
-
-**Justification:** 
-- **Contribute:** The farmer contributes to transformer capacity, which improves reliability for the local group. The farmer bears private costs, but others benefit.
-- **Do Not Contribute:** The farmer does not contribute, relying on others to bear the costs. The farmer benefits from improved reliability without bearing the private costs.
+#### Justification:
+The farmer decides whether to extract groundwater for irrigation. The aquifer decides whether to recharge or deplete based on natural conditions and recharge rates. Excessive extraction can deplete the aquifer, creating a prisoner's dilemma where mutual restraint is the best collective outcome but unilateral extraction can be individually beneficial.

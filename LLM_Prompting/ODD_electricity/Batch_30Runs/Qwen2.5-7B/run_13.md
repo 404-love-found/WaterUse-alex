@@ -1,103 +1,187 @@
 # Run 13 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation: Capacitor Adoption Assurance Game (AS1)
+### Title: Capacitor Adoption Assurance Game (AS1)
 
-#### Title
-Capacitor Adoption Assurance Game (AS1)
+### Tension: Farmer-Farmer Coordination Dilemma
+Farmers sharing a transformer must decide whether to invest in voltage-stabilizing capacitors. Mutual investment yields shared improvement, while unilateral investment offers no private benefit.
 
-#### Tension
-Farmer-Farmer Coordination Dilemma: Mutual Investment vs. Unilateral Investment
+#### Matrix Representation
 
-#### Matrix
-|                | Farmer B Invests | Farmer B Does Not Invest |
-|----------------|------------------|-------------------------|
-| **Farmer A Invests** | (2, 2)          | (1, 0)                  |
-| **Farmer A Does Not Invest** | (0, 1)         | (0, 0)                  |
+|           | Farmer B: No Cap | Farmer B: Yes Cap |
+|-----------|-----------------|------------------|
+| **Farmer A: No Cap** | (0, 0)           | (1, -1)          |
+| **Farmer A: Yes Cap** | (-1, 1)         | (2, 2)           |
 
-#### Justification
-In this game, two neighboring farmers must decide whether to invest in voltage-stabilizing capacitors. Mutual investment improves the local electricity quality, but unilateral investment offers no private benefit. The payoff matrix reflects the benefits of coordinated action (both farmers benefit), the cost of unilateral action (no benefit to the investor), and the lack of benefit when no farmer invests.
+### Justification
+This game captures the mutual benefit of capacitor adoption when both farmers coordinate. If one farmer invests while the other does not, the non-investing farmer benefits from the improved voltage quality without cost, making unilateral investment unattractive.
 
-### Action Situation: Sequential Social-Learning Process in Capacitor Adoption (AS2)
+### Title: Sequential Social-Learning Process (AS2)
 
-#### Title
-Sequential Social-Learning Process in Capacitor Adoption (AS2)
+### Tension: Technology Diffusion and Path Dependence
+Farmers observe each other's outcomes and imitate successful capacitor adoption. Diffusion is path-dependent, with early failures discouraging later uptake.
 
-#### Tension
-Social-Learning Dilemma: Imitate Successful Trial vs. Maintain Current Behavior
+#### Sequential Representation (Game Tree)
 
-#### Matrix
-|                | Farmer B Imitates | Farmer B Does Not Imitate |
-|----------------|------------------|--------------------------|
-| **Farmer A Imitates** | (3, 3)          | (2, 2)                   |
-| **Farmer A Does Not Imitate** | (2, 2)         | (1, 1)                   |
+```
+1. Farmer A: Observe B's Outcome
+   - B: No Cap
+      - A: No Cap
+      - A: Yes Cap
+   - B: Yes Cap
+      - A: No Cap
+      - A: Yes Cap
+2. Farmer B: Observe A's Outcome
+   - A: No Cap
+      - B: No Cap
+      - B: Yes Cap
+   - A: Yes Cap
+      - B: No Cap
+      - B: Yes Cap
+```
 
-#### Justification
-In this sequential social-learning game, one farmer observes a successful trial of capacitor adoption by the other. The farmer must decide whether to imitate the successful trial or maintain the current behavior. The payoff matrix shows that imitating a successful trial yields a higher collective benefit, but maintaining current behavior is a safer option if the successful trial is not confirmed.
+### Justification
+This game represents the sequential nature of adoption, where farmers observe each other and decide whether to imitate successful outcomes. Early failures can discourage later adoption, creating a path-dependent diffusion process.
 
-### Action Situation: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-#### Title
-Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+### Tension: Free-Rider Incentive
+One farmer can authorize or invest in transformer capacity, benefiting both, but bearing the full cost. If only one farmer invests, the non-investing farmer benefits more.
 
-#### Tension
-Authorization-Free Rider Dilemma: Invest vs. Free-Ride
+#### Matrix Representation
 
-#### Matrix
-|                | Farmer B Invests | Farmer B Free-Rides |
-|----------------|------------------|---------------------|
-| **Farmer A Invests** | (2, 2)          | (1, 0)              |
-| **Farmer A Free-Rides** | (0, 1)         | (0, 0)              |
+|           | Farmer B: No Invest | Farmer B: Invest |
+|-----------|-------------------|-----------------|
+| **Farmer A: No Invest** | (0, 0)            | (1, 2)          |
+| **Farmer A: Invest** | (2, 1)            | (2, 2)          |
 
-#### Justification
-In this asymmetric authorization game, one farmer can invest in transformer capacity to improve voltage quality, which benefits both farmers. However, the cost falls solely on the investor, creating a free-rider incentive. The payoff matrix shows that mutual investment is Pareto-optimal, but unilateral investment offers no private benefit, and free-riding is costly to the investor.
+### Justification
+This game highlights the free-rider incentive. If one farmer invests, the other farmer can benefit without contributing, making unilateral investment unattractive. Mutual investment is beneficial but risky.
 
-### Action Situation: Mutual-Exchange Coordination Game (AS4)
+### Title: Mutual-Exchange Coordination Game (AS4)
 
-#### Title
-Mutual-Exchange Coordination Game (AS4)
+### Tension: Informal vs. Formal Exchange
+A farmer and sub-station staff decide whether to engage in informal exchange (tolerating unauthorized access) or formal cooperation (seeking authorization). Only mutual engagement yields benefit.
 
-#### Tension
-Mutual-Exchange Dilemma: Engage in Informal Exchange vs. Abstain
+#### Matrix Representation
 
-#### Matrix
-|                | Sub-Station Personnel Exchanges | Sub-Station Personnel Abstains |
-|----------------|--------------------------------|------------------------------|
-| **Farmer Exchanges** | (2, 2)           | (1, 0)                      |
-| **Farmer Abstains** | (0, 1)           | (0, 0)                      |
+|           | Staff: Formal | Staff: Informal |
+|-----------|--------------|----------------|
+| **Farmer: Formal** | (1, 1)       | (0, 2)         |
+| **Farmer: Informal** | (2, 0)      | (2, 2)         |
 
-#### Justification
-In this mutual-exchange coordination game, a farmer and sub-station personnel must decide whether to engage in informal exchange or abstain. Mutual exchange yields reciprocal benefit, but unilateral exchange offers no benefit. The payoff matrix shows that mutual exchange is the optimal outcome, but unilateral exchange is costly to the farmer.
+### Justification
+This game captures the benefit of mutual engagement, with staff gaining a modest benefit even under formal cooperation due to the investment burden. Informal exchange benefits both sides only when expectations are matched.
 
-### Action Situation: Authorization and Investment Asymmetric Coordination Game (AS5)
+### Title: Authorization and Investment Asymmetric Coordination Game (AS5)
 
-#### Title
-Authorization and Investment Asymmetric Coordination Game (AS5)
+### Tension: Legal vs. Opportunistic Behavior
+A farmer decides whether to seek formal authorization or informal access, while staff decide whether to invest or withhold capacity. Formal cooperation is collectively optimal but creates incentives for opportunistic behavior.
 
-#### Tension
-Legal vs. Opportunistic Dilemma: Formal Cooperation vs. Informal Access
+#### Matrix Representation
 
-#### Matrix
-|                | Sub-Station Personnel Invests | Sub-Station Personnel Withholds |
-|----------------|-------------------------------|--------------------------------|
-| **Farmer Invests** | (2, 2)           | (1, 0)                        |
-| **Farmer Requests Informal Access** | (0, 1)       | (0, 0)                        |
+|           | Staff: Invest | Staff: Withhold |
+|-----------|--------------|----------------|
+| **Farmer: Formal** | (1, 1)       | (0, 2)         |
+| **Farmer: Informal** | (2, 0)      | (2, 2)         |
 
-#### Justification
-In this authorization and investment game, a farmer must decide whether to request formal access or informal access, while sub-station personnel must decide whether to invest or withhold capacity. Mutual formal cooperation is collectively optimal, but unilateral formal cooperation can be costly. The payoff matrix shows that mutual formal cooperation is optimal, but unilateral formal cooperation or opportunistic access can lead to losses.
+### Justification
+This game shows the incentives for both sides. Formal cooperation is beneficial but can lead to staff withholding capacity if they prefer the formal fee. Informal exchange benefits both sides only when expectations are matched.
 
-### Action Situation: Groundwater Extraction Prisoner's Dilemma (AS6)
+### Title: Groundwater Extraction Prisoner's Dilemma (AS6)
 
-#### Title
-Groundwater Extraction Prisoner's Dilemma (AS6)
+### Tension: Short-Term vs. Long-Term Sustainability
+Two farmers drawing from the same aquifer must decide whether to restrain or over-extract groundwater. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-#### Tension
-Extraction Dilemma: Restrain Extraction vs. Over-Extract
+#### Matrix Representation
 
-#### Matrix
-|                | Farmer B Restrains | Farmer B Over-Extracts |
-|----------------|--------------------|------------------------|
-| **Farmer A Restrains** | (2, 2)           | (1, 3)                 |
-| **Farmer A Over-Extracts** | (3, 1)          | (0, 0)                 |
+|           | Farmer B: Restrain | Farmer B: Over-Extract |
+|-----------|-------------------|-----------------------|
+| **Farmer A: Restrain** | (2, 2)            | (1, 3)                |
+| **Farmer A: Over-Extract** | (3, 1)           | (1, 1)                |
 
-#### Justification
-In this groundwater extraction game, two farmers drawing from the same aquifer must decide whether to restrain extraction or over-extract. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. The payoff matrix shows that mutual restraint is the optimal outcome, but unilateral over-extraction can lead to short-term gains and long-term depletion.
+### Justification
+This game captures the short-term vs. long-term trade-off in groundwater extraction. Mutual restraint is collectively best but individually unattractive because one farmer can gain short-term benefits at the expense of sustainability.
+
+### Title: Farmer-Sub-Station Personnel Interaction (AS7)
+
+### Tension: Formal Compliance vs. Informal Exchange
+Farmers and sub-station personnel decide whether to seek formal authorization or informal tolerance, balancing effort costs, reputational concerns, and expected personal benefit.
+
+#### Sequential Representation (Game Tree)
+
+```
+1. Farmer: Seek Formal Access
+   - Sub-Station: Invest
+      - Farmer: Benefit
+   - Sub-Station: Withhold
+      - Farmer: No Benefit
+2. Farmer: Seek Informal Access
+   - Sub-Station: Tolerate
+      - Farmer: Benefit
+   - Sub-Station: Enforce
+      - Farmer: Penalty
+```
+
+### Justification
+This game represents the sequential nature of farmer-sub-station interaction, where farmers choose between formal and informal access, and sub-station personnel decide whether to invest or enforce. Informal exchange benefits both sides only when expectations are matched.
+
+### Title: Transformer Capacity and Contribution Imbalance (AS8)
+
+### Tension: Uneven Cost Sharing
+Farmers can contribute to transformer capacity or rely on informal access, with some farmers bearing disproportionate costs while others benefit without contributing.
+
+#### Matrix Representation
+
+|           | Farmer B: No Contribution | Farmer B: Contribute |
+|-----------|-------------------------|----------------------|
+| **Farmer A: No Contribution** | (0, 0)                  | (1, -1)              |
+| **Farmer A: Contribute** | (-1, 1)                 | (2, 2)               |
+
+### Justification
+This game highlights the free-rider problem. Mutual contribution improves reliability, but costs are not always shared evenly, creating incentives for non-contributors.
+
+### Title: Grid Reliability and Transformer Dynamics (AS9)
+
+### Tension: Aggregate Demand vs. Effective Capacity
+Transformer reliability depends on effective capacity, aggregate pump load, and maintenance effort. Overloading or under-maintenance can lead to service interruptions.
+
+#### Sequential Representation (Game Tree)
+
+```
+1. Farmer: Pump Groundwater
+   - Transformer: Overloaded
+      - Service Interruption
+   - Transformer: Underloaded
+      - Reliable Service
+2. Sub-Station: Maintain Transformer
+   - Effort: High
+      - Reliable Service
+   - Effort: Low
+      - Service Interruption
+```
+
+### Justification
+This game captures the dynamic relationship between farmer irrigation and transformer reliability. Overloading or under-maintenance can lead to service interruptions, affecting both farmers and staff decisions.
+
+### Title: Bounded Rationality and Sensing (AS10)
+
+### Tension: Local Experience vs. Perfect Knowledge
+Farmers rely on local experience, visible neighbor behavior, and social learning rather than perfect technical knowledge. Sensing is often erroneous due to incomplete technical understanding.
+
+#### Sequential Representation (Game Tree)
+
+```
+1. Farmer: Observe Neighbors
+   - Neighbor: Successful Cap
+      - Farmer: Adopt Cap
+   - Neighbor: Unsuccessful Cap
+      - Farmer: No Cap
+2. Farmer: Observe Transformer Status
+   - Transformer: Reliable
+      - Continue Irrigation
+   - Transformer: Unreliable
+      - Reduce Irrigation
+```
+
+### Justification
+This game represents the bounded rationality of farmers, who use local experience and social learning to make decisions. Sensing errors can lead to misinformed choices, affecting both technology adoption and irrigation strategies.

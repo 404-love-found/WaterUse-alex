@@ -2,52 +2,71 @@
 
 ### Analysis of Distinct Action Situations
 
-**Title: AS1 - Capacitor Adoption Assurance Game**  
-Tension: Coordination problem where mutual investment in capacitors yields shared voltage stability, but unilateral investment provides no private benefit, creating risk if neighbors defect.  
-Matrix:  
-```
-          Farmer B: Invest    Not Invest  
-Farmer A: Invest      (4,4)        (1,2)  
-          Not Invest   (2,1)        (2,2)  
-```  
-Justification: Based on AS1 description (III.iv.a). Mutual cooperation (Invest/Invest) yields Pareto-dominant payoff (4,4) from shared voltage stability. Unilateral investment results in no private benefit (Investor:1, Non-investor:2). Neither investing maintains baseline (2,2). Reflects interdependence in capacitor adoption.
+**Title: AS1: Capacitor Adoption Assurance**  
+**Tension:** Mutual investment required for shared voltage improvement; unilateral adoption yields no benefit due to coordination failure.  
+**Matrix:**  
+| Farmer1 \ Farmer2 | Adopt | Not Adopt |
+|-------------------|-------|-----------|
+| **Adopt**         | (3,3) | (1,2)    |
+| **Not Adopt**     | (2,1) | (2,2)    |  
+**Justification:** Matches assurance game structure where mutual adoption (3,3) is Pareto-optimal but risky—unilateral adoption fails (adopter gets 1, non-adopter gets 2). Both non-adoption yields baseline (2,2). Grounded in III.iv.a (AS1 description) and II.i.c.
 
-**Title: AS3 - Transformer Capacity Authorization Dilemma**  
-Tension: Asymmetric free-rider problem where one farmer’s investment in shared transformer capacity benefits both, but non-investors gain more, discouraging voluntary contributions.  
-Matrix:  
-```
-          Farmer B: Invest    Not Invest  
-Farmer A: Invest      (3,3)        (3,4)  
-          Not Invest   (4,3)        (1,1)  
-```  
-Justification: From AS3 (III.iv.a). If one invests (e.g., A invests), both benefit from voltage stability, but non-investor (B) gains more (4) without cost. Investor (A) bears full cost (3). Neither investing causes low baseline (1,1). Captures uneven costs of shared infrastructure.
+---
 
-**Title: AS4 - Farmer-Staff Mutual Exchange Coordination**  
-Tension: Reciprocal informal exchanges (e.g., bribes for services) require mutual engagement; defection by either party harms the initiator while the defector retains baseline benefits.  
-Matrix:  
-```
-          Staff: Exchange    Abstain  
-Farmer: Exchange    (4,4)        (1,2)  
-         Abstain     (2,1)        (2,2)  
-```  
-Justification: Based on AS4 (III.iv.a). Mutual exchange yields high payoff (4,4). If one initiates exchange and the other abstains, the initiator incurs loss (1 or 2), while the abstainer retains baseline (2). Both abstaining maintains baseline (2,2). Models collusion norms.
+**Title: AS2: Sequential Social Learning in Capacitor Adoption**  
+**Tension:** Diffusion of capacitors depends on observing peer success; failure to coordinate initially impedes imitation.  
+**Sequential Representation:**  
+1. **Farmer A (Leader)**: Adopts capacitor → experiences outcome (success/failure).  
+2. **Farmer B (Follower)**: Observes outcome:  
+   - If outcome > B’s baseline (e.g., 3 > 2) → adopts.  
+   - Else → does not adopt.  
+**Justification:** Sequential process where Farmer B imitates only if Farmer A’s outcome ranks higher (II.iii.a, III.iv.a). Failure without coordination (e.g., AS1) blocks diffusion.
 
-**Title: AS5 - Authorization-Investment Asymmetric Game**  
-Tension: Conflict between formal compliance (farmer’s formal request, staff investment) and opportunism; each party’s optimal action depends on the other’s choice, with staff preferring to withhold effort.  
-Matrix:  
-```
-          Staff: Invest      Withhold  
-Farmer: Formal    (3,2)        (1,4)  
-         Informal  (4,1)        (2,3)  
-```  
-Justification: From AS5 (III.iv.a). Formal request + staff investment (3,2) is collectively optimal but modest for staff. Staff gain more by withholding after formal requests (1,4). Informal requests + staff investment benefit farmers more (4,1). Withholding + informal requests yield baseline (2,3). Reflects asymmetric enforcement incentives.
+---
 
-**Title: AS6 - Groundwater Extraction Prisoner’s Dilemma**  
-Tension: Mutual groundwater restraint sustains resources, but individual incentives favor over-extraction for short-term gain, leading to depletion.  
-Matrix:  
-```
-          Farmer B: Restrain    Over-Extract  
-Farmer A: Restrain     (3,3)          (1,4)  
-           Over-Extract (4,1)          (2,2)  
-```  
-Justification: Based on AS6 (III.iv.a). Mutual restraint (3,3) sustains groundwater. Unilateral over-extraction yields high gain for defector (4) and loss for cooperator (1). Mutual over-extraction causes depletion (2,2). Classic prisoner’s dilemma structure.
+**Title: AS3: Transformer Authorization Dilemma**  
+**Tension:** One farmer’s authorization benefits all (improved voltage) but costs only the authorizer, creating free-riding incentives.  
+**Matrix:**  
+| FarmerA \ FarmerB | Authorize | Not Authorize |
+|-------------------|-----------|---------------|
+| **Authorize**     | (3,3)     | (1,4)         |
+| **Not Authorize** | (4,1)     | (2,2)         |  
+**Justification:** Asymmetric costs: Non-authorizer free-rides (4) if one authorizes (who gets 1). Mutual non-authorization yields baseline (2,2). From III.iv.a (AS3) and II.ii.a.
+
+---
+
+**Title: AS4: Informal Exchange Coordination**  
+**Tension:** Reciprocal benefit (e.g., reliable service) only if both farmer and utility staff engage in informal exchange; unilateral action harms the initiator.  
+**Matrix:**  
+| Farmer \ Staff | Engage | Not Engage |
+|----------------|--------|------------|
+| **Engage**     | (3,3)  | (1,2)      |
+| **Not Engage** | (2,1)  | (2,2)      |  
+**Justification:** Mutual engagement yields Pareto-dominant (3,3); unilateral engagement fails (engager gets 1, abstainer gets 2). Grounded in III.iv.a (AS4) and II.ii.e.
+
+---
+
+**Title: AS5: Authorization-Enforcement Asymmetric Coordination**  
+**Tension:** Mutual formal cooperation (farmer pays fee, staff invests) is optimal, but asymmetric incentives favor opportunism (farmer avoids fees, staff avoids costs).  
+**Matrix:**  
+| Farmer \ Staff | Invest | Withhold |
+|----------------|--------|----------|
+| **Formal**     | (4,2)  | (1,3)    |
+| **Informal**   | (4,1)  | (2,2)    |  
+**Justification:** Farmer gains more from informal requests (4) if staff invest (1). Staff prefer withholding (3/2) to avoid costs. Asymmetric payoffs reflect trade-offs (III.iv.a, II.ii.c).
+
+---
+
+**Title: AS6: Groundwater Extraction Prisoner’s Dilemma**  
+**Tension:** Mutual restraint sustains aquifer, but unilateral over-extraction offers short-term gain while accelerating depletion.  
+**Matrix:**  
+| FarmerX \ FarmerY | Restrain | Over-Extract |
+|-------------------|----------|--------------|
+| **Restrain**      | (3,3)    | (1,4)        |
+| **Over-Extract**  | (4,1)    | (2,2)        |  
+**Justification:** Mutual over-extraction depletes resource (2,2); unilateral restraint is exploited (over-extractor gets 4, restrainer gets 1). From III.iv.a (AS6) and II.i.a.
+
+### Notes:
+- **Total AS:** 6 distinct situations (aligned with III.iv.a submodels).  
+- **Excluded:** No additional AS inferred; all grounded explicitly in ODD+D text.  
+- **Key Tensions:** Captured capacitor coordination (AS1, AS2), transformer free-riding (AS3), farmer-staff reciprocity (AS4, AS5), and resource competition (AS6).

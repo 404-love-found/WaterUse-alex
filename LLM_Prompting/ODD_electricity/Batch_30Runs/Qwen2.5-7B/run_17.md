@@ -1,131 +1,130 @@
 # Run 17 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Capacitor Adoption Assurance Game
-### Tension: Assurance Dilemma
-### Matrix:
-```
-                 | Farmer B: No Cap | Farmer B: Cap
-----------------|-----------------|-----------------
-Farmer A: No Cap | (1, 1)          | (0, 2)
-----------------|-----------------|-----------------
-Farmer A: Cap   | (2, 0)          | (3, 3)
-```
-### Justification:
-This action situation reflects the assurance dilemma where two neighboring farmers must coordinate to install capacitors to improve voltage stability. The payoff matrix shows that mutual cooperation yields the highest benefit (3, 3), but unilateral cooperation (2, 0) offers no additional private benefit, making it unattractive. If both farmers do not install capacitors, the outcome is (1, 1), which is better than unilateral cooperation but still suboptimal. The strategic tension arises from the risk of being the sole contributor, which can lead to a suboptimal outcome.
+### Action Situation 1: Capacitor Adoption Assurance Game (AS1)
 
-### Title: Asymmetric Transformer Capacity Authorization Dilemma
-### Tension: Free-rider Dilemma
-### Matrix:
-```
-                     | Farmer B: No Invest | Farmer B: Invest
----------------------|---------------------|------------------
-Farmer A: No Invest  | (1, 1)              | (0, 2)
----------------------|---------------------|------------------
-Farmer A: Invest     | (2, 0)              | (3, 3)
-```
-### Justification:
-This situation captures the asymmetric free-rider dilemma where one farmer can invest in transformer capacity to benefit both, but the cost falls entirely on the investor. The matrix shows that mutual investment (3, 3) is the best outcome, but unilateral investment (2, 0) leaves the investor with a net loss while the non-investor benefits. The strategic tension is that the non-investor has an incentive to free-ride, while the investor faces the risk of incurring costs without benefit.
+#### Title
+Capacitor Adoption Assurance Game
 
-### Title: Mutual-Exchange Coordination Game
-### Tension: Prisoner's Dilemma
-### Matrix:
-```
-                       | Staff: No Exchange | Staff: Exchange
------------------------|--------------------|-----------------
-Farmer: No Exchange    | (1, 1)             | (0, 2)
------------------------|--------------------|-----------------
-Farmer: Exchange       | (2, 0)             | (3, 3)
-```
-### Justification:
-This action situation represents the prisoner's dilemma where a farmer and sub-station staff must decide whether to engage in informal exchange. Mutual exchange (3, 3) is the best outcome, but unilateral exchange (2, 0) leaves the farmer at a loss while the staff gains. The strategic tension is that the farmer faces the risk of offering an exchange that the staff may not reciprocate, leading to a suboptimal outcome.
+#### Tension
+Farmer A and Farmer B must decide whether to invest in voltage-stabilizing capacitors. Mutual investment yields shared improvement in electricity quality, but unilateral investment yields no added private benefit.
 
-### Title: Groundwater Extraction Prisoner's Dilemma
-### Tension: Prisoner's Dilemma
-### Matrix:
-```
-                    | Farmer B: Restrain | Farmer B: Over-extract
----------------------|--------------------|-------------------------
-Farmer A: Restrain   | (1, 1)             | (0, 2)
----------------------|--------------------|-------------------------
-Farmer A: Over-extract | (2, 0)            | (3, 3)
-```
-### Justification:
-This situation captures the prisoner's dilemma where two farmers drawing from the same aquifer must decide whether to restrain or over-extract groundwater. Mutual restraint (3, 3) is the best outcome, but unilateral over-extraction (2, 0) offers short-term gain at the expense of the other farmer. The strategic tension is that the farmer faces the risk of over-extracting, knowing that the other farmer may also do so, leading to a suboptimal outcome.
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer B: No Capacitor} & \text{Farmer B: Capacitor} \\
+\hline
+\text{Farmer A: No Capacitor} & 0, 0 & 1, -1 \\
+\text{Farmer A: Capacitor} & -1, 1 & 2, 2 \\
+\end{array}
+\]
 
-### Title: Farmer-Farmer Coordination on Capacitor Adoption
-### Tension: Coordination Dilemma
-### Matrix:
-```
-                     | Farmer B: No Cap | Farmer B: Cap
----------------------|------------------|----------------
-Farmer A: No Cap     | (1, 1)           | (0, 2)
----------------------|------------------|----------------
-Farmer A: Cap        | (2, 0)           | (3, 3)
-```
-### Justification:
-This action situation reflects the coordination dilemma where two farmers must decide whether to install capacitors. Mutual cooperation (3, 3) is the best outcome, but unilateral cooperation (2, 0) offers no additional private benefit. The strategic tension is that the non-cooperator faces the risk of not benefiting from the improved voltage stability, leading to a suboptimal outcome.
+#### Justification
+This game captures the coordination problem where mutual cooperation is Pareto-dominant but risky. Farmer A and Farmer B each face the decision of whether to invest in a capacitor. If both invest, they both benefit. If one invests unilaterally, they gain nothing, while the other gains. If neither invests, they both remain at a low but non-zero baseline.
 
-### Title: Farmer-Sub-station Staff Informal Exchange
-### Tension: Reciprocity Dilemma
-### Matrix:
-```
-                       | Staff: No Exchange | Staff: Exchange
------------------------|--------------------|-----------------
-Farmer: No Exchange    | (1, 1)             | (0, 2)
------------------------|--------------------|-----------------
-Farmer: Exchange       | (2, 0)             | (3, 3)
-```
-### Justification:
-This situation captures the reciprocity dilemma where a farmer and sub-station staff must decide whether to engage in informal exchange. Mutual exchange (3, 3) is the best outcome, but unilateral exchange (2, 0) leaves the farmer at a loss while the staff gains. The strategic tension is that the farmer faces the risk of offering an exchange that the staff may not reciprocate, leading to a suboptimal outcome.
+### Action Situation 2: Sequential Social-Learning Process (AS2)
 
-### Title: Farmer-Farmer Coordination on Formal Connection
-### Tension: Coordination Dilemma
-### Matrix:
-```
-                      | Farmer B: No Connect | Farmer B: Connect
------------------------|----------------------|-------------------
-Farmer A: No Connect   | (1, 1)               | (0, 2)
------------------------|----------------------|-------------------
-Farmer A: Connect      | (2, 0)               | (3, 3)
-```
-### Justification:
-This action situation reflects the coordination dilemma where two farmers must decide whether to seek formal connection to the electricity grid. Mutual cooperation (3, 3) is the best outcome, but unilateral cooperation (2, 0) offers no additional private benefit. The strategic tension is that the non-cooperator faces the risk of not benefiting from the improved reliability, leading to a suboptimal outcome.
+#### Title
+Sequential Social-Learning Process
 
-### Title: Farmer-Farmer Coordination on Unauthorized Access
-### Tension: Coordination Dilemma
-### Matrix:
-```
-                        | Farmer B: No Access | Farmer B: Access
--------------------------|---------------------|-----------------
-Farmer A: No Access      | (1, 1)              | (0, 2)
--------------------------|---------------------|-----------------
-Farmer A: Access         | (2, 0)              | (3, 3)
-```
-### Justification:
-This situation captures the coordination dilemma where two farmers must decide whether to seek unauthorized access to the electricity grid. Mutual cooperation (3, 3) is the best outcome, but unilateral cooperation (2, 0) offers no additional private benefit. The strategic tension is that the non-cooperator faces the risk of not benefiting from the cheaper electricity, leading to a suboptimal outcome.
+#### Tension
+Farmers decide whether to adopt capacitors based on observing a peer’s outcome. Diffusion occurs only after a successful coordinated trial has been observed.
 
-### Title: Sub-station Staff Formal vs. Informal Enforcement
-### Tension: Prisoner's Dilemma
-### Matrix:
+#### Sequential Representation (Game Tree)
 ```
-                        | Farmer: No Request | Farmer: Request
--------------------------|--------------------|-----------------
-Staff: No Enforcement    | (1, 1)             | (0, 2)
--------------------------|--------------------|-----------------
-Staff: Enforcement       | (2, 0)             | (3, 3)
+            (Farmer A)
+             /   \
+            /     \
+        (No Capacitor) (Capacitor)
+           |            |
+        (Farmer B)    (Farmer B)
+        /   \          /   \
+       /     \        /     \
+  (No Capacitor)  (Capacitor)
 ```
-### Justification:
-This action situation represents the prisoner's dilemma where a farmer and sub-station staff must decide whether to seek formal or informal access to the electricity grid. Mutual cooperation (3, 3) is the best outcome, but unilateral cooperation (2, 0) leaves the farmer at a loss while the staff gains. The strategic tension is that the farmer faces the risk of requesting formal access, knowing that the staff may not grant it, leading to a suboptimal outcome.
 
-### Title: Farmer-Farmer Coordination on Groundwater Extraction
-### Tension: Coordination Dilemma
-### Matrix:
-```
-                        | Farmer B: Restrain | Farmer B: Over-extract
--------------------------|--------------------|-----------------------
-Farmer A: Restrain       | (1, 1)             | (0, 2)
--------------------------|--------------------|-----------------------
-Farmer A: Over-extract   | (2, 0)             | (3, 3)
-```
-### Justification:
-This situation captures the coordination dilemma where two farmers must decide whether to restrain or over-extract groundwater. Mutual restraint (3, 3) is the best outcome, but unilateral over-extraction (2, 0) offers short-term gain at the expense of the other farmer. The strategic tension is that the farmer faces the risk of over-extracting, knowing that the other farmer may also do so, leading to a suboptimal outcome.
+#### Justification
+This sequential game represents the process of social learning. Farmer A observes Farmer B’s outcome. If Farmer B adopts a capacitor and it is successful, Farmer A may imitate the behavior. The game tree shows the decision sequence and the conditions under which imitation occurs.
+
+### Action Situation 3: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+
+#### Title
+Asymmetric Transformer-Capacity Authorization Dilemma
+
+#### Tension
+Two farmers decide whether to invest in transformer capacity. One farmer’s authorization benefits both, but the costs fall solely on the authorizer, creating a free-rider incentive.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer B: No Capacity} & \text{Farmer B: Capacity} \\
+\hline
+\text{Farmer A: No Capacity} & 0, 0 & 1, -1 \\
+\text{Farmer A: Capacity} & -1, 1 & 2, 0 \\
+\end{array}
+\]
+
+#### Justification
+This game highlights the asymmetric cost-sharing dilemma. Farmer A can invest in capacity, which benefits both but incurs a cost. If Farmer B does not invest, Farmer A bears the full cost. If both invest, they both benefit, but the benefit is not shared equally.
+
+### Action Situation 4: Mutual-Exchange Coordination Game (AS4)
+
+#### Title
+Mutual-Exchange Coordination Game
+
+#### Tension
+A farmer and sub-station personnel decide whether to engage in informal exchanges. Reciprocal benefit arises only when both engage, but if either abstains, no extra benefit occurs.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station Personnel: No Exchange} & \text{Sub-station Personnel: Exchange} \\
+\hline
+\text{Farmer: No Exchange} & 0, 0 & 1, 0 \\
+\text{Farmer: Exchange} & 0, 1 & 2, 2 \\
+\end{array}
+\]
+
+#### Justification
+This game represents the coordination required for beneficial informal exchanges. Mutual engagement yields a higher payoff for both, but unilateral engagement by either side results in no additional benefit. The game highlights the need for mutual cooperation for reciprocal benefits.
+
+### Action Situation 5: Authorization-and-Investment Asymmetric Coordination Game (AS5)
+
+#### Title
+Authorization-and-Investment Asymmetric Coordination Game
+
+#### Tension
+A farmer and sub-station personnel decide whether to seek formal or informal access to transformer capacity. Formal cooperation is collectively optimal, but there are asymmetric incentives between legality and opportunism.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station Personnel: Withhold} & \text{Sub-station Personnel: Invest} \\
+\hline
+\text{Farmer: Formal Request} & -1, 0 & 0, 1 \\
+\text{Farmer: Informal Request} & 0, 0 & 1, 1 \\
+\end{array}
+\]
+
+#### Justification
+This game captures the strategic tension between legality and opportunism. Formal cooperation yields a modest benefit for the sub-station personnel but requires a formal fee for the farmer. Informal requests can yield higher benefits for the farmer but at the cost of potential enforcement and reputational risks for the sub-station personnel.
+
+### Action Situation 6: Groundwater Extraction Prisoner’s Dilemma (AS6)
+
+#### Title
+Groundwater Extraction Prisoner’s Dilemma
+
+#### Tension
+Two farmers draw from the same aquifer. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer B: Restrain} & \text{Farmer B: Over-Extract} \\
+\hline
+\text{Farmer A: Restrain} & 2, 2 & 0, 3 \\
+\text{Farmer A: Over-Extract} & 3, 0 & 1, 1 \\
+\end{array}
+\]
+
+#### Justification
+This game represents the strategic tension between short-term gain and long-term sustainability. Mutual restraint benefits both farmers by maintaining groundwater levels, but unilateral over-extraction offers short-term gains at the cost of depleting the resource and reducing future yields.

@@ -2,105 +2,101 @@
 
 ### Extracted Action Situations
 
-**Title: Capacitor Adoption Coordination**  
-Tension: Assurance game requiring mutual adoption for voltage stability benefits  
-Matrix:  
+**1. Capacitor Adoption Assurance Game**  
+**Tension**: Mutual investment in capacitors yields shared voltage stability benefits, but unilateral investment provides no private gain due to interdependence, creating a coordination risk.  
+**Matrix**:  
 ```
-        Farmer B: Adopt   | Farmer B: Not adopt  
-Farmer A: Adopt   | (3,3) | (1,2)  
-Farmer A: Not adopt | (2,1) | (2,2)  
+        Farmer B  
+        Invest    Not  
+Farmer A  
+Invest    (3,3)    (1,2)  
+Not       (2,1)    (2,2)  
 ```  
-Justification: Based on AS1 description: Mutual capacitor adoption yields shared voltage stability benefits, but unilateral adoption yields no private benefit due to interdependence under the same transformer. Non-adopters free-ride on baseline reliability while adopters incur costs without gains, creating a coordination dilemma where mutual cooperation is Pareto-dominant but risky.  
+*Justification*: Text describes capacitor adoption as an assurance game where mutual cooperation (Invest/Invest) is Pareto-dominant but requires coordination. Unilateral investment fails due to lack of voltage stability from isolated adoption (I.iii.a, II.i.a, III.iv.a-AS1).  
 
-**Title: Transformer Capacity Contribution**  
-Tension: Asymmetric free-rider dilemma in transformer investment  
-Matrix:  
+---
+
+**2. Sequential Social Learning in Capacitor Adoption**  
+**Tension**: Farmers imitate peers only if observed capacitor outcomes rank higher, creating path-dependent diffusion where early failures block adoption.  
+**Sequential Representation**:  
+```  
+Farmer 1  
+┌───────────────┴───────────────┐  
+Adopt                           Not  
+│                               │  
+Outcome realized (Success/Failure)  (Baseline payoff = 2)  
+│                               │  
+Farmer 2 observes:              Farmer 2 maintains baseline  
+│  
+If Success (Outcome > Baseline):  
+Farmer 2 adopts → (3,3)  
+Else:  
+Farmer 2 rejects → (1,2)  
+```  
+*Justification*: Explicitly modeled as sequential social learning where adoption depends on observing successful peer outcomes (II.iii.a, III.iv.a-AS2).  
+
+---
+
+**3. Transformer-Capacity Authorization Dilemma**  
+**Tension**: Authorization/investment by one farmer improves shared voltage quality but imposes private costs, creating free-riding incentives.  
+**Matrix**:  
 ```
-        Farmer B: Invest   | Farmer B: Not invest  
-Farmer A: Invest   | (2,2) | (1,3)  
-Farmer A: Not invest | (3,1) | (1,1)  
+        Farmer B  
+        Contribute    Not  
+Farmer A  
+Contribute   (3,3)      (2,4)  
+Not         (4,2)      (1,1)  
 ```  
-Justification: Based on AS3: One farmer’s investment improves voltage quality for both, but costs are borne solely by the investor. Non-investors gain disproportionately (free-riding), while mutual non-investment maintains low baseline reliability. Asymmetric payoffs create incentives to avoid contributing.  
+*Justification*: Asymmetric dilemma where contributors bear costs while non-contributors free-ride on reliability gains (II.ii.a, III.iv.a-AS3).  
 
-**Title: Informal Exchange Reciprocity**  
-Tension: Coordination game for mutual benefit in informal exchanges  
-Matrix:  
+---
+
+**4. Mutual-Exchange Coordination (Farmer-Staff)**  
+**Tension**: Informal exchange benefits both only if reciprocated; unilateral cooperation causes losses for the cooperating party.  
+**Matrix**:  
 ```
-        Staff: Engage   | Staff: Not engage  
-Farmer: Engage   | (3,3) | (1,2)  
-Farmer: Not engage | (2,1) | (2,2)  
+        Staff  
+        Engage    Not  
+Farmer  
+Offer      (3,3)    (1,2)  
+Not        (2,1)    (2,2)  
 ```  
-Justification: Based on AS4: Mutual engagement in informal exchange (e.g., tolerance for unauthorized connections) yields reciprocal benefits. Unmatched actions (e.g., farmer offers bribe but staff enforces) impose losses on the initiator while the abstainer reverts to baseline. Only mutual cooperation succeeds.  
+*Justification*: Coordination game where mutual informal exchange yields joint gains, but mismatched actions penalize the initiator (II.ii.e, III.iv.a-AS4).  
 
-**Title: Formal Authorization vs. Informal Access**  
-Tension: Asymmetric coordination in electricity access and investment  
-Matrix:  
+---
+
+**5. Authorization-Investment Asymmetric Game**  
+**Tension**: Formal cooperation improves collective reliability but burdens staff with investment costs, incentivizing informal shortcuts.  
+**Matrix**:  
 ```
-        Staff: Invest   | Staff: Withhold  
-Farmer: Formal   | (3,2) | (1,3)  
-Farmer: Informal | (4,1) | (2,2)  
+        Staff  
+        Invest      Withhold  
+Farmer  
+Formal      (3,2)      (1,3)  
+Informal    (4,1)      (2,3)  
 ```  
-Justification: Based on AS5: Farmer’s formal request paired with staff investment yields optimal collective reliability but modest staff gains due to effort costs. Staff withholding after formal requests penalizes farmers, while informal access with staff investment disproportionately benefits farmers. Asymmetric incentives favor opportunism.  
+*Justification*: Asymmetric payoffs: Staff gain modestly from withholding even under formal requests, while farmers gain most from informal access with staff investment (II.ii.c, III.iv.a-AS5).  
 
-**Title: Groundwater Extraction**  
-Tension: Prisoner’s dilemma in shared aquifer use  
-Matrix:  
+---
+
+**6. Groundwater Extraction Prisoner’s Dilemma**  
+**Tension**: Mutual restraint sustains aquifers, but unilateral over-extraction offers short-term gains while accelerating depletion.  
+**Matrix**:  
 ```
-        Farmer B: Restrain   | Farmer B: Extract  
-Farmer A: Restrain | (3,3) | (1,4)  
-Farmer A: Extract  | (4,1) | (2,2)  
+        Farmer B  
+        Restrain    Over-extract  
+Farmer A  
+Restrain     (3,3)       (1,4)  
+Over-extract (4,1)       (2,2)  
 ```  
-Justification: Based on AS6: Mutual restraint sustains groundwater, but unilateral over-extraction offers short-term individual gains. Mutual extraction accelerates depletion, raising pumping costs for all. Dominant strategy to extract creates suboptimal collective outcomes.  
+*Justification**: Classical prisoner’s dilemma structure where individual incentives conflict with collective sustainability (II.i.a, III.iv.a-AS6).  
 
-**Title: Authorization-Enforcement Dilemma**  
-Tension: Asymmetric coordination in rule compliance  
-Matrix:  
-```
-        Staff: Enforce   | Staff: Tolerate  
-Farmer: Comply | (3,2) | (2,3)  
-Farmer: Evade  | (1,4) | (4,1)  
-```  
-Justification: Described in II.ii.c: Farmer compliance with staff enforcement yields mutual benefit but uneven costs (farmer fees/staff effort). Evasion with staff tolerance enables informal gains, but mismatched actions (e.g., evasion + enforcement) impose penalties. Staff gain highest by tolerating evasion (avoiding effort), farmers by evading if tolerated.  
+---
 
-**Title: Social Learning Imitation**  
-Tension: Coordination risk in technology diffusion  
-Matrix:  
-```
-        Neighbor: Adopt   | Neighbor: Reject  
-Farmer: Adopt   | (3,3) | (1,2)  
-Farmer: Reject | (2,1) | (2,2)  
-```  
-Justification: Based on AS2 logic: Farmers imitate neighbors only if adoption visibly succeeds. Mutual adoption enables learning and Pareto-dominant outcomes, but unilateral adoption risks failure due to misattribution (e.g., voltage drops blamed on capacitors). Rejection maintains baseline without costs.  
+**Key Omissions Justification**:  
+- *APERC regulatory actions*: Treated as exogenous rules, not recurring strategic interactions (III.iii.a).  
+- *Transformer reliability dynamics*: Emergent outcome of existing AS, not a standalone dilemma (III.iii.b).  
+- *Bounded rationality/sensing*: Embedded in decision heuristics across AS, not a distinct tension (II.iv, II.v).  
+- *Social networks*: Contextual factor enabling coordination/collusion, not a strategic unit (II.vi.d, II.vii.b).  
 
-**Title: Maintenance Effort Coordination**  
-Tension: Asymmetric cost-sharing in transformer upkeep  
-Matrix:  
-```
-        Staff: Maintain   | Staff: Neglect  
-Farmer: Contribute | (3,2) | (1,3)  
-Farmer: Free-ride  | (4,1) | (2,2)  
-```  
-Justification: Implicit in grid dynamics (I.iii.a): Farmers contributing to maintenance costs improve reliability for all, but staff bear effort burdens. Free-riding farmers gain most if staff maintain, while staff gain by neglecting if farmers contribute. Mutual neglect maintains low baseline.  
-
-**Title: Pump-Set Quality Coordination**  
-Tension: Assurance game for grid efficiency  
-Matrix:  
-```
-        Farmer B: Standard   | Farmer B: Low-quality  
-Farmer A: Standard   | (3,3) | (1,2)  
-Farmer A: Low-quality | (2,1) | (2,2)  
-```  
-Justification: Derived from II.viii.a: Mutual use of standard pumpsets improves voltage stability and reduces transformer load. Unilateral adoption increases failure risk for the adopter (due to grid stress from low-quality pumps), while non-adopters free-ride. Coordination required for benefits.  
-
-**Title: Collusion Network Stability**  
-Tension: Mutual dependence in informal agreements  
-Matrix:  
-```
-        Staff: Collude   | Staff: Enforce  
-Farmer: Collude   | (3,3) | (1,2)  
-Farmer: Comply  | (2,1) | (2,2)  
-```  
-Justification: Based on II.ii.e/II.vii: Reciprocal collusion (e.g., bribes for unauthorized connections) benefits both. If staff enforce while farmer colludes, farmer incurs penalties; if farmer complies while staff collude, staff lose informal gains. Only mutual collusion or mutual compliance are stable.  
-
----  
-**Note**: All matrices use **ordinal payoffs** (4=best, 1=worst) as specified in III.iv.b. Each action situation reflects unique strategic tensions explicitly grounded in the ODD+D text, covering capacitor adoption, transformer investment, informal exchange, groundwater extraction, enforcement, learning, maintenance, technology quality, and collusion.
+*All extracted AS directly reference payoff structures and interdependencies from the ODD+D text (III.iv.a).*

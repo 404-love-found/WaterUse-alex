@@ -1,113 +1,123 @@
 # Run 16 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Action Situations in Irrigation Electricity Governance Model
+### Action Situation 1: Capacitor Adoption Assurance (AS1)
+#### Title
+Capacitor Adoption Assurance
 
-#### 1. Farmer-Farmer Capacitor Adoption Assurance Game (AS1)
-**Tension:** Coordination vs. Free-Rider Problem
-**Matrix:**
-```
-                Farmer 2
-                Invest    Not Invest
-Farmer 1 Invest  (3, 3)     (1, 2)
-Not Invest       (2, 1)     (0, 0)
-```
-**Justification:** Both farmers benefit from mutual capacitor investment, but each farmer faces a risk of unilateral investment yielding no private benefit. This creates a coordination problem.
+#### Tension
+Two neighboring farmers must decide whether to invest in voltage-stabilizing capacitors. Mutual investment yields shared improvement, but unilateral investment offers no private benefit.
 
-#### 2. Sequential Social-Learning Process in Capacitor Adoption (AS2)
-**Tension:** Diffusion of Innovations vs. Waiting for Successful Trial
-**Matrix:**
-```
-                Farmer 2
-                Adopt    Not Adopt
-Farmer 1 Adopt  (3, 3)     (1, 0)
-Not Adopt       (0, 1)     (0, 0)
-```
-**Justification:** Adoption occurs only after a successful coordinated trial has been observed, leading to a dilemma between adopting early or waiting for a successful example.
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Invest} & \text{Farmer 2: Do Not Invest} \\
+\hline
+\text{Farmer 1: Invest} & (2,2) & (0,1) \\
+\text{Farmer 1: Do Not Invest} & (1,0) & (1,1) \\
+\end{array}
+\]
 
-#### 3. Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
-**Tension:** Free-Rider vs. Mutual Benefit
-**Matrix:**
+#### Sequential Representation
 ```
-                Farmer 2
-                Authorize    Not Authorize
-Farmer 1 Authorize  (2, 2)       (1, 0)
-Not Authorize       (0, 1)       (0, 0)
+      Farmer 1
+         / \
+        /   \
+    Invest   Do Not Invest
+      /         \
+  Farmer 2: Invest   Farmer 2: Do Not Invest
+       (2,2)            (0,1)
 ```
-**Justification:** Authorizing a transformer upgrade benefits both, but costs fall solely on the authorizer, creating a free-rider incentive.
 
-#### 4. Mutual-Exchange Coordination Game (AS4)
-**Tension:** Informal vs. Formal Exchange
-**Matrix:**
-```
-                Staff
-                Exchange    No Exchange
-Farmer         (1, 1)       (2, 0)
-No Exchange    (0, 2)       (0, 0)
-```
-**Justification:** Mutual benefit arises only when both engage in informal exchange, but staff gain modestly even under formal cooperation due to investment burden.
+#### Justification
+This represents the coordination problem where mutual investment in capacitors benefits both farmers. If one farmer invests while the other does not, the investor incurs a loss, and the non-investor benefits. If neither invests, both remain at a low but non-zero baseline.
 
-#### 5. Formal vs. Informal Request Coordination Game (AS5)
-**Tension:** Formal Cooperation vs. Opportunism
-**Matrix:**
-```
-                Staff
-                Formal Request    Informal Request
-Farmer         (0, 1)          (1, 0)
-No Request     (1, 0)          (0, 0)
-```
-**Justification:** Mutual formal cooperation is collectively optimal, but staff gain modestly even under formal cooperation due to investment burden.
+### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+#### Title
+Asymmetric Transformer-Capacity Authorization Dilemma
 
-#### 6. Groundwater Extraction Prisoner's Dilemma (AS6)
-**Tension:** Mutual Restraint vs. Unilateral Over-Extraction
-**Matrix:**
-```
-                Farmer 2
-                Restrain    Over-Extract
-Farmer 1 Restrain  (2, 2)       (3, 1)
-Over-Extract       (1, 3)       (0, 0)
-```
-**Justification:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+#### Tension
+Two farmers must decide whether to authorize or invest in transformer capacity, benefiting both but imposing costs on the authorizer.
 
-#### 7. Farmer-Staff Coordination Game (AS7)
-**Tension:** Formal vs. Informal Cooperation
-**Matrix:**
-```
-                Staff
-                Formal Cooperation    Informal Cooperation
-Farmer         (1, 1)          (2, 0)
-No Cooperation (0, 2)          (0, 0)
-```
-**Justification:** Mutual formal cooperation is collectively optimal, but staff gain modestly even under formal cooperation due to investment burden.
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Authorize} & \text{Farmer 2: Do Not Authorize} \\
+\hline
+\text{Farmer 1: Authorize} & (2,2) & (1,0) \\
+\text{Farmer 1: Do Not Authorize} & (0,1) & (1,1) \\
+\end{array}
+\]
 
-#### 8. Farmer-Farmer Formal Authorization Dilemma (AS8)
-**Tension:** Mutual Formal Cooperation vs. Opportunism
-**Matrix:**
+#### Sequential Representation
 ```
-                Farmer 2
-                Formal Authorize    Not Formal Authorize
-Farmer 1 Formal Authorize  (2, 2)       (1, 0)
-Not Formal Authorize       (0, 1)       (0, 0)
+      Farmer 1
+         / \
+        /   \
+    Authorize   Do Not Authorize
+      /         \
+  Farmer 2: Authorize   Farmer 2: Do Not Authorize
+       (2,2)            (1,0)
 ```
-**Justification:** Mutual formal authorization benefits both, but costs fall solely on the authorizer, creating a free-rider incentive.
 
-#### 9. Farmer-Farmer Informal Connection Dilemma (AS9)
-**Tension:** Mutual Informal Connection vs. No Connection
-**Matrix:**
-```
-                Farmer 2
-                Formal Connection    Informal Connection
-Farmer 1 Formal Connection  (1, 1)       (2, 0)
-Informal Connection         (0, 2)       (0, 0)
-```
-**Justification:** Mutual informal connection benefits both, but costs fall solely on the first farmer, creating a free-rider incentive.
+#### Justification
+This represents the free-rider problem where mutual authorization benefits both farmers but imposes costs only on the authorizer. If one farmer authorizes while the other does not, the authorizer incurs a cost, and the non-authorizer benefits more. If neither authorizes, both remain at a low but non-zero baseline.
 
-#### 10. Farmer-Staff Informal Exchange Dilemma (AS10)
-**Tension:** Informal vs. Formal Exchange
-**Matrix:**
-```
-                Staff
-                Informal Exchange    Formal Exchange
-Farmer         (1, 1)          (2, 0)
-No Exchange    (0, 2)          (0, 0)
-```
-**Justification:** Mutual informal exchange benefits both, but staff gain modestly even under formal exchange due to investment burden.
+### Action Situation 3: Mutual-Exchange Coordination with Staff (AS4)
+#### Title
+Mutual-Exchange Coordination with Staff
+
+#### Tension
+A farmer and a sub-station staff member must decide whether to engage in an informal exchange of services. Reciprocal benefit arises only when both engage.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Staff: Exchange} & \text{Staff: No Exchange} \\
+\hline
+\text{Farmer: Exchange} & (2,2) & (1,1) \\
+\text{Farmer: No Exchange} & (1,1) & (1,1) \\
+\end{array}
+\]
+
+#### Justification
+This represents the coordination problem where mutual exchange of services yields reciprocal benefits, but unilateral engagement offers no net gain. If either party abstains, both revert to a baseline state.
+
+### Action Situation 4: Authorization and Investment Asymmetric Coordination (AS5)
+#### Title
+Authorization and Investment Asymmetric Coordination
+
+#### Tension
+A farmer and sub-station staff must decide whether to make a formal or informal request for transformer capacity, with different costs and benefits.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Staff: Invest} & \text{Staff: Withhold} \\
+\hline
+\text{Farmer: Formal Request} & (2,1) & (1,0) \\
+\text{Farmer: Informal Request} & (1,1) & (0,1) \\
+\end{array}
+\]
+
+#### Justification
+This represents the asymmetric incentives between legality and opportunism. Mutual formal cooperation is collectively optimal, but unilateral formal requests impose costs on the farmer, while informal requests allow the farmer to benefit more without the formal fee.
+
+### Action Situation 5: Groundwater Extraction Prisoner’s Dilemma (AS6)
+#### Title
+Groundwater Extraction Prisoner’s Dilemma
+
+#### Tension
+Two farmers drawing from the same aquifer must decide whether to restrain or over-extract groundwater, with mutual restraint sustaining yields but unilateral over-extraction offering short-term gain and accelerating depletion.
+
+#### Matrix Representation
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Restrain} & \text{Farmer 2: Over-Extract} \\
+\hline
+\text{Farmer 1: Restrain} & (2,2) & (1,3) \\
+\text{Farmer 1: Over-Extract} & (3,1) & (1,1) \\
+\end{array}
+\]
+
+#### Justification
+This represents the conflict between short-term gain and long-term sustainability. Mutual restraint sustains yields, but unilateral over-extraction offers short-term benefits but accelerates depletion, leading to a worse outcome for both in the long run.

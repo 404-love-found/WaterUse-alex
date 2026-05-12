@@ -1,51 +1,55 @@
 # Run 29 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance Game
-#### Title: Coordination for Voltage-Stabilising Equipment
-#### Tension: Mutual cooperation for shared improvement
-#### Matrix:
-|  | Farmer 1 Invests | Farmer 1 Does Not Invest |
-| --- | --- | --- |
-| **Farmer 2 Invests** | 3, 3 | 0, 2 |
-| **Farmer 2 Does Not Invest** | 2, 0 | 1, 1 |
-#### Justification: This action situation reflects the strategic tension of whether two neighbouring farmers will mutually invest in capacitor adoption to improve voltage stability, with mutual cooperation yielding a higher payoff but also requiring both to take on the investment risk.
+### Distinct Action Situations in Electricity Governance Model
 
-### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma
-#### Title: Authorization and Investment in Transformer Capacity
-#### Tension: Asymmetric incentives for investment and free-riding
-#### Matrix:
-|  | Farmer 1 Authorizes/Invests | Farmer 1 Does Not Authorize/Invest |
-| --- | --- | --- |
-| **Farmer 2 Authorizes/Invests** | 4, 4 | 2, 5 |
-| **Farmer 2 Does Not Authorize/Invest** | 5, 2 | 1, 1 |
-#### Justification: This action situation highlights the tension between two farmers where one's authorization or investment in transformer capacity benefits both but the costs are borne solely by the authorizer, creating an incentive for the other to free-ride.
+1. **Capacitor Adoption Assurance Game**
+	* Tension: Coordination problem between two neighbouring farmers to invest in voltage-stabilising equipment.
+	* Matrix/Sequential Representation:
+		|  | Farmer 2 Invests | Farmer 2 Does Not Invest |
+		| --- | --- | --- |
+		| Farmer 1 Invests | 3, 3 | 1, 2 |
+		| Farmer 1 Does Not Invest | 2, 1 | 0, 0 |
+	* Justification: Mutual investment yields shared improvement, while unilateral investment yields no added private benefit.
 
-### Action Situation 3: Mutual-Exchange Coordination Game
-#### Title: Informal Exchange between Farmer and Staff
-#### Tension: Reciprocal benefit through matched cooperation
-#### Matrix:
-|  | Staff Engages in Informal Exchange | Staff Does Not Engage |
-| --- | --- | --- |
-| **Farmer Engages in Informal Exchange** | 4, 4 | 0, 2 |
-| **Farmer Does Not Engage in Informal Exchange** | 2, 0 | 1, 1 |
-#### Justification: This action situation reflects the strategic interaction between a farmer and sub-station staff where both must engage in informal exchange to achieve mutual benefit, with no benefit or even loss if only one party engages.
+2. **Transformer Capacity Authorization Dilemma**
+	* Tension: Asymmetric incentives between two farmers where one farmer's authorization or investment benefits both but costs fall solely on the authorizer.
+	* Matrix/Sequential Representation:
+		|  | Farmer 2 Invests | Farmer 2 Does Not Invest |
+		| --- | --- | --- |
+		| Farmer 1 Invests | 2, 3 | 1, 2 |
+		| Farmer 1 Does Not Invest | 3, 1 | 0, 0 |
+	* Justification: Free-rider incentive and uneven payoffs create a dilemma where the contributor bears the cost while the non-investor benefits more.
 
-### Action Situation 4: Authorization-and-Investment Asymmetric Coordination Game
-#### Title: Formal vs. Informal Requests and Staff Investment
-#### Tension: Asymmetric incentives between legality and opportunism
-#### Matrix:
-|  | Staff Invests | Staff Does Not Invest |
-| --- | --- | --- |
-| **Farmer Makes Formal Request** | 3, 2 | 0, 4 |
-| **Farmer Makes Informal Request** | 5, 1 | 2, 2 |
-#### Justification: This action situation captures the tension between a farmer's choice of making a formal or informal request for transformer capacity and the staff's decision to invest or withhold, with asymmetric payoffs influencing the choice between legal and opportunistic strategies.
+3. **Mutual Exchange Coordination Game**
+	* Tension: Reciprocal benefit arises only when both a farmer and sub-station staff engage in informal exchange.
+	* Matrix/Sequential Representation:
+		|  | Staff Engages in Exchange | Staff Does Not Engage |
+		| --- | --- | --- |
+		| Farmer Engages in Exchange | 3, 3 | 1, 2 |
+		| Farmer Does Not Engage | 2, 1 | 0, 0 |
+	* Justification: Matched cooperation yields mutual gain, but if either abstains, the offerer bears a loss while the abstainer reverts to baseline.
 
-### Action Situation 5: Groundwater-Extraction Prisoner’s Dilemma
-#### Title: Mutual Restraint in Groundwater Extraction
-#### Tension: Conflict between short-term gain and long-term sustainability
-#### Matrix:
-|  | Farmer 2 Restraints Extraction | Farmer 2 Does Not Restrain Extraction |
-| --- | --- | --- |
-| **Farmer 1 Restraints Extraction** | 3, 3 | 1, 5 |
-| **Farmer 1 Does Not Restrain Extraction** | 5, 1 | 2, 2 |
-#### Justification: This action situation represents the classic prisoner’s dilemma where two farmers must decide whether to restrain their groundwater extraction to sustain yields mutually or to over-extract for short-term gain, risking depletion.
+4. **Authorization and Investment Asymmetric Coordination Game**
+	* Tension: Asymmetric incentives between a farmer (formal versus informal request) and staff (invest versus withhold capacity).
+	* Matrix/Sequential Representation:
+		|  | Staff Invests | Staff Withholds |
+		| --- | --- | --- |
+		| Farmer Makes Formal Request | 2, 3 | 1, 2 |
+		| Farmer Makes Informal Request | 3, 1 | 0, 0 |
+	* Justification: Mutual formal cooperation is collectively optimal, but staff gain modestly even under formal cooperation due to investment burden.
+
+5. **Groundwater Extraction Prisoner's Dilemma**
+	* Tension: Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+	* Matrix/Sequential Representation:
+		|  | Farmer 2 Restraints | Farmer 2 Over-Extracts |
+		| --- | --- | --- |
+		| Farmer 1 Restraints | 3, 3 | 1, 4 |
+		| Farmer 1 Over-Extracts | 4, 1 | 2, 2 |
+	* Justification: Classic prisoner's dilemma where individual self-interest leads to a suboptimal outcome.
+
+6. **Sequential Social Learning in Capacitor Adoption**
+	* Tension: Farmers observe a peer's outcome and imitate only if that outcome ranks higher.
+	* Sequential Representation:
+		1. Farmer 1 adopts capacitor and observes outcome.
+		2. Farmer 2 observes Farmer 1's outcome and decides to adopt or not.
+	* Justification: Diffusion occurs only after a successful coordinated trial has been observed, reflecting social learning and bounded rationality.

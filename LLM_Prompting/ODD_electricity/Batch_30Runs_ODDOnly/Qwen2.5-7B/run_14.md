@@ -1,103 +1,134 @@
 # Run 14 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Action Situations in Irrigation Electricity Governance Model
+### Action Situation 1: Farmer-Farmer Capacitor Adoption Assurance (AS1)
 
-#### 1. Capacitor Adoption Assurance Game (AS1)
-**Tension:**
-Farmer-farmer coordination to invest in voltage-stabilizing equipment.
+#### Title: Capacitor Adoption Assurance
+#### Tension: Mutual Cooperation vs. Free-Rider Dilemma
+#### Matrix Representation:
+```
+          Farmer 2
+          Invest  Not Invest
+Farmer 1 Invest  (3, 3)   (0, 4)
+         Not Invest (4, 0)   (2, 2)
+```
+#### Justification:
+This action situation represents the decision-making process of two neighboring farmers deciding whether to invest in voltage-stabilizing equipment (capacitors). Mutual investment yields a shared improvement in electricity quality, while unilateral investment provides no additional private benefit. This creates a coordination problem where mutual cooperation is Pareto-dominant but risky.
 
-**2-player Normal Form Payoff Matrix:**
+### Action Situation 2: Sequential Social-Learning Capacitor Adoption (AS2)
 
-|                | Farmer B: No Capacitor | Farmer B: Capacitor |
-|----------------|------------------------|---------------------|
-| **Farmer A: No Capacitor** | (0, 0)                 | (1, -1)             |
-| **Farmer A: Capacitor**     | (-1, 1)                | (2, 2)              |
+#### Title: Sequential Social-Learning Capacitor Adoption
+#### Tension: Sequential Coordination vs. Free-Rider Incentive
+#### Sequential Representation (Game Tree):
+```
+                         [Farmer 1]
+                          /  \
+                         /    \
+                   Invest     Not Invest
+                  /           \
+            [Farmer 2]        [Farmer 2]
+            /  \                /  \
+           /    \              /    \
+      Invest    Not Invest    Invest    Not Invest
+       /         \             /         \
+  (3, 3)      (0, 4)      (4, 0)      (2, 2)
+```
+#### Justification:
+This action situation models the sequential process of capacitor adoption where each farmer observes the outcome of the other’s decision and imitates only if the outcome ranks higher. This creates a sequential coordination dilemma where the first farmer’s decision influences the second farmer’s decision, and the second farmer’s decision affects the first’s payoff.
 
-**Justification:**
-- **Mutual Cooperation (Capacitor, Capacitor):** Both farmers benefit equally from improved voltage stability, leading to a Pareto-optimal outcome.
-- **Unilateral Investment (Capacitor, No Capacitor):** The investor incurs costs with no benefit, while the non-investor benefits.
-- **No Investment (No Capacitor, No Capacitor):** No improvement in voltage stability.
+### Action Situation 3: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-#### 2. Sequential Social-Learning Process in Capacitor Adoption (AS2)
-**Tension:**
-Diffusion of capacitor adoption based on social learning.
+#### Title: Asymmetric Transformer-Capacity Authorization Dilemma
+#### Tension: Formal Cooperation vs. Informal Free-Rider
+#### Matrix Representation:
+```
+          Farmer 2
+          Authorize  Not Authorize
+Farmer 1 Authorize  (4, 0)   (2, 2)
+         Not Authorize (0, 4)   (3, 3)
+```
+#### Justification:
+This action situation represents the decision-making process of two farmers deciding whether to authorize an investment in transformer capacity. Authorizing benefits both by raising voltage quality, but the costs fall solely on the authorizer, creating a free-rider incentive and uneven payoffs. If only one invests, the contributor bears the cost while the non-investor benefits more.
 
-**2-player Normal Form Payoff Matrix:**
+### Action Situation 4: Mutual-Exchange Coordination with Sub-Station Staff (AS4)
 
-|                | Farmer B: No Capacitor | Farmer B: Capacitor |
-|----------------|------------------------|---------------------|
-| **Farmer A: No Capacitor** | (0, 0)                 | (1, 0)              |
-| **Farmer A: Capacitor**     | (0, 1)                 | (1, 1)              |
+#### Title: Mutual-Exchange Coordination with Sub-Station Staff
+#### Tension: Informal Exchange vs. Formal Compliance
+#### Matrix Representation:
+```
+          Staff
+          Exchange  No Exchange
+Farmer   Exchange  (2, 2)   (0, 1)
+          No Exchange (1, 0)   (1, 1)
+```
+#### Justification:
+This action situation represents the mutual-exchange coordination game between a farmer and sub-station staff. Reciprocal benefit arises only when both engage in informal exchange, while if either abstains, the offerer bears a loss and the abstainer reverts to baseline. Mutual formal cooperation is collectively optimal, but informal exchange offers a balanced outcome.
 
-**Justification:**
-- **Mutual Cooperation (Capacitor, Capacitor):** Both farmers benefit from improved voltage stability.
-- **Sequential Learning (Capacitor, No Capacitor):** The adopter benefits, while the non-adopter gains if the outcome is positive.
-- **No Learning (No Capacitor, No Capacitor):** No change in voltage stability.
+### Action Situation 5: Asymmetric Authorization-Enforcement Dilemma (AS5)
 
-#### 3. Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
-**Tension:**
-Farmer-farmer coordination on transformer capacity investment.
+#### Title: Asymmetric Authorization-Enforcement Dilemma
+#### Tension: Formal Compliance vs. Informal Opportunism
+#### Matrix Representation:
+```
+          Staff
+          Formal  Informal
+Farmer   Formal  (2, 2)   (0, 3)
+         Informal (3, 0)   (1, 1)
+```
+#### Justification:
+This action situation represents the asymmetric authorization and investment dilemma between a farmer and staff. Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost. Informal exchange offers a balanced outcome, but staff gain modestly even under formal cooperation.
 
-**2-player Normal Form Payoff Matrix:**
+### Action Situation 6: Groundwater Extraction Prisoner’s Dilemma (AS6)
 
-|                | Farmer B: No Investment | Farmer B: Investment |
-|----------------|------------------------|---------------------|
-| **Farmer A: No Investment** | (0, 0)                 | (1, -1)             |
-| **Farmer A: Investment**     | (-1, 1)                | (2, 2)              |
+#### Title: Groundwater Extraction Prisoner’s Dilemma
+#### Tension: Mutual Restraint vs. Unilateral Over-Extraction
+#### Matrix Representation:
+```
+          Farmer 2
+          Restrain  Over-Extract
+Farmer 1 Restrain  (4, 4)   (0, 6)
+         Over-Extract (6, 0)   (2, 2)
+```
+#### Justification:
+This action situation represents the groundwater extraction prisoner’s dilemma between two farmers drawing from the same aquifer. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. This creates a classic prisoner’s dilemma where mutual cooperation is the Pareto-optimal outcome but unilateral defection yields higher immediate benefits.
 
-**Justification:**
-- **Mutual Cooperation (Investment, Investment):** Both farmers benefit from improved voltage stability.
-- **Unilateral Investment (Investment, No Investment):** The investor incurs costs with no added benefit for the non-investor.
-- **No Investment (No Investment, No Investment):** No improvement in voltage stability.
+### Action Situation 7: Social Learning in Capacitor Adoption (SL)
 
-#### 4. Mutual-Exchange Coordination Game (AS4)
-**Tension:**
-Farmer-staff informal exchange for grid capacity.
+#### Title: Social Learning in Capacitor Adoption
+#### Tension: Heuristic vs. Formal Decision-Making
+#### Justification:
+This action situation captures the social learning process where farmers learn from the outcomes of their neighbors’ decisions. Farmers use heuristic rules such as imitating successful peers and coordinating when mutual benefit is expected. This learning process is grounded in the ODD+D text and reflects the bounded rationality and social learning aspects.
 
-**2-player Normal Form Payoff Matrix:**
+### Action Situation 8: Informal Collusion with Sub-Station Staff (IC)
 
-|                | Staff: No Exchange | Staff: Exchange |
-|----------------|--------------------|-----------------|
-| **Farmer: No Exchange** | (0, 0)             | (1, -1)         |
-| **Farmer: Exchange**     | (-1, 1)            | (2, 2)          |
+#### Title: Informal Collusion with Sub-Station Staff
+#### Tension: Formal Compliance vs. Informal Exchange
+#### Matrix Representation:
+```
+          Staff
+          Formal  Informal
+Farmer   Formal  (2, 2)   (0, 3)
+         Informal (3, 0)   (1, 1)
+```
+#### Justification:
+This action situation represents the informal collusion between a farmer and sub-station staff. Informal exchange offers a balanced outcome, but staff gain modestly even under formal cooperation. This reflects the emergent social networks and collusive relationships in the model.
 
-**Justification:**
-- **Mutual Cooperation (Exchange, Exchange):** Both farmer and staff benefit from the exchange.
-- **Unilateral Exchange (Exchange, No Exchange):** The farmer benefits, while the staff incurs a cost.
-- **No Exchange (No Exchange, No Exchange):** No additional benefit.
+### Action Situation 9: Transformer Capacity Deterioration (TC)
 
-#### 5. Authorization-and-Investment Asymmetric Coordination Game (AS5)
-**Tension:**
-Farmer-staff formal or informal request for grid capacity.
+#### Title: Transformer Capacity Deterioration
+#### Tension: Maintenance vs. Cost Consideration
+#### Justification:
+This action situation represents the decision-making process of farmers and staff regarding transformer capacity maintenance. Farmers and staff must balance the costs of maintenance against the benefits of reliable electricity. This reflects the infrastructure constraints and the need for ongoing maintenance.
 
-**2-player Normal Form Payoff Matrix:**
+### Action Situation 10: Groundwater Extraction and Pumping Costs (GC)
 
-|                | Staff: No Investment | Staff: Investment |
-|----------------|---------------------|-------------------|
-| **Farmer: Formal Request** | (-1, 1)             | (0, 0)            |
-| **Farmer: Informal Request** | (-2, 2)            | (1, -1)           |
-
-**Justification:**
-- **Formal Cooperation (Formal Request, Investment):** Both benefit from formal cooperation.
-- **Formal Request with Withholding (Formal Request, No Investment):** The farmer incurs a loss, while the staff saves effort.
-- **Informal Request with Investment (Informal Request, Investment):** The farmer benefits more, while the staff bears the cost without the formal fee.
-- **Informal Request with Withholding (Informal Request, No Investment):** Both revert to baseline.
-
-#### 6. Groundwater Extraction Prisoner’s Dilemma (AS6)
-**Tension:**
-Farmer-farmer coordination on groundwater extraction.
-
-**2-player Normal Form Payoff Matrix:**
-
-|                | Farmer B: No Extraction | Farmer B: Extraction |
-|----------------|------------------------|----------------------|
-| **Farmer A: No Extraction** | (1, 1)                 | (0, 2)               |
-| **Farmer A: Extraction**     | (2, 0)                 | (0, 0)               |
-
-**Justification:**
-- **Mutual Cooperation (No Extraction, No Extraction):** Both farmers benefit from sustainable yields.
-- **Unilateral Extraction (Extraction, No Extraction):** The extractor benefits, while the non-extractor remains at baseline.
-- **No Extraction (No Extraction, Extraction):** The non-extractor benefits, while the extractor incurs no gain.
-- **No Extraction (Extraction, Extraction):** Both face depletion and no gain.
-
-These action situations capture the strategic tensions and decision-making processes in the irrigation electricity governance model, reflecting the interplay between farmers, staff, and the grid infrastructure.
+#### Title: Groundwater Extraction and Pumping Costs
+#### Tension: Short-Term Gain vs. Long-Term Sustainability
+#### Matrix Representation:
+```
+          Farmer 2
+          Restrain  Over-Extract
+Farmer 1 Restrain  (4, 4)   (0, 6)
+         Over-Extract (6, 0)   (2, 2)
+```
+#### Justification:
+This action situation represents the decision-making process of farmers in extracting groundwater. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. This reflects the trade-off between short-term gain and long-term sustainability in groundwater management.

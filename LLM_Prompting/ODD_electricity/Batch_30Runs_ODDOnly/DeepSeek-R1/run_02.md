@@ -1,63 +1,64 @@
 # Run 2 — deepseek-ai/DeepSeek-R1
 
-### Distinct Action Situations Analysis
+### Analysis of Distinct Action Situations
 
 1. **Title**: Capacitor Adoption Assurance  
-   **Tension**: Coordination problem where mutual investment yields shared voltage stability benefits, but unilateral investment provides no private benefit due to interdependency.  
+   **Tension**: Mutual investment in capacitors yields shared voltage stability benefits, but unilateral investment provides no private benefit due to coordination requirements.  
    **Matrix**:  
    ```
-             Farmer B
-             Invest    Not Invest
-   Farmer A
-   Invest     (3,3)      (1,2)
-   Not Invest (2,1)      (2,2)
+               Farmer B: Invest    Farmer B: Not Invest
+   Farmer A: Invest    (2, 2)           (0, 1)
+   Farmer A: Not Invest (1, 0)           (1, 1)
    ```  
-   **Justification**: AS1 explicitly describes mutual capacitor investment as Pareto-dominant (payoff 3,3), while unilateral investment fails due to technical interdependency (payoff 1 for investor). Baseline non-investment (2,2) risks coordination failure (III.iv.a).
+   **Justification**: AS1 (capacitor-adoption assurance game) – Mutual cooperation Pareto-dominant, but unilateral action yields no added benefit (ODD+D III.iv.a).
 
-2. **Title**: Transformer Capacity Authorization Dilemma  
-   **Tension**: Asymmetric free-rider incentive where one farmer’s investment in shared infrastructure benefits both, but non-investors gain more than contributors.  
-   **Matrix**:  
+2. **Title**: Sequential Social Learning in Capacitor Adoption  
+   **Tension**: Farmers imitate peers only if observed outcomes rank higher, requiring successful coordinated trials for diffusion.  
+   **Sequential Representation**:  
    ```
-             Farmer B
-             Invest    Not Invest
-   Farmer A
-   Invest     (2,2)      (2,4)
-   Not Invest (4,2)      (1,1)
+   Stage 1: Peer Farmer adopts capacitor → Experiences outcome (high/low based on context).  
+   Stage 2: Observing Farmer:  
+      - If Peer's outcome > Own current outcome → Adopt (expects peer's payoff).  
+      - Else → Do not adopt (retains baseline payoff).  
    ```  
-   **Justification**: AS3 details asymmetric payoffs: non-investor receives highest benefit (4) when free-riding, mutual non-investment yields low baseline (1,1), and mutual investment splits costs (2,2) (III.iv.a).
+   **Justification**: AS2 (sequential social-learning process) – Diffusion occurs only after observing successful peer outcomes (ODD+D III.iv.a).
 
-3. **Title**: Farmer-Staff Mutual Exchange Coordination  
-   **Tension**: Reciprocal informal exchanges require mutual engagement; unilateral offers incur losses for the initiator while abstainers revert to baseline.  
+3. **Title**: Transformer Capacity Authorization Dilemma  
+   **Tension**: One farmer’s investment in shared transformer capacity benefits all, but non-investors free-ride, creating asymmetric costs and benefits.  
    **Matrix**:  
    ```
-             Staff
-             Engage    Abstain
-   Farmer
-   Engage     (3,3)      (1,2)
-   Abstain    (2,1)      (2,2)
+               Farmer B: Invest    Farmer B: Not Invest
+   Farmer A: Invest    (2, 2)           (0, 3)
+   Farmer A: Not Invest (3, 0)           (1, 1)
    ```  
-   **Justification**: AS4 specifies reciprocal benefit only under mutual engagement (3,3). Unilateral engagement penalizes the initiator (payoff 1) while the abstainer retains baseline (2) (III.iv.a).
+   **Justification**: AS3 (asymmetric transformer-capacity dilemma) – Non-investor gains more than investor; mutual inaction yields low baseline (ODD+D III.iv.a).
 
-4. **Title**: Authorization-Investment Asymmetric Coordination  
-   **Tension**: Conflict between formal compliance and opportunism: mutual formal cooperation is collectively optimal, but staff prefer withholding investment to avoid effort, while farmers gain more from informal requests.  
+4. **Title**: Farmer-Staff Mutual Exchange Coordination  
+   **Tension**: Reciprocal gains (e.g., informal payments for electricity access) occur only if both engage; unilateral offers incur losses.  
    **Matrix**:  
    ```
-             Staff
-             Invest    Withhold
-   Farmer
-   Formal     (4,2)      (1,3)
-   Informal   (5,1)      (2,2)
+               Staff: Engage       Staff: Abstain
+   Farmer: Engage    (2, 2)           (0, 1)
+   Farmer: Abstain   (1, 0)           (1, 1)
    ```  
-   **Justification**: AS5 highlights asymmetric incentives: farmer gains most from informal requests (5), staff prefer withholding (3) to save effort. Formal cooperation (4,2) is suboptimal for staff due to investment burden (III.iv.a).
+   **Justification**: AS4 (mutual-exchange coordination) – Mutual cooperation yields joint benefit; defection harms the initiator (ODD+D III.iv.a).
 
-5. **Title**: Groundwater Extraction Prisoner’s Dilemma  
-   **Tension**: Mutual restraint sustains aquifer yields, but unilateral over-extraction offers short-term gains while accelerating depletion.  
+5. **Title**: Authorization-Investment Asymmetric Coordination  
+   **Tension**: Formal cooperation optimizes collective outcomes, but staff face burdensome investment costs, incentivizing informal opportunism.  
    **Matrix**:  
    ```
-             Farmer B
-             Restrain    Over-extract
-   Farmer A
-   Restrain     (3,3)        (1,4)
-   Over-extract (4,1)        (2,2)
+               Staff: Invest       Staff: Withhold
+   Farmer: Formal    (2, 1)           (0, 2)
+   Farmer: Informal  (3, 0)           (1, 1)
    ```  
-   **Justification**: AS6 frames extraction as a prisoner’s dilemma: over-extraction dominates (4,1), but mutual over-extraction depletes resources (2,2), inferior to mutual restraint (3,3) (III.iv.a).
+   **Justification**: AS5 (authorization-investment game) – Staff gain modestly under formal cooperation; informal requests create asymmetric incentives (ODD+D III.iv.a).
+
+6. **Title**: Groundwater Extraction Prisoner’s Dilemma  
+   **Tension**: Mutual restraint sustains groundwater, but unilateral over-extraction yields short-term gains while accelerating depletion.  
+   **Matrix**:  
+   ```
+               Farmer B: Restrain    Farmer B: Over-extract
+   Farmer A: Restrain    (2, 2)           (0, 3)
+   Farmer A: Over-extract (3, 0)           (1, 1)
+   ```  
+   **Justification**: AS6 (groundwater-extraction dilemma) – Mutual defection depletes resources; unilateral restraint is exploited (ODD+D III.iv.a).

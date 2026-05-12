@@ -1,123 +1,148 @@
 # Run 9 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Capacitor Adoption Assurance Game
+### Title: Capacitor Adoption Assurance Game (AS1)
 
-### Tension: Farmer-Farmer Coordination vs. Unilateral Investment
-
-#### 2-Player Normal Form Payoff Matrix
-
-|                   | Farmer 2: No Investment | Farmer 2: Investment |
-|-------------------|-------------------------|----------------------|
-| **Farmer 1: No Investment** | (0, 0)                    | (2, 1)               |
-| **Farmer 1: Investment**    | (1, 2)                    | (3, 3)               |
-
-#### Justification
-
-- **Farmer 1's Perspective:**
-  - If Farmer 2 does not invest, Farmer 1’s investment provides no additional private benefit. The payoff is 0.
-  - If Farmer 2 invests, Farmer 1’s investment yields a payoff of 2, as the shared benefit improves voltage stability.
-- **Farmer 2's Perspective:**
-  - If Farmer 1 does not invest, Farmer 2’s investment yields a payoff of 1, as it improves voltage stability without additional cost.
-  - If both invest, the payoff is 3, as the shared benefit is maximized.
-
-This game captures the strategic tension between mutual coordination (both farmers investing) and unilateral investment, where individual farmers may be hesitant to invest without assurance that the other will do so as well.
-
----
-
-### Title: Asymmetric Transformer-Capacity Authorization Dilemma
-
-### Tension: Farmer Contribution vs. Free-Riding
+### Tension: Farmer-Farmer Coordination Dilemma
+**Justification**: This action situation captures the coordination problem between two neighboring farmers who decide whether to invest in voltage-stabilizing equipment. Mutual investment yields shared improvement, but unilateral investment offers no private benefit.
 
 #### 2-Player Normal Form Payoff Matrix
 
-|                   | Farmer 2: No Contribution | Farmer 2: Contribution |
-|-------------------|---------------------------|------------------------|
-| **Farmer 1: No Contribution** | (1, 1)                     | (2, 0)                 |
-| **Farmer 1: Contribution**    | (0, 2)                     | (3, 3)                 |
+|               | Farmer 2: No Capacitor | Farmer 2: Capacitor |
+|---------------|-----------------------|---------------------|
+| **Farmer 1: No Capacitor** | (0, 0) | (0, 1) |
+| **Farmer 1: Capacitor**    | (1, 0) | (1, 1) |
 
-#### Justification
+### Title: Sequential Social-Learning Process in Capacitor Adoption (AS2)
 
-- **Farmer 1's Perspective:**
-  - If Farmer 2 does not contribute, Farmer 1’s contribution provides no additional benefit, yielding a payoff of 1.
-  - If Farmer 2 contributes, Farmer 1’s contribution yields a payoff of 3, as both share the benefits.
-- **Farmer 2's Perspective:**
-  - If Farmer 1 does not contribute, Farmer 2’s contribution yields a payoff of 2, as they benefit from the improvement without additional cost.
-  - If both contribute, the payoff is 3, as the shared benefit is maximized.
+### Tension: Diffusion of Capacitor Adoption
+**Justification**: This action situation models the sequential process where a farmer observes the outcome of a peer's capacitor adoption and imitates only if the outcome ranks higher, leading to path-dependent diffusion.
 
-This game reflects the asymmetric cost-sharing dilemma where one farmer bears the cost of contributing to transformer capacity, while the other benefits without contributing.
+#### Sequential Representation (Game Tree)
 
----
+```
+[Farmer 1]
+  ├── [Farmer 2 Adopts Capacitor]
+  │   ├── [Farmer 1 Learns and Adopts Capacitor]
+  │   └── [Farmer 1 Learns and Does Not Adopt Capacitor]
+  └── [Farmer 2 Does Not Adopt Capacitor]
+      ├── [Farmer 1 Learns and Adopts Capacitor]
+      └── [Farmer 1 Learns and Does Not Adopt Capacitor]
+```
 
-### Title: Groundwater Extraction Prisoner's Dilemma
+### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-### Tension: Mutual Restraint vs. Unilateral Over-Extraction
-
-#### 2-Player Normal Form Payoff Matrix
-
-|                   | Farmer 2: Restrain | Farmer 2: Over-Extract |
-|-------------------|--------------------|-----------------------|
-| **Farmer 1: Restrain** | (2, 2)              | (1, 3)                |
-| **Farmer 1: Over-Extract** | (3, 1)              | (0, 0)                |
-
-#### Justification
-
-- **Farmer 1's Perspective:**
-  - If both farmers restrain, the payoff is 2, as mutual restraint sustains yields.
-  - If Farmer 2 over-extracts and Farmer 1 restrains, the payoff is 1, as over-extraction offers short-term gain.
-  - If both over-extract, the payoff is 0, as over-extraction accelerates depletion and raises future pumping and electricity costs.
-- **Farmer 2's Perspective:**
-  - If both farmers restrain, the payoff is 2, as mutual restraint sustains yields.
-  - If Farmer 1 over-extracts and Farmer 2 restrains, the payoff is 3, as over-extraction offers short-term gain.
-  - If both over-extract, the payoff is 0, as over-extraction accelerates depletion and raises future pumping and electricity costs.
-
-This game captures the strategic tension between mutual restraint, which sustains yields, and unilateral over-extraction, which offers short-term gains but depletes resources.
-
----
-
-### Title: Asymmetric Mutual-Exchange Coordination Game
-
-### Tension: Farmer-Staff Informal Exchange vs. Formal Compliance
+### Tension: Farmer-Farmer Free-Rider Incentive
+**Justification**: This action situation describes the dilemma where one farmer’s authorization or investment benefits both by raising voltage quality, but the costs fall solely on the authorizer, creating a free-rider incentive.
 
 #### 2-Player Normal Form Payoff Matrix
 
-|                   | Sub-station Staff: Formal Cooperation | Sub-station Staff: Informal Tolerance |
-|-------------------|-------------------------------------|-------------------------------------|
-| **Farmer: Formal Cooperation** | (2, 2)                              | (1, 3)                              |
-| **Farmer: Informal Exchange**  | (3, 1)                              | (0, 0)                              |
+|               | Farmer 2: Does Not Invest | Farmer 2: Invests |
+|---------------|--------------------------|--------------------|
+| **Farmer 1: Does Not Invest** | (0, 0) | (0, 1) |
+| **Farmer 1: Invests**         | (1, 0) | (2, 2) |
 
-#### Justification
+### Title: Mutual-Exchange Coordination Game (AS4)
 
-- **Farmer's Perspective:**
-  - If both formalize their cooperation, the payoff is 2, as both benefit from reciprocal exchange.
-  - If the farmer seeks informal exchange and the staff tolerate it, the payoff is 3, as the farmer benefits without formal fees.
-  - If both engage in informal exchange, the payoff is 0, as no additional benefit occurs without formal cooperation.
-- **Sub-station Staff's Perspective:**
-  - If both formalize their cooperation, the payoff is 2, as both benefit from reciprocal exchange.
-  - If the farmer seeks informal exchange and the staff tolerate it, the payoff is 1, as the staff save effort or cost.
-  - If both engage in informal exchange, the payoff is 0, as no additional benefit occurs without formal cooperation.
-
-This game reflects the strategic tension between formal compliance, which requires costs for both sides, and informal exchange, which benefits both but requires trust and low detection risk.
-
----
-
-### Title: Transformer Capacity and Contribution Imbalance
-
-### Tension: Farmer Contribution vs. Free-Riding
+### Tension: Farmer-Sub-Station Staff Reciprocal Benefit
+**Justification**: This action situation models the coordination game where reciprocal benefit arises only when both farmer and staff engage in informal exchange.
 
 #### 2-Player Normal Form Payoff Matrix
 
-|                   | Farmer 2: No Contribution | Farmer 2: Contribution |
-|-------------------|---------------------------|------------------------|
-| **Farmer 1: No Contribution** | (1, 1)                     | (2, 0)                 |
-| **Farmer 1: Contribution**    | (0, 2)                     | (3, 3)                 |
+|               | Sub-Station Staff: No Exchange | Sub-Station Staff: Exchange |
+|---------------|-------------------------------|-----------------------------|
+| **Farmer: No Exchange** | (0, 0) | (0, 1) |
+| **Farmer: Exchange**    | (1, 0) | (2, 2) |
 
-#### Justification
+### Title: Authorization-And-Investment Asymmetric Coordination Game (AS5)
 
-- **Farmer 1's Perspective:**
-  - If Farmer 2 does not contribute, Farmer 1’s contribution provides no additional benefit, yielding a payoff of 1.
-  - If Farmer 2 contributes, Farmer 1’s contribution yields a payoff of 3, as both share the benefits.
-- **Farmer 2's Perspective:**
-  - If Farmer 1 does not contribute, Farmer 2’s contribution yields a payoff of 2, as they benefit from the improvement without additional cost.
-  - If both contribute, the payoff is 3, as the shared benefit is maximized.
+### Tension: Farmer-Sub-Station Staff Compliance vs. Opportunism
+**Justification**: This action situation captures the asymmetric incentives between legality and opportunism, where mutual formal cooperation is collectively optimal but unilateral actions yield different payoffs.
 
-This game reflects the strategic tension between mutual contribution to transformer capacity and free-riding, where one farmer bears the cost of contributing while the other benefits without contributing.
+#### 2-Player Normal Form Payoff Matrix
+
+|               | Sub-Station Staff: Withhold | Sub-Station Staff: Invest |
+|---------------|-----------------------------|---------------------------|
+| **Farmer: Formal Request** | (0, 0) | (1, 1) |
+| **Farmer: Informal Request** | (0, 1) | (2, 0) |
+
+### Title: Groundwater Extraction Prisoner’s Dilemma (AS6)
+
+### Tension: Farmer-Farmer Over-Extraction
+**Justification**: This action situation models the prisoner’s dilemma between two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+#### 2-Player Normal Form Payoff Matrix
+
+|               | Farmer 2: Restrain | Farmer 2: Over-Extract |
+|---------------|--------------------|-----------------------|
+| **Farmer 1: Restrain** | (0, 0) | (2, 1) |
+| **Farmer 1: Over-Extract** | (1, 2) | (1, 1) |
+
+### Title: Farmer-Farmer Coordination of Capacitor Adoption (AS1, AS2)
+
+### Tension: Path-Dependent Diffusion of Successful Adoption
+**Justification**: This action situation captures the path-dependent diffusion of successful capacitor adoption, where early failed or isolated adoption can discourage later uptake, while successful coordinated adoption can spread.
+
+#### Sequential Representation (Game Tree)
+
+```
+[Farmer 1]
+  ├── [Farmer 2 Does Not Adopt Capacitor]
+  │   ├── [Farmer 1 Learns and Does Not Adopt Capacitor]
+  │   └── [Farmer 1 Learns and Adopts Capacitor]
+  └── [Farmer 2 Adopts Capacitor]
+      ├── [Farmer 1 Learns and Adopts Capacitor]
+      └── [Farmer 1 Learns and Does Not Adopt Capacitor]
+```
+
+### Title: Farmer-Sub-Station Staff Compliance and Informal Exchange (AS4, AS5)
+
+### Tension: Reciprocal Benefit vs. Opportunism
+**Justification**: This action situation models the trade-off between formal compliance and informal exchange, where mutual cooperation yields reciprocal benefit, but unilateral actions can lead to losses.
+
+#### Sequential Representation (Game Tree)
+
+```
+[Farmer]
+  ├── [Sub-Station Staff Withholds]
+  │   ├── [Farmer Pays Formal Request and Receives Service]
+  │   └── [Farmer Attempts Informal Access and Receives Service]
+  └── [Sub-Station Staff Invests]
+      ├── [Farmer Pays Formal Request and Receives Service]
+      └── [Farmer Attempts Informal Access and Receives Service]
+```
+
+### Title: Farmer-Farmer Free-Rider Incentive (AS3)
+
+### Tension: Uneven Payoffs Due to Shared Infrastructure
+**Justification**: This action situation captures the free-rider incentive where capacity upgrades and authorized connections can improve reliability for the local group, but costs are not always shared evenly.
+
+#### 2-Player Normal Form Payoff Matrix
+
+|               | Farmer 2: Does Not Invest | Farmer 2: Invests |
+|---------------|--------------------------|--------------------|
+| **Farmer 1: Does Not Invest** | (0, 0) | (0, 1) |
+| **Farmer 1: Invests**         | (1, 0) | (2, 2) |
+
+### Title: Farmer-Sub-Station Staff Informal Exchange (AS4)
+
+### Tension: Mismatched Expectations and Reciprocity
+**Justification**: This action situation models the informal exchange between farmer and sub-station staff, where mutual reciprocity can be stable but mismatched expectations create losses.
+
+#### 2-Player Normal Form Payoff Matrix
+
+|               | Sub-Station Staff: No Exchange | Sub-Station Staff: Exchange |
+|---------------|-------------------------------|-----------------------------|
+| **Farmer: No Exchange** | (0, 0) | (0, 1) |
+| **Farmer: Exchange**    | (1, 0) | (2, 2) |
+
+### Title: Farmer-Farmer Coordination of Groundwater Extraction (AS6)
+
+### Tension: Mutual Restraint vs. Over-Extraction
+**Justification**: This action situation captures the prisoner’s dilemma between two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.
+
+#### 2-Player Normal Form Payoff Matrix
+
+|               | Farmer 2: Restrain | Farmer 2: Over-Extract |
+|---------------|--------------------|-----------------------|
+| **Farmer 1: Restrain** | (0, 0) | (2, 1) |
+| **Farmer 1: Over-Extract** | (1, 2) | (1, 1) |

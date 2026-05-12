@@ -4,6 +4,12 @@ The model represents irrigation electricity governance in Andhra Pradesh, India.
 Purpose and empirical setting:
 The model is designed to analyze how linked strategic incentives affect electricity governance and energy efficiency in irrigation systems. It is based on field evidence, interviews, surveys, public regulatory material, APERC reports, and groundwater/electricity governance studies from Andhra Pradesh. The target audience is scientists and policymakers interested in resource governance, institutional analysis, and energy policy.
 
+Scope and use of this scenario:
+This file provides background context only. It should clarify mechanisms, incentives, and payoff logic without listing, numbering, or naming the target strategic units to be extracted.
+The output should infer distinct local strategic tensions from the ODD+D description and this scenario text rather than copy labels from headings in this file.
+Keep the focus on recurring local decision links: neighboring farmers sharing a transformer, farmer-staff compliance or informal exchange, shared groundwater use, and learning from visible technology outcomes.
+Treat APERC as a rule-setting context, not as a repeatedly choosing local player. Do not split broad background processes such as grid reliability, bounded rationality, sensing, or model outputs into standalone units unless the text describes concrete decision-makers, choices, and payoff consequences.
+
 Entities and state variables:
 Farmers have location, transformer-service area, access to groundwater, access type (authorized or unauthorized electricity connection), pump-set type and quality, capacitor status, budget, social-network ties, memory of past failures, and perceived reliability of supply.
 Sub-station personnel have discretionary enforcement power, access to connection records, maintenance responsibility, effort costs, reputational concerns, and potential informal relationships with farmers.
@@ -47,6 +53,7 @@ When staff enforce rules while farmers attempt informal access, farmers face pen
 
 Grid reliability and transformer dynamics:
 Transformer reliability depends on effective capacity, aggregate pump load, equipment quality, capacitor use, unauthorized connections, and maintenance effort.
+Use transformer reliability as a shared outcome variable unless it is tied to a concrete choice such as farmer contribution, farmer compliance, staff enforcement, or staff maintenance.
 A simple ordinal reliability relationship can be represented as:
 Reliability increases with transformer capacity, capacitor coordination, standard pump quality, formal connection records, and staff maintenance effort.
 Reliability decreases with unauthorized load, low-quality pump sets, high simultaneous pumping demand, delayed repair, and weak enforcement.
@@ -61,7 +68,7 @@ Bounded rationality, sensing, and learning:
 Farmers are boundedly rational. They rely on local experience, visible neighbor behavior, social learning, and rough attribution rather than perfect technical knowledge.
 Farmers sense voltage levels, transformer burnouts, repair delays, pump performance, groundwater depth, and neighbors' visible adoption or connection status. These signals can be misleading because farmers may incorrectly attribute voltage drops or pump failures to the wrong cause.
 Sub-station personnel use connection records, observed load, past failures, and perceived oversight intensity. They also operate under uncertainty about detection of informal exchange and future transformer failures.
-Social learning is local. Farmers are more likely to imitate successful neighbors with similar equipment, transformer access, or social position. Failed adoption or unclear performance gains can slow diffusion even when the technology would be efficient under broader coordination.
+Social learning is local. Farmers are more likely to imitate successful neighbors with similar equipment, transformer access, or social position. Treat learning as part of technology adoption and compliance behavior rather than a separate strategic unit by itself. Failed adoption or unclear performance gains can slow diffusion even when the technology would be efficient under broader coordination.
 
 Social norms and informal institutions:
 Solidarity among farmers, kinship ties, repeated interactions, and trust networks influence both formal compliance and informal exchange. Collusive relationships with utility staff can persist when both sides expect reciprocal benefit and low detection risk.
@@ -84,3 +91,4 @@ These parameters link the local mechanisms: weak capacity can make capacitor ado
 
 Model outputs:
 Important outputs include capacitor adoption rates, use of standard-approved pump sets, transformer failure frequency, repair delays, proportion of authorized versus unauthorized connections, electricity reliability, groundwater extraction rates, pumping costs, persistence of informal staff-farmer networks, and uneven access to reliable electricity across villages or transformer areas.
+These outputs are measurements of model behavior. They should not be copied as standalone extracted units unless they are connected to specific decision-makers, alternatives, and payoff tradeoffs described above.

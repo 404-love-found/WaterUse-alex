@@ -1,154 +1,156 @@
 # Run 1 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Capacitor Adoption Assurance Game
+### Title: Capacitor Adoption Assurance Game (AS1)
 
-### Tension: Farmer-Farmer Coordination Dilemma
+### Tension: Coordination Dilemma
+Farmers must coordinate on capacitor adoption to achieve mutual benefits, but unilateral adoption does not yield private benefits.
 
-#### 2-Player Normal Form Payoff Matrix
+### Matrix Representation:
+| Farmer 2 | Install Capacitor | Do Not Install Capacitor |
+|----------|------------------|-------------------------|
+| **Install Capacitor** | (2, 2) | (0, 1) |
+| **Do Not Install Capacitor** | (1, 0) | (1, 1) |
 
-|                | Farmer B: No Capacitor | Farmer B: Capacitor |
-|----------------|------------------------|--------------------|
-| **Farmer A: No Capacitor** | (2, 2)                 | (1, 3)             |
-| **Farmer A: Capacitor**     | (3, 1)                 | (4, 4)             |
+### Justification:
+This game represents the decision of two neighboring farmers whether to install capacitors. Mutual cooperation (both install capacitors) leads to the highest payoff (2, 2) as it stabilizes the voltage and improves pump efficiency for both. However, if one farmer installs the capacitor while the other does not, the non-installing farmer can benefit from the improved voltage without incurring the cost of the capacitor (1, 1). Unilateral adoption does not provide a private benefit, creating a coordination problem.
 
-#### Justification
+### Title: Sequential Social-Learning Process (AS2)
 
-- **Farmer A and B** are deciding whether to invest in a capacitor to improve local electricity quality and pump efficiency.
-- **Farmer A: No Capacitor** - If both farmers do not invest in a capacitor, the local service quality remains suboptimal, and both receive a payoff of 2.
-- **Farmer A: Capacitor and Farmer B: No Capacitor** - Farmer A bears the cost of the capacitor, but the benefits are limited since the local service quality does not significantly improve. Farmer B receives a higher payoff of 3 due to the improved service without paying.
-- **Farmer A: No Capacitor and Farmer B: Capacitor** - Farmer B bears the cost of the capacitor, but the local service quality does not significantly improve, leading to a lower payoff of 1 for Farmer A.
-- **Farmer A: Capacitor and Farmer B: Capacitor** - Both farmers invest in the capacitor, leading to a significant improvement in service quality. Both receive a high payoff of 4.
+### Tension: Diffusion of Technology
+Farmers adopt technology based on observed outcomes, but initial failures can slow or block diffusion.
 
-This payoff matrix reflects the coordination problem where mutual investment in capacitors yields a Pareto-dominant outcome, but unilateral investment is risky due to the free-rider problem.
+### Sequential Representation (Game Tree):
+```
+                 Farmer 1
+                  /    \
+            (1,0)  (2,2)
+            /    \
+       Farmer 2       Farmer 2
+        /    \        /    \
+   (0,1)  (2,2)  (1,0)  (2,2)
+```
 
----
+### Justification:
+This sequential game shows the process of technology adoption where Farmer 1 makes the first decision, and Farmer 2 observes and imitates. If Farmer 1 does not adopt (1,0), Farmer 2 will not adopt either (0,1). However, if Farmer 1 adopts successfully (2,2), Farmer 2 is more likely to adopt (2,2). Initial failures create a path dependency that can slow the diffusion of technology.
 
-### Title: Transformer Capacity Authorization Dilemma
+### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-### Tension: Farmer-Staff Asymmetric Dilemma
+### Tension: Free-Rider Problem
+One farmer’s investment in transformer capacity benefits both, but the costs fall solely on the investor.
 
-#### 2-Player Normal Form Payoff Matrix
+### Matrix Representation:
+| Farmer 2 | Invest in Capacity | Do Not Invest in Capacity |
+|----------|--------------------|---------------------------|
+| **Invest in Capacity** | (1, 1) | (2, 0) |
+| **Do Not Invest in Capacity** | (0, 2) | (0, 0) |
 
-|                | Staff: No Authorization | Staff: Authorization |
-|----------------|------------------------|---------------------|
-| **Farmer: No Connection**   | (1, 2)                 | (2, 1)              |
-| **Farmer: Connection**      | (3, 3)                 | (4, 0)              |
+### Justification:
+This game represents the decision of two farmers whether to invest in transformer capacity. If both invest (1, 1), they share the costs and benefits. However, if one farmer invests and the other does not (2, 0 or 0, 2), the investing farmer bears the full cost while the non-investing farmer reaps the benefits. This creates a free-rider problem where non-investors benefit without contributing.
 
-#### Justification
+### Title: Mutual-Exchange Coordination Game (AS4)
 
-- **Farmer: No Connection** - If the farmer does not request a connection, and the staff do not authorize it, the farmer remains without reliable electricity and incurs a low payoff of 1. If the staff authorize the connection, the farmer gets a higher payoff of 2 but incurs a cost.
-- **Farmer: Connection and Staff: No Authorization** - If the farmer requests a connection and the staff do not authorize it, the farmer incurs a higher payoff of 3 due to informal access, while the staff avoid the cost of formal authorization and maintenance.
-- **Farmer: No Connection and Staff: Authorization** - If the farmer does not request a connection, and the staff authorize it, the farmer incurs a cost of 1, while the staff avoid the cost of formal authorization.
-- **Farmer: Connection and Staff: Authorization** - If the farmer requests a connection, and the staff authorize it, the farmer gets a higher payoff of 4 due to reliable electricity, but the staff incur a higher cost of formal authorization and maintenance.
+### Tension: Reciprocity and Trust
+Reciprocal benefit arises only when both farmer and sub-station staff engage in informal exchange; otherwise, either party bears a loss.
 
-This payoff matrix reflects the asymmetric dilemma where farmers face the trade-off between formal compliance and informal access, while staff balance the costs of authorization and maintenance against the benefits of formal compliance.
+### Matrix Representation:
+| Sub-station Staff | Informal Exchange | No Informal Exchange |
+|--------------------|-------------------|-----------------------|
+| **Informal Exchange** | (1, 1) | (0, 0) |
+| **No Informal Exchange** | (0, 0) | (2, 2) |
 
----
+### Justification:
+This game represents the decision of a farmer and sub-station staff whether to engage in informal exchange. Mutual engagement (1, 1) provides reciprocal benefit, but if one party engages and the other does not, the engaging party incurs a loss (0, 0). This creates a dependency on trust and reciprocity.
 
-### Title: Groundwater Extraction Prisoner's Dilemma
+### Title: Authorization and Investment Asymmetric Coordination Game (AS5)
 
-### Tension: Farmer-Farmer Extraction Dilemma
+### Tension: Legal vs. Informal Gain
+Formal cooperation is collectively optimal, but staff may benefit more from informal cooperation.
 
-#### 2-Player Normal Form Payoff Matrix
+### Matrix Representation:
+| Sub-station Staff | Formal Cooperation | Informal Cooperation |
+|--------------------|--------------------|----------------------|
+| **Formal Cooperation** | (1, 1) | (0, 2) |
+| **Informal Cooperation** | (2, 0) | (2, 2) |
 
-|                | Farmer B: No Extraction | Farmer B: Extraction |
-|----------------|------------------------|---------------------|
-| **Farmer A: No Extraction** | (5, 5)                 | (3, 8)              |
-| **Farmer A: Extraction**     | (8, 3)                 | (4, 4)              |
+### Justification:
+This game represents the decision of a farmer and sub-station staff whether to seek formal or informal access to transformer capacity. Mutual formal cooperation (1, 1) is collectively optimal, but informal cooperation (2, 2) can provide a higher individual gain for the staff (2) while the farmer also benefits. This creates an asymmetric incentive between legality and opportunism.
 
-#### Justification
+### Title: Groundwater Extraction Prisoner’s Dilemma (AS6)
 
-- **Farmer A and B: No Extraction** - If both farmers do not extract groundwater, the aquifer is sustainably managed, and both receive a high payoff of 5.
-- **Farmer A: Extraction and Farmer B: No Extraction** - If one farmer extracts groundwater and the other does not, the extracting farmer benefits from increased irrigation, leading to a higher payoff of 8 for the extracting farmer and a lower payoff of 3 for the non-extracting farmer.
-- **Farmer A: No Extraction and Farmer B: Extraction** - If one farmer does not extract groundwater and the other does, the non-extracting farmer benefits from the sustainable aquifer, leading to a higher payoff of 5 for the non-extracting farmer and a lower payoff of 3 for the extracting farmer.
-- **Farmer A and B: Extraction** - If both farmers extract groundwater, the aquifer is over-extracted, leading to a lower payoff of 4 for both farmers due to the accelerated depletion of the aquifer and increased pumping costs.
+### Tension: Over-Extraction vs. Sustainable Use
+Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-This payoff matrix reflects the prisoner's dilemma where mutual restraint yields the best outcome, but unilateral extraction offers short-term gain at the cost of long-term sustainability.
+### Matrix Representation:
+| Farmer 2 | Restrain Extraction | Over-Extract |
+|----------|---------------------|--------------|
+| **Restrain Extraction** | (1, 1) | (0, 2) |
+| **Over-Extract** | (2, 0) | (0, 0) |
 
----
+### Justification:
+This game represents the decision of two farmers whether to restrain or over-extract groundwater. Mutual restraint (1, 1) sustains yields, but if one farmer over-extracts (2, 0 or 0, 2), the over-extracting farmer benefits in the short term while the other farmer’s yields are depleted. This creates a dilemma between short-term gain and long-term sustainability.
 
-### Title: Social Learning and Coordination
+### Title: Farmer-Staff Interaction (AS7)
 
-### Tension: Diffusion of Capacitor Adoption
+### Tension: Compliance vs. Informal Exchange
+Farmers and staff can interact under formal rules or through informal relationships; mutual benefit requires matched expectations.
 
-#### 2-Player Normal Form Payoff Matrix
+### Sequential Representation (Game Tree):
+```
+                 Farmer
+                  /    \
+            (1,0)  (2,2)
+            /    \
+       Staff     Staff
+        /    \    /    \
+   (0,1)  (2,2) (1,0)  (2,2)
+```
 
-|                | Farmer B: No Adoption | Farmer B: Adoption |
-|----------------|----------------------|--------------------|
-| **Farmer A: No Adoption**  | (1, 1)                | (3, 2)             |
-| **Farmer A: Adoption**     | (2, 3)                | (4, 4)             |
+### Justification:
+This sequential game shows the process of interaction between a farmer and sub-station staff. If the farmer requests formal access and the staff enforces (1, 0), the farmer incurs a loss. If the staff tolerates informal access and the farmer reciprocates (2, 2), both benefit. If either party does not reciprocate, the other loses (0, 1 or 1, 0). This creates a dependency on matched expectations and reciprocal benefit.
 
-#### Justification
+### Title: Transformer Reliability and Capacity (AS8)
 
-- **Farmer A and B: No Adoption** - If both farmers do not adopt capacitors, the local service quality remains suboptimal, and both receive a low payoff of 1.
-- **Farmer A: No Adoption and Farmer B: Adoption** - If one farmer adopts a capacitor and the other does not, the adopting farmer benefits from improved service quality, leading to a higher payoff of 3 for the adopting farmer and a lower payoff of 2 for the non-adopting farmer.
-- **Farmer A: Adoption and Farmer B: No Adoption** - If one farmer adopts a capacitor and the other does not, the non-adopting farmer benefits from the improved service quality, leading to a lower payoff of 2 for the adopting farmer and a higher payoff of 3 for the non-adopting farmer.
-- **Farmer A and B: Adoption** - If both farmers adopt capacitors, the local service quality is significantly improved, leading to a high payoff of 4 for both farmers.
+### Tension: Capacity Overload vs. Reliability
+Reliability increases with coordinated capacitor adoption and standard pump quality, but overloaded transformers increase failure risk.
 
-This payoff matrix reflects the path-dependent diffusion of capacitor adoption, where early adoption can discourage later uptake, while successful coordinated adoption can spread through the social network.
+### Matrix Representation:
+| Farmer 2 | Use Standard Pump | Use Low-Quality Pump |
+|----------|--------------------|-----------------------|
+| **Use Standard Pump** | (1, 1) | (0, 0) |
+| **Use Low-Quality Pump** | (0, 0) | (2, 2) |
 
----
+### Justification:
+This game represents the decision of two farmers whether to use standard or low-quality pumps. Mutual use of standard pumps (1, 1) improves reliability, but unilateral use of low-quality pumps (0, 0) degrades reliability. Overloading transformers (2, 2) increases the risk of failure, creating a tension between short-term gain and long-term reliability.
 
-### Title: Informal Exchange and Reciprocity
+### Title: Groundwater Extraction Dynamics (AS9)
 
-### Tension: Farmer-Staff Reciprocal Benefit
+### Tension: Short-Term Gain vs. Long-Term Sustainability
+Individual high extraction can dominate in the short run, but mutual high extraction accelerates depletion and raises future pumping and electricity costs.
 
-#### 2-Player Normal Form Payoff Matrix
+### Matrix Representation:
+| Farmer 2 | Restrain Extraction | Over-Extract |
+|----------|---------------------|--------------|
+| **Restrain Extraction** | (1, 1) | (0, 2) |
+| **Over-Extract** | (2, 0) | (0, 0) |
 
-|                | Staff: No Exchange | Staff: Exchange |
-|----------------|--------------------|-----------------|
-| **Farmer: No Exchange**   | (2, 1)              | (4, 2)          |
-| **Farmer: Exchange**      | (1, 4)              | (3, 3)          |
+### Justification:
+This game represents the decision of two farmers whether to restrain or over-extract groundwater. Mutual restraint (1, 1) sustains yields, but if one farmer over-extracts (2, 0 or 0, 2), the over-extracting farmer benefits in the short term while the other farmer’s yields are depleted. This creates a dilemma between short-term gain and long-term sustainability.
 
-#### Justification
+### Title: Social Learning and Bounded Rationality (AS10)
 
-- **Farmer: No Exchange and Staff: No Exchange** - If both the farmer and staff do not engage in informal exchange, the farmer incurs a lower payoff of 2 due to formal compliance costs, and the staff avoids the cost of formal authorization.
-- **Farmer: No Exchange and Staff: Exchange** - If the farmer does not engage in informal exchange, but the staff does, the farmer incurs a higher payoff of 4 due to informal access, while the staff avoids the cost of formal authorization.
-- **Farmer: Exchange and Staff: No Exchange** - If the farmer engages in informal exchange, but the staff does not, the farmer incurs a lower payoff of 1 due to formal compliance costs, while the staff avoids the cost of formal authorization.
-- **Farmer: Exchange and Staff: Exchange** - If both the farmer and staff engage in informal exchange, the farmer incurs a lower payoff of 3 due to formal compliance costs, but the staff avoids the cost of formal authorization, and both benefit from the reciprocal exchange.
+### Tension: Technology Adoption and Social Influence
+Farmers adopt technology based on local experience and visible outcomes, but initial failures can slow or block diffusion.
 
-This payoff matrix reflects the reciprocal benefit of informal exchange, where mutual engagement yields a stable outcome, but unilateral engagement can lead to losses for the party that offers cooperation.
+### Sequential Representation (Game Tree):
+```
+                 Farmer
+                  /    \
+            (1,0)  (2,2)
+            /    \
+       Neighbor's Outcome   Neighbor's Outcome
+        /    \              /    \
+   (0,1)  (2,2)         (1,0)  (2,2)
+```
 
----
-
-### Title: Transformer Reliability and Capacity
-
-### Tension: Farmer-Staff Coordination
-
-#### 2-Player Normal Form Payoff Matrix
-
-|                | Staff: No Maintenance | Staff: Maintenance |
-|----------------|----------------------|--------------------|
-| **Farmer: No Connection**  | (1, 2)                | (3, 1)             |
-| **Farmer: Connection**     | (2, 1)                | (4, 4)             |
-
-#### Justification
-
-- **Farmer: No Connection and Staff: No Maintenance** - If the farmer does not request a connection, and the staff do not maintain the transformer, the farmer remains without reliable electricity and incurs a low payoff of 1.
-- **Farmer: No Connection and Staff: Maintenance** - If the farmer does not request a connection, but the staff maintain the transformer, the farmer gets a higher payoff of 3 due to reliable electricity, while the staff incur a cost of maintenance.
-- **Farmer: Connection and Staff: No Maintenance** - If the farmer requests a connection, and the staff do not maintain the transformer, the farmer incurs a higher payoff of 2 due to informal access, while the staff avoid the cost of formal authorization.
-- **Farmer: Connection and Staff: Maintenance** - If the farmer requests a connection, and the staff maintain the transformer, the farmer gets a higher payoff of 4 due to reliable electricity, while the staff incur a cost of maintenance.
-
-This payoff matrix reflects the coordination between farmers and staff where mutual maintenance and connection yield the best outcome, but unilateral actions can lead to suboptimal outcomes.
-
----
-
-### Title: Groundwater Recharge and Extraction
-
-### Tension: Farmer Extraction Dilemma
-
-#### 2-Player Normal Form Payoff Matrix
-
-|                | Farmer B: No Extraction | Farmer B: Extraction |
-|----------------|------------------------|---------------------|
-| **Farmer A: No Extraction** | (5, 5)                 | (3, 8)              |
-| **Farmer A: Extraction**     | (8, 3)                 | (4, 4)              |
-
-#### Justification
-
-- **Farmer A and B: No Extraction** - If both farmers do not extract groundwater, the aquifer is sustainably managed, and both receive a high payoff of 5.
-- **Farmer A: Extraction and Farmer B: No Extraction** - If one farmer extracts groundwater and the other does not, the extracting farmer benefits from increased irrigation, leading to a higher payoff of 8 for the extracting farmer and a lower payoff of 3 for the non-extracting farmer.
-- **Farmer A: No Extraction and Farmer B: Extraction** - If one farmer does not extract groundwater and the other does, the non-extracting farmer benefits from the sustainable aquifer, leading to a higher payoff of 5 for the non-extracting farmer and a lower payoff of 3 for the extracting farmer.
-- **Farmer A and B: Extraction** - If both farmers extract groundwater, the aquifer is over-extracted, leading to a lower payoff of 4 for both farmers due to the accelerated depletion of the aquifer and increased pumping costs.
-
-This payoff matrix reflects the prisoner's dilemma where mutual restraint yields the best outcome, but unilateral extraction offers short-term gain at the cost of long-term sustainability.
+### Justification:
+This sequential game shows the process of technology adoption where Farmer 1 observes the outcome of a neighboring farmer. If the neighbor’s adoption fails (0, 1), Farmer 1 is less likely to adopt. If the neighbor’s adoption succeeds (2, 2), Farmer 1 is more likely to adopt. This creates a dependency on local experience and visible outcomes, reflecting the bounded rationality of farmers.

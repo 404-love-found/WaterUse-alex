@@ -1,61 +1,81 @@
 # Run 4 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Capacitor-Adoption Assurance Game
-#### Title: Coordination for Voltage-Stabilising Equipment
-#### Tension: Farmers must coordinate to invest in capacitors for mutual benefit.
-#### Matrix:
-
+### Action Situation 1: Capacitor Adoption Assurance Game
+* **Title:** Farmer-Farmer Capacitor Adoption
+* **Tension:** Coordination problem where mutual investment in capacitors yields shared improvement, but unilateral investment yields no added private benefit.
+* **Matrix/Sequential Representation:**
 |  | Farmer 2 Invests | Farmer 2 Does Not Invest |
 | --- | --- | --- |
 | **Farmer 1 Invests** | 3, 3 | 1, 2 |
 | **Farmer 1 Does Not Invest** | 2, 1 | 2, 2 |
-
-#### Justification: This matrix represents the assurance game where both farmers benefit if they both invest in capacitors (3, 3), but if only one invests, they receive a lower payoff (1, 2 or 2, 1), and if neither invests, they both receive a baseline payoff (2, 2).
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS1 is a capacitor-adoption assurance game between two neighbouring farmers who decide whether to invest in voltage-stabilising equipment."
 
 ### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma
-#### Title: Authorization and Investment in Transformer Capacity
-#### Tension: One farmer's authorization benefits both but costs only the authorizer.
-#### Matrix:
-
-|  | Farmer 2 Authorizes | Farmer 2 Does Not Authorize |
+* **Title:** Farmer-Farmer Transformer Capacity
+* **Tension:** Asymmetric incentives where one farmer's authorization or investment benefits both, but costs fall solely on the authorizer.
+* **Matrix/Sequential Representation:**
+|  | Farmer 2 Invests | Farmer 2 Does Not Invest |
 | --- | --- | --- |
-| **Farmer 1 Authorizes** | 4, 4 | 1, 5 |
-| **Farmer 1 Does Not Authorize** | 5, 1 | 2, 2 |
-
-#### Justification: This matrix shows the asymmetric dilemma where if one farmer authorizes and the other does not, the non-authorizer benefits more (5, 1), creating an incentive for free-riding.
+| **Farmer 1 Invests** | 2, 4 | 1, 3 |
+| **Farmer 1 Does Not Invest** | 3, 2 | 2, 2 |
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS3 is an asymmetric transformer-capacity authorization dilemma between two farmers."
 
 ### Action Situation 3: Mutual-Exchange Coordination Game
-#### Title: Informal Exchange between Farmer and Staff
-#### Tension: Reciprocal benefit from informal exchange requires cooperation from both.
-#### Matrix:
-
-|  | Staff Engages in Informal Exchange | Staff Does Not Engage |
+* **Title:** Farmer-Staff Informal Exchange
+* **Tension:** Reciprocal benefit arises only when both engage in informal exchange; if either abstains, the other bears a loss.
+* **Matrix/Sequential Representation:**
+|  | Staff Engages in Exchange | Staff Does Not Engage |
 | --- | --- | --- |
-| **Farmer Engages in Informal Exchange** | 4, 4 | 1, 3 |
-| **Farmer Does Not Engage in Informal Exchange** | 3, 1 | 2, 2 |
-
-#### Justification: This matrix illustrates the mutual-exchange game where both the farmer and staff benefit if they both engage in informal exchange (4, 4), but if only one engages, the other benefits less or not at all.
+| **Farmer Engages in Exchange** | 4, 4 | 1, 3 |
+| **Farmer Does Not Engage** | 3, 1 | 2, 2 |
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS4 is a mutual-exchange coordination game between a farmer and sub-station staff."
 
 ### Action Situation 4: Authorization-and-Investment Asymmetric Coordination Game
-#### Title: Formal vs. Informal Requests and Staff Investment
-#### Tension: Asymmetric incentives between formal cooperation and opportunism.
-#### Matrix:
-
-|  | Staff Invests | Staff Does Not Invest |
+* **Title:** Farmer-Staff Authorization and Investment
+* **Tension:** Asymmetric incentives between legality and opportunism, where mutual formal cooperation is collectively optimal, but staff gain modestly even under formal cooperation.
+* **Matrix/Sequential Representation:**
+|  | Staff Invests | Staff Withholds |
 | --- | --- | --- |
-| **Farmer Makes Formal Request** | 5, 3 | 1, 4 |
-| **Farmer Makes Informal Request** | 4, 5 | 2, 2 |
+| **Farmer Makes Formal Request** | 3, 4 | 1, 3 |
+| **Farmer Makes Informal Request** | 4, 2 | 2, 2 |
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS5 is an authorization-and-investment asymmetric coordination game between a farmer and staff."
 
-#### Justification: This matrix represents the game where the farmer's choice between a formal or informal request and the staff's decision to invest or not leads to asymmetric payoffs, influencing the choice between legality and opportunism.
-
-### Action Situation 5: Groundwater-Extraction Prisoner’s Dilemma
-#### Title: Sustainable Groundwater Use
-#### Tension: Mutual restraint is necessary for sustainable yields, but unilateral over-extraction offers short-term gain.
-#### Matrix:
-
+### Action Situation 5: Groundwater-Extraction Prisoner's Dilemma
+* **Title:** Farmer-Farmer Groundwater Extraction
+* **Tension:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+* **Matrix/Sequential Representation:**
 |  | Farmer 2 Restraints | Farmer 2 Over-Extracts |
 | --- | --- | --- |
-| **Farmer 1 Restraints** | 3, 3 | 1, 5 |
-| **Farmer 1 Over-Extracts** | 5, 1 | 2, 2 |
+| **Farmer 1 Restraints** | 3, 3 | 1, 4 |
+| **Farmer 1 Over-Extracts** | 4, 1 | 2, 2 |
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS6 is a groundwater-extraction prisoner’s dilemma between two farmers."
 
-#### Justification: This matrix shows the classic prisoner's dilemma structure where mutual cooperation (restraint) yields a moderate payoff (3, 3), but unilateral defection (over-extraction) offers a higher short-term payoff (5, 1), leading to a dilemma in choosing between individual gain and collective sustainability.
+### Action Situation 6: Sequential Social-Learning Process in Capacitor Adoption
+* **Title:** Farmer Social Learning
+* **Tension:** Each farmer observes a peer's outcome and imitates only if that outcome ranks higher.
+* **Matrix/Sequential Representation:**
+```
+          +---------------+
+          |  Farmer 1   |
+          |  (Observer)  |
+          +---------------+
+                  |
+                  | Observes
+                  | Peer's Outcome
+                  v
++-------------------------------+
+|         Peer's Outcome        |
+|  (Higher or Lower than Farmer  |
+|   1's Current Outcome)        |
++-------------------------------+
+                  |
+                  | Imitates if
+                  | Peer's Outcome
+                  | is Higher
+                  v
+          +---------------+
+          |  Farmer 1   |
+          |  (Imitator)  |
+          +---------------+
+```
+* **Justification:** This action situation is mentioned in the ODD+D text as "AS2 is a sequential social-learning process in capacitor adoption."

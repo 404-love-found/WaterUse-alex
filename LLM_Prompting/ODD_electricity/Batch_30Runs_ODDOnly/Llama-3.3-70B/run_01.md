@@ -1,46 +1,61 @@
 # Run 1 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
 ### Action Situation 1: Capacitor Adoption Assurance Game
+#### Title: Capacitor Adoption
 #### Tension: Coordination Problem
-#### Matrix:
-|  | Farmer 1 Adopt | Farmer 1 Not Adopt |
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Adopts | Farmer 2 Does Not Adopt |
 | --- | --- | --- |
-| **Farmer 2 Adopt** | 3, 3 | 0, 0 |
-| **Farmer 2 Not Adopt** | 0, 0 | 1, 1 |
-#### Justification: This situation reflects the strategic tension between two neighbouring farmers deciding whether to invest in voltage-stabilising equipment (capacitors). Mutual investment yields shared improvement, while unilateral investment yields no added private benefit.
+| **Farmer 1 Adopts** | 3, 3 | 1, 2 |
+| **Farmer 1 Does Not Adopt** | 2, 1 | 2, 2 |
+#### Justification: This action situation reflects the coordination problem between two neighbouring farmers deciding whether to invest in voltage-stabilising equipment (capacitors). Mutual investment yields shared improvement, while unilateral investment yields no added private benefit.
 
-### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma
-#### Tension: Free-Rider Incentive
-#### Matrix:
-|  | Farmer 1 Authorize | Farmer 1 Not Authorize |
+### Action Situation 2: Sequential Social-Learning Process in Capacitor Adoption
+#### Title: Social Learning in Capacitor Adoption
+#### Tension: Imitation and Coordination
+#### Matrix/Sequential Representation:
+1. Farmer 1 adopts capacitor and observes outcome.
+2. Farmer 2 observes Farmer 1's outcome and decides to adopt or not.
+   - If Farmer 1's outcome is successful, Farmer 2 adopts.
+   - If Farmer 1's outcome is not successful, Farmer 2 does not adopt.
+#### Justification: This sequential action situation represents how farmers learn from each other's experiences with capacitor adoption, with each farmer making decisions based on observed outcomes of their peers.
+
+### Action Situation 3: Asymmetric Transformer-Capacity Authorization Dilemma
+#### Title: Transformer Capacity Authorization
+#### Tension: Free-Rider Problem
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Authorizes | Farmer 2 Does Not Authorize |
 | --- | --- | --- |
-| **Farmer 2 Authorize** | 2, 2 | 4, 1 |
-| **Farmer 2 Not Authorize** | 1, 4 | 0, 0 |
-#### Justification: This situation represents the asymmetric transformer-capacity authorization dilemma between two farmers, where one farmer's authorization or investment benefits both but costs fall solely on the authorizer.
+| **Farmer 1 Authorizes** | 3, 3 | 1, 4 |
+| **Farmer 1 Does Not Authorize** | 4, 1 | 2, 2 |
+#### Justification: This action situation represents the dilemma where one farmer's authorization or investment in transformer capacity benefits both farmers, but the costs fall solely on the authorizer, creating a free-rider incentive.
 
-### Action Situation 3: Mutual-Exchange Coordination Game
+### Action Situation 4: Mutual-Exchange Coordination Game
+#### Title: Informal Exchange between Farmer and Staff
 #### Tension: Reciprocal Benefit
-#### Matrix:
-|  | Farmer Engage | Farmer Not Engage |
+#### Matrix/Sequential Representation:
+|  | Staff Engages in Informal Exchange | Staff Does Not Engage |
 | --- | --- | --- |
-| **Staff Engage** | 3, 3 | -1, 0 |
-| **Staff Not Engage** | 0, -1 | 1, 1 |
-#### Justification: This situation reflects the mutual-exchange coordination game between a farmer and sub-station staff, where reciprocal benefit arises only when both engage in informal exchange.
+| **Farmer Engages in Informal Exchange** | 4, 4 | 1, 3 |
+| **Farmer Does Not Engage in Informal Exchange** | 3, 1 | 2, 2 |
+#### Justification: This action situation reflects the mutual-exchange coordination between a farmer and sub-station staff, where reciprocal benefit arises only when both engage in informal exchange.
 
-### Action Situation 4: Authorization-and-Investment Asymmetric Coordination Game
+### Action Situation 5: Authorization-and-Investment Asymmetric Coordination Game
+#### Title: Formal vs. Informal Request and Investment
 #### Tension: Asymmetric Incentives
-#### Matrix:
-|  | Farmer Formal Request | Farmer Informal Request |
+#### Matrix/Sequential Representation:
+|  | Staff Invests | Staff Withholds Investment |
 | --- | --- | --- |
-| **Staff Invest** | 2, 2 | 4, 1 |
-| **Staff Withhold** | -1, 1 | 0, 0 |
-#### Justification: This situation represents the authorization-and-investment asymmetric coordination game between a farmer and staff, where mutual formal cooperation is collectively optimal, but asymmetric incentives exist between legality and opportunism.
+| **Farmer Makes Formal Request** | 3, 3 | 1, 4 |
+| **Farmer Makes Informal Request** | 4, 2 | 2, 2 |
+#### Justification: This action situation represents the asymmetric coordination game between a farmer (making a formal or informal request) and staff (deciding to invest or withhold capacity), with mutual formal cooperation being collectively optimal but staff gaining modestly even under formal cooperation.
 
-### Action Situation 5: Groundwater-Extraction Prisoner's Dilemma
-#### Tension: Unilateral Over-Extraction
-#### Matrix:
-|  | Farmer 1 Restrain | Farmer 1 Over-Extract |
+### Action Situation 6: Groundwater-Extraction Prisoner’s Dilemma
+#### Title: Groundwater Extraction
+#### Tension: Over-Extraction
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Restraints Extraction | Farmer 2 Over-Extracts |
 | --- | --- | --- |
-| **Farmer 2 Restrain** | 3, 3 | 1, 4 |
-| **Farmer 2 Over-Extract** | 4, 1 | 2, 2 |
-#### Justification: This situation reflects the groundwater-extraction prisoner's dilemma between two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain.
+| **Farmer 1 Restraints Extraction** | 3, 3 | 1, 4 |
+| **Farmer 1 Over-Extracts** | 4, 1 | 2, 2 |
+#### Justification: This action situation represents the prisoner’s dilemma between two farmers drawing from the same aquifer, where mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion.

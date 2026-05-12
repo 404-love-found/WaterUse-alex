@@ -1,51 +1,59 @@
 # Run 15 — meta-llama/Llama-3.3-70B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance Game
+### Action Situation 1: Capacitor Adoption Assurance
 #### Title: Coordination for Voltage-Stabilising Equipment
-#### Tension: Mutual cooperation for shared improvement
-#### Matrix:
-|  | Farmer 1 Invests | Farmer 1 Does Not Invest |
+#### Tension: Mutual cooperation is Pareto-dominant but risky.
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Adopts | Farmer 2 Does Not Adopt |
 | --- | --- | --- |
-| **Farmer 2 Invests** | 3, 3 | 0, 0 |
-| **Farmer 2 Does Not Invest** | 0, 0 | 1, 1 |
-#### Justification: This game reflects the coordination problem between two neighbouring farmers deciding whether to invest in voltage-stabilising equipment. Mutual investment yields shared improvement, while unilateral investment yields no added private benefit.
+| **Farmer 1 Adopts** | 3, 3 | 1, 2 |
+| **Farmer 1 Does Not Adopt** | 2, 1 | 2, 2 |
+#### Justification: This action situation reflects the strategic tension between two neighbouring farmers deciding whether to invest in voltage-stabilising equipment (capacitors). Mutual investment yields shared improvement, while unilateral investment yields no added private benefit.
 
-### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma
-#### Title: Uneven Costs for Shared Benefits
-#### Tension: Free-rider incentive for transformer capacity investment
-#### Matrix:
-|  | Farmer 1 Authorizes | Farmer 1 Does Not Authorize |
+### Action Situation 2: Sequential Social Learning in Capacitor Adoption
+#### Title: Observational Learning for Capacitor Adoption
+#### Tension: Farmers observe and imitate successful peers.
+#### Matrix/Sequential Representation:
+1. Farmer 1 adopts capacitor or not.
+2. Farmer 2 observes Farmer 1's outcome.
+3. Farmer 2 decides to adopt based on Farmer 1's outcome.
+#### Justification: This sequential action situation represents how farmers learn from each other's experiences with capacitor adoption, imitating successful outcomes.
+
+### Action Situation 3: Asymmetric Transformer-Capacity Authorization
+#### Title: Authorization Dilemma for Transformer Capacity
+#### Tension: One farmer's authorization benefits both, but costs fall solely on the authorizer.
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Authorizes | Farmer 2 Does Not Authorize |
 | --- | --- | --- |
-| **Farmer 2 Authorizes** | 2, 2 | 4, 1 |
-| **Farmer 2 Does Not Authorize** | 1, 4 | 0, 0 |
-#### Justification: This dilemma represents the situation where one farmer's authorization or investment in transformer capacity benefits both farmers, but the costs fall solely on the authorizer, generating a free-rider incentive.
+| **Farmer 1 Authorizes** | 2, 3 | 1, 2 |
+| **Farmer 1 Does Not Authorize** | 3, 1 | 2, 2 |
+#### Justification: This action situation highlights the asymmetric incentives in authorizing or investing in transformer capacity, where one farmer bears the cost while the other benefits.
 
-### Action Situation 3: Mutual-Exchange Coordination Game
+### Action Situation 4: Mutual-Exchange Coordination between Farmer and Staff
 #### Title: Reciprocal Benefit through Informal Exchange
-#### Tension: Cooperation for mutual gain in informal exchanges
-#### Matrix:
-|  | Farmer Offers Exchange | Farmer Does Not Offer Exchange |
+#### Tension: Reciprocal benefit arises only when both engage in informal exchange.
+#### Matrix/Sequential Representation:
+|  | Staff Engages in Exchange | Staff Does Not Engage |
 | --- | --- | --- |
-| **Staff Engages in Exchange** | 3, 3 | -1, 1 |
-| **Staff Does Not Engage in Exchange** | 1, -1 | 0, 0 |
-#### Justification: This game models the situation where a farmer and sub-station staff engage in informal exchange, with reciprocal benefit arising only when both cooperate. If either abstains, the other bears a loss.
+| **Farmer Engages in Exchange** | 3, 3 | 1, 2 |
+| **Farmer Does Not Engage** | 2, 1 | 2, 2 |
+#### Justification: This action situation represents the mutual-exchange coordination game between a farmer and sub-station staff, where reciprocal benefit occurs only when both parties engage in informal exchange.
 
-### Action Situation 4: Authorization-and-Investment Asymmetric Coordination Game
-#### Title: Asymmetric Incentives for Formal Cooperation
-#### Tension: Conflict between legality and opportunism
-#### Matrix:
-|  | Farmer Makes Formal Request | Farmer Makes Informal Request |
-| --- | --- | --- |
-| **Staff Invests** | 2, 1 | 4, -1 |
-| **Staff Withholds** | -1, 2 | 0, 0 |
-#### Justification: This game represents the asymmetric incentives between a farmer and staff regarding formal versus informal requests for transformer capacity investment, reflecting the tension between legality and opportunism.
+### Action Situation 5: Authorization-and-Investment Asymmetric Coordination
+#### Title: Formal vs. Informal Request and Investment
+#### Tension: Asymmetric incentives between legality and opportunism.
+#### Matrix/Sequential Representation:
+1. Farmer decides to make a formal or informal request.
+2. Staff decides to invest or withhold capacity.
+3. Payoffs depend on the combination of farmer's request and staff's action.
+#### Justification: This sequential action situation captures the authorization-and-investment game between a farmer and staff, with asymmetric incentives for formal cooperation versus opportunistic behavior.
 
-### Action Situation 5: Groundwater-Extraction Prisoner's Dilemma
-#### Title: Sustainable Yields through Mutual Restraint
-#### Tension: Short-term gain versus long-term sustainability
-#### Matrix:
-|  | Farmer 1 Restraints | Farmer 1 Over-Extracts |
+### Action Situation 6: Groundwater-Extraction Prisoner’s Dilemma
+#### Title: Mutual Restraint in Groundwater Extraction
+#### Tension: Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain.
+#### Matrix/Sequential Representation:
+|  | Farmer 2 Restraints | Farmer 2 Over-Extracts |
 | --- | --- | --- |
-| **Farmer 2 Restraints** | 3, 3 | 1, 4 |
-| **Farmer 2 Over-Extracts** | 4, 1 | 2, 2 |
-#### Justification: This dilemma reflects the situation where two farmers drawing from the same aquifer must choose between mutual restraint for sustainable yields and unilateral over-extraction for short-term gain, leading to accelerated depletion.
+| **Farmer 1 Restraints** | 3, 3 | 1, 4 |
+| **Farmer 1 Over-Extracts** | 4, 1 | 2, 2 |
+#### Justification: This action situation represents the groundwater-extraction prisoner’s dilemma between two farmers, where mutual restraint is collectively optimal but each farmer has an incentive to over-extract.

@@ -1,115 +1,128 @@
 # Run 11 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Distinct Action Situations
+### Title: Distinct Action Situations in the Irrigation Electricity Governance Model
 
-#### 1. Farmer-Farmer Coordination on Capacitor Adoption (AS1)
-**Title:** Capacitor Adoption Assurance Game
-**Tension:** Mutual Cooperation vs. Free-Rider Dilemma
-**Matrix:**
-|           | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|-----------|------------------|-------------------------|
-| **Farmer 1 Invests** | (3, 3) | (1, 4) |
-| **Farmer 1 Does Not Invest** | (4, 1) | (2, 2) |
+#### 1. Capacitor Adoption Assurance Game (AS1)
+**Tension:** Coordination vs. Free-Rider Dilemma
 
-**Justification:** Both farmers benefit from mutual capacitor investment, but unilateral investment yields no private benefit, creating a coordination problem. Mutual cooperation is Pareto-dominant but risky.
+**Matrix Representation:**
+```
+                Farmer 2
+                Invest    Not Invest
+Farmer 1 Invest (1, 1)        (0, 0)
+        Not Invest (0, 0)        (0, 0)
+```
 
-#### 2. Transformer Capacity Authorization Dilemma (AS3)
-**Title:** Asymmetric Transformer Capacity Authorization Dilemma
-**Tension:** Mutual Benefit vs. Free-Rider Dilemma
-**Matrix:**
-|           | Farmer 2 Authorizes | Farmer 2 Does Not Authorize |
-|-----------|---------------------|----------------------------|
-| **Farmer 1 Authorizes** | (3, 3) | (1, 4) |
-| **Farmer 1 Does Not Authorize** | (4, 1) | (2, 2) |
+**Justification:** Both farmers benefit from mutual investment in capacitors, but if one invests and the other does not, the investor incurs a cost while the non-investor benefits. This creates a coordination problem where mutual cooperation is Pareto-dominant but risky due to the potential for free-riding.
 
-**Justification:** Mutual authorization benefits both by raising voltage quality, but costs fall solely on the authorizer, generating a free-rider incentive and uneven payoffs.
+#### 2. Sequential Social-Learning Process in Capacitor Adoption (AS2)
+**Tension:** Diffusion of Innovations vs. Non-Adoption
 
-#### 3. Mutual-Exchange Coordination with Staff (AS4)
-**Title:** Mutual-Exchange Coordination Game
-**Tension:** Reciprocal Benefit vs. Opportunism
-**Matrix:**
-|           | Staff Invests | Staff Does Not Invest |
-|-----------|---------------|----------------------|
-| **Farmer Invests** | (3, 3) | (1, 2) |
-| **Farmer Does Not Invest** | (2, 1) | (2, 2) |
+**Sequential Representation:**
+```
+1. Farmer 1 decides whether to adopt a capacitor.
+2. Farmer 2 observes Farmer 1's decision and decides whether to adopt a capacitor based on the observed outcome.
+```
 
-**Justification:** Only mutual formal cooperation yields reciprocal benefit; unilateral investment or withholding incurs losses for the offerer.
+**Justification:** This sequential game captures the process of innovation diffusion where farmers learn from each other's outcomes. The decision to adopt a capacitor depends on the observed success or failure of the neighboring farmer.
 
-#### 4. Formal vs. Informal Request for Capacity (AS5)
-**Title:** Formal vs. Informal Request Coordination Game
-**Tension:** Legal Cooperation vs. Opportunistic Gain
-**Matrix:**
-|           | Staff Invests Capacity | Staff Withholds Capacity |
-|-----------|-----------------------|-------------------------|
-| **Farmer Makes Formal Request** | (3, 4) | (1, 1) |
-| **Farmer Makes Informal Request** | (2, 2) | (3, 3) |
+#### 3. Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+**Tension:** Free-Rider vs. Mutual Benefit
 
-**Justification:** Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost.
+**Matrix Representation:**
+```
+                Farmer 2
+                Authorize    Not Authorize
+Farmer 1 Authorize (2, 1)      (0, 0)
+        Not Authorize (0, 0)      (1, 2)
+```
 
-#### 5. Groundwater Extraction Dilemma (AS6)
-**Title:** Groundwater Extraction Prisoner's Dilemma
-**Tension:** Mutual Restraint vs. Over-Extraction
-**Matrix:**
-|           | Farmer 2 Restraints | Farmer 2 Over-Extracts |
-|-----------|---------------------|------------------------|
-| **Farmer 1 Restraints** | (3, 3) | (1, 4) |
-| **Farmer 1 Over-Extracts** | (4, 1) | (2, 2) |
+**Justification:** One farmer's authorization benefits both by improving power quality, but the cost falls on the authorizer. This creates a free-rider incentive where mutual cooperation is optimal but individually suboptimal.
 
-**Justification:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
+#### 4. Mutual-Exchange Coordination Game (AS4)
+**Tension:** Informal Exchange vs. Formal Cooperation
 
-### Additional Action Situations (Max 10)
+**Matrix Representation:**
+```
+                Sub-station Staff
+                Exchange   No Exchange
+Farmer         (2, 2)      (1, 0)
+```
 
-#### 6. Sequential Social-Learning on Capacitor Adoption (AS2)
-**Title:** Sequential Social-Learning Process
-**Tension:** Diffusion of Innovation vs. Risk Aversion
-**Matrix:**
-|           | Farmer 2 Adopts Capacitor | Farmer 2 Does Not Adopt Capacitor |
-|-----------|---------------------------|----------------------------------|
-| **Farmer 1 Adopts Capacitor** | (3, 3) | (1, 4) |
-| **Farmer 1 Does Not Adopt Capacitor** | (4, 1) | (2, 2) |
+**Justification:** Both parties benefit from informal exchanges, but if one party engages in exchange and the other does not, the former incurs a loss. Formal cooperation is collectively optimal but may not be individually optimal due to the cost of formal fees.
 
-**Justification:** Diffusion occurs only after a successful coordinated trial has been observed, reflecting risk aversion.
+#### 5. Authorization and Investment Asymmetric Coordination Game (AS5)
+**Tension:** Formal vs. Informal Request
 
-#### 7. Transformer Overload and Failure (AS7)
-**Title:** Transformer Overload Dilemma
-**Tension:** Voltage Stability vs. Grid Overload
-**Matrix:**
-|           | Farmer 2 Invests in Capacitors | Farmer 2 Does Not Invest in Capacitors |
-|-----------|--------------------------------|---------------------------------------|
-| **Farmer 1 Invests in Capacitors** | (3, 3) | (1, 4) |
-| **Farmer 1 Does Not Invest in Capacitors** | (4, 1) | (2, 2) |
+**Matrix Representation:**
+```
+                Sub-station Staff
+                Invest    No Invest
+Farmer         (3, 2)      (1, 1)
+```
 
-**Justification:** Mutual investment in capacitors prevents transformer overload, ensuring voltage stability.
+**Justification:** Mutual formal cooperation is collectively optimal, but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss. Informal exchanges offer a modest benefit to the staff without the formal fee, creating asymmetric incentives.
 
-#### 8. Social Learning and Collusion (AS8)
-**Title:** Social Learning and Collusion
-**Tension:** Trust and Cooperation vs. Opportunistic Behavior
-**Matrix:**
-|           | Staff Colludes with Farmer | Staff Does Not Collude with Farmer |
-|-----------|----------------------------|----------------------------------|
-| **Farmer 1 Cooperates** | (3, 3) | (1, 4) |
-| **Farmer 1 Does Not Cooperate** | (4, 1) | (2, 2) |
+#### 6. Groundwater Extraction Prisoner's Dilemma (AS6)
+**Tension:** Mutual Restraint vs. Unilateral Over-Extraction
 
-**Justification:** Reciprocity and solidarity shape cooperation, but opportunistic behavior can arise within trust networks.
+**Matrix Representation:**
+```
+                Farmer 2
+                Restrain    Over-Extract
+Farmer 1 Restrain (1, 1)        (2, 0)
+        Over-Extract (0, 2)        (0, 0)
+```
 
-#### 9. Bounded Rationality and Cost-Benefit Analysis (AS9)
-**Title:** Bounded Rationality and Cost-Benefit Analysis
-**Tension:** Rational Decision-Making vs. Heuristic Heuristics
-**Matrix:**
-|           | Farmer Invests in Capacitor | Farmer Does Not Invest in Capacitor |
-|-----------|-----------------------------|------------------------------------|
-| **Farmer Invests** | (3, 3) | (1, 4) |
-| **Farmer Does Not Invest** | (4, 1) | (2, 2) |
+**Justification:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain at the expense of long-term depletion. This creates a dilemma where mutual cooperation is Pareto-dominant but risky due to the potential for defection.
 
-**Justification:** Farmers use heuristics and social learning to balance costs and benefits under bounded rationality.
+#### 7. Farmer-Farmer Coordination on Transformer Capacity (AS7)
+**Tension:** Mutual Benefit vs. Free-Rider
 
-#### 10. Collective vs. Individual Action (AS10)
-**Title:** Collective vs. Individual Action
-**Tension:** Collective Cooperation vs. Individual Self-Interest
-**Matrix:**
-|           | Farmer 2 Adopts Collective Measures | Farmer 2 Adopts Individual Measures |
-|-----------|------------------------------------|------------------------------------|
-| **Farmer 1 Adopts Collective Measures** | (3, 3) | (1, 4) |
-| **Farmer 1 Adopts Individual Measures** | (4, 1) | (2, 2) |
+**Matrix Representation:**
+```
+                Farmer 2
+                Invest    Not Invest
+Farmer 1 Invest (2, 2)        (1, 1)
+        Not Invest (1, 1)        (0, 0)
+```
 
-**Justification:** Mutual adoption of collective measures yields higher benefits, but individual self-interest can lead to free-riding.
+**Justification:** Mutual investment in transformer capacity benefits both by improving power quality, but if one invests and the other does not, the investor incurs a cost while the non-investor benefits. This creates a coordination problem with mutual cooperation Pareto-dominant but risky due to free-riding.
+
+#### 8. Farmer-Staff Informal Exchange (AS8)
+**Tension:** Informal vs. Formal Compliance
+
+**Matrix Representation:**
+```
+                Sub-station Staff
+                Exchange   No Exchange
+Farmer         (2, 1)       (1, 0)
+```
+
+**Justification:** Both parties benefit from informal exchanges, but if one party engages in exchange and the other does not, the former incurs a loss. Formal compliance is required for access but may not be individually optimal due to the cost of formal fees.
+
+#### 9. Social Learning Mechanism (AS9)
+**Tension:** Imitation vs. Non-Adoption
+
+**Matrix Representation:**
+```
+                Farmer 2
+                Adopt     Not Adopt
+Farmer 1 Adopt (2, 2)        (1, 1)
+        Not Adopt (1, 1)        (0, 0)
+```
+
+**Justification:** Farmers learn from each other's outcomes and imitate successful behaviors. Imitation is driven by observed success, but non-adoption is possible due to bounded rationality and uncertainty.
+
+#### 10. Bounded Rationality and Uncertainty (AS10)
+**Tension:** Rational Decision-Making vs. Erroneous Prediction
+
+**Matrix Representation:**
+```
+                Farmer 2
+                Adopt     Not Adopt
+Farmer 1 Adopt (2, 2)        (1, 1)
+        Not Adopt (1, 1)        (0, 0)
+```
+
+**Justification:** Farmers make decisions based on limited information and may be erroneous in their predictions. Bounded rationality and uncertainty introduce a risk of suboptimal decisions.

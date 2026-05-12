@@ -1,55 +1,78 @@
 # Run 25 — deepseek-ai/DeepSeek-R1
 
-### Action Situation 1: Capacitor Adoption Assurance  
-**Tension**: Mutual investment in capacitors yields shared voltage stability benefits, but unilateral adoption provides no private benefit due to technical interdependencies.  
-**Matrix**:  
-| Farmer A \ Farmer B | Adopt      | Not Adopt |  
-|---------------------|------------|-----------|  
-| **Adopt**           | (3, 3)     | (1, 2)    |  
-| **Not Adopt**       | (2, 1)     | (2, 2)    |  
-**Justification**: Grounded in AS1 (ODD+D III.iv.a), where mutual adoption improves local grid reliability, but isolated adoption fails due to uncoordinated pump loads. Farmers face a coordination problem: mutual cooperation (Adopt/Adopt) is Pareto-dominant, but defection (Not Adopt) risks individual losses if neighbors free-ride.  
+### Analysis of Distinct Action Situations
 
-### Action Situation 2: Transformer Authorization Asymmetric Dilemma  
-**Tension**: One farmer’s authorization/investment in transformer capacity benefits all connected farmers, but costs are borne solely by the contributor, creating free-riding incentives.  
-**Matrix**:  
-| Farmer A \ Farmer B | Authorize  | Not Authorize |  
-|---------------------|------------|---------------|  
-| **Authorize**       | (2, 2)     | (1, 4)        |  
-| **Not Authorize**   | (4, 1)     | (2, 2)        |  
-**Justification**: From AS3 (ODD+D III.iv.a), this captures the tension where contributors bear private costs for shared reliability gains. Non-contributors free-ride (earning higher payoffs), leading to underinvestment unless mutual cooperation occurs.  
+1. **Title**: Capacitor Adoption Coordination  
+   **Tension**: Mutual investment in capacitors improves voltage stability, but unilateral adoption yields no benefit due to coordination failure.  
+   **Matrix**:  
+   ```
+               Farmer B  
+               Adopt    Not  
+   Farmer A  Adopt   (3,3)   (1,2)  
+             Not     (2,1)   (2,2)  
+   ```  
+   **Justification**: Based on AS1 (assurance game) where mutual adoption ensures Pareto-dominant outcomes, but unilateral adoption fails due to lack of shared benefit (ODD+D II.iii.a, III.iv.a).
 
-### Action Situation 3: Informal Exchange Coordination  
-**Tension**: Reciprocal informal exchanges (e.g., favors, tolerance) between farmers and staff yield mutual gains only if both participate; unilateral offers incur losses.  
-**Matrix**:  
-| Farmer \ Staff   | Offer Exchange | Abstain      |  
-|------------------|----------------|--------------|  
-| **Offer Exchange** | (4, 4)         | (1, 3)       |  
-| **Abstain**       | (3, 1)         | (2, 2)       |  
-**Justification**: Based on AS4 (ODD+D III.iv.a), this reflects mutual-exchange coordination. Both parties gain from collusion (Offer/Offer), but mismatched actions (e.g., farmer offers while staff abstains) penalize the initiator due to broken reciprocity norms.  
+2. **Title**: Transformer Capacity Authorization  
+   **Tension**: One farmer’s contribution improves shared grid reliability, but non-contributors free-ride, creating asymmetric costs.  
+   **Matrix**:  
+   ```
+               Farmer B  
+               Contribute    Not  
+   Farmer A  Contribute   (3,3)   (3,4)  
+             Not         (4,3)   (2,2)  
+   ```  
+   **Justification**: AS3 (asymmetric dilemma) where contributors bear private costs while non-contributors gain reliability benefits (ODD+D II.ii.a, III.iv.a).
 
-### Action Situation 4: Authorization-Investment Asymmetric Coordination  
-**Tension**: Formal cooperation (farmer’s authorized request + staff’s investment) is collectively optimal but burdens staff; informal strategies create asymmetric payoffs favoring defection.  
-**Matrix**:  
-| Farmer \ Staff | Invest       | Withhold     |  
-|---------------|--------------|--------------|  
-| **Formal**    | (3, 2)       | (1, 4)       |  
-| **Informal**  | (4, 1)       | (2, 3)       |  
-**Justification**: Derived from AS5 (ODD+D III.iv.a), formal authorization with staff investment improves grid reliability (moderate farmer payoff), but staff prefer withholding effort to avoid costs. Informal requests allow farmer gains at staff expense, creating instability.  
+3. **Title**: Farmer-Staff Informal Exchange  
+   **Tension**: Reciprocal gains require matched cooperation; mismatched actions cause losses for the cooperating party.  
+   **Matrix**:  
+   ```
+               Staff  
+               Engage    Not  
+   Farmer    Engage   (3,3)   (1,2)  
+             Not      (2,1)   (2,2)  
+   ```  
+   **Justification**: AS4 (mutual-exchange coordination) where both must engage for mutual benefit (ODD+D II.ii.c, III.iv.a).
 
-### Action Situation 5: Groundwater Extraction Prisoner’s Dilemma  
-**Tension**: Mutual restraint sustains groundwater, but individual over-extraction offers short-term gains, accelerating aquifer depletion.  
-**Matrix**:  
-| Farmer A \ Farmer B | Restrain     | Over-Extract |  
-|--------------------|--------------|--------------|  
-| **Restrain**       | (3, 3)       | (1, 4)       |  
-| **Over-Extract**   | (4, 1)       | (2, 2)       |  
-**Justification**: From AS6 (ODD+D III.iv.a), farmers face a commons dilemma: mutual restraint (Restrain/Restrain) preserves resources, but unilateral defection (Over-Extract) maximizes individual payoff, leading to collective depletion if both defect.  
+4. **Title**: Authorization-Enforcement Dilemma  
+   **Tension**: Formal cooperation optimizes collective outcomes, but staff bear effort costs, while informal strategies exploit imbalances.  
+   **Matrix**:  
+   ```
+               Staff  
+               Invest    Withhold  
+   Farmer    Formal    (4,2)   (1,3)  
+             Informal  (5,1)   (3,2)  
+   ```  
+   **Justification**: AS5 (asymmetric coordination) with uneven payoffs from formal/informal choices (ODD+D II.ii.c, III.iv.a).
 
-### Summary of Strategic Tensions  
-1. **Assurance** (Capacitors): Coordination for mutual benefit.  
-2. **Asymmetric Cost-Sharing** (Transformer): Free-riding on shared infrastructure.  
-3. **Reciprocal Exchange** (Farmer-Staff): Mutual gains require matched actions.  
-4. **Formal-Informal Trade-off**: Collective vs. individual incentives in authorization.  
-5. **Commons Dilemma** (Groundwater): Short-term self-interest vs. long-term sustainability.  
+5. **Title**: Groundwater Extraction  
+   **Tension**: Mutual restraint sustains groundwater, but individual over-extraction offers short-term gains.  
+   **Matrix**:  
+   ```
+               Farmer B  
+               Restrain    Over-extract  
+   Farmer A  Restrain    (3,3)   (1,4)  
+             Over-extract (4,1)   (2,2)  
+   ```  
+   **Justification**: AS6 (Prisoner’s Dilemma) where individual incentives conflict with collective sustainability (ODD+D II.ii.c, III.iv.a).
 
-**Note**: All matrices use **ordinal payoffs** (4 = highest, 1 = lowest) as specified in ODD+D (III.iv.b). AS2 (social learning) is excluded as it involves sequential imitation, not simultaneous strategic interaction.
+6. **Title**: Sequential Capacitor Adoption  
+   **Tension**: Farmers imitate peers only after observing successful outcomes, risking adoption failure if early trials are uncoordinated.  
+   **Sequential Representation**:  
+   ```  
+   Stage 1: Peer Farmer adopts capacitor → Outcome: Success (if coordinated) / Failure (if isolated).  
+   Stage 2: Observing Farmer adopts only if Outcome = Success.  
+   ```  
+   **Justification**: AS2 (sequential social learning) where diffusion depends on visible coordinated success (ODD+D II.iii.a, III.iv.a).
+
+### Key Observations  
+- **Total distinct AS**: 6 (all grounded in ODD+D submodels and institutional details).  
+- **Excluded Elements**:  
+  - APERC rule-setting (treated as exogenous).  
+  - Grid reliability dynamics (emergent outcome, not a standalone AS).  
+  - Bounded rationality/sensing (contextual factors, not strategic dilemmas).  
+- **Rationale for Matrices**: Ordinal payoffs reflect empirical incentives (e.g., 3 = optimal mutual outcome; 1 = worst unilateral loss). Asymmetry captures cost-benefit imbalances (e.g., free-riders rank higher than contributors).  
+- **Linkage**: Parameters (τ, δ, ι, γ) connect AS (e.g., low transformer capacity τ intensifies capacitor coordination tensions).  
+
+Outputs align with ODD+D requirements by focusing on recurring local dilemmas (farmer-farmer, farmer-staff) without inventing new scenarios.

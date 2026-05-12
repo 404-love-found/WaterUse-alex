@@ -1,148 +1,133 @@
 # Run 19 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Action Situation 1: Capacitor Adoption Assurance Game (AS1)
-**Title:** Capacitor Adoption Assurance Game (Farmers)
+### Title: Distinct Action Situations in the Irrigation Electricity Governance Model
 
-**Tension:** Mutual cooperation vs. unilateral defection
+#### 1. Farmer-Farmer Capacitor Adoption Assurance Game (AS1)
+**Tension**: Coordination vs. Free-Rider Dilemma
 
-**Matrix:**
+**Matrix Representation**:
+\[
+\begin{array}{c|cc}
+& \text{Farmer 2: Invest} & \text{Farmer 2: Not Invest} \\
+\hline
+\text{Farmer 1: Invest} & (3, 3) & (1, 4) \\
+\text{Farmer 1: Not Invest} & (4, 1) & (2, 2)
+\end{array}
+\]
 
-|         | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|---------|------------------|-------------------------|
-| **Farmer 1 Invests** | (3, 3) | (1, 0) |
-| **Farmer 1 Does Not Invest** | (0, 1) | (2, 2) |
+**Justification**: Both farmers benefit from mutual capacitor investment, but unilateral investment yields no additional private benefit, creating a free-rider dilemma. The coordination problem is Pareto-dominant but risky due to the potential for one farmer to free-ride.
 
-**Justification:** This game represents the mutual investment in capacitor measures between two neighboring farmers. Mutual investment yields a shared improvement in voltage quality, which is beneficial for both. Unilateral investment, however, does not provide any private benefit, creating a coordination problem. The Pareto-dominant outcome is mutual cooperation, but it is risky due to the potential for defection.
+#### 2. Sequential Social-Learning Capacitor Adoption (AS2)
+**Tension**: Diffusion of Innovations
 
-### Action Situation 2: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+**Sequential Representation**:
+```
+1. Farmer 1: (Invest, Not Invest)
+2. Farmer 2: (Invest, Not Invest)
+```
 
-**Title:** Asymmetric Transformer-Capacity Authorization Dilemma (Farmers)
+**Justification**: Each farmer observes the outcome of a peer and imitates only if it ranks higher. Diffusion occurs only after a successful coordinated trial is observed, reflecting a sequential decision-making process.
 
-**Tension:** Investment vs. Free-rider dilemma
+#### 3. Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+**Tension**: Free-Rider vs. Mutual Benefit
 
-**Matrix:**
+**Matrix Representation**:
+\[
+\begin{array}{c|cc}
+& \text{Farmer 2: Authorize} & \text{Farmer 2: Not Authorize} \\
+\hline
+\text{Farmer 1: Authorize} & (4, 4) & (3, 5) \\
+\text{Farmer 1: Not Authorize} & (5, 3) & (2, 2)
+\end{array}
+\]
 
-|         | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|---------|------------------|-------------------------|
-| **Farmer 1 Invests** | (2, 2) | (0, 1) |
-| **Farmer 1 Does Not Invest** | (1, 0) | (1, 1) |
+**Justification**: Mutual authorization benefits both but costs fall solely on the authorizer, creating a free-rider incentive. If only one invests, the contributor bears the cost while the non-investor benefits more.
 
-**Justification:** This game captures the situation where one farmer invests in transformer capacity, benefiting both farmers by raising voltage quality, but at the cost of the investor. If only one farmer invests, the investor incurs a cost while the non-investor benefits more. The Pareto-dominant outcome is mutual investment, but the incentive structure creates a free-rider problem.
+#### 4. Mutual-Exchange Coordination Game (AS4)
+**Tension**: Informal vs. Formal Exchange
 
-### Action Situation 3: Mutual-Exchange Coordination Game (AS4)
+**Matrix Representation**:
+\[
+\begin{array}{c|cc}
+& \text{Sub-station Staff: Exchange} & \text{Sub-station Staff: No Exchange} \\
+\hline
+\text{Farmer: Exchange} & (3, 3) & (4, 2) \\
+\text{Farmer: No Exchange} & (2, 4) & (1, 1)
+\end{array}
+\]
 
-**Title:** Mutual-Exchange Coordination Game (Farmer and Sub-station Personnel)
+**Justification**: Reciprocal benefit arises only when both engage in informal exchange. If either party abstains, the offerer bears a loss while the abstainer reverts to baseline.
 
-**Tension:** Informal exchange vs. Formal compliance
+#### 5. Asymmetric Coordination Game (AS5)
+**Tension**: Formal vs. Informal Cooperation
 
-**Matrix:**
+**Matrix Representation**:
+\[
+\begin{array}{c|cc}
+& \text{Sub-station Staff: Invest} & \text{Sub-station Staff: Withhold} \\
+\hline
+\text{Farmer: Formal Request} & (3, 3) & (2, 4) \\
+\text{Farmer: Informal Request} & (4, 2) & (1, 1)
+\end{array}
+\]
 
-|         | Sub-station Personnel Invests | Sub-station Personnel Withholds |
-|---------|-------------------------------|--------------------------------|
-| **Farmer Invests** | (2, 2) | (1, 0) |
-| **Farmer Withholds** | (0, 1) | (1, 1) |
+**Justification**: Mutual formal cooperation is collectively optimal but if the farmer makes a formal request and the staff withhold, the farmer incurs a loss while the staff save effort or cost. If the farmer makes an informal request and staff invest, the farmer gains more while the staff bear the cost without the formal fee.
 
-**Justification:** This game models the situation where a farmer and sub-station personnel engage in informal exchanges. Mutual engagement yields reciprocal benefits, but unilateral exchanges offer no additional benefit. The Pareto-dominant outcome is mutual informal cooperation, but there are asymmetric incentives between legality and opportunism.
+#### 6. Groundwater Extraction Prisoner's Dilemma (AS6)
+**Tension**: Common-Pool Resource Extraction
 
-### Action Situation 4: Groundwater Extraction Prisoner's Dilemma (AS6)
+**Matrix Representation**:
+\[
+\begin{array}{c|cc}
+& \text{Farmer 2: Restrain} & \text{Farmer 2: Over-Extract} \\
+\hline
+\text{Farmer 1: Restrain} & (3, 3) & (1, 4) \\
+\text{Farmer 1: Over-Extract} & (4, 1) & (2, 2)
+\end{array}
+\]
 
-**Title:** Groundwater Extraction Prisoner's Dilemma (Farmers)
+**Justification**: Mutual restraint sustains yields but unilateral over-extraction offers short-term gain and accelerates depletion. This creates a classic prisoner’s dilemma with mutual restraint being the Pareto-optimal outcome.
 
-**Tension:** Mutual restraint vs. Unilateral over-extraction
+#### 7. Farmer-Farmer Capacitor Adoption (AS1) - Sequential Version
+**Tension**: Sequential Coordination
 
-**Matrix:**
+**Sequential Representation**:
+```
+1. Farmer 1: (Invest, Not Invest)
+2. Farmer 2: (Invest, Not Invest)
+```
 
-|         | Farmer 2 Restraints | Farmer 2 Over-Extracts |
-|---------|---------------------|------------------------|
-| **Farmer 1 Restraints** | (3, 3) | (1, 4) |
-| **Farmer 1 Over-Extracts** | (4, 1) | (2, 2) |
+**Justification**: This is the same as the social-learning process but with a sequential decision-making structure, reflecting the order in which farmers make decisions based on observed outcomes.
 
-**Justification:** This game represents the situation where two farmers draw from the same aquifer. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. The Pareto-dominant outcome is mutual restraint, but the incentive structure creates a prisoner's dilemma.
+#### 8. Farmer-Sub-station Staff Mutual Exchange (AS4) - Sequential Version
+**Tension**: Sequential Informal vs. Formal Exchange
 
-### Action Situation 5: Capacitor Adoption Social Learning Process (AS2)
+**Sequential Representation**:
+```
+1. Farmer: (Exchange, No Exchange)
+2. Sub-station Staff: (Exchange, No Exchange)
+```
 
-**Title:** Capacitor Adoption Social Learning Process (Farmers)
+**Justification**: This sequential representation captures the order in which farmer and sub-station staff make decisions regarding informal or formal exchange, reflecting the conditional nature of their interactions.
 
-**Tension:** Social learning vs. Independent decision-making
+#### 9. Farmer-Farmer Transformer Capacity Authorization (AS3) - Sequential Version
+**Tension**: Sequential Authorization
 
-|         | Farmer 2 Adopted | Farmer 2 Not Adopted |
-|---------|------------------|---------------------|
-| **Farmer 1 Adopted** | (3, 3) | (1, 0) |
-| **Farmer 1 Not Adopted** | (0, 1) | (2, 2) |
+**Sequential Representation**:
+```
+1. Farmer 1: (Authorize, Not Authorize)
+2. Farmer 2: (Authorize, Not Authorize)
+```
 
-**Justification:** This game models the sequential social learning process where each farmer observes a peer’s outcome and imitates only if the outcome ranks higher. Diffusion occurs only after a successful coordinated trial has been observed, reflecting the tension between social learning and independent decision-making.
+**Justification**: This sequential version captures the order in which farmers make decisions regarding transformer capacity authorization, reflecting the interdependence of their actions.
 
-### Action Situation 6: Asymmetric Authorization-Enforcement Dilemma (Farmers and Sub-station Personnel)
+#### 10. Farmer-Sub-station Staff Asymmetric Coordination (AS5) - Sequential Version
+**Tension**: Sequential Formal vs. Informal Cooperation
 
-**Title:** Asymmetric Authorization-Enforcement Dilemma (Farmers and Sub-station Personnel)
+**Sequential Representation**:
+```
+1. Farmer: (Formal Request, Informal Request)
+2. Sub-station Staff: (Invest, Withhold)
+```
 
-**Tension:** Formal cooperation vs. Informal exchange
-
-**Matrix:**
-
-|         | Sub-station Personnel Invests | Sub-station Personnel Withholds |
-|---------|-------------------------------|--------------------------------|
-| **Farmer Invests** | (2, 2) | (1, 0) |
-| **Farmer Withholds** | (0, 1) | (1, 1) |
-
-**Justification:** This game captures the situation where a farmer and sub-station personnel engage in formal or informal exchanges. Mutual engagement yields reciprocal benefits, but unilateral exchanges offer no additional benefit. The Pareto-dominant outcome is mutual formal cooperation, but there are asymmetric incentives between legality and opportunism.
-
-### Action Situation 7: Informal Exchange Game (Farmers and Sub-station Personnel)
-
-**Title:** Informal Exchange Game (Farmers and Sub-station Personnel)
-
-**Tension:** Reciprocal benefit vs. Unilateral exchange
-
-**Matrix:**
-
-|         | Sub-station Personnel Invests | Sub-station Personnel Withholds |
-|---------|-------------------------------|--------------------------------|
-| **Farmer Invests** | (2, 2) | (1, 0) |
-| **Farmer Withholds** | (0, 1) | (1, 1) |
-
-**Justification:** This game models the situation where informal exchanges occur between farmers and sub-station personnel. Mutual engagement yields reciprocal benefits, but unilateral exchanges offer no additional benefit. The Pareto-dominant outcome is mutual informal cooperation, but there are asymmetric incentives between legality and opportunism.
-
-### Action Situation 8: Capacitor Adoption Coordination Game (Farmers)
-
-**Title:** Capacitor Adoption Coordination Game (Farmers)
-
-**Tension:** Mutual cooperation vs. Free-rider dilemma
-
-**Matrix:**
-
-|         | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|---------|------------------|-------------------------|
-| **Farmer 1 Invests** | (3, 3) | (1, 0) |
-| **Farmer 1 Does Not Invest** | (0, 1) | (2, 2) |
-
-**Justification:** This game represents the mutual investment in capacitor measures between two neighboring farmers. Mutual investment yields a shared improvement in voltage quality, which is beneficial for both. Unilateral investment, however, does not provide any private benefit, creating a coordination problem. The Pareto-dominant outcome is mutual cooperation, but it is risky due to the potential for defection.
-
-### Action Situation 9: Transformer Capacity Investment Game (Farmers)
-
-**Title:** Transformer Capacity Investment Game (Farmers)
-
-**Tension:** Investment vs. Free-rider dilemma
-
-**Matrix:**
-
-|         | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|---------|------------------|-------------------------|
-| **Farmer 1 Invests** | (2, 2) | (0, 1) |
-| **Farmer 1 Does Not Invest** | (1, 0) | (1, 1) |
-
-**Justification:** This game captures the situation where one farmer invests in transformer capacity, benefiting both farmers by raising voltage quality, but at the cost of the investor. If only one farmer invests, the investor incurs a cost while the non-investor benefits more. The Pareto-dominant outcome is mutual investment, but the incentive structure creates a free-rider problem.
-
-### Action Situation 10: Groundwater Extraction Coordination Game (Farmers)
-
-**Title:** Groundwater Extraction Coordination Game (Farmers)
-
-**Tension:** Mutual restraint vs. Unilateral over-extraction
-
-**Matrix:**
-
-|         | Farmer 2 Restraints | Farmer 2 Over-Extracts |
-|---------|---------------------|------------------------|
-| **Farmer 1 Restraints** | (3, 3) | (1, 4) |
-| **Farmer 1 Over-Extracts** | (4, 1) | (2, 2) |
-
-**Justification:** This game represents the situation where two farmers draw from the same aquifer. Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion. The Pareto-dominant outcome is mutual restraint, but the incentive structure creates a prisoner's dilemma.
+**Justification**: This sequential version captures the order in which farmer and sub-station staff make decisions regarding formal or informal cooperation, reflecting the conditional nature of their interactions.

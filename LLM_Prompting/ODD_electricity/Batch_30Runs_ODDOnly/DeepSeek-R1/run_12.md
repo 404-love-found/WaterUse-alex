@@ -1,61 +1,75 @@
 # Run 12 — deepseek-ai/DeepSeek-R1
 
-### Extracted Action Situations
+Based on the ODD+D description, here are the distinct action situations (AS) representing unique strategic tensions in electricity governance, formatted as requested:
 
-**1. Title: Capacitor Adoption Assurance Game**  
-Tension: Mutual investment in capacitors yields shared voltage stability, but unilateral investment provides no private benefit due to interdependence, creating coordination risk.  
-Matrix:  
+**1. Capacitor Adoption Assurance Game (AS1)**  
+- **Tension**: Mutual investment yields shared voltage improvement, but unilateral investment provides no private benefit, creating coordination risk despite Pareto dominance of mutual cooperation.  
+- **Matrix**:  
 ```
-Farmer B: Invest   Not Invest  
-Farmer A:  
-  Invest       (High, High)    (Low, Medium)  
-  Not Invest   (Medium, Low)   (Medium, Medium)  
+          Farmer B
+          Adopt    Not
+Farmer A  Adopt   (3,3)   (1,2)
+          Not     (2,1)   (2,2)
 ```  
-Justification: "AS1 is a capacitor-adoption assurance game... mutual investment yields shared improvement, while unilateral investment yields no added private benefit... mutual cooperation Pareto-dominant but risky." (III.iv.a)  
+- **Justification**: "AS1 is a capacitor-adoption assurance game [...] mutual investment yields shared improvement, while unilateral investment yields no added private benefit" (III.iv.a).  
 
-**2. Title: Transformer Authorization Dilemma**  
-Tension: One farmer’s authorization/investment in shared transformer capacity benefits both, but costs burden only the contributor, incentivizing free-riding.  
-Matrix:  
+**2. Sequential Social Learning in Capacitor Adoption (AS2)**  
+- **Tension**: Diffusion requires observing successful outcomes, but successful coordination trials are rare without prior adoption, creating an adoption deadlock.  
+- **Sequential Representation**:  
 ```
-Farmer B: Authorize   Free-ride  
-Farmer A:  
-  Authorize     (Medium, Medium)  (Medium, High)  
-  Free-ride     (High, Medium)    (Low, Low)  
+Stage 1: Farmer A adopts → achieves outcome O_A (high if mutual adoption exists, else low).  
+Stage 2: Farmer B observes O_A:  
+  - If O_A > baseline (2) → adopts (achieves high outcome).  
+  - Else → does not adopt (remains at baseline).  
 ```  
-Justification: "AS3: asymmetric transformer-capacity authorization dilemma... one farmer’s authorization benefits both... non-investor benefits more... if neither invests both remain at low baseline." (III.iv.a)  
+- **Justification**: "AS2 is a sequential social-learning process [...] each farmer observes a peer’s outcome and imitates only if that outcome ranks higher" (III.iv.a).  
 
-**3. Title: Informal Exchange Coordination**  
-Tension: Reciprocal benefits occur only if both engage in informal exchange; unilateral offers incur losses while abstainers revert to baseline.  
-Matrix:  
+**3. Transformer Authorization Chicken Game (AS3)**  
+- **Tension**: One farmer's authorization benefits both by improving voltage, but costs are borne solely by the authorizer, incentivizing free-riding.  
+- **Matrix**:  
 ```
-Staff: Engage   Abstain  
-Farmer:  
-  Engage    (High, High)    (Low, Medium)  
-  Abstain   (Medium, Low)    (Medium, Medium)  
+          Farmer B
+          Authorize   Not  
+Farmer A  Authorize  (1,1)   (1,3)  
+          Not        (3,1)   (2,2)  
 ```  
-Justification: "AS4: mutual-exchange coordination game... reciprocal benefit arises only when both engage... if either abstains while the other offers, the offerer bears a loss." (III.iv.a)  
+- **Justification**: "AS3 is an asymmetric transformer-capacity authorization dilemma [...] if only one invests, the contributor bears cost while the non-investor benefits more" (III.iv.a).  
 
-**4. Title: Formal vs. Informal Authorization Game**  
-Tension: Mutual formal cooperation is collectively optimal, but staff face asymmetric burdens (investment costs vs. fee savings), while farmers gain more from informal exchanges if staff invest.  
-Matrix:  
+**4. Mutual-Exchange Coordination Game (AS4)**  
+- **Tension**: Reciprocal benefits (e.g., informal services) occur only if both parties engage; unilateral exchange imposes losses on the initiator.  
+- **Matrix**:  
 ```
-Staff: Invest         Withhold  
-Farmer:  
-  Formal      (High, Medium)    (Low, High)  
-  Informal    (Very High, Low)  (Medium, Medium)  
+          Staff
+          Exchange   Not  
+Farmer    Exchange  (3,3)   (1,2)  
+          Not       (2,1)   (2,2)  
 ```  
-Justification: "AS5: authorization-and-investment asymmetric coordination game... staff gain modestly under formal cooperation due to investment burden... farmer gains more under informal request if staff invest." (III.iv.a)  
+- **Justification**: "AS4 is a mutual-exchange coordination game [...] reciprocal benefit arises only when both engage in informal exchange" (III.iv.a).  
 
-**5. Title: Groundwater Extraction Prisoner’s Dilemma**  
-Tension: Mutual restraint sustains groundwater, but unilateral over-extraction yields immediate gains while accelerating collective depletion.  
-Matrix:  
+**5. Authorization-Investment Asymmetric Coordination (AS5)**  
+- **Tension**: Formal cooperation is collectively optimal, but staff bear investment burdens, creating asymmetric incentives for opportunism.  
+- **Matrix**:  
 ```
-Farmer B: Restrain   Over-extract  
-Farmer A:  
-  Restrain      (Medium, Medium)  (Low, High)  
-  Over-extract  (High, Low)       (Low, Low)  
+          Staff
+          Invest    Withhold  
+Farmer    Formal    (3,2)    (1,4)  
+          Informal  (4,1)    (2,3)  
 ```  
-Justification: "AS6: groundwater-extraction prisoner’s dilemma... mutual restraint sustains yields but unilateral over-extraction offers short-term gain." (III.iv.a)  
+- **Justification**: "AS5 is an authorization-and-investment asymmetric coordination game [...] staff gain modestly even under formal cooperation due to investment burden" (III.iv.a).  
 
---- 
-**Note**: AS2 (sequential social learning) was excluded as it describes a diffusion process rather than a strategic interaction between two players. All matrices use ordinal payoffs (High > Medium > Low) as specified in the ODD+D (III.iv.b).
+**6. Groundwater Extraction Prisoner’s Dilemma (AS6)**  
+- **Tension**: Mutual restraint sustains aquifers, but unilateral over-extraction offers immediate gains while accelerating depletion.  
+- **Matrix**:  
+```
+          Farmer B
+          Restrain   Extract  
+Farmer A  Restrain  (3,3)    (1,4)  
+          Extract   (4,1)    (1,1)  
+```  
+- **Justification**: "AS6 is a groundwater-extraction prisoner’s dilemma [...] mutual restraint sustains yields but unilateral over-extraction offers short-term gain" (III.iv.a).  
+
+### Key Notes:  
+1. **Simultaneous vs. Sequential**: AS2 is explicitly sequential (social learning through observation), while others are simultaneous.  
+2. **Strategic Basis**: Matrices use ordinal payoffs (ranks) per ODD+D (III.iv.b), avoiding cardinal utilities.  
+3. **Empirical Grounding**: All AS directly correspond to field-derived dilemmas in Andhra Pradesh (III.iv.c).  
+4. **No Inventions**: Only documented AS from the ODD+D are included.

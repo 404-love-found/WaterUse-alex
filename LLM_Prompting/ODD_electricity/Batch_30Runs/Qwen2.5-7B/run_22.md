@@ -1,91 +1,171 @@
 # Run 22 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Capacitor Adoption Assurance Game (AS1)
+### Action Situation 1: Capacitor Adoption Assurance (AS1)
+**Title:** Capacitor Adoption Assurance (Two Neighboring Farmers)
 
-### Tension: Farmer-Farmer Coordination Dilemma
+**Tension:** Neighboring farmers must decide whether to invest in voltage-stabilizing capacitors, creating a coordination problem where mutual cooperation is Pareto-dominant, but unilateral investment yields no private benefit.
 
-#### 2-Player Normal Form Payoff Matrix
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: No Capacitor} & \text{Farmer 2: Capacitor} \\
+\hline
+\text{Farmer 1: No Capacitor} & (0, 0) & (1, -1) \\
+\text{Farmer 1: Capacitor} & (-1, 1) & (1, 1) \\
+\end{array}
+\]
 
-|               | Farmer B: No Capacitor | Farmer B: Capacitor |
-|---------------|-----------------------|--------------------|
-| **Farmer A: No Capacitor** | (0, 0)                 | (1, -1)             |
-| **Farmer A: Capacitor**     | (-1, 1)                | (2, 2)              |
+**Justification:** This game captures the coordination dilemma where mutual investment in capacitors improves voltage quality, but unilateral investment does not yield additional private benefit. The ordinal payoffs represent the collective benefit of mutual investment and the cost of unilateral investment.
 
-#### Justification
+### Action Situation 2: Sequential Social-Learning Process (AS2)
+**Title:** Sequential Capacitor Adoption
 
-- **Farmer-Farmer Coordination Dilemma**: The game captures the coordination problem between two neighboring farmers deciding whether to invest in voltage-stabilizing capacitors. If both farmers adopt capacitors, they benefit from improved voltage stability, which is a Pareto-optimal outcome. However, if one farmer invests while the other does not, the benefit is shared by both, but the non-investing farmer does not gain any private benefit, leading to a free-rider problem. If neither farmer invests, the voltage quality remains low.
+**Tension:** A farmer observes a peer’s capacitor adoption and imitates only if the outcome ranks higher, leading to path-dependent diffusion of technology.
 
-### Title: Sequential Social-Learning Process in Capacitor Adoption (AS2)
+**Sequential Representation (Game Tree):**
+```
+1. Farmer 1: Observe (Farmer 2)
+   /                \
+2a. No Capacitor (1) 2b. Capacitor (1)
+   /                    \
+3a. No Capacitor (1) 3b. Capacitor (1)
+```
 
-### Tension: Diffusion of Innovations
+**Justification:** The game tree shows the sequential decision-making process where Farmer 1 observes Farmer 2’s decision and imitates only if the outcome is ranked higher. This captures the path-dependent nature of technology diffusion and bounded rationality in decision-making.
 
-#### 2-Player Normal Form Payoff Matrix
+### Action Situation 3: Transformer Capacity Authorization (AS3)
+**Title:** Transformer Capacity Authorization Dilemma (Two Farmers)
 
-|               | Farmer B: No Capacitor | Farmer B: Capacitor |
-|---------------|-----------------------|--------------------|
-| **Farmer A: No Capacitor** | (0, 0)                 | (1, 0)              |
-| **Farmer A: Capacitor**     | (0, 1)                 | (1, 1)              |
+**Tension:** One farmer’s authorization benefits both by improving voltage quality, but the cost falls solely on the authorizer, creating a free-rider incentive.
 
-#### Justification
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: No Authorization} & \text{Farmer 2: Authorization} \\
+\hline
+\text{Farmer 1: No Authorization} & (0, 0) & (-1, 1) \\
+\text{Farmer 1: Authorization} & (1, -1) & (1, 1) \\
+\end{array}
+\]
 
-- **Sequential Social-Learning Process**: The game models how one farmer observes another farmer’s outcome and imitates only if the outcome ranks higher. This represents the process of diffusion of innovations. If a farmer observes that the other farmer has not adopted a capacitor, they are unlikely to adopt it. However, if a farmer observes a successful adoption, they are more likely to adopt it, leading to a path-dependent diffusion process.
+**Justification:** This game represents the asymmetric allocation of costs and benefits between two farmers when one seeks authorization for transformer capacity. The ordinal payoffs reflect the collective benefit of authorization and the individual cost borne by the authorizer.
 
-### Title: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
+### Action Situation 4: Mutual-Exchange Coordination (AS4)
+**Title:** Mutual-Exchange Coordination between Farmer and Sub-station Personnel
 
-### Tension: Free-Rider Problem
+**Tension:** Reciprocal benefit arises only when both engage in informal exchange, but unilateral exchange results in losses for the offerer.
 
-#### 2-Player Normal Form Payoff Matrix
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station: No Exchange} & \text{Sub-station: Exchange} \\
+\hline
+\text{Farmer: No Exchange} & (0, 0) & (1, -1) \\
+\text{Farmer: Exchange} & (-1, 1) & (2, 2) \\
+\end{array}
+\]
 
-|               | Farmer B: No Investment | Farmer B: Investment |
-|---------------|-----------------------|--------------------|
-| **Farmer A: No Investment** | (0, 0)                 | (1, -1)             |
-| **Farmer A: Investment**     | (-1, 1)                | (2, 2)              |
+**Justification:** This game captures the mutual exchange coordination where both the farmer and sub-station personnel benefit when they engage in informal exchange. The ordinal payoffs illustrate the collective benefit and the cost of unilateral exchange.
 
-#### Justification
+### Action Situation 5: Authorization and Investment Asymmetric Coordination (AS5)
+**Title:** Formal vs Informal Request for Authorization
 
-- **Free-Rider Problem**: This game captures the dilemma between two farmers deciding whether to invest in transformer capacity. If both farmers invest, the voltage quality improves, and both benefit. However, if one farmer invests and the other does not, the investing farmer bears the cost while the non-investing farmer benefits more. This creates a free-rider problem where the non-investing farmer can benefit without contributing to the cost.
+**Tension:** A farmer’s formal request for authorization benefits both if the staff invest, but the staff gain modestly even under formal cooperation.
 
-### Title: Mutual-Exchange Coordination Game (AS4)
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station: No Investment} & \text{Sub-station: Investment} \\
+\hline
+\text{Farmer: No Request} & (0, 0) & (1, 1) \\
+\text{Farmer: Formal Request} & (1, 1) & (2, 1) \\
+\text{Farmer: Informal Request} & (2, 1) & (3, 2) \\
+\end{array}
+\]
 
-### Tension: Reciprocal Benefit
+**Justification:** This game shows the asymmetric coordination between a farmer and sub-station personnel, where formal and informal requests can lead to different payoffs. The ordinal payoffs reflect the collective benefit and the incentives for both parties.
 
-#### 2-Player Normal Form Payoff Matrix
+### Action Situation 6: Groundwater Extraction Prisoner’s Dilemma (AS6)
+**Title:** Groundwater Extraction between Two Farmers
 
-|               | Sub-station Staff: No Exchange | Sub-station Staff: Exchange |
-|---------------|-----------------------|--------------------|
-| **Farmer: No Exchange** | (0, 0)                 | (1, 0)              |
-| **Farmer: Exchange**     | (0, 1)                 | (1, 1)              |
+**Tension:** Mutual restraint sustains yields, but unilateral over-extraction offers short-term gain and accelerates depletion.
 
-#### Justification
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Restrain} & \text{Farmer 2: Over-extract} \\
+\hline
+\text{Farmer 1: Restrain} & (1, 1) & (2, 0) \\
+\text{Farmer 1: Over-extract} & (0, 2) & (3, 3) \\
+\end{array}
+\]
 
-- **Reciprocal Benefit**: The game models the interaction between a farmer and sub-station personnel deciding whether to engage in informal exchanges. If both parties engage in exchange, they both benefit. However, if one party engages while the other does not, the engaging party incurs a loss while the other party gains. This creates a mutual exchange coordination game where both parties must engage for mutual benefit.
+**Justification:** This game captures the prisoner’s dilemma in groundwater extraction, where mutual restraint is collectively optimal but unilateral over-extraction offers short-term benefits at the expense of long-term sustainability. The ordinal payoffs represent the collective and individual benefits of restraint and over-extraction.
 
-### Title: Authorization-And-Investment Asymmetric Coordination Game (AS5)
+### Action Situation 7: Informal vs Formal Compliance (AS7)
+**Title:** Informal vs Formal Compliance with Sub-station Personnel
 
-### Tension: Legal vs. Opportunistic Behavior
+**Tension:** Formal compliance involves authorization fees and effort, while informal compliance offers cheaper access but risks detection.
 
-#### 2-Player Normal Form Payoff Matrix
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Sub-station: Enforce} & \text{Sub-station: Tolerate} \\
+\hline
+\text{Farmer: Authorized} & (-1, 1) & (1, 1) \\
+\text{Farmer: Unauthorized} & (0, 2) & (2, 0) \\
+\end{array}
+\]
 
-|               | Sub-station Staff: No Authorization | Sub-station Staff: Authorization |
-|---------------|-----------------------|--------------------|
-| **Farmer: No Request** | (0, 0)                 | (1, -1)             |
-| **Farmer: Request**     | (-1, 1)                | (2, 2)              |
+**Justification:** This game represents the informal vs formal compliance interaction, where the farmer benefits from cheaper access but the sub-station personnel balance enforcement and informal tolerance. The ordinal payoffs reflect the collective and individual benefits of formal and informal compliance.
 
-#### Justification
+### Action Situation 8: Transformer Capacity and Contribution Imbalance (AS8)
+**Title:** Contribution Imbalance for Transformer Capacity
 
-- **Legal vs. Opportunistic Behavior**: This game captures the dilemma between a farmer and sub-station personnel deciding whether to make a formal or informal request for authorization. If both parties engage in formal cooperation, they both benefit. However, if one party makes a formal request and the other withholds authorization, the farmer incurs a loss while the sub-station staff saves effort. If the farmer makes an informal request and the staff invests, the farmer gains more while the staff bears the cost without the formal fee. This creates an asymmetric coordination game where both parties must engage for mutual benefit but face incentives to act opportunistically.
+**Tension:** Capacity upgrades can improve reliability, but costs are not shared evenly among farmers.
 
-### Title: Groundwater Extraction Prisoner’s Dilemma (AS6)
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: No Contribution} & \text{Farmer 2: Contribute} \\
+\hline
+\text{Farmer 1: No Contribution} & (0, 0) & (1, -1) \\
+\text{Farmer 1: Contribute} & (-1, 1) & (1, 1) \\
+\end{array}
+\]
 
-### Tension: Over-Extraction and Depletion
+**Justification:** This game captures the coordination dilemma where one farmer’s contribution benefits both, but the individual bears the cost, creating a free-rider incentive. The ordinal payoffs reflect the collective benefit and the individual cost of contribution.
 
-#### 2-Player Normal Form Payoff Matrix
+### Action Situation 9: Farmer-Farmer Interaction (AS9)
+**Title:** Farmer-Farmer Interaction under Shared Transformer
 
-|               | Farmer B: No Extraction | Farmer B: Extraction |
-|---------------|-----------------------|--------------------|
-| **Farmer A: No Extraction** | (0, 0)                 | (1, -1)             |
-| **Farmer A: Extraction**     | (-1, 1)                | (2, 2)              |
+**Tension:** Neighboring farmers’ actions on transformer capacity and groundwater extraction affect each other.
 
-#### Justification
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: No Capacitor} & \text{Farmer 2: Capacitor} \\
+\hline
+\text{Farmer 1: No Capacitor} & (0, 0) & (1, -1) \\
+\text{Farmer 1: Capacitor} & (-1, 1) & (2, 1) \\
+\end{array}
+\]
 
-- **Over-Extraction and Depletion**: The game models the interaction between two farmers drawing from the same aquifer. If both farmers restrain their extraction, the groundwater remains sustainable, and both benefit. However, if one farmer over-extracts while the other restrains, the over-extracting farmer benefits in the short run but accelerates depletion, harming both in the long run. This creates a prisoner’s dilemma where mutual restraint is the collectively optimal but individually suboptimal outcome.
+**Justification:** This game captures the interaction where one farmer’s capacitor adoption affects the reliability and cost for both. The ordinal payoffs reflect the collective benefit of mutual coordination and the cost of unilateral investment.
+
+### Action Situation 10: Groundwater Extraction Feedback Loop (AS10)
+**Title:** Groundwater Extraction Feedback Loop
+
+**Tension:** Groundwater extraction affects future pumping costs and electricity demand, creating a feedback loop.
+
+**Matrix Representation:**
+\[
+\begin{array}{c|cc}
+ & \text{Farmer 2: Restrain} & \text{Farmer 2: Over-extract} \\
+\hline
+\text{Farmer 1: Restrain} & (1, 1) & (2, 0) \\
+\text{Farmer 1: Over-extract} & (0, 2) & (3, 3) \\
+\end{array}
+\]
+
+**Justification:** This game captures the feedback loop in groundwater extraction, where current over-extraction raises future pumping costs and electricity demand, affecting the collective benefit. The ordinal payoffs reflect the short-term and long-term benefits of restraint and over-extraction.

@@ -1,71 +1,126 @@
 # Run 12 — Qwen/Qwen2.5-7B-Instruct-Turbo
 
-### Title: Distinct Action Situations in the Irrigation Electricity Governance Model
+### Action Situation 1: Capacitor Adoption Assurance Game (AS1)
 
-#### 1. Farmer-Farmer Capacitor Adoption Assurance Game (AS1)
-**Tension:** Mutual Coordination vs. Free-Rider Dilemma
+#### Title: Capacitor Adoption Assurance Game
 
-**2-Player Normal Form Payoff Matrix:**
-| Farmer 2    | Farmer 2 Invests | Farmer 2 Does Not Invest |
-|-------------|------------------|-------------------------|
-| **Farmer 1 Invests**  | (1, 1)          | (0, 2)                |
-| **Farmer 1 Does Not Invest**  | (2, 0)          | (0, 0)                |
+#### Tension: Mutual Coordination vs. Free-Rider Dilemma
 
-**Justification:** This game captures the mutual coordination required for voltage stabilization. Both farmers benefit if both invest, but if one invests without the other, the investor incurs costs without gains, while the non-investor enjoys the benefits. This creates a free-rider dilemma.
+#### Matrix Representation:
 
-#### 2. Sequential Social-Learning Capacitor Adoption (AS2)
-**Tension:** Information Diffusion vs. Hesitation
+|               | Farmer 2: Invest | Farmer 2: Not Invest |
+|---------------|------------------|----------------------|
+| **Farmer 1: Invest** | (2, 2)         | (1, 3)               |
+| **Farmer 1: Not Invest** | (3, 1)         | (1, 1)               |
 
-**2-Player Normal Form Payoff Matrix:**
-| Farmer 2    | Farmer 2 Adopts | Farmer 2 Does Not Adopt |
-|-------------|-----------------|-------------------------|
-| **Farmer 1 Adopts**  | (1, 1)          | (1, 0)                 |
-| **Farmer 1 Does Not Adopt**  | (0, 1)          | (0, 0)                 |
+#### Justification:
 
-**Justification:** This game reflects the social learning process where farmers observe and imitate successful outcomes. Information diffusion occurs only after a successful trial, reflecting the bounded rationality of farmers.
+- **Farmer 1 and Farmer 2** decide whether to invest in voltage-stabilizing capacitors.
+- Mutual investment (both invest) yields a shared improvement in power quality, leading to a payoff of (2, 2).
+- If one farmer invests and the other does not, the investor incurs a cost with no added benefit, leading to a payoff of (1, 3) or (3, 1).
+- If neither invests, the power quality remains low, leading to a payoff of (1, 1).
+- This represents a coordination problem with mutual cooperation Pareto-dominant but risky.
 
-#### 3. Transformer-Capacity Authorization Dilemma (AS3)
-**Tension:** Collective Benefit vs. Private Cost
+### Action Situation 2: Sequential Social-Learning Process in Capacitor Adoption (AS2)
 
-**2-Player Normal Form Payoff Matrix:**
-| Farmer 2    | Farmer 2 Authorizes | Farmer 2 Does Not Authorize |
-|-------------|---------------------|----------------------------|
-| **Farmer 1 Authorizes**  | (1, 1)                | (0, 0)                      |
-| **Farmer 1 Does Not Authorize**  | (0, 0)                | (0.5, 0.5)                  |
+#### Title: Sequential Social-Learning Process in Capacitor Adoption
 
-**Justification:** This game illustrates the asymmetric cost-sharing dilemma where one farmer’s authorization benefits both, but the costs fall solely on the authorizer, creating a free-rider incentive.
+#### Sequential Representation (Game Tree):
 
-#### 4. Mutual-Exchange Coordination with Sub-Station Staff (AS4)
-**Tension:** Formal Compliance vs. Informal Reciprocity
+```
+F1: Adopt
+      /      \
+F2: Adopt  F2: Not Adopt
+      (2, 2)   (1, 3)
+```
 
-**2-Player Normal Form Payoff Matrix:**
-| Sub-Station Staff    | Sub-Station Staff Invests | Sub-Station Staff Does Not Invest |
-|----------------------|----------------------------|----------------------------------|
-| **Farmer Invests**   | (1, 1)                     | (0, 0)                           |
-| **Farmer Does Not Invest**   | (0, 0)                     | (0, 1)                           |
+|               | F2: Adopt | F2: Not Adopt |
+|---------------|----------|--------------|
+| **F1: Adopt** | (2, 2)   | (1, 3)       |
+| **F1: Not Adopt** | (3, 1)   | (1, 1)       |
 
-**Justification:** This game represents the mutual exchange coordination where both parties benefit only if both engage in informal exchanges, reflecting the bounded rationality and social learning of farmers and staff.
+#### Justification:
 
-#### 5. Formal vs. Informal Authorization and Investment (AS5)
-**Tension:** Legal Cooperation vs. Opportunistic Gain
+- **Farmer 1** decides whether to adopt a capacitor.
+- If **Farmer 1** adopts and **Farmer 2** observes and adopts, both get a payoff of (2, 2).
+- If **Farmer 1** adopts and **Farmer 2** does not adopt, **Farmer 1** gets a payoff of 1, and **Farmer 2** gets a payoff of 3.
+- If **Farmer 1** does not adopt and **Farmer 2** adopts, **Farmer 1** gets a payoff of 3, and **Farmer 2** gets a payoff of 1.
+- If neither adopts, both get a payoff of (1, 1).
+- This represents a sequential coordination problem where diffusion occurs only after a successful coordinated trial has been observed.
 
-**2-Player Normal Form Payoff Matrix:**
-| Sub-Station Staff    | Sub-Station Staff Invests | Sub-Station Staff Withholds |
-|----------------------|----------------------------|-----------------------------|
-| **Farmer Requests Formal**  | (1, 1)                   | (0, 0)                      |
-| **Farmer Requests Informal**  | (1, 0)                   | (0.5, 1)                    |
+### Action Situation 3: Asymmetric Transformer-Capacity Authorization Dilemma (AS3)
 
-**Justification:** This game captures the asymmetric incentives between formal and informal authorization, where staff gain modestly even under formal cooperation due to investment burden, producing asymmetric incentives between legality and opportunism.
+#### Title: Asymmetric Transformer-Capacity Authorization Dilemma
 
-#### 6. Groundwater Extraction Prisoner’s Dilemma (AS6)
-**Tension:** Mutual Restraint vs. Short-Term Gain
+#### Matrix Representation:
 
-**2-Player Normal Form Payoff Matrix:**
-| Farmer 2    | Farmer 2 Restraints | Farmer 2 Over-Extracts |
-|-------------|---------------------|------------------------|
-| **Farmer 1 Restraints**  | (1, 1)                 | (2, 0)                |
-| **Farmer 1 Over-Extracts**  | (0, 2)                 | (0, 0)                |
+|               | Farmer 2: Invest | Farmer 2: Not Invest |
+|---------------|------------------|----------------------|
+| **Farmer 1: Invest** | (2, 2)         | (1, 1)               |
+| **Farmer 1: Not Invest** | (1, 1)         | (1, 1)               |
 
-**Justification:** This game represents the mutual restraint required to sustain groundwater yields versus the short-term gain of over-extraction, which accelerates depletion.
+#### Justification:
 
-These action situations reflect the unique strategic dilemmas in the electricity governance model, grounded in the ODD+D text.
+- **Farmer 1 and Farmer 2** decide whether to invest in transformer capacity.
+- Mutual investment benefits both by raising voltage quality, leading to a payoff of (2, 2).
+- If one farmer invests and the other does not, the investor incurs a cost with no added benefit, leading to a payoff of (1, 1).
+- If neither invests, both remain at a low but non-zero baseline, leading to a payoff of (1, 1).
+- This represents a free-rider incentive and uneven payoffs.
+
+### Action Situation 4: Mutual-Exchange Coordination Game (AS4)
+
+#### Title: Mutual-Exchange Coordination Game
+
+#### Matrix Representation:
+
+|               | Staff: Exchange | Staff: No Exchange |
+|---------------|-----------------|--------------------|
+| **Farmer: Exchange** | (2, 2)         | (1, 1)             |
+| **Farmer: No Exchange** | (1, 1)         | (1, 1)             |
+
+#### Justification:
+
+- **Farmer and Sub-station Personnel** decide whether to engage in informal exchange.
+- Mutual engagement yields reciprocal benefit, leading to a payoff of (2, 2).
+- If one engages and the other does not, the engaging party incurs a loss, leading to a payoff of (1, 1).
+- If neither engages, no extra benefit occurs, leading to a payoff of (1, 1).
+- This represents a coordination problem where only matched cooperation yields mutual gain.
+
+### Action Situation 5: Asymmetric Authorization-Enforcement Coordination Game (AS5)
+
+#### Title: Asymmetric Authorization-Enforcement Coordination Game
+
+#### Matrix Representation:
+
+|               | Staff: Invest | Staff: No Invest |
+|---------------|--------------|-----------------|
+| **Farmer: Formal Request** | (2, 2)        | (1, 3)          |
+| **Farmer: Informal Request** | (1, 1)        | (3, 1)          |
+
+#### Justification:
+
+- **Farmer and Sub-station Personnel** decide whether to make a formal or informal request for transformer capacity.
+- Mutual formal cooperation is collectively optimal, leading to a payoff of (2, 2).
+- If the farmer makes a formal request and the staff withhold, the farmer incurs a loss, leading to a payoff of (1, 3).
+- If the farmer makes an informal request and the staff invest, the farmer gains more, leading to a payoff of (3, 1).
+- If the farmer makes a formal request and the staff invest, the staff gain modestly due to investment burden, leading to a payoff of (1, 1).
+- This represents asymmetric incentives between legality and opportunism.
+
+### Action Situation 6: Groundwater Extraction Prisoner’s Dilemma (AS6)
+
+#### Title: Groundwater Extraction Prisoner’s Dilemma
+
+#### Matrix Representation:
+
+|               | Farmer 2: Extract | Farmer 2: No Extract |
+|---------------|--------------------|----------------------|
+| **Farmer 1: Extract** | (2, 2)          | (1, 3)               |
+| **Farmer 1: No Extract** | (3, 1)          | (1, 1)               |
+
+#### Justification:
+
+- **Farmer 1 and Farmer 2** decide whether to extract groundwater from the same aquifer.
+- Mutual restraint sustains yields, leading to a payoff of (2, 2).
+- If one extracts and the other does not, the extracting farmer gains short-term benefits, leading to a payoff of (1, 3) or (3, 1).
+- If neither extracts, the yields remain low but non-zero, leading to a payoff of (1, 1).
+- This represents a coordination problem where mutual restraint is necessary to sustain yields.

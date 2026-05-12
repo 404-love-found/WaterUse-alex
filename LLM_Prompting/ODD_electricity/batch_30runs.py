@@ -13,7 +13,9 @@ import time
 from together import Together
 
 
-api_key = os.getenv("TOGETHER_API_KEY", "tgp_v1_5DGhZ0hxAwmGKuR0WD_TfmoV0FTgWlHoym6h2G3FWJc")
+api_key = os.environ.get("TOGETHER_API_KEY")
+if not api_key:
+    raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
 
 MODELS = {
     "DeepSeek-R1": {
@@ -23,13 +25,13 @@ MODELS = {
     },
     "Llama-3.3-70B": {
         "model_id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
-        "timeout": 180.0,
-        "max_tokens": 8192,
+        "timeout": 600.0,
+        "max_tokens": 16000,
     },
     "Qwen2.5-7B": {
         "model_id": "Qwen/Qwen2.5-7B-Instruct-Turbo",
-        "timeout": 180.0,
-        "max_tokens": 8192,
+        "timeout": 600.0,
+        "max_tokens": 16000,
     },
 }
 
@@ -40,7 +42,7 @@ BASE_WAIT = 30
 current_dir = os.path.dirname(os.path.abspath(__file__))
 text_dir = os.path.join(current_dir, "Txts", "TXT")
 odd_path = os.path.join(text_dir, "odd.txt")
-game_path = os.path.join(text_dir, "game_stuff.txt")
+game_path = os.path.join(text_dir, "Electricity_game_stuff.txt")
 output_dir = os.path.join(current_dir, "Batch_30Runs")
 
 
@@ -57,14 +59,18 @@ def build_prompt(odd_text, game_text):
 
     ### Task Requirements:
     1. Identify the distinct strategic dilemmas in the electricity governance model.
-    2. For each dilemma, provide a **2-player Normal Form Payoff Matrix**.
+    2. For each dilemma, provide a **2-player Normal Form Payoff Matrix** when a simultaneous
+       representation fits. If the action situation is sequential, provide a compact sequential
+       representation/game tree instead of omitting it.
     3. Reflect the relevant electricity-governance mechanisms, including farmer-farmer coordination,
        farmer-staff interaction, transformer capacity, capacitor adoption, authorization/enforcement,
        informal exchange, groundwater extraction, social learning, and bounded rationality.
-    4. Do not invent action situations that are not grounded in the ODD+D text.
-    5. Max fields = 10.
+    4. Include sequential action situations when they are grounded in the ODD+D text; do not exclude
+       an AS only because it is not a simultaneous normal-form game.
+    5. Do not invent action situations that are not grounded in the ODD+D text.
+    6. Max fields = 10.
 
-    Only output the analysis (Title, Tension, Matrix, Justification).
+    Only output the analysis (Title, Tension, Matrix/Sequential Representation, Justification).
     """
 
 
