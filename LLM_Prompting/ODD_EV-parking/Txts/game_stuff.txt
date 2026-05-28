@@ -1,0 +1,63 @@
+Apartment EV charging scenario context:
+The model represents shared EV charging in an apartment parking facility. Residents and non-resident users can both use a limited set of charging points. Every user pays according to electricity consumed in kWh. Residents receive a discounted per-kWh rate, while non-residents pay the regular rate. The main governance concern is fair queue access, not price optimisation.
+
+Purpose and empirical setting:
+The scenario is designed to analyse how queue order, move-out behaviour, staff enforcement, reservation practices, and resident discounts affect perceived fairness and actual access to shared chargers. It fits apartment garages, mixed resident-public parking facilities, and buildings where EV adoption has grown faster than charging capacity.
+
+Scope and use of this scenario:
+This file provides background context only. It clarifies mechanisms, incentives, and outcome logic without listing or numbering the target strategic units to be extracted. Output should infer distinct local strategic tensions from the ODD+D description and this scenario text rather than copy labels from headings in this file.
+
+Entities and state variables:
+Residents have discount eligibility, home-building attachment, EV battery state, desired kWh, schedule flexibility, memory of past wait times, perceived entitlement to apartment amenities, and relationships with neighbours or staff.
+Non-resident users have regular price status, parking duration, battery urgency, desired kWh, willingness to wait, and perceived legitimacy of using chargers in a building where residents receive a discount.
+Parking-lot management staff have rule-enforcement authority, access to queue and session records, ability to verify resident status, monitoring effort, complaint backlog, and discretion in handling exceptions.
+Charging points have charging rate, occupied status, current user category, kWh delivered, fault state, repair delay, and whether a vehicle remains in the bay after useful charging is complete.
+The queue platform has reservation windows, live queue order, no-show status, waiting time estimates, user category, complaint records, and violation history.
+
+Spatial and temporal structure:
+The facility is a single apartment garage with a small number of charging bays and many non-charging parking spaces. Residents usually access the garage from apartment elevators; non-residents enter from visitor or public parking access points. Staff can observe only some bays at any moment.
+Time is represented in 15-minute intervals. Demand is strongest in evening and overnight periods when residents return home, and it may also spike during visitor-heavy periods. Billing is calculated monthly from kWh consumption.
+
+Charging price and discount setting:
+All users are billed per kWh. Residents receive a lower per-kWh rate, and non-residents pay the regular rate. The discount increases residents' willingness to use the facility frequently, but it does not formally grant a better queue position.
+Because the system charges by energy rather than time, a vehicle that remains plugged in after useful charging may block the bay without paying much additional cost. This creates pressure on queue fairness when waiting users cannot access the charger.
+
+Queue access and move-out behaviour:
+The posted rule is that users should follow the queue or reservation order and should move promptly after useful charging. If users follow the order, waiting time is predictable and complaints are lower.
+If a driver bypasses the queue, parks in a charging bay without being next, or leaves a vehicle after charging is complete, the next user waits longer. The immediate benefit goes to the driver who obtains or keeps access; the cost is spread across waiting users.
+Residents may believe their housing relationship gives them stronger claim to the chargers. Non-residents may believe full-price payment entitles them to equal treatment once they are admitted to the garage. This difference in interpretation can make queue fairness contested.
+
+Reservation and off-peak learning:
+Users learn from visible outcomes. If early users succeed by reserving off-peak slots or moving promptly, others may imitate these practices. If early users see queue bypassing or overstaying tolerated, they may stop trusting the posted order.
+Learning is imperfect. A driver may attribute a successful session to resident status, time of day, staff favour, or luck rather than to the actual queue rule.
+
+Shared capacity and expansion pressure:
+The number of charging bays is limited. Residents can pressure management to add chargers, improve monitoring, or change rules. Capacity upgrades benefit the resident community and may also benefit non-resident users when the public parking area remains open to them.
+Some residents may support higher amenity fees or special assessments for more chargers. Others prefer to wait for existing capacity to be expanded without paying. Non-resident users can benefit from added capacity without contributing to apartment-level costs.
+
+Informal priority and staff discretion:
+Parking staff may receive informal requests to hold a charging bay, overlook a queue violation, or call a resident before releasing a bay to the next user. Staff can enforce posted order or tolerate exceptions.
+Informal priority can reduce waiting uncertainty for one driver, but it weakens queue legitimacy for others. Repeated exceptions can make users believe that the queue platform is not the real allocation mechanism.
+
+Formal complaints and enforcement:
+Users can report blocked chargers, overstays, queue skipping, or faulty equipment through the app or building office. Staff can respond quickly, delay response, or treat the issue as low priority.
+Strict enforcement can reduce violations but costs staff time and may create conflict with residents. Weak enforcement saves effort in the short run but increases complaints, perceived unfairness, and future non-compliance.
+
+Charger reliability and maintenance:
+Faulty chargers reduce effective capacity and lengthen queues. A fault can shift demand onto the remaining chargers, making move-out and queue behaviour more important.
+Users may report faults, avoid faulty chargers, or continue attempting to use unreliable equipment. Staff decide how quickly to request repair or remote restart.
+
+Outcome ranking logic:
+Users prefer enough energy, shorter waits, lower cost, predictable access, and lower conflict. Residents value the discount and convenience of charging at home. Non-residents value reliable access after entering the garage and paying the regular rate.
+Management prefers high charger utilisation, low complaint volume, rule legitimacy, resident satisfaction, visitor revenue, and manageable staff effort.
+Collectively, predictable queue order and prompt bay release improve fairness and throughput. Individually, a user may gain by jumping the queue, overstaying, or seeking informal priority if enforcement is weak.
+
+Bounded rationality and sensing:
+Users do not perfectly observe why another vehicle remains in a bay. It may still be charging, waiting for the owner, blocked by a fault, or deliberately overstaying. Users also do not know future arrivals.
+Staff do not observe every violation. They rely on complaints, platform data, camera checks, and occasional inspection.
+
+Model outputs:
+Important outputs include average wait time, wait-time inequality between resident and non-resident users, queue violations, overstay duration, charger utilisation, kWh delivered by user category, complaint counts, enforcement actions, charger downtime, and perceived legitimacy of the queue system.
+
+Boundary notes:
+The resident discount is not itself a queue priority rule. It affects demand and perceived entitlement. The core fairness issue is how scarce charging access is ordered, enforced, and released over time.

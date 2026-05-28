@@ -1,0 +1,186 @@
+Hidden evaluation reference for the apartment EV-parking case.
+Do not include this file in the model prompt. It is for scoring and manual review.
+
+Correct action situations:
+AS1: Queue-order and prompt move-out compliance between EV users
+AS2: Sequential learning in reservation and off-peak charging behaviour
+AS3: Shared charger-capacity contribution dilemma among residents
+AS4: Informal priority exchange between EV user and parking staff
+AS5: Formal complaint and enforcement coordination between user and management
+AS6: Shared charger-occupancy common-pool congestion between EV users
+
+
+1) Action Situation 1: Queue-order and prompt move-out compliance between EV users
+Location:
+Apartment parking garage charging bays during active queue periods.
+
+Players:
+Resident EV user and non-resident EV user, or any two EV users competing for the next available charger.
+
+Actions:
+Follow: respect queue order and move promptly after useful charging.
+Exploit: bypass the queue, claim a bay out of order, or remain after useful charging.
+
+Control rules:
+The posted queue rule assigns the next available charger to the next eligible user. A driver who exploits can obtain immediate access or hold access longer if staff do not intervene.
+
+Information:
+Each user observes some queue and charger status, but does not know whether the other user will comply or exploit.
+
+Outcomes:
+Mutual compliance gives predictable access and moderate waiting for both. If one exploits while the other follows, the exploiter obtains quicker access and the compliant user waits longer. Mutual exploitation produces conflict, uncertainty, and longer queues.
+
+Normal-form payoff matrix:
+
+                         User B: Follow       User B: Exploit
+User A: Follow              (8, 8)                 (3, 10)
+User A: Exploit             (10, 3)                (4, 4)
+
+Interpretation:
+Exploit can be individually tempting under weak enforcement, but mutual exploitation degrades queue fairness and access reliability.
+
+
+2) Action Situation 2: Sequential learning in reservation and off-peak charging behaviour
+Location:
+Daily reservation windows and repeated charging attempts.
+
+Players:
+Early EV user and later EV user.
+
+Actions:
+Early user: Try rule-aligned strategy, such as reserving off-peak and moving promptly, or ignore the posted system.
+Later user: Imitate observed behaviour or continue prior behaviour.
+
+Control rules:
+Later users observe visible outcomes from earlier users but cannot perfectly identify the cause of success. Successful off-peak or rule-aligned behaviour can spread only if outcomes are visible and attributed correctly.
+
+Information:
+The later user observes whether the early user charged successfully, waited less, or avoided conflict. The later user may misattribute success to resident status, staff favour, or luck.
+
+Sequential representation:
+Early user chooses Rule-aligned or Opportunistic.
+If the early user's outcome is visibly successful, the later user chooses Imitate or Do not imitate.
+If the outcome is unclear or failed, the later user usually keeps prior behaviour.
+
+Outcome logic:
+Successful visible rule-aligned behaviour can reduce peak congestion. Successful visible opportunistic behaviour can spread queue violations. Failed or unclear experiences slow learning.
+
+
+3) Action Situation 3: Shared charger-capacity contribution dilemma among residents
+Location:
+Monthly or annual building decision about adding chargers or improving monitoring.
+
+Players:
+Resident A and Resident B, representing residents who can support or oppose a capacity-improvement cost.
+
+Actions:
+Contribute: support an amenity fee, assessment, or rule-change cost for more reliable charging.
+Wait: avoid contributing and rely on existing or future capacity.
+
+Control rules:
+Capacity improvements benefit residents collectively and may also reduce congestion for non-resident users. Costs are borne mainly by contributing residents or the apartment community.
+
+Information:
+Residents know that charging demand is growing but do not know how many others will support the cost.
+
+Outcomes:
+Mutual contribution improves capacity and queue fairness but costs both. If one contributes and the other waits, the contributor bears more cost while the waiting resident still benefits. Mutual waiting leaves queues congested.
+
+Normal-form payoff matrix:
+
+                         Resident B: Contribute    Resident B: Wait
+Resident A: Contribute          (8, 8)                  (4, 9)
+Resident A: Wait                (9, 4)                  (5, 5)
+
+Interpretation:
+Shared infrastructure improvement is collectively useful, but each resident has an incentive to let others pay first.
+
+
+4) Action Situation 4: Informal priority exchange between EV user and parking staff
+Location:
+Garage office, concierge desk, or informal communication channel.
+
+Players:
+EV user and parking-lot staff member.
+
+Actions:
+EV user: Use official queue or request informal priority.
+Staff: Enforce posted order or grant informal priority.
+
+Control rules:
+Staff can sometimes hold a bay, overlook a queue violation, or call one user before releasing the charger to the next user. Informal priority is not part of the posted queue rule.
+
+Information:
+The user does not know whether staff will accept the request. Staff do not know whether the user will complain, reciprocate, or create future problems.
+
+Outcomes:
+If both engage informally, the user gains priority and staff may gain goodwill or reciprocal benefit, but queue legitimacy declines. If the user requests priority and staff enforce the rule, the user may lose time or reputation. If staff offer favour and the user does not reciprocate or the exception is detected, staff bear risk.
+
+Normal-form payoff matrix:
+
+                         Staff: Enforce order     Staff: Grant priority
+User: Official queue             (7, 7)                 (8, 3)
+User: Informal request           (3, 8)                 (9, 6)
+
+Interpretation:
+Matched informal behaviour can benefit the immediate parties but harms fairness for users waiting in the official queue.
+
+
+5) Action Situation 5: Formal complaint and enforcement coordination between user and management
+Location:
+App complaint channel, building office, or management response process.
+
+Players:
+Waiting EV user and parking management.
+
+Actions:
+User: File formal complaint/report or stay silent.
+Management: Enforce/repair/respond or delay response.
+
+Control rules:
+A formal report can trigger queue correction, overstay intervention, or maintenance action. Management response requires effort and may create conflict with the violating user.
+
+Information:
+The user does not know whether management will respond. Management does not know whether silence means no problem or low trust in the complaint process.
+
+Outcomes:
+Formal reporting plus management response improves rule legitimacy and charger access. Reporting without response reduces user trust. Management response without user reports is costly and may miss the problem. Mutual inaction saves effort but lets unfair access persist.
+
+Normal-form payoff matrix:
+
+                         Management: Respond      Management: Delay
+User: Report                    (8, 8)                 (2, 6)
+User: Silent                    (5, 3)                 (4, 4)
+
+Interpretation:
+The best institutional outcome requires both user reporting and management response. Either side withholding effort weakens the queue system.
+
+
+6) Action Situation 6: Shared charger-occupancy common-pool congestion between EV users
+Location:
+Shared charging bays during high-demand periods.
+
+Players:
+EV User A and EV User B.
+
+Actions:
+Need-based use: request only needed kWh and release the bay promptly.
+Maximize session: charge more than needed, keep the bay longer, or remain connected because there is no time-based fee.
+
+Control rules:
+All users pay per kWh. The system does not automatically price bay occupation after useful charging. Longer sessions reduce charger availability for others.
+
+Information:
+Users know chargers are scarce but do not know other users' exact energy needs or intended session length.
+
+Outcomes:
+Mutual need-based use keeps throughput high and waiting time fair. A unilateral longer session gives one user more convenience and reserve energy while delaying the other. Mutual long sessions create congestion, complaints, and low reliability.
+
+Normal-form payoff matrix:
+
+                         User B: Need-based      User B: Maximize session
+User A: Need-based             (8, 8)                   (3, 10)
+User A: Maximize session       (10, 3)                  (4, 4)
+
+Interpretation:
+The individually attractive choice to hold the charger longer can create a congested shared-resource outcome when many users behave similarly.

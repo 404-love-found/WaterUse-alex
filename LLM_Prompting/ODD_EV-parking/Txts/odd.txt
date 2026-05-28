@@ -1,0 +1,220 @@
+Table EV.1: ODD+D protocol for an ABM of shared EV charging in an apartment parking facility
+
+I. Overview
+
+I.i Purpose
+I.i.a What is the purpose of the study?
+To understand how limited shared electric-vehicle chargers in an apartment parking facility are governed when residents receive a discounted per-kWh charging rate, non-resident users pay the regular per-kWh rate, and all users compete for fair queue access.
+
+The model is designed to study fairness in queue order, waiting time, charger availability, compliance with posted rules, and perceived legitimacy of the charging system. The focus is not on tariff optimization. The resident discount is treated as an institutional background condition that changes incentives and demand.
+
+I.i.b For whom is the model designed?
+For researchers and policymakers interested in urban mobility, shared infrastructure governance, apartment amenity management, queue fairness, and EV-charging access.
+
+I.ii Entities, state variables and scales
+I.ii.a What kinds of entities are in the model?
+* Human agents: apartment residents with EVs, non-resident EV users, and parking-lot management staff.
+* Institutional entities: posted queue rules, reservation rules, resident discount eligibility, complaint procedures, and enforcement policies.
+* Physical entities: EV charging points, charging bays, non-charging parking bays, the local electrical connection for the garage, and the digital queue or reservation platform.
+
+I.ii.b By what attributes are these entities characterised?
+Resident EV user: apartment residency status, discount eligibility, battery state of charge, desired energy amount, time flexibility, queue position, reservation status, wait time, willingness to comply with move-out rules, past charging experiences, perceived fairness, and social ties with staff or neighbours.
+
+Non-resident EV user: visitor or public-parking status, regular per-kWh price, battery state of charge, desired energy amount, time flexibility, queue position, wait time, willingness to comply with move-out rules, past success using the facility, and perceived legitimacy of resident discounts.
+
+Parking-lot management staff: rule-enforcement effort, ability to verify resident status, ability to monitor occupied chargers, responsiveness to complaints, tolerance of informal requests, maintenance coordination effort, and reputation concerns.
+
+Charging points: number of plugs, charging speed, operational status, current user, energy delivered, occupied-but-not-charging state, fault state, repair delay, and availability for the next user.
+
+Queue and reservation platform: ordered waiting list, reservation windows, no-show status, user type, time since charging completed, complaints, and recorded violations.
+
+I.ii.c What are the exogenous factors or drivers of the model?
+EV arrival demand, household routines, commuting patterns, visitor demand, local events, weather, base electricity prices, building occupancy, public parking demand, charger hardware reliability, and external utility outages.
+
+I.ii.d If applicable, how is space included in the model?
+Space is represented through the apartment garage layout. Chargers are located in a limited number of charging bays. Other parking bays are nearby but cannot charge vehicles. Some bays are more convenient for residents, while visitor parking is closer to public entrances. Spatial proximity affects whether drivers notice available chargers, whether staff can inspect violations, and whether a fully charged vehicle blocks access.
+
+I.ii.e What are the temporal and spatial resolutions?
+Time is represented in 15-minute intervals within daily charging cycles. Billing and complaint summaries are calculated monthly. The spatial extent is one apartment parking facility with shared resident and visitor access.
+
+I.iii Process overview and scheduling
+I.iii.a What entity does what, and in what order?
+At the beginning of a day, EV users form expectations about their energy need, likely wait time, charger availability, and whether queue rules will be enforced.
+
+Users decide whether to reserve a slot, join the live queue, arrive without reservation, charge during off-peak periods, request informal priority, or leave for another charger.
+
+The queue platform updates waiting order, charger availability, reservation status, and user eligibility for the resident discount.
+
+When a charger becomes available, the next eligible user is assigned to a charging bay if queue rules are followed. If a driver bypasses the queue or remains in a bay after charging is complete, the assigned next user waits longer.
+
+Parking-lot management staff observe some violations and complaints. They decide whether to enforce posted rules, ask users to move, cancel no-shows, preserve queue order, tolerate informal requests, or delay intervention.
+
+Chargers deliver energy and record kWh consumption. All users are charged by kWh. Residents receive a discounted per-kWh rate and non-residents pay the regular rate. A vehicle that remains connected after useful charging may block the bay without paying additional energy charges.
+
+At the end of each day, users update their expectations from waiting times, queue violations, successful charging sessions, visible enforcement, complaint outcomes, and charger faults.
+
+II. Design Concepts
+
+II.i Theoretical and empirical background
+II.i.a Which general concepts, theories or hypotheses underlie the model?
+The model is based on shared infrastructure governance, queue fairness, congestion in limited-capacity facilities, bounded rationality, rule compliance, institutional trust, and social learning. Users face interdependent choices because one user's charging duration, arrival time, queue behaviour, and move-out decision affect the next user's access.
+
+II.i.b On what assumptions are agents' decision models based?
+Users are boundedly rational. They do not know exact future arrivals or charger failures. They estimate wait time from past experience, app information, and visible queue length. Residents know they receive a lower per-kWh price and may expect stronger entitlement to apartment amenities. Non-residents know they pay the regular per-kWh price and may expect equal queue treatment once admitted to the facility.
+
+II.i.c Why are certain decision models chosen?
+The model uses simple rule-based decisions because apartment charging behaviour depends on routines, experience, visible fairness, and local enforcement rather than full optimization. Decisions are structured around queue choice, charging duration, compliance with move-out expectations, reporting behaviour, and staff enforcement.
+
+II.i.d If the model is based on empirical data, where do the data come from?
+The model can be parameterised from apartment parking logs, charger session records, queue-app records, complaint records, maintenance tickets, resident surveys, visitor-use records, and electricity-meter data.
+
+II.i.e At what level of aggregation are data available?
+Data may be available at the charging-session level, user category level, day level, charger level, and monthly billing level.
+
+II.ii Individual decision making
+II.ii.a What are the subjects and objects of decision making?
+EV users decide when to seek charging, whether to reserve, whether to join or bypass a queue, how much energy to request, whether to move promptly after useful charging, whether to complain about violations, and whether to search for alternative charging.
+
+Parking-lot management staff decide whether to enforce queue order, verify resident status, respond to complaints, remove overstaying vehicles, reserve access informally, and request maintenance when chargers fail.
+
+The building owner or management office may decide whether to expand charger capacity, change posted rules, add monitoring, or maintain the resident discount.
+
+II.ii.b What is the basic rationality behind agent decision making?
+Users seek enough energy for expected travel while minimizing waiting, walking, uncertainty, and cost. Residents also value reliable access to an amenity associated with their housing. Non-residents value predictable access once they enter the garage. Management staff seek low complaint volume, orderly operation, resident satisfaction, public-parking revenue, and manageable enforcement effort.
+
+II.ii.c How do agents make their decisions?
+Users compare expected waiting time, battery urgency, price category, past outcomes, and perceived enforcement. If past queue compliance produced reliable access, users are more likely to follow the queue. If queue skipping or overstaying was tolerated, some users become more likely to attempt similar behaviour.
+
+Staff compare the cost of intervention with complaint risk, observed fairness concerns, resident pressure, and the operational cost of prolonged charger blockage.
+
+II.ii.d Do agents adapt their behaviour to changing endogenous and exogenous state variables?
+Yes. Users adapt to queue length, visible violations, charging faults, resident/non-resident access shares, and past enforcement. Staff adapt to complaint volume, repeated violations, charger downtime, and resident pressure.
+
+II.ii.e Do social norms or cultural values play a role?
+Yes. Norms of neighbourly fairness, resident entitlement, visitor legitimacy, first-come-first-served order, and reciprocity with staff influence decisions. Informal relationships can support orderly use or can undermine queue fairness.
+
+II.ii.f Do spatial aspects play a role in the decision process?
+Yes. Charger-bay location, distance from apartment elevators, visitor entrances, and staff offices affects visibility, convenience, and enforcement.
+
+II.ii.g Do temporal aspects play a role in the decision process?
+Yes. Morning departures, evening returns, overnight charging, reservation windows, charging completion times, and monthly billing cycles shape behaviour.
+
+II.ii.h To what extent and how is uncertainty included?
+Uncertainty enters through unknown future arrivals, charger faults, no-shows, charging completion times, enforcement response, and whether other users will move promptly. Users estimate these conditions from experience and platform signals.
+
+II.iii Learning
+II.iii.a Is individual learning included?
+Yes. Users update expectations from successful and failed charging attempts, observed queue violations, and staff responses. A user who sees off-peak reservations work may shift to that behaviour. A user who sees tolerated queue bypassing may become less willing to wait fairly.
+
+II.iii.b Is collective learning implemented?
+Collective learning is represented implicitly. Shared expectations emerge when many users observe the same enforcement pattern or queue outcome.
+
+II.iv Individual sensing
+II.iv.a What endogenous and exogenous variables are individuals assumed to sense?
+Users sense visible queue length, app-estimated wait time, charger status, occupied bays, charging completion notifications, pricing category, past charging success, and whether staff intervene in violations. Perception can be erroneous because drivers may not know whether a vehicle is still charging, waiting for its owner, or deliberately overstaying.
+
+II.iv.b What state variables of other individuals can be perceived?
+Users can observe visible charger occupation, queue position, resident or visitor signage in some cases, and whether another driver bypasses the queue. They cannot perfectly observe another user's battery need, reservation legitimacy, or private communication with staff.
+
+II.iv.c What is the spatial scale of sensing?
+Local garage scale and digital platform scale.
+
+II.iv.d Are mechanisms for obtaining information modelled explicitly?
+The digital queue provides partial information on charger availability and estimated wait time. Physical observation provides incomplete information about bay occupation and violations.
+
+II.iv.e Are costs for cognition and gathering information included?
+They are not modelled monetarily, but time spent checking the app, walking to the charger area, and contacting staff affects user choices.
+
+II.v Individual prediction
+II.v.a Which data do agents use to predict future conditions?
+Users use past wait times, time of day, day of week, queue-app signals, visible charger status, and memory of enforcement. Staff use complaints, charger logs, violation history, and maintenance records.
+
+II.v.b What internal models are agents assumed to use?
+Users rely on heuristics such as "evenings are crowded", "residents get priority", "staff rarely intervene", or "off-peak reservation usually works". Staff use simple thresholds for complaint volume, repeated violations, and charger downtime.
+
+II.v.c Might agents be erroneous in prediction?
+Yes. Users may overestimate resident priority, underestimate visitor demand, misread charger availability, or assume that past lax enforcement will continue. Staff may underestimate the fairness cost of small queue violations.
+
+II.vi Interaction
+II.vi.a Are interactions direct or indirect?
+Both. Users interact indirectly through the shared queue, charger occupation, and charging duration. They may interact directly when contesting queue order or asking another driver to move. Users interact with staff through complaints, verification, or informal requests.
+
+II.vi.b On what do interactions depend?
+Interactions depend on user category, queue position, charging urgency, visible occupancy, staff monitoring, past rule enforcement, and the resident discount policy.
+
+II.vi.c If interactions involve communication, how is it represented?
+Communication is represented through app notifications, complaint tickets, staff messages, posted rules, informal conversations, and visible behaviour in the garage.
+
+II.vi.d If a coordination network exists, how does it affect behaviour?
+Resident networks, building communication channels, and informal staff-user relationships can shape whether users follow off-peak charging norms, tolerate queue order, or seek preferential treatment.
+
+II.vii Collectives
+II.vii.a Do individuals form or belong to aggregations?
+Yes. Users belong to resident and non-resident categories. Residents may also form informal neighbour networks. These collectives affect discount eligibility, perceived entitlement, information sharing, and pressure on management.
+
+II.vii.b How are collectives represented?
+Collectives are represented through user category, social ties, shared information, and group-level complaint pressure.
+
+II.viii Heterogeneity
+II.viii.a Are agents heterogeneous?
+Yes. Users differ in resident status, battery size, urgency, work schedule, willingness to wait, discount eligibility, flexibility, past experience, and sensitivity to fairness. Staff differ in enforcement effort and tolerance for informal exceptions.
+
+II.viii.b Are agents heterogeneous in decision making?
+Yes. Some users comply with posted rules even when enforcement is weak. Others react strongly to delays or use informal strategies. Residents and non-residents may interpret the same queue rule differently because residents receive a price discount.
+
+II.ix Stochasticity
+II.ix.a What processes are random?
+EV arrivals, desired energy demand, session duration, no-shows, charger faults, maintenance delay, staff observation of violations, and unexpected visitor demand are stochastic.
+
+II.x Observation
+II.x.a What data are collected from the ABM and when?
+Data are collected daily and monthly: average wait time, queue length, number of completed charging sessions, resident/non-resident access share, kWh delivered, charger utilisation, overstay time, queue violations, complaints, enforcement actions, and charger downtime.
+
+II.x.b What key results emerge from individuals?
+Emergent outcomes include stable or unstable queue fairness, resident dominance of charger access, visitor displacement, off-peak charging norms, informal priority patterns, chronic overstaying, complaint cascades, and changing trust in the charging system.
+
+III. Details
+
+III.i Implementation details
+III.i.a How is the model implemented?
+The model can be implemented as a discrete-time ABM with 15-minute steps. Agents are EV users and parking-lot management staff. The queue platform and charging points are modelled as shared infrastructure states.
+
+III.ii Initialisation
+III.ii.a What is the initial state of the model world?
+The apartment parking facility has a fixed number of charging bays, a larger number of EV users than chargers, posted queue rules, resident discount eligibility, regular visitor pricing, and a queue or reservation platform.
+
+III.ii.b Is initialisation always the same or allowed to vary?
+Initialisation can vary by number of chargers, resident EV adoption rate, visitor demand, strength of enforcement, reliability of chargers, and the size of the resident discount.
+
+III.ii.c Are initial values arbitrary or based on data?
+Initial values can be based on charger-session records, apartment occupancy, EV ownership estimates, parking access records, complaint logs, and observed charging demand.
+
+III.iii Input data
+III.iii.a Does the model use input from external sources?
+The model can use arrival schedules, charger reliability estimates, electricity prices, resident eligibility records, and historical charging-session data. It can also run with synthetic demand scenarios.
+
+III.iv Submodels
+III.iv.a What submodels represent the processes listed in the overview?
+Driver arrival and energy demand: EV users arrive according to daily routines, visitor demand, and battery urgency. Desired energy is measured in kWh.
+
+Queue formation and reservation: Users can reserve a slot, join a live queue, or arrive without a reservation. The queue platform orders users by posted rules and records no-shows.
+
+Charging session: A charging point delivers energy until the user's requested amount is met, the user stops charging, or the session is interrupted by a fault.
+
+Move-out and bay release: A vehicle may leave promptly after useful charging or remain in the bay, blocking the next user even if little or no energy is being delivered.
+
+Queue enforcement: Staff observe some violations and decide whether to preserve queue order, ask overstaying users to move, cancel no-shows, or tolerate exceptions.
+
+Resident discount billing: All users pay by kWh. Residents pay a discounted per-kWh price; non-residents pay the regular per-kWh price. The price difference affects demand but does not by itself grant queue priority.
+
+Complaint and legitimacy feedback: Users may complain when queue order is violated or when resident/non-resident access appears unfair. Complaint outcomes affect future compliance and trust.
+
+Maintenance and charger reliability: Faults reduce available charging capacity until staff or service technicians respond. Delayed repair increases waiting time and intensifies fairness concerns.
+
+Capacity planning: Management may evaluate whether to add chargers, improve monitoring, or revise rules based on demand, complaints, charger utilisation, and resident pressure.
+
+III.iv.b What are the model parameters?
+Key parameters include number of chargers, resident discount rate, regular per-kWh price, arrival rate, desired kWh distribution, charging speed, overstay tolerance, staff monitoring probability, complaint response threshold, no-show rate, fault probability, repair delay, and resident/non-resident demand ratio.
+
+III.iv.c How are submodels designed or chosen?
+Submodels are chosen to represent the core processes of shared charging access: demand, queue ordering, charging duration, bay release, rule enforcement, complaint feedback, and capacity stress. Parameters can be calibrated from apartment garage operations or varied systematically for scenario analysis.
