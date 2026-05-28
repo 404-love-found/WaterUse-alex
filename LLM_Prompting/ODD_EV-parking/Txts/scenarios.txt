@@ -1,5 +1,3 @@
-Hidden evaluation reference for the apartment EV-parking case.
-Do not include this file in the model prompt. It is for scoring and manual review.
 
 Correct action situations:
 AS1: Queue-order and prompt move-out compliance between EV users
