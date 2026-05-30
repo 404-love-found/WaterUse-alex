@@ -36,7 +36,7 @@ EXPERIMENTS = {
     },
 }
 
-MODELS = ("DeepSeek-R1", "Llama-3.3-70B", "Qwen2.5-7B")
+MODELS = ("DeepSeek-R1", "DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
 
 
 @dataclass(frozen=True)

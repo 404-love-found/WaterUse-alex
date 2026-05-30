@@ -1,0 +1,258 @@
+Experiment,Model,Run,AS_Index,Line,Title,Matched_GT,Decision,Reason,Has_Payoff_Evidence
+ODD-only,DeepSeek-R1,run_01.md,1,5,Water Extraction Dilemma with Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_02.md,1,5,Upstream-Downstream Water Rivalry,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_02.md,2,19,Ecological Threshold Tipping Point,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_03.md,1,3,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_03.md,2,22,Downstream Fishing Commons Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_04.md,1,5,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_04.md,2,22,Downstream Fishing Competition,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_05.md,1,3,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_05.md,2,20,Downstream Fishing Priority Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_06.md,1,5,Water Extraction Dilemma (Upstream vs. Downstream),AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_06.md,2,26,Fish Reproduction Threshold Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_07.md,1,9,Upstream-Downstream Water Competition Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_07.md,2,29,Downstream Fishing-Priority Rivalry,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_08.md,1,5,Water Extraction Dilemma Between Upstream and Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_08.md,2,59,Downstream Fishing Access Competition,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_09.md,1,5,Water Extraction Dilemma (Upstream vs. Downstream),AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_09.md,2,27,Fishing Access Dilemma (Downstream vs. Upstream),AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_10.md,1,5,Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_10.md,2,38,Fishing Priority Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_11.md,1,5,Water Extraction Dilemma in Critical Conditions,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_11.md,2,30,Sequential Fishing Access Under Stock Depletion,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_12.md,1,5,Water Allocation Dilemma between Upstream and Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_13.md,1,5,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_13.md,2,25,Fishing Access and Resource Depletion Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_14.md,1,9,Upstream-Downstream Water Competition,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_14.md,2,39,Downstream Fishing Commons Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_15.md,1,3,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_15.md,2,25,Fish Reproduction Threshold Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_16.md,1,5,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_16.md,2,36,Ecological Threshold Coordination Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_17.md,1,5,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_17.md,2,30,Downstream Fishing Commons Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_18.md,1,3,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_18.md,2,22,Fish Reproduction Threshold Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_19.md,1,7,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_19.md,2,25,Lake Threshold Sustainability Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_20.md,1,3,Water Extraction Dilemma under Spatial Asymmetry,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_20.md,2,28,Fishing Access Dilemma under Sequential Harvesting,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_21.md,1,8,Upstream-Downstream Water Extraction Dilemma with Lake Threshold,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_22.md,1,5,Water Extraction Dilemma (Upstream vs. Downstream),AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_22.md,2,36,Fishing Access Competition (Downstream Farmers),AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_23.md,1,5,1. Title: Water Allocation Dilemma between Adjacent Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_23.md,2,25,2. Title: Ecological Threshold Coordination for Fisheries,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_24.md,1,5,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_24.md,2,34,Downstream Fishing Competition Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_25.md,1,3,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_25.md,2,26,Downstream Fishing Competition,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_26.md,1,3,Upstream-Downstream Irrigation Tension,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_26.md,2,23,Fish Reproduction Threshold Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_27.md,1,5,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_27.md,2,31,Lake Water Threshold CPR Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,DeepSeek-R1,run_28.md,1,7,Water Extraction Dilemma with Fishery Collapse Threshold,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,DeepSeek-R1,run_29.md,1,5,Upstream-Downstream Water Allocation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_30.md,1,5,Upstream-Downstream Water Competition Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,DeepSeek-R1,run_30.md,2,27,Fish Reproduction Threshold Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_01.md,1,3,Upstream Farmer's Irrigation Decision,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_01.md,2,17,Farmer's Decision to Increase Irrigated Fields,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_01.md,3,31,Farmer's Response to Ecological Thresholds,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_01.md,4,45,Upstream-Downstream Conflict Over Water Allocation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_02.md,1,3,Upstream-Downstream Water Extraction,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_02.md,2,17,Fishing and Water Extraction,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_02.md,3,30,Ecological Threshold and Water Extraction,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_02.md,4,43,Memory Capacity and Water Extraction,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_03.md,1,5,1. Upstream-Downstream Water Extraction Tension,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_03.md,2,16,2. Fishing Resource Competition Tension,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_03.md,3,38,4. Water Conservation vs. Crop Yield Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_04.md,1,3,Upstream-Downstream Water Usage,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_04.md,2,16,Fishing and Water Inflow,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_04.md,3,29,Budget Allocation and Risk-Taking,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_04.md,4,42,Ecological Thresholds and Water Usage,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_05.md,1,4,Spatial Asymmetry in Water Access,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_05.md,2,16,Ecological Thresholds in Water Availability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_05.md,3,28,Common-Pool Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_05.md,4,40,Trade-off between Agricultural and Fishing Activities,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_06.md,1,3,Upstream-Downstream Water Extraction,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_06.md,2,16,Fishing Quota Allocation,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_06.md,3,29,Irrigation Investment,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_07.md,1,3,Upstream-Downstream Water Extraction,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_07.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_07.md,3,29,Irrigation Investment,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_08.md,1,5,1. Upstream-Downstream Water Extraction Tension,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_08.md,2,16,2. Fishing Resource Competition Tension,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_08.md,3,27,3. Ecological Threshold Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_08.md,4,38,4. Budget and Field Expansion Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,1,3,Upstream-Downstream Water Extraction Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_09.md,2,16,Fishing and Water Extraction Trade-off,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,3,29,Ecological Threshold and Water Extraction,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,4,42,Spatial Asymmetry and Water Allocation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_10.md,1,3,Upstream-Downstream Irrigation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_10.md,2,16,Fishing Quota Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_10.md,3,29,Water Conservation vs. Irrigation Expansion,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_11.md,1,3,Upstream-Downstream Water Extraction,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_11.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_11.md,3,29,Water Allocation under Ecological Thresholds,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_12.md,1,3,Upstream-Downstream Water Allocation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_12.md,2,16,Fishing Resource Management,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_12.md,3,29,Irrigation Investment,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_13.md,1,3,Upstream-Downstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_13.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_13.md,3,29,Irrigation Investment,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_13.md,4,42,Water Flow Prediction,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_14.md,1,5,Upstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_14.md,2,16,2. Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_14.md,3,28,3. Water Conservation vs Expansion,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_14.md,4,53,Threshold Crossing,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_15.md,1,4,Over-Irrigation vs. Conservation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_15.md,2,16,Over-Fishing vs. Conservation,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_15.md,3,28,Risky Expansion vs. Cautious Conservation,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_15.md,4,40,Adaptive Management vs. Reactive Over-Use,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_16.md,1,3,Upstream-Downstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_16.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_16.md,3,29,Irrigation Investment vs. Ecological Thresholds,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_17.md,1,5,"An upstream farmer must decide whether to irrigate their maximum fields (10) or not, while a downstream farmer's water availability is affected by this decision.",AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_17.md,2,17,"A farmer must decide whether to fish at their target catch level or not, while another farmer's fishing decision affects the fish population.",AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_17.md,3,29,"A farmer must decide whether to allocate their budget to irrigation or fishing, while another farmer's budget allocation decision affects the water and fish availability.",AS2: Fish extraction common pool resource game,FP-duplicate,duplicate generated AS for AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_18.md,1,4,Water Usage Conflict,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_18.md,2,16,Overfishing Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_18.md,3,28,Water Flow Threshold,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_18.md,4,40,Irrigation Investment Risk,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_19.md,1,3,Upstream-Downstream Water Usage,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_19.md,2,16,Risky Irrigation Investment,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_19.md,3,29,Fishing Access and Water Usage,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_20.md,1,5,1. Upstream-Downstream Irrigation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_20.md,2,16,2. Fishing Quota Dilemma,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_20.md,3,27,3. Water Conservation vs. Field Expansion Dilemma,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_21.md,1,5,"Upstream farmer decides to irrigate, affecting downstream water availability",AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_21.md,2,18,"Farmer decides to fish, affecting fish population and future fishing opportunities",AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_21.md,3,31,"Farmer decides to increase irrigated fields, affecting water availability and future yields",None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_22.md,1,3,Upstream-Downstream Water Allocation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_22.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_22.md,3,29,Water Flow Prediction and Irrigation Strategy,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_22.md,4,42,Budget Allocation Between Irrigation and Fishing,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_23.md,1,4,Overextraction of Water Resources,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_23.md,2,16,Tragedy of the Commons,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_23.md,3,28,Risk-Reward Tradeoff,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_23.md,4,40,Information Asymmetry,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_23.md,5,52,Tipping Point,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_24.md,1,3,Upstream Farmer's Irrigation Decision,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_24.md,2,16,Farmer's Decision to Invest in Fishing,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_24.md,3,29,Farmer's Response to Ecological Thresholds,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_25.md,1,4,1. Upstream-Downstream Irrigation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_25.md,2,15,2. Fishing and Water Extraction Trade-off,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_25.md,3,37,4. Spatial Asymmetry in Water Allocation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_26.md,1,4,1. Upstream-Downstream Water Extraction Tension,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_26.md,2,15,2. Fishing Resource Competition Tension,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_26.md,3,26,3. Ecological Threshold Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_26.md,4,37,4. Budget and Investment Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_26.md,5,48,5. Memory Capacity and Water Prediction Tension,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_27.md,1,4,1. Upstream-Downstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_27.md,2,15,2. Fishing Resource Competition,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_27.md,3,37,4. Water Conservation vs. Yield Maximization,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_28.md,1,3,Upstream-Downstream Irrigation Dilemma,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_28.md,2,16,Fishing and Irrigation Trade-off,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_28.md,3,29,Ecological Threshold and Water Extraction,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_29.md,1,4,1. Upstream-Downstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_29.md,2,15,2. Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_29.md,3,26,3. Ecological Threshold Management,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_29.md,4,37,4. Water Demand and Budget Management,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_29.md,5,48,5. Spatial Asymmetry and Water Flow,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_30.md,1,3,Upstream-Downstream Water Withdrawal,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Llama-3.3-70B,run_30.md,2,16,Fishing Resource Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Llama-3.3-70B,run_30.md,3,29,Irrigation Investment,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Llama-3.3-70B,run_30.md,4,42,Ecological Threshold Management,AS2: Fish extraction common pool resource game,FP-duplicate,duplicate generated AS for AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_01.md,1,5,Efficient Irrigation vs. Risk Aversion,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,2,23,Over-Exploitation vs. Sustainable Use,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,3,42,Local Benefits vs. Downstream Consequences,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_01.md,4,59,Short-term Gains vs. Long-term Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,1,7,Upstream vs Downstream Farmers' Irrigation Decisions,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_02.md,2,27,Risk Takers vs Risk Aversers in Irrigation Decisions,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,3,45,Fishing vs Irrigation Decisions,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,1,7,Risk vs. Reward for Upstream vs. Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_03.md,2,29,Budget Constraints and Water Availability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,3,47,Water Stress and Yield Impacts,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,4,65,Fish Population Sustainability,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_03.md,5,83,Memory and Past Experiences,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,1,5,Spatial Asymmetry vs. Ecological Thresholds,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,2,26,Risk Tolerance vs. Economic Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,3,47,Short-Term Gain vs. Long-Term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_05.md,1,7,Spatial Asymmetry vs. Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_05.md,2,27,Risk Aversion vs. Risk Taking,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_05.md,3,47,Short-Term Benefits vs. Long-Term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,1,5,Risk vs. Reward (Upstream vs. Downstream),AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_06.md,2,31,Water Allocation vs. Fish Population (Ecological Thresholds),None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,3,53,Budget Constraints (Spatial Asymmetry),None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,4,75,Water Stress vs. Yield (Spatial Asymmetry),AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_07.md,1,7,Balancing Water Allocation and Income,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_07.md,2,29,Fishing vs. Agricultural Water Use,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_07.md,3,51,Spatial Asymmetry and Water Stress,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_08.md,1,7,Spatial Asymmetry vs. Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_08.md,2,28,Economic Risk vs. Ecological Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_08.md,3,48,Short-term Gain vs. Long-term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_09.md,1,7,Upstream-Downstream Farmer Cooperation/Tension,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_09.md,2,29,Risk Tolerance vs. Prudent Allocation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_09.md,3,54,Fishing vs. Irrigation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_10.md,1,5,Spatial Asymmetry - Upstream vs Downstream,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_10.md,2,23,Ecological Thresholds - Tipping Points,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_10.md,3,41,Economic Threshold - Critical Income Level,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_11.md,1,7,Spatial Asymmetry - Upstream vs Downstream,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_11.md,2,43,Budget Constraints and Water Usage,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,1,5,Spatial Asymmetry vs. Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_12.md,2,32,Yield Maximization vs. Risk Aversion,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,3,58,Immediate Benefits vs. Long-term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_13.md,1,7,Spatial Asymmetry vs. Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_13.md,2,27,Ecological Thresholds vs. Economic Incentives,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_13.md,3,47,Spatial Asymmetry vs. Economic Incentives,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_14.md,1,5,Spatial Asymmetry in Water Allocation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_14.md,2,24,Ecological Thresholds in Fish Population,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_15.md,1,7,Balancing Water Allocation and Fish Harvesting under Ecological and Economic Constraints,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_16.md,1,5,Risk-Taking vs. Prudent Behavior,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,2,21,Over-Exploitation vs. Sustainable Use,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,3,36,Local vs. Global Optima,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,4,51,Short-Term Gain vs. Long-Term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,5,66,Water Allocation vs. Fish Population,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,1,5,Risk vs. Reward for Upstream vs. Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_17.md,2,25,Water Stress Tipping Point,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,3,44,Fish Population Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_18.md,1,20,Budget Constraints and Irrigation Decisions,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,2,27,1. Upstream vs Downstream Farmer Water Allocation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_18.md,3,39,2. Farmer Risk vs Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,4,51,3. Fish Population Sustainability,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_18.md,5,63,4. Budget Constraints and Irrigation Decisions,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,1,7,Water Allocation vs. Financial Security,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,2,23,Water Stress and Yields,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,3,39,Fishing Competition and Resource Exploitation,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_19.md,4,55,Spatial Asymmetry and Water Access,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_19.md,5,71,Ecological Thresholds and Overuse,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_20.md,1,1,"Downstream vs. Upstream Farmers: Downstream farmers have less control over water allocation and face more severe water scarcity due to upstream extraction. Upstream farmers have more control but also face the risk of depleting the water resource, leading to negative consequences for downstream farmers.",AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_21.md,1,5,1. Title: Spatial Asymmetry and Ecological Thresholds in Decentralized Water Use,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_22.md,1,5,1. Spatial Asymmetry: Upstream vs Downstream,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_22.md,2,45,3. Spatial Asymmetry: Upstream vs Downstream,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_23.md,1,7,Spatial Asymmetry vs. Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_23.md,2,28,Risk Aversion vs. Risk Taking,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,1,7,Strategic Tension Between Upstream and Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_24.md,2,29,Strategic Tension at Ecological Tipping Points,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,3,51,Strategic Tension in Fish Population Growth,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,4,73,Strategic Tension Between Yield and Budget Constraints,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,5,95,Strategic Tension in Managing Water Stress,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_25.md,1,5,1. Action Situation 1: Risk vs. Reward for Upstream and Downstream Farmers,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_25.md,2,27,2. Action Situation 2: Yield vs. Budget for Individual Farmers,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_25.md,3,55,3. Action Situation 3: Fish Population Management,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_26.md,1,7,Spatial Asymmetry vs Ecological Thresholds,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_26.md,2,28,Economic Risk vs Ecological Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,3,49,Short-term Gain vs Long-term Sustainability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,4,70,Budget Constraints vs Yield Maximization,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,1,5,Balancing Water Use and Budget Constraints (Upstream vs Downstream),None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,2,22,Risk of Over-Exploitation (Upstream vs Downstream),AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_27.md,3,39,Adaptation to Ecological Thresholds (Upstream vs Downstream),AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_27.md,4,56,Balancing Short-term Gain and Long-term Sustainability (Upstream vs Downstream),AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_28.md,1,7,Balancing Risk and Reward in Water Allocation,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_28.md,2,28,Managing Ecological Thresholds in Fish Population,AS2: Fish extraction common pool resource game,TP,generated AS matches AS2: Fish extraction common pool resource game,1
+ODD-only,Qwen2.5-7B,run_28.md,3,49,Spatial Asymmetry in Water Allocation,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_29.md,1,5,Spatially Asymmetric Water Allocation and Yield Trade-offs,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_29.md,2,30,Ecological Tipping Points and Fish Population Dynamics,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,3,55,Economic Constraints and Yield Optimization,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1
+ODD-only,Qwen2.5-7B,run_30.md,1,5,1. Upstream vs Downstream Farmers' Irrigation Decisions,AS1: Upstream and downstream withdrawal decisions,TP,generated AS matches AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_30.md,2,27,Water Stress and Yield Decisions,AS1: Upstream and downstream withdrawal decisions,FP-duplicate,duplicate generated AS for AS1: Upstream and downstream withdrawal decisions,1
+ODD-only,Qwen2.5-7B,run_30.md,3,47,Ecological Thresholds and Fish Population Stability,None,FP-wrong,generated AS is not one of the two confirmed correct ASs,1

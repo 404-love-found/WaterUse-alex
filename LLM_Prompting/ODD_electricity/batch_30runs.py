@@ -3,6 +3,7 @@ Run the 3 LLM models 30 times on the electricity ODD plus game_stuff text.
 
 Models:
   - DeepSeek-R1
+  - DeepSeek-V4-Pro
   - Llama-3.3-70B-Instruct-Turbo
   - Qwen2.5-7B-Instruct-Turbo
 """
@@ -20,6 +21,11 @@ if not api_key:
 MODELS = {
     "DeepSeek-R1": {
         "model_id": "deepseek-ai/DeepSeek-R1",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
+    "DeepSeek-V4-Pro": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Pro",
         "timeout": 600.0,
         "max_tokens": 16000,
     },
@@ -84,7 +90,8 @@ def run_single(client, model_id, prompt, max_tokens):
                 temperature=0.6,
                 max_tokens=max_tokens,
             )
-            return response.choices[0].message.content
+            message = response.choices[0].message
+            return message.content or getattr(message, "reasoning", None)
         except Exception as e:
             error_msg = str(e).lower()
             retryable = any(k in error_msg for k in ["503", "service_unavailable", "timeout", "rate"])

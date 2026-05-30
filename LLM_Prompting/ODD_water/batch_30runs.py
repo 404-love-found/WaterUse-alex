@@ -1,6 +1,7 @@
 """
 三个 LLM 模型各跑 30 次，结果保存到 Batch_30Runs/ 文件夹。
   - DeepSeek-R1
+  - DeepSeek-V4-Pro
   - Llama-3.3-70B-Instruct-Turbo
   - Qwen2.5-7B-Instruct-Turbo
 """
@@ -19,6 +20,11 @@ if not api_key:
 MODELS = {
     "DeepSeek-R1": {
         "model_id": "deepseek-ai/DeepSeek-R1",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
+    "DeepSeek-V4-Pro": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Pro",
         "timeout": 600.0,
         "max_tokens": 16000,
     },
@@ -81,7 +87,8 @@ def run_single(client, model_id, prompt, max_tokens):
                 temperature=0.6,
                 max_tokens=max_tokens,
             )
-            return response.choices[0].message.content
+            message = response.choices[0].message
+            return message.content or getattr(message, "reasoning", None)
         except Exception as e:
             error_msg = str(e).lower()
             if any(k in error_msg for k in ["503", "service_unavailable", "timeout"]):
@@ -118,11 +125,15 @@ def run_model_batch(model_key):
     print(f"{'='*60}")
 
     for i in range(1, N_RUNS + 1):
+        filepath = os.path.join(model_output_dir, f"run_{i:02d}.md")
+        if os.path.exists(filepath):
+            print(f"  Run {i:2d}/{N_RUNS} ... already exists, skipped")
+            continue
+
         print(f"  Run {i:2d}/{N_RUNS} ...", end="", flush=True)
         content = run_single(client, model_id, prompt, cfg["max_tokens"])
 
         if content:
-            filepath = os.path.join(model_output_dir, f"run_{i:02d}.md")
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(f"# Run {i} — {model_id}\n\n")
                 f.write(content)

@@ -1,0 +1,34 @@
+==============================================================================
+SCENARIO-GT COMPARISON: ODD+game_stuff VS ODD-only
+==============================================================================
+
+Correct action situations (6):
+  AS1: Queue-order and prompt move-out compliance between EV users
+  AS2: Sequential learning in reservation and off-peak charging behaviour
+  AS3: Shared charger-capacity contribution dilemma among residents
+  AS4: Informal priority exchange between EV user and parking staff
+  AS5: Formal complaint and enforcement coordination between user and management
+  AS6: Shared charger-occupancy common-pool congestion between EV users
+
+Side-by-side totals:
+Model                Evaluation         TP   FN   FP  Precision   Recall
+----------------------------------------------------------------------------
+DeepSeek-V4-Pro      ODD+game_stuff     77  103  103     0.4278   0.4278
+DeepSeek-V4-Pro      ODD-only           67  113  129     0.3418   0.3722
+Llama-3.3-70B        ODD+game_stuff     57  123   31     0.6477   0.3167
+Llama-3.3-70B        ODD-only           39  141   24     0.6190   0.2167
+Qwen2.5-7B           ODD+game_stuff     81   99  101     0.4451   0.4500
+Qwen2.5-7B           ODD-only           42  138  149     0.2199   0.2333
+
+Differences (ODD+game_stuff minus ODD-only):
+Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro           +10      -10      -26     +0.0859       +0.0556
+Llama-3.3-70B             +18      -18       +7     +0.0287       +0.1000
+Qwen2.5-7B                +39      -39      -48     +0.2252       +0.2167
+
+Audit notes:
+  Only TP, FN, FP, Precision, and Recall are evaluated.
+  AS-level CSVs list every generated AS and whether it is TP, FP-duplicate, or FP-wrong.
+  Per-run invariant: TP + FN = 6 scenario-file correct ASs.
+  Generated AS titles are included with body/matrix text when judging correctness.

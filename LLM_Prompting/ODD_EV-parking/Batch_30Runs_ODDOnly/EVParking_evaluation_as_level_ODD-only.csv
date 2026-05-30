@@ -1,0 +1,451 @@
+Experiment,Model,Run,AS_Index,Line,Title,Matched_GT,Decision,Reason,Has_Payoff_Evidence
+ODD-only,DeepSeek-V4-Pro,run_01.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,2,16,Post‑Charging Bay Release,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,3,29,Rule Enforcement,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,4,42,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,5,55,Complaint and Response,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,6,68,Resident vs Non‑resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,7,81,Capacity Investment,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,DeepSeek-V4-Pro,run_01.md,8,94,Maintenance Reporting,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,1,3,Queue Jumping,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,2,16,Charger Overstay,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,3,29,Queue Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,4,42,Collective Complaint,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,5,55,Resident Discount Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,6,68,Capacity Investment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,7,81,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_02.md,8,94,Off-Peak Charging Timing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,2,12,Overstaying after Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,3,21,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,4,30,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,5,39,Complaint about Violations,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,6,48,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,7,57,Capacity Investment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,8,66,Off‑peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,9,75,Reservation vs Walk‑in,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_03.md,10,84,No‑show Penalty,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,2,16,Post-Charging Move‑out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,3,29,Rule Enforcement vs. Violation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,4,42,Resident Discount Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,5,55,Complaint vs. Silence,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,6,68,Reservation vs. Walk‑up,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_04.md,7,81,Capacity Investment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,1,7,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,2,21,Charger Release,AS6: Shared charger-occupancy common-pool congestion between EV users,TP,generated AS matches AS6: Shared charger-occupancy common-pool congestion between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,3,35,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,4,49,Complaint Behaviour,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,5,63,Resident vs. Non‑resident Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,6,77,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_05.md,7,91,Capacity Governance,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,2,17,Charger Move-out Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,3,31,Rule Enforcement,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,4,45,Resident vs Non-resident Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,5,59,Informal Favor Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,6,73,Reporting a Violation,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_06.md,7,87,Reservation Reliability,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_07.md,1,1,Queue Jumping Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,2,17,Overstaying Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,3,31,Rule Enforcement (Inspection Game),AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,4,45,Complaint Filing,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,5,59,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,6,73,Capacity Investment,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,DeepSeek-V4-Pro,run_08.md,7,87,Staff Favoritism,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,1,3,Queue Ordering Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,2,17,Overstay Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,3,31,Enforcement Inspection Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,4,45,Resident vs Non-resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,5,59,Complaint Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,6,73,Off-peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,7,87,Capacity Expansion Pressure,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,8,101,Informal Favoritism,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,9,115,Maintenance Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_09.md,10,129,Reservation vs Walk-in Slot Competition,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,1,25,Queue Entry Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,2,38,Bay Release Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,3,51,Enforcement Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,4,64,Reporting Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,5,77,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,6,90,Reservation Strategy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,7,103,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,8,116,Maintenance Effort,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,9,129,Capacity Expansion,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_10.md,10,142,Complaint Feedback,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,1,3,Queue Compliance Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,2,15,Charger Overstay Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,3,27,Enforcement Inspection,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,4,39,Resident Priority Contest,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,5,51,Peer Reporting Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_11.md,6,63,Capacity Investment Assurance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,1,10,Queue Ordering Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,2,20,Bay Release Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,3,30,Enforcement Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,4,40,Resident Priority Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,5,50,Complaint Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_12.md,6,60,Capacity Expansion Lobbying,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,2,15,Post-Charging Bay Release,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,3,27,Rule Enforcement Interaction,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,4,39,Complaint Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,5,51,Resident Priority Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_13.md,6,63,Off-peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,2,18,Post‑Charging Move‑Out,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,3,33,Rule Enforcement,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,4,48,Violation Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,5,63,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,6,78,Reservation vs. Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,7,93,Capacity Investment,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,8,108,Resident Discount Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_15.md,1,1,Queue Order Compliance (User vs. User),AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_16.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_16.md,2,16,Charger Bay Overstay,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_16.md,3,29,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_16.md,4,42,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_16.md,5,55,Complaint Filing,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,1,3,Queue Jumping Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,2,16,Charger Overstay Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,3,29,Rule Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,4,42,Resident Priority Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,5,55,Informal Favor Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,6,68,Complaint Game,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,7,81,Capacity Expansion Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_17.md,8,94,Off-Peak Charging Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_18.md,1,1,Queue Order Compliance,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_19.md,1,8,Queue Entry Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_19.md,2,22,Overstay Enforcement Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_19.md,3,36,Resident vs. Non‑resident Priority Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_19.md,4,50,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_19.md,5,65,Capacity Investment Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,1,3,Action Situation 1,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,2,16,Action Situation 2,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,3,29,Action Situation 3,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,4,42,Action Situation 4,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,5,55,Action Situation 5,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,6,68,Action Situation 6,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,7,81,Action Situation 7,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_20.md,8,94,Action Situation 8,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,1,7,Queue Order Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,2,18,Overstay Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,3,29,Staff Enforcement Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,4,40,Resident Entitlement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,5,51,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,6,62,Peak‑charging Congestion Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,7,73,Favouritism Game,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_21.md,8,84,Capacity‑expansion Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,1,3,Queue Compliance Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,2,17,Overstaying Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,3,31,Rule Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,4,45,Resident Priority Claim Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,5,59,Complaint Reporting Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_22.md,6,73,Off‑Peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,1,3,Queue Compliance in Shared Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,2,16,Overstay in Charging Bay,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,3,29,Staff Enforcement of Charging Rules,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,4,42,Resident vs Non-resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,5,55,Reporting Violations as a Public Good,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,6,68,Capacity Expansion under User Pressure,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_23.md,7,81,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,1,5,Queue Compliance Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,2,16,Overstay Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,3,27,Rule Enforcement Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,4,38,Resident vs. Non-resident Access Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,5,49,Informal Priority Request Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,6,60,Complaint Dilemma (Peer Enforcement),AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_24.md,7,71,Capacity Expansion Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,2,23,Move‑out Timing (Overstay vs. Prompt Release),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,3,44,Staff Enforcement vs. User Compliance,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,4,65,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,5,86,Informal Favoritism,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,6,107,Capacity Expansion Decision,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,7,128,Off‑Peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_25.md,8,148,Resident Status Verification,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,2,14,Post-Charging Move-out,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,3,25,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,4,36,Collective Complaint (Public Good),AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,5,47,Resident vs. Non-resident Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,6,58,Reservation vs. Walk-in Commitment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_26.md,7,69,Capacity Expansion (Management vs. Users),AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,1,3,Queue Adherence Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,2,16,Move‑out Compliance Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,3,29,Rule Enforcement Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,4,42,Resident Priority Claim Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,5,55,Reservation Commitment Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,6,68,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,7,81,Favoritism Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,8,94,Capacity Expansion Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,9,107,Off‑peak Charging Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_27.md,10,120,Information Sharing Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_28.md,1,1,Queue Order Compliance Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,2,16,Post‑Charging Bay Release,AS6: Shared charger-occupancy common-pool congestion between EV users,TP,generated AS matches AS6: Shared charger-occupancy common-pool congestion between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,3,29,Rule Enforcement (Proactive Monitoring),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,4,42,Resident Priority Contest,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,5,55,Complaint Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,6,68,Informal Favoritism,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_29.md,7,81,Complaint Response,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,1,3,Queue Discipline Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,2,17,Bay Release Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,3,31,Enforcement Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,4,43,Resident Priority Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,5,55,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_30.md,6,69,Capacity Investment Dilemma,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Llama-3.3-70B,run_01.md,1,4,User Compliance vs. Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_01.md,2,13,User Charging Duration vs. Staff Intervention,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_01.md,3,22,User Complaints vs. Management Response,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_01.md,4,31,Management Expansion vs. User Demand,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_02.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_03.md,1,5,Conflict between resident priority and non-resident fairness,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_03.md,2,15,Conflict between user convenience and management's need for efficient charger use,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_03.md,3,25,Conflict between user expectations and management's capacity to respond,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_03.md,4,35,Conflict between management's investment in new chargers and users' demand for access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_04.md,1,1,Queue Priority,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_05.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_06.md,1,1,Queue Jumping,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_07.md,1,1,Queue Bypassing,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_08.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_09.md,1,4,User-User Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,2,13,User-Management Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,3,22,Compliance-Enforcement Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_09.md,4,31,Investment-Investment Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_10.md,1,5,Conflict over queue access and priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_10.md,2,15,Conflict over charger occupation duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_10.md,3,25,Conflict over complaint response and resolution,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_10.md,4,35,Conflict over capacity expansion and charger allocation,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Llama-3.3-70B,run_11.md,1,6,Queue Fairness Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_11.md,2,16,Charger Hogging Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_11.md,3,26,Complaint and Enforcement Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_11.md,4,36,Charger Capacity Expansion Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_12.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_13.md,1,1,Queue Priority,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_14.md,1,1,Queue Jumping,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Llama-3.3-70B,run_15.md,1,1,Queue Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_16.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_17.md,1,1,Queue Priority,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_18.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_19.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_20.md,1,5,Strategic tension between residents and non-residents over queue priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_20.md,2,15,Strategic tension between users and management over charger occupation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_20.md,3,25,Strategic tension between users and management over complaint response,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_20.md,4,35,Strategic tension between management and residents over capacity expansion,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Llama-3.3-70B,run_21.md,1,1,Queue Jumping,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_22.md,1,1,Queue Priority,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_23.md,1,1,Queue Jumping,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_24.md,1,5,"Users decide whether to follow the queue or bypass, affecting charger access and fairness perceptions.",None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_24.md,2,15,Users balance the convenience of staying with the need to free up chargers for others.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_24.md,3,25,"Users decide whether to complain about queue violations, influencing staff enforcement and charger governance.",AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_24.md,4,35,"Management balances the demand for chargers with the costs of expansion, considering user needs and revenue.",None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_25.md,1,5,Strategic tension between residents and non-residents over queue priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_25.md,2,15,Strategic tension between users and management over charger occupation duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_25.md,3,25,Strategic tension between users and management over complaint response,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_25.md,4,35,Strategic tension between management and residents over charger capacity expansion,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Llama-3.3-70B,run_26.md,1,5,Priority in Queue Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_26.md,2,15,Timely Charger Release,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_26.md,3,25,Effective Complaint Resolution,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_26.md,4,35,Charger Capacity Adequacy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_27.md,1,3,Shared EV Charging Action Situations,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Llama-3.3-70B,run_28.md,1,5,Strategic tension between residents and non-residents over queue priority.,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_28.md,2,15,Strategic tension between users and management over charger occupation after charging is complete.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_28.md,3,25,Strategic tension between users and management over complaint response and legitimacy.,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_28.md,4,35,Strategic tension between management and residents over charger capacity and access rules.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_29.md,1,1,Queue Priority,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_30.md,1,5,Strategic tension between residents and non-residents over queue priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Llama-3.3-70B,run_30.md,2,15,Strategic tension between users and management over charger occupation duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Llama-3.3-70B,run_30.md,3,25,Strategic tension between users and management over complaint response,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Llama-3.3-70B,run_30.md,4,35,Strategic tension between management and residents over capacity expansion,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Qwen2.5-7B,run_01.md,1,5,Resident vs. Non-Resident Queue Bypassing,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_01.md,2,17,Management vs. Overstaying Users,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_01.md,3,29,Resident vs. Non-Resident Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,4,41,User vs. Management in Queue Reservation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,5,53,Resident vs. Non-Resident Charging Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,6,65,Management vs. Resident Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,7,77,Resident vs. Non-Resident Demand Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,8,89,Management vs. Resident Charging Capacity,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Qwen2.5-7B,run_01.md,9,101,User vs. Management in Queue Completion,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_01.md,10,113,Resident vs. Non-Resident Charging Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,1,5,Resident vs. Non-Resident Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,2,23,Queue Bypass vs. Queue Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,3,41,Charging Bay Occupation vs. Prompt Move-Out,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_02.md,4,59,Staff Enforcement vs. Informal Requests,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_02.md,5,77,Resident Discount Eligibility vs. Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,1,7,Resident vs. Non-Resident Queue Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_03.md,2,22,User vs. Staff Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,3,37,Resident vs. Resident Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,4,52,User vs. User Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,5,67,Resident vs. Visitor Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,6,82,User vs. Staff Informal Requests,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_03.md,7,97,User vs. User Charging Location,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_03.md,8,127,Resident vs. Non-Resident Charging Capacity,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD-only,Qwen2.5-7B,run_03.md,9,142,User vs. User Overstay Behavior,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,1,6,Resident Discount vs. Fair Queue Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,2,19,Queue Compliance vs. Overstay,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,3,32,Queue Bypass vs. Fair Queue Order,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,4,45,Compliant Behavior vs. Overstay Tolerance,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_04.md,5,58,Charger Occupation vs. Charging Efficiency,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,6,71,Formal vs. Informal Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,7,84,Urgent Charging vs. Fair Queue Order,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,8,97,Short vs. Long Charging Sessions,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,9,110,Flexible vs. Rigid Charging Times,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_04.md,10,123,Reservation vs. Live Queue Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_05.md,1,6,Resident vs. Non-Resident Charging Fairness,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_05.md,2,22,User vs. Management Charging Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_05.md,3,38,Resident vs. Management Resident Discount Policy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_05.md,4,54,User vs. Management Charger Maintenance,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_05.md,5,70,User vs. User Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,1,5,Resident vs. Non-Resident Queue Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_06.md,2,22,User vs. Management in Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,3,39,Resident vs. Non-Resident Charging Capacity,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,4,56,User vs. Management in Off-Peak Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_06.md,5,73,Management vs. Users in Charger Maintenance,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_07.md,1,7,Resident vs. Non-Resident Charging Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_07.md,2,22,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_07.md,3,37,Resident vs. Resident Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_07.md,4,52,User vs. Management Information Sharing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_07.md,5,67,User vs. Management Charging Capacity Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_08.md,1,5,Resident vs. Non-Resident Charging Prioritization,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_08.md,2,22,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_08.md,3,39,Resident vs. Management Resident Discount Eligibility,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_08.md,4,56,User vs. Management Overstay Tolerance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_08.md,5,73,User vs. User Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_09.md,1,6,Resident Priority vs. Fairness,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_09.md,2,18,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_09.md,3,30,Resident Charging Priority vs. Visitor Demand,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_09.md,4,42,Charger Utilization vs. User Convenience,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_09.md,5,54,Management Policy vs. Resident Pressure,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_10.md,1,5,Resident vs. Non-Resident Queue Positioning,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_10.md,2,24,User vs. Management in Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_10.md,3,43,Resident vs. Resident in Queue Positioning,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_10.md,4,59,User vs. Management in Charger Overstay,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_10.md,5,78,Management vs. Resident in Resident Discount,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_11.md,1,5,Resident vs. Non-Resident Queue Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_11.md,2,26,User vs. Management Enforcement,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_11.md,3,47,Resident vs. Management Discount Eligibility,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,1,5,Resident vs. Non-Resident Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_12.md,2,19,Queue Bypass vs. Queue Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,3,33,Staff Enforcement vs. Informal Requests,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_12.md,4,47,Resident Priority vs. Visitor Demand,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,5,61,Off-Peak Charging vs. Peak Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,6,75,Charging Session Length vs. Move-Out Promptly,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,7,89,Resident Discount vs. Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,8,103,Compliant vs. Non-Compliant Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,9,117,Charging Bay Occupation vs. Visitor Parking,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_12.md,10,131,Staff Tolerance vs. Enforcement,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_13.md,1,7,Resident Priority vs. Fair Queue Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_13.md,2,22,User Compliance vs. Management Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_13.md,3,37,Resident Discount Eligibility vs. Management Policy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_13.md,4,52,User Charging Demand vs. Management Capacity,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_13.md,5,67,User Queue Bypassing vs. User Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_14.md,1,6,Resident vs. Non-Resident Queue Positioning,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_14.md,2,19,User vs. Management Queue Enforcement,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_14.md,3,32,Resident vs. Non-Resident Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_14.md,4,45,User vs. Management Informal Requests,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_14.md,5,58,Resident vs. Non-Resident Charger Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_14.md,6,71,User vs. Management Queue Violations,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_14.md,7,84,User vs. Management Complaint Handling,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_14.md,8,97,User vs. Management Capacity Stress,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_14.md,9,110,User vs. Management Fairness Consideration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_14.md,10,123,User vs. Management Resident Discount Eligibility,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_15.md,1,8,Residents and non-residents compete for charger access.,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_15.md,2,22,Users decide whether to follow the posted queue or bypass it.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_15.md,3,36,"Management staff decide whether to enforce queue rules, and users decide to comply or not.",None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_15.md,4,50,Residents and non-residents decide how long to charge their vehicles.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_15.md,5,64,Management decides whether to prioritize maintenance or user charging.,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,1,5,Resident vs. Non-Resident Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,2,23,Queue Position vs. Bypassing Queue,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_16.md,3,41,Management vs. User Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_16.md,4,59,Management vs. User Complaint Handling,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_16.md,5,77,Resident vs. Non-Resident Charging Efficiency,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,1,5,Resident vs. Non-Resident Charging Prioritization,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,2,16,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,3,27,Resident vs. Non-Resident Charging Demand,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,4,38,User vs. Management Off-Peak Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,5,49,User vs. Management Charger Fault Management,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_17.md,6,60,User vs. Management Overstay Handling,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,7,71,User vs. Management Reservation vs. Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,8,82,User vs. Management Capacity Planning,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,9,93,User vs. Management Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_17.md,10,104,User vs. Management Charging Price Sensitivity,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,1,6,Resident vs. Non-Resident Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,2,19,Queue Position vs. Bypassing Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,3,32,User vs. Staff Enforcement of Queue Rules,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,4,46,Resident vs. Non-Resident Charging Demand,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_18.md,5,59,User vs. Management on Charger Maintenance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,1,6,Charging Priority Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,2,18,Queue vs. Bypassing Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,3,30,Charging Duration vs. Move-Out Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_19.md,4,42,Staff Enforcement vs. Informal Requests Tension,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,Qwen2.5-7B,run_19.md,5,54,Resident Discount vs. Fairness Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_20.md,1,7,Resident vs. Non-Resident Charging Access,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_20.md,2,27,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_20.md,3,47,User vs. Management Charging Capacity Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_20.md,4,67,User vs. User Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_20.md,5,87,Management vs. Resident Resident Discount Eligibility,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_21.md,1,6,Resident vs. Non-Resident Charging Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_21.md,2,18,User vs. Management Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_21.md,3,30,Resident vs. Management on Resident Discount,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_21.md,4,42,User vs. User Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_21.md,5,54,Resident vs. Non-Resident Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_22.md,1,5,Resident vs. Non-Resident Charging Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_22.md,2,21,Charging vs. Moving Out Promptly,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_22.md,3,37,Queue Bypassing vs. Queue Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_22.md,4,53,Resident vs. Management on Resident Discount,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_22.md,5,69,Charging During Off-Peak vs. Peak,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_23.md,1,5,Resident vs. Non-Resident Access Tension,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_23.md,2,18,User vs. Management Enforcement Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_23.md,3,31,Resident vs. Management Tension over Resident Discount,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_23.md,4,44,User vs. Management on Charger Overstay Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_23.md,5,57,User vs. User Tension on Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,1,6,Resident vs. Non-Resident Charging Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_24.md,2,18,User vs. Staff Queue Enforcement,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_24.md,3,30,Resident vs. Non-Resident Charging Capacity,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,4,42,User vs. Charger Fault Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,5,54,Resident vs. Non-Resident Charging Demand,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,6,66,User vs. Management Reservation Policy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,7,78,Management vs. Visitor Demand Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,8,90,User vs. Management Queue Violation Handling,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,9,102,Resident vs. Management Resident Discount Policy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_24.md,10,114,User vs. Management Charger Availability Management,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_25.md,1,7,Resident vs. Non-Resident Charging Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_25.md,2,22,User vs. Staff Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_25.md,3,37,Resident vs. Resident Charging Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_25.md,4,52,User vs. Staff Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_25.md,5,67,Non-Resident vs. Resident Charging Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,1,5,Resident vs. Visitor Charging Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_26.md,2,19,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,3,33,Resident vs. Management Resident Discount Eligibility,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,4,47,User vs. User Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,5,61,Management vs. User Overstay Tolerance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,6,75,User vs. User Charging Bay Reservation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,7,89,Management vs. User Complaint Handling,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_26.md,8,103,Resident vs. Non-Resident Charging Access,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_26.md,9,117,User vs. Management Queue Bypassing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_26.md,10,131,User vs. User Queue Positioning,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,1,5,Resident vs. Non-Resident Charging Access Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,2,19,User vs. Management Queue Enforcement Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,3,33,User vs. User Queue Bypassing Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_27.md,4,47,User vs. Management Informal Requests Tension,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_27.md,5,61,User vs. Management Overstay Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_28.md,1,7,Resident vs. Non-Resident Charging Priority,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_28.md,2,28,User vs. Management Queue Enforcement,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_28.md,3,49,Resident vs. Non-Resident Charging Fairness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_28.md,4,70,User vs. Management Charger Utilization,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_28.md,5,91,Resident vs. Management Resident Discount Eligibility,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_29.md,1,7,Resident vs. Non-Resident Queue Bypass,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_29.md,2,21,User vs. Management Queue Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,3,35,Resident vs. Management Resident Discount Policy,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,4,49,User vs. User Charging Duration,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,5,63,Management vs. User Informal Requests,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,6,77,Resident vs. Non-Resident Charger Utilization,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,7,91,Management vs. User Complaint Behavior,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,Qwen2.5-7B,run_29.md,8,105,Management vs. User Off-Peak Charging Norms,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_29.md,9,119,User vs. User Informal Network Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_30.md,1,7,Queue Bypassing Tension,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_30.md,2,22,Queue Enforcement Tension,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD-only,Qwen2.5-7B,run_30.md,3,37,Charging Time Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_30.md,4,52,Charging Reservation Tension,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,Qwen2.5-7B,run_30.md,5,67,Informal Request Tension,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1

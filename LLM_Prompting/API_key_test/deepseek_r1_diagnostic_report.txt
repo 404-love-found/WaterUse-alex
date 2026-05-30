@@ -1,0 +1,47 @@
+DeepSeek-R1 Together API Diagnostic
+========================================================================
+Timestamp: 2026-05-28T17:30:02
+API key: loaded from API_key_test/test_api.py (redacted)
+Water-use reference parameters: timeout=600.0, max_tokens=16000, temperature=0.6
+
+1) Exact DeepSeek-R1 test
+Model: deepseek-ai/DeepSeek-R1
+Result: FAILED
+Detail: BadRequestError: {"id": "okwqmFj-2kFHot-a0305bb8dff6ab78", "error": {"message": "Unable to access non-serverless model deepseek-ai/DeepSeek-R1. Please visit https://api.together.ai/models/deepseek-ai/DeepSeek-R1 to create and start a new dedicated endpoint for the model.", "type": "invalid_request_error", "param": null, "code": "model_not_available"}}
+
+2) DeepSeek/R1-related model ids visible from client.models.list()
+- deepseek-ai/DeepSeek-OCR-2
+- deepseek-ai/DeepSeek-R1-0528
+- deepseek-ai/DeepSeek-R1-Distill-Llama-70B
+- deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B
+- deepseek-ai/DeepSeek-R1-Distill-Qwen-14B
+- deepseek-ai/DeepSeek-R1-Distill-Qwen-7B
+- deepseek-ai/DeepSeek-V3.1
+- deepseek-ai/DeepSeek-V4-Pro
+- deepseek-ai/deepseek-coder-33b-instruct
+
+3) DeepSeek/R1-related endpoints visible from client.endpoints.list()
+- id=endpoint-7a1937b0-d63a-46da-9a75-c1bd73dc297c, name=deepseek-ai/DeepSeek-V3, model=deepseek-ai/DeepSeek-V3, state=STARTED, display_name=DeepSeek V3-0324
+- id=endpoint-65958323-0252-4867-b94f-f37f8be02606, name=deepseek-ai/deepseek-R1-trt-fp4, model=deepseek-ai/deepseek-R1-trt-fp4, state=STARTED, display_name=DeepSeek R1 FP4
+- id=endpoint-d9d297d1-758c-4843-9777-d9738a199399, name=deepseek-ai/DeepSeek-V3-1-TH2-new, model=deepseek-ai/DeepSeek-V3-1-TH2-new, state=STARTED, display_name=Deepseek V3.1
+- id=endpoint-deepseek-r1-fp4-trtllm-gb200, name=deepseek/deepseek-r1-fp4-trtllm-gb200, model=deepseek/deepseek-r1-fp4-trtllm-gb200, state=STARTED, display_name=DeepSeek R1 FP4
+- id=endpoint-deepseek-v3-1-fp4-trtllm-gb200, name=deepseek-ai/deepseek-v3-1-fp4-trtllm-gb200, model=deepseek-ai/deepseek-v3-1-fp4-trtllm-gb200, state=STARTED, display_name=DeepSeek V3.1 FP4
+- id=endpoint-b9c2382f-0bb3-43c7-b58f-80cc6d8f19e2, name=deepseek-ai/DeepSeek-V3-p-batch, model=deepseek-ai/DeepSeek-V3-p-batch, state=STARTED, display_name=DeepSeek V3
+- id=endpoint-b9c2382f-0bb3-43c7-b58f-80cc6d8f19e2, name=deepseek-ai/DeepSeek-V3-batch, model=deepseek-ai/DeepSeek-V3-batch, state=STARTED, display_name=DeepSeek V3
+- id=endpoint-94151073-7212-43f8-9357-42a6043e1eef, name=deepseek-ai/DeepSeek-V4-Pro, model=deepseek-ai/DeepSeek-V4-Pro, state=STARTED, display_name=Deepseek V4 Pro
+- id=endpoint-94151073-7212-43f8-9357-42a6043e1eef, name=deepseek-ai/deepseek-v4-pro-aa, model=deepseek-ai/deepseek-v4-pro-aa, state=STARTED, display_name=Deepseek V4 Pro
+
+4) R1-related candidate chat probes
+- deepseek-ai/DeepSeek-R1: FAILED
+  Detail: BadRequestError: {"id": "okwqmeW-2kFHot-a0305bc11f9eab78", "error": {"message": "Unable to access non-serverless model deepseek-ai/DeepSeek-R1. Please visit https://api.together.ai/models/deepseek-ai/DeepSeek-R1 to create and start a new dedicated endpoint for the model.", "type": "invalid_request_error", "param": null, "code": "model_not_available"}}
+- deepseek-ai/DeepSeek-R1-0528: FAILED
+  Detail: BadRequestError: {"id": "okwqmh8-2kFHot-a0305bc1e862ab78", "error": {"message": "Unable to access non-serverless model deepseek-ai/DeepSeek-R1-0528. Please visit https://api.together.ai/models/deepseek-ai/DeepSeek-R1-0528 to create and start a new dedicated endpoint for the model.", "type": "invalid_request_error", "param": null, "code": "model_not_available"}}
+- deepseek-ai/deepseek-R1-trt-fp4: FAILED
+  Detail: InternalServerError: {"id": "okwsDnZ-31r7CA-a0305bda1efeab78", "error": {"message": "Internal server error", "type": "server_error", "param": null, "code": null}}
+- deepseek/deepseek-r1-fp4-trtllm-gb200: FAILED
+  Detail: InternalServerError: {"id": "okwqqEf-2kFHot-a0305c0c9d50ab78", "error": {"message": "Service unavailable", "type": "service_unavailable", "param": null, "code": null}}
+
+Conclusion
+- If exact deepseek-ai/DeepSeek-R1 fails with model_not_available, the current API key cannot access the original serverless DeepSeek-R1 model used by the water-use run.
+- If R1 FP4 endpoints return 500/503, those endpoints are visible but not currently healthy enough for this experiment.
+- Do not run Llama/Qwen 30-run comparisons until the DeepSeek-R1 access issue is resolved, because the requested benchmark requires DeepSeek-R1 first.

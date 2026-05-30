@@ -1,6 +1,6 @@
 """
-Evaluate EV-parking action-situation extraction outputs against the confirmed
-six correct action situations.
+Evaluate EV-parking action-situation extraction outputs against the correct
+action situations listed in Txts/scenarios.txt.
 
 Metrics:
   TP = How many LLM-generated ASs were in the correct set of ASs
@@ -20,6 +20,7 @@ from pathlib import Path
 
 
 CURRENT_DIR = Path(__file__).resolve().parent
+SCENARIO_PATH = CURRENT_DIR / "Txts" / "scenarios.txt"
 
 EXPERIMENTS = {
     "ODD+game_stuff": {
@@ -36,7 +37,7 @@ EXPERIMENTS = {
     },
 }
 
-MODELS = ("DeepSeek-R1", "Llama-3.3-70B", "Qwen2.5-7B")
+MODELS = ("DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
 
 
 @dataclass(frozen=True)
@@ -82,14 +83,20 @@ class RunResult:
     as_reviews: list[ASReview] = field(default_factory=list)
 
 
-GROUND_TRUTH = {
-    "AS1": GroundTruthAS("AS1", "Queue-order and prompt move-out compliance between EV users"),
-    "AS2": GroundTruthAS("AS2", "Sequential learning in reservation and off-peak charging behaviour"),
-    "AS3": GroundTruthAS("AS3", "Shared charger-capacity contribution dilemma among residents"),
-    "AS4": GroundTruthAS("AS4", "Informal priority exchange between EV user and parking staff"),
-    "AS5": GroundTruthAS("AS5", "Formal complaint and enforcement coordination between user and management"),
-    "AS6": GroundTruthAS("AS6", "Shared charger-occupancy common-pool congestion between EV users"),
-}
+def load_ground_truth(scenario_path: Path) -> dict[str, GroundTruthAS]:
+    ground_truth: dict[str, GroundTruthAS] = {}
+    for line in scenario_path.read_text(encoding="utf-8").splitlines():
+        match = re.match(r"^\s*(AS\d+)\s*:\s*(.+?)\s*$", line)
+        if match:
+            key, title = match.groups()
+            ground_truth[key] = GroundTruthAS(key, title)
+
+    if not ground_truth:
+        raise ValueError(f"No AS ground truth entries found in {scenario_path}")
+    return ground_truth
+
+
+GROUND_TRUTH = load_ground_truth(SCENARIO_PATH)
 
 
 def clean_markdown(text: str) -> str:
@@ -430,7 +437,7 @@ def evaluate_run(filepath: Path) -> RunResult:
             else:
                 matched_label = "None"
                 decision = "FP-wrong"
-                reason = "generated AS is not one of the six confirmed correct ASs"
+                reason = "generated AS is not one of the scenario-file correct ASs"
             details.append(f"{decision} [{matched_label}] {title}")
             fp_titles.append(situation.title)
 
@@ -465,7 +472,7 @@ def evaluate_run(filepath: Path) -> RunResult:
 
 def write_report_header(out, experiment_name: str) -> None:
     out.write("=" * 78 + "\n")
-    out.write(f"SIX-GT EVALUATION: TP / FN / FP ({experiment_name})\n")
+    out.write(f"SCENARIO-GT EVALUATION: TP / FN / FP ({experiment_name})\n")
     out.write("=" * 78 + "\n\n")
     out.write(f"Correct action situations ({len(GROUND_TRUTH)}):\n")
     for gt_as in GROUND_TRUTH.values():
@@ -477,7 +484,7 @@ def write_report_header(out, experiment_name: str) -> None:
     out.write("  Precision = TP / (TP + FP)\n")
     out.write("  Recall    = TP / (TP + FN)\n\n")
     out.write("Scoring rules:\n")
-    out.write("  Each generated AS is reviewed against only the six confirmed correct ASs.\n")
+    out.write("  Each generated AS is reviewed against only the correct ASs listed in Txts/scenarios.txt.\n")
     out.write("  The first generated AS matching a correct AS counts as TP.\n")
     out.write("  Additional generated ASs matching the same correct AS count as FP-duplicate.\n")
     out.write("  Generated ASs matching no correct AS count as FP-wrong.\n")
@@ -612,7 +619,7 @@ def write_cross_comparison(results_by_experiment: dict[str, dict]) -> Path:
 
     with comparison_path.open("w", encoding="utf-8") as out:
         out.write("=" * 78 + "\n")
-        out.write("SIX-GT COMPARISON: ODD+game_stuff VS ODD-only\n")
+        out.write("SCENARIO-GT COMPARISON: ODD+game_stuff VS ODD-only\n")
         out.write("=" * 78 + "\n\n")
         out.write(f"Correct action situations ({len(GROUND_TRUTH)}):\n")
         for gt_as in GROUND_TRUTH.values():
@@ -655,7 +662,7 @@ def write_cross_comparison(results_by_experiment: dict[str, dict]) -> Path:
         out.write("\nAudit notes:\n")
         out.write("  Only TP, FN, FP, Precision, and Recall are evaluated.\n")
         out.write("  AS-level CSVs list every generated AS and whether it is TP, FP-duplicate, or FP-wrong.\n")
-        out.write(f"  Per-run invariant: TP + FN = {len(GROUND_TRUTH)} confirmed correct ASs.\n")
+        out.write(f"  Per-run invariant: TP + FN = {len(GROUND_TRUTH)} scenario-file correct ASs.\n")
         out.write("  Generated AS titles are included with body/matrix text when judging correctness.\n")
 
     return comparison_path

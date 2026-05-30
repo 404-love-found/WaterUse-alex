@@ -2,7 +2,7 @@
 Run 30 ODD-only action-situation extraction trials for each model.
 
 Models:
-  - DeepSeek-R1
+  - DeepSeek-V4-Pro
   - Llama-3.3-70B-Instruct-Turbo
   - Qwen2.5-7B-Instruct-Turbo
 
@@ -22,8 +22,8 @@ if not api_key:
     raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
 
 MODELS = {
-    "DeepSeek-R1": {
-        "model_id": "deepseek-ai/DeepSeek-R1",
+    "DeepSeek-V4-Pro": {
+        "model_id": "deepseek-ai/DeepSeek-V4-Pro",
         "timeout": 600.0,
         "max_tokens": 16000,
     },
@@ -43,6 +43,7 @@ N_RUNS = 30
 MAX_RETRIES = 5
 RETRY_WAIT_SECONDS = 30
 TEMPERATURE = 0.6
+SKIP_EXISTING = True
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 odd_path = os.path.join(current_dir, "Txts", "odd.txt")
@@ -114,11 +115,15 @@ def run_model_batch(model_key):
     print(f"{'=' * 60}")
 
     for i in range(1, N_RUNS + 1):
+        filepath = os.path.join(model_output_dir, f"run_{i:02d}.md")
+        if SKIP_EXISTING and os.path.exists(filepath):
+            print(f"  Run {i:2d}/{N_RUNS} ... skipped existing")
+            continue
+
         print(f"  Run {i:2d}/{N_RUNS} ...", end="", flush=True)
         content = run_single(client, model_id, prompt, cfg["max_tokens"])
 
         if content:
-            filepath = os.path.join(model_output_dir, f"run_{i:02d}.md")
             with open(filepath, "w", encoding="utf-8") as f:
                 f.write(f"# Run {i} - {model_id}\n\n")
                 f.write(content)
