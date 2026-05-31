@@ -1,5 +1,12 @@
 Experiment,Model,Run,AS_Index,Line,Title,Matched_GT,Decision,Reason,Has_Payoff_Evidence
-ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,1,3,Queue Order Dilemma,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,1,3,Queue Bypassing Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,2,14,Move‑out Promptness Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,3,25,Staff Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,4,36,Informal Priority Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,5,47,Resident vs Non‑resident Priority Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,6,58,Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,7,69,Capacity Expansion Collective Action,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_01.md,8,80,Reservation vs Live Queue Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,2,16,Post-Charging Bay Release,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,3,29,Rule Enforcement (Staff vs. User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -8,11 +15,14 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,5,55,Violation Reporting,AS5: Formal co
 ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,6,68,Charger Capacity Investment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_02.md,7,81,Resident vs. Non-resident Access Norm,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_03.md,1,1,Queue Order Compliance Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,2,18,Move‑out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,3,33,Staff Enforcement versus User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,4,48,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,5,63,Violation Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,2,15,Move‑out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,3,27,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,4,39,Informal Favor Seeking,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,5,51,Resident vs. Non‑resident Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,6,63,Capacity Expansion Funding,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,7,75,Fault Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_04.md,8,87,Complaint about Violation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_05.md,1,5,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_05.md,2,14,Post‑Charging Bay Release,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_05.md,3,23,Rule Enforcement and Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -34,15 +44,13 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_07.md,4,45,Informal Priority Game,AS4: Inform
 ODD+game_stuff,DeepSeek-V4-Pro,run_07.md,5,59,Resident vs Non-resident Priority Norm,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_07.md,6,73,Capacity Expansion Public Goods Game,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_07.md,7,87,Charger Fault Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,1,3,Queue Order Compliance Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,2,16,Move-Out Promptness Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,3,29,Staff Enforcement Game,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,4,42,Informal Priority Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,5,55,Resident vs Non-Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,6,68,Capacity Investment Dilemma,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,7,81,Fault Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,8,94,Complaint Escalation Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,9,107,Off-Peak Charging Coordination Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,2,21,Post‑Charging Move‑out Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,3,39,Staff Monitoring and User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,4,57,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,5,74,Violation Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,6,91,Resident vs. Non‑resident Access Claim,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_08.md,7,108,Collective Funding for Additional Chargers,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_09.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_09.md,2,16,Move-Out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_09.md,3,29,Enforcement Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -70,7 +78,14 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_11.md,7,93,Complaint Reporting,AS5: Formal co
 ODD+game_stuff,DeepSeek-V4-Pro,run_11.md,8,108,Off‑Peak Charging Coordination,AS2: Sequential learning in reservation and off-peak charging behaviour,TP,generated AS matches AS2: Sequential learning in reservation and off-peak charging behaviour,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_11.md,9,123,Reservation vs Live Queue Commitment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_11.md,10,138,Charger Fault Reporting,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,1,1,Queue Order Compliance,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,2,14,Bay Release Timing,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,3,25,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,4,36,Resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,5,47,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,6,58,Complaint and Response,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,7,69,Capacity Investment,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_12.md,8,80,Off‑peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,2,17,Post-Charging Bay Release,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,3,31,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -79,8 +94,12 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,5,59,Informal Priority Request,AS4: Inf
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,6,73,Charger Capacity Expansion Funding,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,7,87,Charger Fault Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_13.md,8,101,Off-Peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,2,18,Post-Charging Move-out Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,1,3,Queue Order Compliance Game,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,2,14,Bay Overstay Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,3,27,Rule Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,4,40,Charger Capacity Investment Game,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,5,53,Informal Priority Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_14.md,6,66,Resident vs Non‑resident Entitlement Clash,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,2,18,Move-Out Timing,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,3,33,Staff Enforcement of Queue Rules,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -88,15 +107,36 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,4,48,Resident vs Non-Resident Priority 
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,5,63,Reservation vs Walk-in,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,6,78,Complaint and Staff Response,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_15.md,7,93,Capacity Expansion,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,1,3,Queue Jumping,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,2,15,Overstay vs. Move-out,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,3,27,Staff Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,4,39,Seeking Informal Priority,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,5,51,Reporting Violations,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,6,63,Resident vs. Non‑resident Priority,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,7,75,Capacity Expansion Contribution,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,8,87,Peak vs. Off‑peak Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,9,99,Reservation Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,1,90,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,2,99,Move-Out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,3,106,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,4,119,Resident vs Non-Resident Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,5,131,Reservation vs. Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,6,150,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,7,162,Capacity Expansion Lobbying,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,8,169,Informal Priority Seeking,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,9,181,Staff Overstay Tolerance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,10,187,Resident vs Non-Resident Priority Norm,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,11,241,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,12,252,Move-Out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,13,262,Staff Enforcement vs User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,14,274,Resident vs Non-Resident Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,15,285,Reservation vs Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,16,296,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,17,307,Capacity Expansion Lobbying,AS3: Shared charger-capacity contribution dilemma among residents,FP-duplicate,duplicate generated AS for AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,18,318,Informal Priority Seeking,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,19,360,Peak vs Off-Peak Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,20,375,Staff Favoritism Game,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,21,426,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,22,436,Move-Out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,23,446,Staff Enforcement vs User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,24,456,Resident vs Non-Resident Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,25,466,Reservation vs Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,26,476,Complaint Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,27,486,Capacity Expansion Lobbying,AS3: Shared charger-capacity contribution dilemma among residents,FP-duplicate,duplicate generated AS for AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,28,496,Informal Priority Seeking,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,29,506,Peak vs Off-Peak Charging,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_16.md,30,516,Staff Favoritism,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_17.md,1,3,Queue Bypass Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_17.md,2,16,Bay Release Game,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_17.md,3,29,Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -119,7 +159,7 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_19.md,2,19,Charger Overstay Dilemma,None,FP-w
 ODD+game_stuff,DeepSeek-V4-Pro,run_19.md,3,35,Staff Inspection Game,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_19.md,4,67,Charger Expansion Collective Action,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_19.md,5,83,Staff Favoritism Game,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_20.md,1,1,Queue Order Compliance,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_20.md,1,1,Queue Jumping Dilemma,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,1,3,Queue Entry Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,2,18,Bay Release Overstay,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,3,33,Staff Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -130,7 +170,33 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,7,93,Off‑Peak Charging Coordination,N
 ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,8,108,Fault Reporting and Repair,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_21.md,9,123,Reservation vs. Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_22.md,1,1,json,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,1,1,Queue Order Compliance,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,1,192,Queue Jumping Game (User vs User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,2,202,Move-out Dilemma (Current User vs Next User),AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,3,211,Enforcement Game (Management vs User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,4,219,Informal Priority Game (User vs Management),AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,5,235,Capacity Expansion Game (Resident A vs Resident B),AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,6,242,Resident vs Non-resident Access Contest,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,7,249,Reservation vs Live Queue (User A vs User B),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,8,256,Off-peak Shifting Game (User A vs User B),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,9,265,Staff Responsiveness Game (User vs Management),AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,10,309,Queue Jumping Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,11,316,Move-out Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,12,323,Rule Enforcement Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,13,330,Informal Priority Game,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,14,344,Capacity Expansion Game,AS3: Shared charger-capacity contribution dilemma among residents,FP-duplicate,duplicate generated AS for AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,15,351,Resident vs Non-resident Access Contest,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,16,358,Reservation Participation Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,17,365,Off-peak Shifting Game,AS2: Sequential learning in reservation and off-peak charging behaviour,TP,generated AS matches AS2: Sequential learning in reservation and off-peak charging behaviour,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,18,372,Complaint Response Game,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,19,441,Queue Jumping Game,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,20,452,Move-out Dilemma,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,21,463,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,22,474,Informal Priority,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,23,496,Capacity Expansion,AS3: Shared charger-capacity contribution dilemma among residents,FP-duplicate,duplicate generated AS for AS3: Shared charger-capacity contribution dilemma among residents,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,24,507,Resident vs Non-resident Access,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,25,518,Reservation Participation,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,26,529,Off-peak Shifting,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_23.md,27,540,Complaint Response,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_24.md,1,3,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_24.md,2,19,Move‑out Promptness,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_24.md,3,35,Proactive Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
@@ -165,13 +231,13 @@ ODD+game_stuff,DeepSeek-V4-Pro,run_27.md,6,73,Capacity Expansion Contribution,AS
 ODD+game_stuff,DeepSeek-V4-Pro,run_27.md,7,87,Off-peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_27.md,8,115,Reservation vs Walk-in,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_28.md,1,1,json,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,2,17,Reservation vs. Live Queue Choice,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,3,31,Charger Bay Release (Overstay),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,4,46,Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,5,61,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,6,76,Resident vs. Non‑resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,7,90,Complaint Filing,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,1,3,Queue Jumping Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,2,14,Charger Bay Release (Overstay vs. Move),AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,3,25,Staff Rule Enforcement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,4,36,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,5,47,Charger Fault Reporting,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,6,58,Resident vs. Non‑Resident Queue Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD+game_stuff,DeepSeek-V4-Pro,run_29.md,7,69,Capacity Expansion Funding,AS3: Shared charger-capacity contribution dilemma among residents,TP,generated AS matches AS3: Shared charger-capacity contribution dilemma among residents,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_30.md,1,3,Queue Order Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_30.md,2,17,Post-Charging Move‑out Dilemma,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD+game_stuff,DeepSeek-V4-Pro,run_30.md,3,31,Staff Enforcement vs. User Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1

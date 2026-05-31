@@ -164,7 +164,161 @@ Precision = TP/(TP+FP) = 49/(49+10) = 0.8305
 Recall    = TP/(TP+FN) = 49/(49+11) = 0.8167
 
 ##############################################################################
-MODEL 2: Llama-3.3-70B (30 runs)
+MODEL 2: DeepSeek-V4-Pro (30 runs)
+##############################################################################
+
+run_01.md | TP=1 FN=1 FP=1 Precision=0.5000 Recall=0.5000
+  TP [AS1: Upstream and downstream withdrawal decisions] L211: Water Allocation Game
+  FP-wrong [None] L222: Fish Stock Conservation Game
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_02.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: In the decentralized version, each farmer individually decides how many fields to irrigate each year based on their own past income, expected water, and budget. They do not coordinate. The decision rule: if income below threshold, increase fields by 1 regardless of water prediction; if income above threshold but water demands not met last year, irrigate number of fields suitable for expected water; if income above threshold and water demands met, increase fields by 1 to test. So the decision is a simple heuristic.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_03.md | TP=2 FN=0 FP=1 Precision=0.6667 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L55: Asymmetric Water Extraction Game
+  TP [AS2: Fish extraction common pool resource game] L59: Ecological Threshold Game
+  FP-duplicate [AS2: Fish extraction common pool resource game] L240: Threshold Public Goods Game for Fishery
+
+run_04.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L9: Upstream–Downstream Irrigation Decision
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_05.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: 1. Water allocation tension: Upstream vs Downstream farmers. Upstream farmers have first access to water; they decide how many fields to irrigate. If they take more water, less is available for downstream. This is a classic common-pool resource dilemma. But the farmers don't decide cooperatively; they act independently. The tension is that if both try to maximize their own water use, the resource might be depleted (but water is a flow, not a stock, so it's about allocation). The decision variable: number of fields to irrigate. Upstream farmer's water withdrawal affects downstream's water availability.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_06.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: First, let's understand the DV model: In DV, each farmer decides how many fields to irrigate based on their own prediction of water availability, past income, and budget. The farmers are located along a river; upstream farmers have first access to water, downstream farmers have first access to fish. There is a common pool resource (water) and another common pool resource (fish). The farmers' decisions affect each other through water extraction and fish extraction. There are ecological thresholds: fish population dynamics depend on water inflow into the lake, which depends on upstream water extraction. If too much water is taken upstream, the inflow to the lake may drop below a threshold needed for larvae survival, affecting fish population and thus fish catch for downstream farmers (who have priority access to fish). So there's a tension: upstream farmers may take more water for irrigation, reducing water for downstream farmers and for the lake, which affects fish population and thus downstream farmers' fish catch. Downstream farmers have priority access to fish, so they might rely more on fish. Also, all farmers face uncertainty about water availability and use past flows to predict. The decision rule: If income below threshold -> increase fields by 1 regardless (risk-taking). If income above threshold but water demands not met last year -> irrigate number of fields suitable for expected water (i.e., conservative). If income above threshold and water demands met last year and has budget -> increase fields by 1 to test.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_07.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: We need to identify distinct strategic dilemmas. Possible dilemmas
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_08.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L295: [Title]
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_09.md | TP=2 FN=0 FP=2 Precision=0.5000 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L137: Water Allocation along the River
+  FP-wrong [None] L142: Fish Stock Conservation with Threshold
+  FP-duplicate [AS1: Upstream and downstream withdrawal decisions] L160: Upstream-Downstream Water Allocation
+  TP [AS2: Fish extraction common pool resource game] L191: Fish Stock Conservation with Threshold
+
+run_10.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Fish extraction common pool resource game] L1: Strategic Tension
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+
+run_11.md | TP=2 FN=0 FP=1 Precision=0.6667 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L216: Water Appropriation (Irrigation Decision)
+  TP [AS2: Fish extraction common pool resource game] L229: Fish Appropriation (Fishing)
+  FP-duplicate [AS1: Upstream and downstream withdrawal decisions] L329: Irrigation Decision (Water Use)
+
+run_12.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS1: Upstream and downstream withdrawal decisions] L9: The Irrigation Dilemma
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_13.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: So we can frame a 2-player game: Player 1 is upstream, Player 2 is downstream. They both choose a number of fields to irrigate (or a strategy like "expand" vs "restrain"). The payoffs are determined by water availability, fish catch, etc. The tension: Upstream can take as much water as he wants, but if he takes too much, downstream gets less water and fish population may decline (which hurts both, but downstream more because they rely more on fish? Actually, all farmers fish, but downstream fish first, so they might be less affected by fish decline? Actually, if fish population declines, downstream still get first access, so they might still catch their target while upstream get nothing. So downstream might be less concerned about fish population decline as long as they can still catch their target. Upstream, however, are doubly disadvantaged: less water (but they are upstream so they get water first, so they have plenty of water) and less fish (because downstream take them first). So the tension is that upstream's water use harms downstream's irrigation, and downstream's fishing harms upstream's fish catch. So it's a kind of reciprocal externality but through different resources.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_14.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Fish extraction common pool resource game] L3: Asymmetric Irrigation and Fish Commons Game
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+
+run_15.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: We need to identify "distinct strategic dilemmas". The main dilemmas in DV
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_16.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: We need to create 2-player normal form payoff matrices. Since there are 9 farmers, but we can simplify to two representative agents: an upstream farmer and a downstream farmer. The action situations could be
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_17.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS1: Upstream and downstream withdrawal decisions] L344: Irrigation Water Appropriation with Downstream Fishing
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_18.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: 1. The irrigation water extraction dilemma: Each farmer decides how many fields to irrigate (can be seen as a continuous or discrete choice, but we can simplify to "Cooperate" (irrigate a sustainable number) vs "Defect" (irrigate more to maximize personal yield). The tension is that if both cooperate, water is sufficient for all, but if one defects, that farmer gains more yield while the other suffers water shortage. If both defect, water is over-extracted, and everyone suffers (tragedy of the commons). This is a classic Prisoner's Dilemma (PD) or similar social dilemma. But note that the outcome depends on spatial position: an upstream farmer defecting hurts downstream farmers more, while a downstream farmer defecting does not hurt upstream farmers (since water flows downstream). So the payoff matrix might be asymmetric.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_19.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: 1. Upstream-Downstream Water Use Tension: Upstream farmer's water extraction reduces water for downstream farmer. This is a classic asymmetric common-pool resource dilemma. The upstream farmer has positional advantage. The strategic choice is how many fields to irrigate (or how much water to consume). The downstream farmer's yield depends on remaining water. Additionally, total water extraction affects lake inflow and fish recruitment, which affects both farmers' fish catch. So there is an interlinked CPR: water and fish.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_20.md | TP=2 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L8: Water Appropriation along the River
+  TP [AS2: Fish extraction common pool resource game] L29: Fish Stock Sustainability in the Lake
+
+run_21.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: 2. Fishing: Downstream farmers fish first, so they can catch fish before upstream farmers. The fish stock is common pool. Upstream farmers get whatever is left. This is another unidirectional externality, but in the opposite direction.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_22.md | TP=2 FN=0 FP=2 Precision=0.5000 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L57: Irrigation Water Use (Upstream vs Downstream)
+  TP [AS2: Fish extraction common pool resource game] L66: Fishing (Downstream vs Upstream)
+  FP-wrong [None] L70: Cross-resource dilemma (Irrigation vs Fishing)
+  FP-duplicate [AS1: Upstream and downstream withdrawal decisions] L289: Irrigation Water Use Game
+
+run_23.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: We must identify distinct strategic dilemmas. Possible dilemmas in DV
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_24.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS1: Upstream and downstream withdrawal decisions] L308: Irrigation Decision in a Sequential Water-Fishery Commons
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_25.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: So we can identify a strategic tension: farmers choose how many fields to irrigate (or how much water to extract). The tension is between individual benefit from water extraction vs. collective risk of fish stock collapse. Additionally, spatial asymmetry: upstream farmers have first access to water, so they can extract more, leaving less for downstream; but downstream farmers have first access to fish, so they might catch more fish. However, fishing is not a decision variable, so the strategic tension is only in water extraction. But the payoff includes both agricultural yield and fish catch. So farmers' payoffs depend on their own irrigation decision and others' irrigation decisions, as well as fishing outcome.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_26.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Fish extraction common pool resource game] L1: Key tensions
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+
+run_27.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: We need to identify distinct strategic dilemmas. Since it's a common-pool resource with spatial asymmetry, we can frame it as a game between an upstream farmer and a downstream farmer. The decisions are about how many fields to irrigate, which affects water availability downstream and thus fish population. There's also the fishing aspect: downstream farmers fish first, so they can deplete fish before upstream farmers get to fish. So there are two linked common-pool resources: water for irrigation and fish. The farmers' decisions involve a trade-off: irrigating more fields might increase agricultural yield but reduces water flow to the lake, potentially harming the fish population and thus reducing fish catch. But also, fishing is not costly and does not affect agriculture directly except through the shared water resource affecting fish.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_28.md | TP=0 FN=2 FP=1 Precision=0.0000 Recall=0.0000
+  FP-wrong [None] L1: The model also includes a fish population with density-dependent survival and a threshold for larvae migration (water inflow in May must exceed a threshold). So there is an ecological tipping point: if water inflow to the lake is too low, the fish population may decline or collapse.
+  FN missed: AS1: Upstream and downstream withdrawal decisions
+  FN missed: AS2: Fish extraction common pool resource game
+
+run_29.md | TP=2 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Upstream and downstream withdrawal decisions] L336: Water Allocation Game (Upstream vs Downstream)
+  TP [AS2: Fish extraction common pool resource game] L353: Fish Conservation Game (Threshold Public Good)
+
+run_30.md | TP=1 FN=1 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS1: Upstream and downstream withdrawal decisions] L3: Irrigation Planning in a Spatially Asymmetric River Basin
+  FN missed: AS2: Fish extraction common pool resource game
+
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro TOTALS
+------------------------------------------------------------------------------
+TP = 20    FN = 40    FP = 23
+Precision = TP/(TP+FP) = 20/(20+23) = 0.4651
+Recall    = TP/(TP+FN) = 20/(20+40) = 0.3333
+
+##############################################################################
+MODEL 3: Llama-3.3-70B (30 runs)
 ##############################################################################
 
 run_01.md | TP=2 FN=0 FP=2 Precision=0.5000 Recall=1.0000
@@ -357,7 +511,7 @@ Precision = TP/(TP+FP) = 54/(54+62) = 0.4655
 Recall    = TP/(TP+FN) = 54/(54+6) = 0.9000
 
 ##############################################################################
-MODEL 3: Qwen2.5-7B (30 runs)
+MODEL 4: Qwen2.5-7B (30 runs)
 ##############################################################################
 
 run_01.md | TP=2 FN=0 FP=2 Precision=0.5000 Recall=1.0000
@@ -547,5 +701,6 @@ FINAL MODEL COMPARISON: ODD+game_stuff
 Model                  TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------
 DeepSeek-R1            49   11   10     0.8305   0.8167
+DeepSeek-V4-Pro        20   40   23     0.4651   0.3333
 Llama-3.3-70B          54    6   62     0.4655   0.9000
 Qwen2.5-7B             39   21   52     0.4286   0.6500

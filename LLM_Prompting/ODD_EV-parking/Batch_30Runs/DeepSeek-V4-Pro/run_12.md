@@ -1,58 +1,89 @@
 # Run 12 - deepseek-ai/DeepSeek-V4-Pro
 
-**1. Queue Order Compliance**  
-**Tension:** Users waiting for a charger must decide whether to follow the formal queue order or jump ahead. Following the order ensures fair wait times, but an individual can gain quicker access by jumping the queue. If both jump, conflict and delays worsen outcomes for everyone.  
-**Matrix (User A vs. User B):**  
-```
-          User B
-          Comply   Jump
-User A Comply (2,2)  (1,3)
-       Jump   (3,1)  (1,1)
-```
-**Justification:** The ODD+D highlights that “if a driver bypasses the queue… the next user waits longer” and that “the immediate benefit goes to the driver who obtains or keeps access; the cost is spread across waiting users.” This is a classic Prisoner’s Dilemma central to queue fairness.
+**Action Situation 1: Queue Order Compliance**
+- **Tension**: Two users simultaneously seek access to a single available charger. Each can either follow the posted queue order or attempt to skip ahead. Following ensures fairness but risks being exploited; skipping can yield immediate access but invites conflict and erodes collective trust.
+- **Matrix** (payoffs: User A, User B):
 
----
+| User A \ User B | Follow | Skip |
+|-----------------|--------|------|
+| Follow          | 3,3    | 1,4  |
+| Skip            | 4,1    | 1,1  |
 
-**2. Bay Release Timing**  
-**Tension:** After useful charging is complete, the current user can move promptly or overstay in the bay. Moving promptly frees the charger for the next user, but overstaying provides personal convenience at the cost of blocking others. The next user can wait passively or actively complain.  
-**Matrix (Current User vs. Next User):**  
-```
-            Next User
-            Wait    Complain
-Current User Move   (2,3)  (1,1)
-             Overstay (4,0)  (0,2)
-```
-**Justification:** The scenario states “a vehicle that remains plugged in after useful charging may block the bay without paying much additional cost. This creates pressure on queue fairness.” The tension between the current user’s convenience and the next user’s access forms a distinct action situation around bay release and enforcement.
+- **Justification**: This is the foundational dilemma of shared charger governance. The resident discount increases perceived entitlement but does not formally alter queue rules, making the tension between individual gain and collective order particularly acute. Mutual following sustains legitimacy; mutual skipping degrades the system.
 
----
+**Action Situation 2: Bay Release Timing**
+- **Tension**: A user who has finished charging must decide whether to move promptly or overstay in the bay. The waiting user can either accept the delay or complain to staff. Overstaying provides convenience but blocks others; complaining can force a move but requires effort.
+- **Matrix** (payoffs: Current User, Waiting User):
 
-**3. Enforcement Interaction**  
-**Tension:** Staff must decide whether to enforce posted rules or ignore violations, while users decide whether to comply or violate. Enforcement costs effort but maintains order; ignoring saves effort but encourages violations. Users prefer to violate if staff ignore, but comply if staff enforce.  
-**Matrix (Staff vs. User):**  
-```
-          User
-          Comply   Violate
-Staff Enforce (1,2)  (2,0)
-       Ignore   (3,3)  (0,4)
-```
-**Justification:** The ODD+D describes that “staff observe some violations and decide whether to enforce posted rules… or tolerate exceptions.” This inspection-like game captures the interdependent choices that shape rule compliance and system legitimacy.
+| Current \ Waiting | Wait Patiently | Complain |
+|------------------|----------------|-----------|
+| Move Promptly    | 3,3           | 3,2       |
+| Overstay         | 4,1           | 1,2       |
 
----
+- **Justification**: Because billing is per kWh rather than per minute, overstaying imposes little direct cost on the occupant but significant delay on the queue. This misalignment of incentives is a central fairness problem in the facility.
 
-**4. Informal Priority Seeking**  
-**Tension:** A user may seek informal priority (e.g., asking staff to hold a bay), and staff decide whether to grant or deny the request. Granting favours the requester but undermines queue fairness; denying avoids favouritism but may cause conflict. Both parties prefer to coordinate on either formal rules or informal favours, but they differ on which equilibrium they prefer.  
-**Matrix (User vs. Staff):**  
-```
-            Staff
-            Grant   Deny
-User Seek   (4,2)  (1,1)
-     Follow (2,2)  (2,3)
-```
-**Justification:** The text notes “parking staff may receive informal requests to hold a charging bay, overlook a queue violation… Staff can enforce posted order or tolerate exceptions.” This Battle-of-the-Sexes structure captures the tension between formal rules and informal relationships.
+**Action Situation 3: Rule Enforcement**
+- **Tension**: Staff decide whether to enforce queue and move-out rules or tolerate violations. Users decide whether to comply or violate. Strict enforcement maintains order but costs staff effort; tolerating violations saves effort but encourages non‑compliance.
+- **Matrix** (payoffs: Staff, User):
 
----
+| Staff \ User | Comply | Violate |
+|--------------|--------|---------|
+| Enforce      | 2,3    | 3,1     |
+| Tolerate     | 4,3    | 1,4     |
 
-**5. Violation Reporting**  
-**Tension:** When users observe a queue violation or overstay, each can report the violation or stay silent. Reporting helps trigger enforcement, benefiting all users, but the reporter bears the social cost. If both stay silent, violations continue unchecked, harming collective outcomes.  
-**Matrix (Witness A vs. Witness B):**  
-```
+- **Justification**: This inspection game captures the core interaction between management and users. The equilibrium level of enforcement and compliance shapes the perceived legitimacy of the entire charging system.
+
+**Action Situation 4: Resident Priority Claim**
+- **Tension**: A resident and a non‑resident arrive when only one charger is free. Each can claim priority (resident based on discount, non‑resident based on equal‑access norms) or accept equal treatment. Mutual claiming leads to conflict; mutual acceptance leads to fair sharing.
+- **Matrix** (payoffs: Resident, Non‑resident):
+
+| Resident \ Non‑resident | Claim | Accept |
+|------------------------|-------|--------|
+| Claim                  | 1,1   | 4,2    |
+| Accept                 | 2,4   | 3,3    |
+
+- **Justification**: The resident discount creates a perceived entitlement that clashes with the formal equality of the queue. This tension is distinct from generic queue jumping because it involves institutionalised price differentiation and social norms about amenity access.
+
+**Action Situation 5: Informal Priority Request**
+- **Tension**: A user can either seek informal priority from staff or follow the formal queue. Staff can grant the request (favoring the user but undermining rule legitimacy) or deny it (upholding rules but possibly disappointing a resident).
+- **Matrix** (payoffs: User, Staff):
+
+| User \ Staff       | Grant | Deny |
+|--------------------|-------|------|
+| Request Priority   | 4,2   | 2,3  |
+| Follow Formal Queue| 3,3   | 3,3  |
+
+- **Justification**: Informal arrangements are a key governance challenge. Even if staff have discretion, granting requests can erode trust in the queue platform, while denying them may strain relationships with residents.
+
+**Action Situation 6: Complaint and Response**
+- **Tension**: A user who observes a violation (e.g., overstay, queue skip) decides whether to complain. Staff decide whether to respond. Complaining can restore fairness but costs effort; ignoring it saves effort but allows violations to continue.
+- **Matrix** (payoffs: Observer, Staff):
+
+| Observer \ Staff | Respond | Ignore |
+|-----------------|---------|--------|
+| Complain        | 4,2     | 1,4    |
+| Ignore          | 3,1     | 2,3    |
+
+- **Justification**: The complaint mechanism is the primary feedback loop for enforcement. The tension between reporting violations and staff responsiveness determines whether formal rules have practical force.
+
+**Action Situation 7: Capacity Investment**
+- **Tension**: Two residents must decide whether to contribute to a fund for adding new chargers. Both benefit from expanded capacity, but contributing is costly. If both free‑ride, no chargers are added; if only one contributes, that resident bears the full cost while the other benefits without paying.
+- **Matrix** (payoffs: Resident A, Resident B):
+
+| A \ B         | Contribute | Free‑ride |
+|---------------|------------|-----------|
+| Contribute    | 2,2        | 1,4       |
+| Free‑ride     | 4,1        | 3,3       |
+
+- **Justification**: Capacity expansion is a public goods dilemma. The resident discount increases demand among residents, making under‑provision of chargers more likely if free‑riding incentives dominate.
+
+**Action Situation 8: Off‑peak Charging Coordination**
+- **Tension**: Two users with flexible schedules choose whether to charge during off‑peak or on‑peak hours. Off‑peak charging reduces congestion, but if both choose on‑peak, both suffer. Each prefers to be the only off‑peak user to enjoy empty chargers.
+- **Matrix** (payoffs: User A, User B):
+
+| A \ B     | Off‑peak | On‑peak |
+|-----------|----------|---------|
+| Off‑peak  | 3,3      | 4,1     |
+| On‑peak   | 1,4      | 1,1     |
+
+- **Justification**: This tension captures the temporal coordination problem. The resident discount increases overall demand, making off‑peak coordination more valuable but also more fragile if users expect others to shift.

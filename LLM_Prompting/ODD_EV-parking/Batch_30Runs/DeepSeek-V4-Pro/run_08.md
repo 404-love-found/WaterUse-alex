@@ -1,111 +1,121 @@
 # Run 8 - deepseek-ai/DeepSeek-V4-Pro
 
-### Action Situation 1: Queue Order Compliance Dilemma
-**Tension:** Users decide whether to follow the posted queue order or skip ahead. Following ensures fairness but may lead to longer waits if others skip; skipping gives immediate access but erodes system legitimacy.
+**Action Situation 1: Queue Order Compliance**  
+**Title:** Queue Order Dilemma  
+**Tension:** Users waiting for a charger must decide whether to respect the posted queue order or jump ahead. Individual gain from queue‑jumping conflicts with collective fairness and predictable access.  
+**Matrix (User A vs User B):**  
+| User A \ User B | Respect (R) | Jump (J) |
+|------------------|--------------|-----------|
+| Respect (R)     | (3,3)        | (1,4)     |
+| Jump (J)        | (4,1)        | (2,2)     |
 
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| User A \ User B | Follow | Skip |
-|------------------|--------|------|
-| Follow           | (2,2)  | (4,1)|
-| Skip             | (1,4)  | (3,3)|
-
-**Justification:** The ODD+D highlights queue order as a central governance concern. Users face a Prisoner’s Dilemma where individual incentives to bypass (T=1) undermine the collectively optimal outcome of mutual following (R=2). This tension drives the model’s fairness analysis.
-
----
-
-### Action Situation 2: Move-Out Promptness Dilemma
-**Tension:** After useful charging, users can move promptly or overstay. Moving frees the charger for the next user; overstaying provides personal convenience but blocks access, increasing wait times.
-
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| User A \ User B | Move | Overstay |
-|------------------|------|----------|
-| Move             | (2,2)| (4,1)    |
-| Overstay         | (1,4)| (3,3)    |
-
-**Justification:** The ODD+D emphasizes that overstaying after charging is a key source of congestion. This action situation captures the tension between individual convenience and collective throughput, forming a classic commons dilemma.
+**Justification:**  
+- (R,R): Both wait moderate time, fair order maintained.  
+- (R,J): User A waits longer while User B gains fast access.  
+- (J,R): User A gains fast access, User B waits longer.  
+- (J,J): Conflict and confusion cause delays for both.  
+This prisoner’s dilemma captures the core tension in shared charger access: the temptation to bypass the queue for personal gain undermines the predictability of the system.
 
 ---
 
-### Action Situation 3: Staff Enforcement Game
-**Tension:** Staff decide whether to enforce queue rules (costly) or tolerate violations. Users decide whether to comply or violate based on expected enforcement. Staff prefer to avoid enforcement if users comply, but must enforce if violations occur.
+**Action Situation 2: Post‑Charging Move‑out Compliance**  
+**Title:** Overstay Dilemma  
+**Tension:** After useful charging ends, the current user may overstay for convenience, blocking the next user. The next user can wait or complain, affecting the overstayer’s payoff.  
+**Matrix (Current User vs Next User):**  
+| Current \ Next | Wait (W) | Complain (C) |
+|----------------|----------|--------------|
+| Move (M)       | (3,3)    | (3,2)        |
+| Overstay (O)   | (4,1)    | (1,2)        |
 
-**Matrix (Payoffs: Staff, User; 1=best, 4=worst):**
-| Staff \ User | Comply | Violate |
-|--------------|--------|---------|
-| Enforce      | (2,3)  | (4,4)   |
-| Not Enforce  | (1,2)  | (3,1)   |
-
-**Justification:** The ODD+D describes staff monitoring, complaint response, and the trade-off between effort and order. This mixed-motive game models the strategic interdependence between rule enforcers and users, central to the model’s governance dynamics.
-
----
-
-### Action Situation 4: Informal Priority Game
-**Tension:** Residents may request informal priority from staff. Staff may grant favors (relational) or adhere strictly to formal rules. Granting favors builds goodwill but undermines queue legitimacy.
-
-**Matrix (Payoffs: Staff, Resident; 1=best, 4=worst):**
-| Staff \ Resident | Seek Favor | Follow Rules |
-|-------------------|------------|--------------|
-| Grant if asked    | (2,1)      | (1,2)        |
-| Deny if asked     | (3,4)      | (1,2)        |
-
-**Justification:** The scenario notes staff discretion and informal requests. This game captures the tension between formal queue rules and relational favors, which can erode perceived fairness as described in the ODD+D.
+**Justification:**  
+- (M,W): Current moves promptly, next gets the bay quickly.  
+- (M,C): Current moved, but next complained unnecessarily (wasted effort).  
+- (O,W): Current enjoys convenience, next suffers long wait.  
+- (O,C): Current is penalized (e.g., fined or confronted), next gets redress but still lost time.  
+This social dilemma shows how individual convenience from overstaying imposes costs on the next user, and the next user’s willingness to complain can alter the outcome.
 
 ---
 
-### Action Situation 5: Resident vs Non-Resident Priority Claim
-**Tension:** Residents may assert priority based on the discount entitlement; non-residents may insist on equal treatment. Mutual assertion leads to conflict, while mutual acceptance yields fairness.
+**Action Situation 3: Staff Monitoring and User Compliance**  
+**Title:** Rule‑Enforcement Inspection Game  
+**Tension:** Staff must decide whether to invest effort in monitoring rule compliance; users decide whether to comply or violate, knowing staff may or may not catch them.  
+**Matrix (Staff vs User):**  
+| Staff \ User | Comply (C) | Violate (V) |
+|---------------|------------|-------------|
+| Monitor (M)   | (2,2)      | (3,1)       |
+| Not Monitor (N)| (2,2)      | (1,3)       |
 
-**Matrix (Payoffs: Resident, Non-Resident; 1=best, 4=worst):**
-| Resident \ Non-Resident | Assert | Accept |
-|-------------------------|--------|--------|
-| Assert                  | (3,3)  | (1,4)  |
-| Accept                  | (4,1)  | (2,2)  |
-
-**Justification:** The resident discount creates a perceived asymmetry. The ODD+D highlights that residents may feel entitled, while non-residents expect equal treatment. This Chicken game models the contestation of access norms.
-
----
-
-### Action Situation 6: Capacity Investment Dilemma
-**Tension:** Residents collectively benefit from additional chargers, but each prefers to free-ride on others’ contributions. The decision is whether to support (and pay for) expansion.
-
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| Resident A \ Resident B | Contribute | Free-Ride |
-|-------------------------|------------|-----------|
-| Contribute              | (2,2)      | (4,1)     |
-| Free-Ride               | (1,4)      | (3,3)     |
-
-**Justification:** The ODD+D discusses capacity planning and resident pressure on management. This Prisoner’s Dilemma represents the collective action problem in funding shared infrastructure expansion.
+**Justification:**  
+- (M,C): Staff wasted effort, user complied.  
+- (M,V): Staff catches violation, user penalized.  
+- (N,C): No effort, user complied.  
+- (N,V): Staff misses violation, user benefits.  
+This inspection game underlies the enforcement of queue rules and move‑out rules. Staff’s monitoring effort is costly, and users’ compliance depends on the perceived likelihood of being caught.
 
 ---
 
-### Action Situation 7: Fault Reporting Dilemma
-**Tension:** Users can report a faulty charger (costly) or ignore it. Reporting helps restore capacity; ignoring delays repair. Each user prefers the other to report.
+**Action Situation 4: Informal Priority Request**  
+**Title:** Resident Request for Preferential Treatment  
+**Tension:** Residents may ask staff for priority access, leveraging their residency status. Staff must balance granting favours against maintaining rule legitimacy.  
+**Matrix (Resident vs Staff):**  
+| Resident \ Staff | Grant (G) | Deny (D) |
+|------------------|------------|----------|
+| Request (R)     | (4,2)      | (1,3)    |
+| Not Request (N) | (3,3)      | (3,3)    |
 
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| User A \ User B | Report | Ignore |
-|------------------|--------|--------|
-| Report           | (2,2)  | (4,1)  |
-| Ignore           | (1,4)  | (3,3)  |
-
-**Justification:** Charger faults reduce effective capacity. The ODD+D includes fault reporting and maintenance. This Prisoner’s Dilemma captures the incentive to free-ride on others’ reporting efforts.
-
----
-
-### Action Situation 8: Complaint Escalation Dilemma
-**Tension:** Users observe a rule violation and decide whether to complain (bear social cost) or stay silent. Complaints can trigger enforcement but may invite conflict; silence avoids conflict but allows violations.
-
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| User A \ User B | Complain | Stay Silent |
-|------------------|----------|--------------|
-| Complain         | (3,3)    | (4,1)        |
-| Stay Silent      | (1,4)    | (2,2)        |
-
-**Justification:** The ODD+D models complaint and legitimacy feedback. This Prisoner’s Dilemma (T=1, R=3, P=2, S=4) reflects the choice to bear individual social costs to achieve collective enforcement.
+**Justification:**  
+- (R,G): Resident gets priority, staff gains favour but loses legitimacy.  
+- (R,D): Resident disappointed, staff upholds rules.  
+- (N,*): No request, both maintain status quo.  
+Informal requests for priority create a tension between personal relationships and impartial rule enforcement, which can erode trust in the queue system.
 
 ---
 
-### Action Situation 9: Off-Peak Charging Coordination Dilemma
-**Tension:** Users decide whether to charge during off-peak hours (cooperate) or peak hours (defect). Shifting reduces congestion, but individuals may prefer peak convenience if others shift.
+**Action Situation 5: Violation Reporting Dilemma**  
+**Title:** Observer’s Decision to Report Violations  
+**Tension:** When a user observes a queue violation or overstay, they can report it or ignore it. Reporting is costly but may deter future violations; ignoring saves effort but allows the violator to benefit.  
+**Matrix (Observer vs Violator):**  
+| Observer \ Violator | Violate (V) | Not Violate (N) |
+|---------------------|-------------|-----------------|
+| Report (R)         | (1,3)       | (2,2)           |
+| Ignore (I)         | (4,1)       | (2,2)           |
 
-**Matrix (Payoffs: Row, Col; 1=best, 4=worst):**
-| User A \ User B | Off
+**Justification:**  
+- (R,V): Violator penalized, observer incurs cost but gets satisfaction.  
+- (I,V): Violator benefits, observer suffers.  
+- (R,N) or (I,N): No violation, both get status quo.  
+This dilemma shows how the willingness of bystanders to report violations affects the net benefit of violating rules, linking individual action to collective enforcement.
+
+---
+
+**Action Situation 6: Resident vs. Non‑resident Access Claim**  
+**Title:** Charger Access Entitlement Conflict  
+**Tension:** When a charger becomes available, a resident and a non‑resident may both claim priority. The resident may feel entitled due to residency and the discount, while the non‑resident expects equal treatment as a paying user.  
+**Matrix (Resident vs Non‑resident):**  
+| Resident \ Non‑resident | Claim (C) | Accept (A) |
+|-------------------------|------------|------------|
+| Claim (C)               | (2,2)      | (4,1)      |
+| Accept (A)              | (1,4)      | (3,3)      |
+
+**Justification:**  
+- (C,C): Both claim, conflict and delay.  
+- (C,A): The claiming player gets fast access, the other waits.  
+- (A,A): Both follow queue order, fair but slower for the one who would have claimed.  
+This hawk‑dove game captures the inherent tension between resident entitlement and equal access, a key governance challenge in shared amenities.
+
+---
+
+**Action Situation 7: Collective Funding for Additional Chargers**  
+**Title:** Capacity Expansion Investment Dilemma  
+**Tension:** Residents benefit from more chargers but must contribute to the cost. Each resident prefers to free‑ride on others’ contributions, leading to potential underinvestment.  
+**Matrix (Resident A vs Resident B):**  
+| Resident A \ Resident B | Support (S) | Oppose (O) |
+|-------------------------|-------------|------------|
+| Support (S)             | (3,3)       | (2,4)      |
+| Oppose (O)              | (4,2)       | (1,1)      |
+
+**Justification:**  
+- (S,S): Both pay and benefit from expansion.  
+- (S,O): A pays, B free‑rides.  
+- (O,O): No expansion, status quo.  
+This public goods dilemma explains why capacity may remain insufficient despite collective demand, a common issue in shared infrastructure governance.

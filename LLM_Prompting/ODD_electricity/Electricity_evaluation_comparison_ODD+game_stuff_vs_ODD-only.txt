@@ -15,6 +15,8 @@ Model                Evaluation         TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------------
 DeepSeek-R1          ODD+game_stuff    180    0    4     0.9783   1.0000
 DeepSeek-R1          ODD-only          164   16   12     0.9318   0.9111
+DeepSeek-V4-Pro      ODD+game_stuff     91   89   10     0.9010   0.5056
+DeepSeek-V4-Pro      ODD-only           64  116    1     0.9846   0.3556
 Llama-3.3-70B        ODD+game_stuff    166   14    3     0.9822   0.9222
 Llama-3.3-70B        ODD-only          176    4    4     0.9778   0.9778
 Qwen2.5-7B           ODD+game_stuff    180    0  103     0.6360   1.0000
@@ -24,6 +26,7 @@ Differences (ODD+game_stuff minus ODD-only):
 Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
 ------------------------------------------------------------------------------
 DeepSeek-R1               +16      -16       -8     +0.0464       +0.0889
+DeepSeek-V4-Pro           +27      -27       +9     -0.0836       +0.1500
 Llama-3.3-70B             -10      +10       -1     +0.0045       -0.0556
 Qwen2.5-7B                 +3       -3      +51     -0.1369       +0.0167
 

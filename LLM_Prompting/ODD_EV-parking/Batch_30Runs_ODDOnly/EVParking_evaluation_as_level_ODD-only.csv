@@ -92,14 +92,27 @@ ODD-only,DeepSeek-V4-Pro,run_13.md,3,27,Rule Enforcement Interaction,None,FP-wro
 ODD-only,DeepSeek-V4-Pro,run_13.md,4,39,Complaint Reporting Dilemma,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
 ODD-only,DeepSeek-V4-Pro,run_13.md,5,51,Resident Priority Conflict,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
 ODD-only,DeepSeek-V4-Pro,run_13.md,6,63,Off-peak Charging Coordination,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,2,18,Post‑Charging Move‑Out,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,3,33,Rule Enforcement,AS1: Queue-order and prompt move-out compliance between EV users,FP-duplicate,duplicate generated AS for AS1: Queue-order and prompt move-out compliance between EV users,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,4,48,Violation Reporting,AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,5,63,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,6,78,Reservation vs. Live Queue,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,7,93,Capacity Investment,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
-ODD-only,DeepSeek-V4-Pro,run_14.md,8,108,Resident Discount Entitlement,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,1,203,Queue Order Compliance (User vs. User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,2,215,Overstaying After Charging (Current User vs. Next User),AS5: Formal complaint and enforcement coordination between user and management,TP,generated AS matches AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,3,227,Staff Enforcement of Queue Rules (Staff vs. User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,4,237,Resident vs. Non-resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,5,247,Complaint Dilemma (User vs. User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,6,257,Informal Priority Request (User vs. Staff),AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,7,267,Reservation vs. Walk-in (User vs. User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,8,282,Capacity Expansion (Management vs. Representative User),None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,9,290,Maintenance Responsiveness (Staff vs. User),AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,10,300,Off-peak Coordination (User vs. User),AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,11,330,Queue Order Compliance,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,12,340,Overstaying After Charging,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,13,350,Staff Enforcement of Queue Rules,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,14,360,Resident vs. Non-resident Priority Claim,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,15,370,Complaint Dilemma Among Users,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,16,380,Informal Priority Request,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,17,390,Reservation Commitment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,18,400,Capacity Investment,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,19,410,Maintenance Responsiveness,AS5: Formal complaint and enforcement coordination between user and management,FP-duplicate,duplicate generated AS for AS5: Formal complaint and enforcement coordination between user and management,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,20,420,Off-peak Coordination,AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
+ODD-only,DeepSeek-V4-Pro,run_14.md,21,503,Action Situation X: [Title],AS4: Informal priority exchange between EV user and parking staff,FP-duplicate,duplicate generated AS for AS4: Informal priority exchange between EV user and parking staff,1
 ODD-only,DeepSeek-V4-Pro,run_15.md,1,1,Queue Order Compliance (User vs. User),AS4: Informal priority exchange between EV user and parking staff,TP,generated AS matches AS4: Informal priority exchange between EV user and parking staff,1
 ODD-only,DeepSeek-V4-Pro,run_16.md,1,3,Queue Order Compliance,AS1: Queue-order and prompt move-out compliance between EV users,TP,generated AS matches AS1: Queue-order and prompt move-out compliance between EV users,1
 ODD-only,DeepSeek-V4-Pro,run_16.md,2,16,Charger Bay Overstay,None,FP-wrong,generated AS is not one of the scenario-file correct ASs,1

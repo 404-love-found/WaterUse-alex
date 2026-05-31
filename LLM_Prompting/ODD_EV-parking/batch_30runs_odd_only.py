@@ -70,6 +70,28 @@ def build_prompt(odd_text):
     """
 
 
+def looks_truncated(text):
+    """Detect obvious mid-generation cutoffs in returned markdown."""
+    stripped = text.strip()
+    if not stripped:
+        return True
+    if stripped.count("```") % 2:
+        return True
+    return stripped[-1] not in ".!?)`]}>:;\"”’"
+
+
+def extract_response_text(response):
+    choice = response.choices[0]
+    message = choice.message
+    content = message.content or ""
+    reasoning = getattr(message, "reasoning", None) or ""
+    finish_reason = getattr(choice, "finish_reason", None)
+
+    if reasoning and (not content or finish_reason == "length" or looks_truncated(content)):
+        return reasoning
+    return content or reasoning or None
+
+
 def run_single(client, model_id, prompt, max_tokens):
     """Send one request with retry logic."""
     for attempt in range(MAX_RETRIES):
@@ -80,10 +102,10 @@ def run_single(client, model_id, prompt, max_tokens):
                 temperature=TEMPERATURE,
                 max_tokens=max_tokens,
             )
-            return response.choices[0].message.content
+            return extract_response_text(response)
         except Exception as e:
             error_msg = str(e).lower()
-            if any(k in error_msg for k in ["503", "service_unavailable", "timeout"]):
+            if any(k in error_msg for k in ["503", "service_unavailable", "timeout", "429", "rate", "throttled"]):
                 print(
                     f"      Retry {attempt + 1}/{MAX_RETRIES}, "
                     f"waiting {RETRY_WAIT_SECONDS}s... ({e})"

@@ -197,15 +197,29 @@ run_13.md | TP=2 FN=4 FP=4 Precision=0.3333 Recall=0.3333
   FN missed: AS4: Informal priority exchange between EV user and parking staff
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_14.md | TP=3 FN=3 FP=5 Precision=0.3750 Recall=0.5000
-  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance
-  FP-duplicate [AS1: Queue-order and prompt move-out compliance between EV users] L18: Post‑Charging Move‑Out
-  FP-duplicate [AS1: Queue-order and prompt move-out compliance between EV users] L33: Rule Enforcement
-  TP [AS5: Formal complaint and enforcement coordination between user and management] L48: Violation Reporting
-  TP [AS4: Informal priority exchange between EV user and parking staff] L63: Informal Priority Request
-  FP-wrong [None] L78: Reservation vs. Live Queue
-  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L93: Capacity Investment
-  FP-wrong [None] L108: Resident Discount Entitlement
+run_14.md | TP=2 FN=4 FP=19 Precision=0.0952 Recall=0.3333
+  FP-wrong [None] L203: Queue Order Compliance (User vs. User)
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L215: Overstaying After Charging (Current User vs. Next User)
+  FP-wrong [None] L227: Staff Enforcement of Queue Rules (Staff vs. User)
+  FP-wrong [None] L237: Resident vs. Non-resident Priority Claim
+  FP-wrong [None] L247: Complaint Dilemma (User vs. User)
+  TP [AS4: Informal priority exchange between EV user and parking staff] L257: Informal Priority Request (User vs. Staff)
+  FP-wrong [None] L267: Reservation vs. Walk-in (User vs. User)
+  FP-wrong [None] L282: Capacity Expansion (Management vs. Representative User)
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L290: Maintenance Responsiveness (Staff vs. User)
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L300: Off-peak Coordination (User vs. User)
+  FP-wrong [None] L330: Queue Order Compliance
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L340: Overstaying After Charging
+  FP-wrong [None] L350: Staff Enforcement of Queue Rules
+  FP-wrong [None] L360: Resident vs. Non-resident Priority Claim
+  FP-wrong [None] L370: Complaint Dilemma Among Users
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L380: Informal Priority Request
+  FP-wrong [None] L390: Reservation Commitment
+  FP-wrong [None] L400: Capacity Investment
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L410: Maintenance Responsiveness
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L420: Off-peak Coordination
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L503: Action Situation X: [Title]
+  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS3: Shared charger-capacity contribution dilemma among residents
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
@@ -402,9 +416,9 @@ run_30.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
 ------------------------------------------------------------------------------
 DeepSeek-V4-Pro TOTALS
 ------------------------------------------------------------------------------
-TP = 67    FN = 113   FP = 129
-Precision = TP/(TP+FP) = 67/(67+129) = 0.3418
-Recall    = TP/(TP+FN) = 67/(67+113) = 0.3722
+TP = 66    FN = 114   FP = 143
+Precision = TP/(TP+FP) = 66/(66+143) = 0.3158
+Recall    = TP/(TP+FN) = 66/(66+114) = 0.3667
 
 ##############################################################################
 MODEL 2: Llama-3.3-70B (30 runs)
@@ -1088,6 +1102,6 @@ FINAL MODEL COMPARISON: ODD-only
 
 Model                  TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------
-DeepSeek-V4-Pro        67  113  129     0.3418   0.3722
+DeepSeek-V4-Pro        66  114  143     0.3158   0.3667
 Llama-3.3-70B          39  141   24     0.6190   0.2167
 Qwen2.5-7B             42  138  149     0.2199   0.2333

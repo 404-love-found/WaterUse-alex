@@ -30,12 +30,17 @@ Scoring rules:
 MODEL 1: DeepSeek-V4-Pro (30 runs)
 ##############################################################################
 
-run_01.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Dilemma
+run_01.md | TP=3 FN=3 FP=5 Precision=0.3750 Recall=0.5000
+  FP-wrong [None] L3: Queue Bypassing Dilemma
+  FP-wrong [None] L14: Move‑out Promptness Dilemma
+  FP-wrong [None] L25: Staff Enforcement Game
+  TP [AS4: Informal priority exchange between EV user and parking staff] L36: Informal Priority Game
+  FP-wrong [None] L47: Resident vs Non‑resident Priority Game
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L58: Reporting Dilemma
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L69: Capacity Expansion Collective Action
+  FP-wrong [None] L80: Reservation vs Live Queue Game
+  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
-  FN missed: AS4: Informal priority exchange between EV user and parking staff
-  FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_02.md | TP=3 FN=3 FP=4 Precision=0.4286 Recall=0.5000
@@ -58,15 +63,16 @@ run_03.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
   FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_04.md | TP=2 FN=4 FP=3 Precision=0.4000 Recall=0.3333
-  FP-wrong [None] L3: Queue Order Compliance
-  FP-wrong [None] L18: Move‑out Promptness
-  FP-wrong [None] L33: Staff Enforcement versus User Compliance
-  TP [AS4: Informal priority exchange between EV user and parking staff] L48: Informal Priority Request
-  TP [AS5: Formal complaint and enforcement coordination between user and management] L63: Violation Reporting
-  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
+run_04.md | TP=4 FN=2 FP=4 Precision=0.5000 Recall=0.6667
+  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance
+  FP-wrong [None] L15: Move‑out Promptness
+  FP-wrong [None] L27: Staff Enforcement vs. User Compliance
+  TP [AS4: Informal priority exchange between EV user and parking staff] L39: Informal Favor Seeking
+  FP-wrong [None] L51: Resident vs. Non‑resident Priority
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L63: Capacity Expansion Funding
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L75: Fault Reporting
+  FP-wrong [None] L87: Complaint about Violation
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_05.md | TP=2 FN=4 FP=6 Precision=0.2500 Recall=0.3333
@@ -104,17 +110,14 @@ run_07.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_08.md | TP=3 FN=3 FP=6 Precision=0.3333 Recall=0.5000
-  FP-wrong [None] L3: Queue Order Compliance Dilemma
-  FP-wrong [None] L16: Move-Out Promptness Dilemma
-  TP [AS5: Formal complaint and enforcement coordination between user and management] L29: Staff Enforcement Game
-  TP [AS4: Informal priority exchange between EV user and parking staff] L42: Informal Priority Game
-  FP-wrong [None] L55: Resident vs Non-Resident Priority Claim
-  TP [AS3: Shared charger-capacity contribution dilemma among residents] L68: Capacity Investment Dilemma
-  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L81: Fault Reporting Dilemma
-  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L94: Complaint Escalation Dilemma
-  FP-wrong [None] L107: Off-Peak Charging Coordination Dilemma
-  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
+run_08.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
+  FP-wrong [None] L3: Queue Order Compliance
+  FP-wrong [None] L21: Post‑Charging Move‑out Compliance
+  FP-wrong [None] L39: Staff Monitoring and User Compliance
+  TP [AS4: Informal priority exchange between EV user and parking staff] L57: Informal Priority Request
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L74: Violation Reporting Dilemma
+  TP [AS1: Queue-order and prompt move-out compliance between EV users] L91: Resident vs. Non‑resident Access Claim
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L108: Collective Funding for Additional Chargers
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
@@ -158,12 +161,16 @@ run_11.md | TP=5 FN=1 FP=5 Precision=0.5000 Recall=0.8333
   FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L138: Charger Fault Reporting
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_12.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS4: Informal priority exchange between EV user and parking staff] L1: Queue Order Compliance
-  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
+run_12.md | TP=4 FN=2 FP=4 Precision=0.5000 Recall=0.6667
+  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L14: Bay Release Timing
+  FP-wrong [None] L25: Rule Enforcement
+  FP-wrong [None] L36: Resident Priority Claim
+  TP [AS4: Informal priority exchange between EV user and parking staff] L47: Informal Priority Request
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L58: Complaint and Response
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L69: Capacity Investment
+  FP-wrong [None] L80: Off‑peak Charging Coordination
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
-  FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_13.md | TP=3 FN=3 FP=5 Precision=0.3750 Recall=0.5000
@@ -179,12 +186,14 @@ run_13.md | TP=3 FN=3 FP=5 Precision=0.3750 Recall=0.5000
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_14.md | TP=1 FN=5 FP=1 Precision=0.5000 Recall=0.1667
-  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance
-  FP-wrong [None] L18: Post-Charging Move-out Compliance
+run_14.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance Game
+  FP-wrong [None] L14: Bay Overstay Game
+  FP-wrong [None] L27: Rule Enforcement Game
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L40: Charger Capacity Investment Game
+  TP [AS4: Informal priority exchange between EV user and parking staff] L53: Informal Priority Game
+  FP-duplicate [AS1: Queue-order and prompt move-out compliance between EV users] L66: Resident vs Non‑resident Entitlement Clash
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
-  FN missed: AS4: Informal priority exchange between EV user and parking staff
   FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
@@ -201,16 +210,38 @@ run_15.md | TP=2 FN=4 FP=5 Precision=0.2857 Recall=0.3333
   FN missed: AS4: Informal priority exchange between EV user and parking staff
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_16.md | TP=4 FN=2 FP=5 Precision=0.4444 Recall=0.6667
-  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Jumping
-  FP-wrong [None] L15: Overstay vs. Move-out
-  FP-wrong [None] L27: Staff Enforcement
-  TP [AS4: Informal priority exchange between EV user and parking staff] L39: Seeking Informal Priority
-  TP [AS5: Formal complaint and enforcement coordination between user and management] L51: Reporting Violations
-  FP-wrong [None] L63: Resident vs. Non‑resident Priority
-  TP [AS3: Shared charger-capacity contribution dilemma among residents] L75: Capacity Expansion Contribution
-  FP-wrong [None] L87: Peak vs. Off‑peak Charging
-  FP-wrong [None] L99: Reservation Compliance
+run_16.md | TP=3 FN=3 FP=27 Precision=0.1000 Recall=0.5000
+  FP-wrong [None] L90: Queue Order Compliance
+  FP-wrong [None] L99: Move-Out Promptness
+  FP-wrong [None] L106: Staff Enforcement vs. User Compliance
+  FP-wrong [None] L119: Resident vs Non-Resident Entitlement
+  FP-wrong [None] L131: Reservation vs. Live Queue
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L150: Complaint Dilemma
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L162: Capacity Expansion Lobbying
+  TP [AS4: Informal priority exchange between EV user and parking staff] L169: Informal Priority Seeking
+  FP-wrong [None] L181: Staff Overstay Tolerance
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L187: Resident vs Non-Resident Priority Norm
+  FP-wrong [None] L241: Queue Order Compliance
+  FP-wrong [None] L252: Move-Out Promptness
+  FP-wrong [None] L262: Staff Enforcement vs User Compliance
+  FP-wrong [None] L274: Resident vs Non-Resident Entitlement
+  FP-wrong [None] L285: Reservation vs Live Queue
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L296: Complaint Dilemma
+  FP-duplicate [AS3: Shared charger-capacity contribution dilemma among residents] L307: Capacity Expansion Lobbying
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L318: Informal Priority Seeking
+  FP-wrong [None] L360: Peak vs Off-Peak Charging
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L375: Staff Favoritism Game
+  FP-wrong [None] L426: Queue Order Compliance
+  FP-wrong [None] L436: Move-Out Promptness
+  FP-wrong [None] L446: Staff Enforcement vs User Compliance
+  FP-wrong [None] L456: Resident vs Non-Resident Entitlement
+  FP-wrong [None] L466: Reservation vs Live Queue
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L476: Complaint Dilemma
+  FP-duplicate [AS3: Shared charger-capacity contribution dilemma among residents] L486: Capacity Expansion Lobbying
+  FP-wrong [None] L496: Informal Priority Seeking
+  FP-wrong [None] L506: Peak vs Off-Peak Charging
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L516: Staff Favoritism
+  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
@@ -251,7 +282,7 @@ run_19.md | TP=2 FN=4 FP=3 Precision=0.4000 Recall=0.3333
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_20.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS4: Informal priority exchange between EV user and parking staff] L1: Queue Order Compliance
+  TP [AS4: Informal priority exchange between EV user and parking staff] L1: Queue Jumping Dilemma
   FN missed: AS1: Queue-order and prompt move-out compliance between EV users
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
   FN missed: AS3: Shared charger-capacity contribution dilemma among residents
@@ -282,12 +313,35 @@ run_22.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
   FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_23.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS4: Informal priority exchange between EV user and parking staff] L1: Queue Order Compliance
+run_23.md | TP=4 FN=2 FP=23 Precision=0.1481 Recall=0.6667
+  FP-wrong [None] L192: Queue Jumping Game (User vs User)
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L202: Move-out Dilemma (Current User vs Next User)
+  FP-wrong [None] L211: Enforcement Game (Management vs User)
+  TP [AS4: Informal priority exchange between EV user and parking staff] L219: Informal Priority Game (User vs Management)
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L235: Capacity Expansion Game (Resident A vs Resident B)
+  FP-wrong [None] L242: Resident vs Non-resident Access Contest
+  FP-wrong [None] L249: Reservation vs Live Queue (User A vs User B)
+  FP-wrong [None] L256: Off-peak Shifting Game (User A vs User B)
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L265: Staff Responsiveness Game (User vs Management)
+  FP-wrong [None] L309: Queue Jumping Game
+  FP-wrong [None] L316: Move-out Dilemma
+  FP-wrong [None] L323: Rule Enforcement Game
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L330: Informal Priority Game
+  FP-duplicate [AS3: Shared charger-capacity contribution dilemma among residents] L344: Capacity Expansion Game
+  FP-wrong [None] L351: Resident vs Non-resident Access Contest
+  FP-wrong [None] L358: Reservation Participation Game
+  TP [AS2: Sequential learning in reservation and off-peak charging behaviour] L365: Off-peak Shifting Game
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L372: Complaint Response Game
+  FP-wrong [None] L441: Queue Jumping Game
+  FP-duplicate [AS5: Formal complaint and enforcement coordination between user and management] L452: Move-out Dilemma
+  FP-wrong [None] L463: Rule Enforcement
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L474: Informal Priority
+  FP-duplicate [AS3: Shared charger-capacity contribution dilemma among residents] L496: Capacity Expansion
+  FP-wrong [None] L507: Resident vs Non-resident Access
+  FP-wrong [None] L518: Reservation Participation
+  FP-wrong [None] L529: Off-peak Shifting
+  FP-duplicate [AS4: Informal priority exchange between EV user and parking staff] L540: Complaint Response
   FN missed: AS1: Queue-order and prompt move-out compliance between EV users
-  FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
-  FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_24.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
@@ -348,17 +402,16 @@ run_28.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
   FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
-run_29.md | TP=2 FN=4 FP=5 Precision=0.2857 Recall=0.3333
-  TP [AS1: Queue-order and prompt move-out compliance between EV users] L3: Queue Order Compliance
-  FP-wrong [None] L17: Reservation vs. Live Queue Choice
-  FP-wrong [None] L31: Charger Bay Release (Overstay)
-  FP-wrong [None] L46: Rule Enforcement
-  TP [AS4: Informal priority exchange between EV user and parking staff] L61: Informal Priority Request
-  FP-wrong [None] L76: Resident vs. Non‑resident Priority Claim
-  FP-wrong [None] L90: Complaint Filing
+run_29.md | TP=3 FN=3 FP=4 Precision=0.4286 Recall=0.5000
+  FP-wrong [None] L3: Queue Jumping Dilemma
+  TP [AS5: Formal complaint and enforcement coordination between user and management] L14: Charger Bay Release (Overstay vs. Move)
+  FP-wrong [None] L25: Staff Rule Enforcement
+  TP [AS4: Informal priority exchange between EV user and parking staff] L36: Informal Priority Request
+  FP-wrong [None] L47: Charger Fault Reporting
+  FP-wrong [None] L58: Resident vs. Non‑Resident Queue Entitlement
+  TP [AS3: Shared charger-capacity contribution dilemma among residents] L69: Capacity Expansion Funding
+  FN missed: AS1: Queue-order and prompt move-out compliance between EV users
   FN missed: AS2: Sequential learning in reservation and off-peak charging behaviour
-  FN missed: AS3: Shared charger-capacity contribution dilemma among residents
-  FN missed: AS5: Formal complaint and enforcement coordination between user and management
   FN missed: AS6: Shared charger-occupancy common-pool congestion between EV users
 
 run_30.md | TP=3 FN=3 FP=4 Precision=0.4286 Recall=0.5000
@@ -376,9 +429,9 @@ run_30.md | TP=3 FN=3 FP=4 Precision=0.4286 Recall=0.5000
 ------------------------------------------------------------------------------
 DeepSeek-V4-Pro TOTALS
 ------------------------------------------------------------------------------
-TP = 77    FN = 103   FP = 103
-Precision = TP/(TP+FP) = 77/(77+103) = 0.4278
-Recall    = TP/(TP+FN) = 77/(77+103) = 0.4278
+TP = 90    FN = 90    FP = 156
+Precision = TP/(TP+FP) = 90/(90+156) = 0.3659
+Recall    = TP/(TP+FN) = 90/(90+90) = 0.5000
 
 ##############################################################################
 MODEL 2: Llama-3.3-70B (30 runs)
@@ -1021,6 +1074,6 @@ FINAL MODEL COMPARISON: ODD+game_stuff
 
 Model                  TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------
-DeepSeek-V4-Pro        77  103  103     0.4278   0.4278
+DeepSeek-V4-Pro        90   90  156     0.3659   0.5000
 Llama-3.3-70B          57  123   31     0.6477   0.3167
 Qwen2.5-7B             81   99  101     0.4451   0.4500
