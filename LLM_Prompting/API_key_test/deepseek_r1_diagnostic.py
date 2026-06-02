@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import re
+import os
 from datetime import datetime
 from pathlib import Path
 
@@ -9,7 +9,6 @@ from together import Together
 
 
 CURRENT_DIR = Path(__file__).resolve().parent
-TEST_API = CURRENT_DIR / "test_api.py"
 OUTPUT = CURRENT_DIR / "deepseek_r1_diagnostic_report.txt"
 
 DEEPSEEK_R1_EXACT = "deepseek-ai/DeepSeek-R1"
@@ -22,11 +21,10 @@ R1_RELATED_CANDIDATES = [
 
 
 def load_api_key() -> str:
-    text = TEST_API.read_text(encoding="utf-8")
-    match = re.search(r"api_key\s*=\s*['\"]([^'\"]+)['\"]", text)
-    if not match:
-        raise RuntimeError(f"Could not find api_key assignment in {TEST_API}")
-    return match.group(1)
+    api_key = os.environ.get("TOGETHER_API_KEY")
+    if not api_key:
+        raise RuntimeError("Set TOGETHER_API_KEY in the active virtual environment before running this script.")
+    return api_key
 
 
 def compact_error(exc: Exception) -> str:
@@ -101,7 +99,7 @@ def main() -> None:
     lines.append("DeepSeek-R1 Together API Diagnostic")
     lines.append("=" * 72)
     lines.append(f"Timestamp: {datetime.now().isoformat(timespec='seconds')}")
-    lines.append("API key: loaded from API_key_test/test_api.py (redacted)")
+    lines.append("API key: loaded from TOGETHER_API_KEY environment variable (redacted)")
     lines.append("Water-use reference parameters: timeout=600.0, max_tokens=16000, temperature=0.6")
     lines.append("")
 

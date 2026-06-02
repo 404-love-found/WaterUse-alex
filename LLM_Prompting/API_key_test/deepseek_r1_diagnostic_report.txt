@@ -1,7 +1,7 @@
 DeepSeek-R1 Together API Diagnostic
 ========================================================================
 Timestamp: 2026-05-28T17:30:02
-API key: loaded from API_key_test/test_api.py (redacted)
+API key: loaded from TOGETHER_API_KEY environment variable (redacted)
 Water-use reference parameters: timeout=600.0, max_tokens=16000, temperature=0.6
 
 1) Exact DeepSeek-R1 test
