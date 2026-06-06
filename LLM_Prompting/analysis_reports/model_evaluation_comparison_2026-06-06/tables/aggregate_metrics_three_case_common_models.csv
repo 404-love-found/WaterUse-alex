@@ -1,0 +1,7 @@
+Model,Condition,Cases,Case_Count,Runs,TP,FN,FP,Precision,Recall,Aggregation
+DeepSeek-V4-Pro,ODD+game,"EV-parking,Electricity,Water-use",3,90,201,219,189,0.5153846153846153,0.4785714285714286,three-case common models
+DeepSeek-V4-Pro,ODD-only,"EV-parking,Electricity,Water-use",3,90,147,273,166,0.4696485623003195,0.35,three-case common models
+Llama-3.3-70B,ODD+game,"EV-parking,Electricity,Water-use",3,90,277,143,96,0.7426273458445041,0.6595238095238095,three-case common models
+Llama-3.3-70B,ODD-only,"EV-parking,Electricity,Water-use",3,90,270,150,81,0.7692307692307693,0.6428571428571429,three-case common models
+Qwen2.5-7B,ODD+game,"EV-parking,Electricity,Water-use",3,90,300,120,256,0.539568345323741,0.7142857142857143,three-case common models
+Qwen2.5-7B,ODD-only,"EV-parking,Electricity,Water-use",3,90,255,165,259,0.4961089494163424,0.6071428571428571,three-case common models
