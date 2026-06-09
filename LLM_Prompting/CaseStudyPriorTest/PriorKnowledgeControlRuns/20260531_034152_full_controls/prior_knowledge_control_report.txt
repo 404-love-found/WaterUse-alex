@@ -1,14 +1,14 @@
 ========================================================================================
-EV-PARKING PRIOR-KNOWLEDGE / LEAKAGE-CONTROL REPORT
+ODD_EV-parking PRIOR-KNOWLEDGE / LEAKAGE-CONTROL REPORT
 ========================================================================================
 
 Interpretation:
   This script cannot prove absence from a provider training corpus.
   It tests whether models reproduce the hidden AS set before ODD/game/scenario text is given.
-  Exact title hits in blind/domain/weak controls are the strongest warning signal.
+  Exact title hits in case-study-prior/domain/weak controls are the strongest warning signal.
   Semantic TP in weak controls may be ordinary inference, not proof of leakage.
 
-Gold AS titles from Txts/scenarios.txt:
+Gold AS titles from /Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_EV-parking/Txts/scenarios.txt:
   AS1: Queue-order and prompt move-out compliance between EV users
   AS2: Sequential learning in reservation and off-peak charging behaviour
   AS3: Shared charger-capacity contribution dilemma among residents
@@ -18,9 +18,9 @@ Gold AS titles from Txts/scenarios.txt:
 
 Condition                  Model              Runs   TP   FN   FP    Prec  Recall  Exact MaxEx  Hi  Med
 ------------------------------------------------------------------------------------------------
-blind_prior                DeepSeek-V4-Pro       3    1   17    4  0.2000  0.0556      0     0   0    0
-blind_prior                Llama-3.3-70B         3    0   18    9  0.0000  0.0000      0     0   0    0
-blind_prior                Qwen2.5-7B            3    0   18   14  0.0000  0.0000      0     0   0    0
+case_study_prior_test      DeepSeek-V4-Pro       3    1   17    4  0.2000  0.0556      0     0   0    0
+case_study_prior_test      Llama-3.3-70B         3    0   18    9  0.0000  0.0000      0     0   0    0
+case_study_prior_test      Qwen2.5-7B            3    0   18   14  0.0000  0.0000      0     0   0    0
 domain_baseline            DeepSeek-V4-Pro       3    3   15    6  0.3333  0.1667      0     0   0    0
 domain_baseline            Llama-3.3-70B         3    0   18    9  0.0000  0.0000      0     0   0    0
 domain_baseline            Qwen2.5-7B            3    0   18   15  0.0000  0.0000      0     0   0    0
@@ -38,7 +38,7 @@ scenario_positive_control  Llama-3.3-70B         3   15    3    3  0.8333  0.833
 scenario_positive_control  Qwen2.5-7B            3   15    3    3  0.8333  0.8333     18     6   0    0
 
 Decision guide:
-  PASS: blind/domain/weak controls have zero exact title hits and low leakage risk.
+  PASS: case-study-prior/domain/weak controls have zero exact title hits and low leakage risk.
   REVIEW: any weak control has exact title hits or repeated medium/high risk.
-  FAIL-SUSPECT: blind_prior or domain_baseline repeatedly reproduces multiple exact AS titles.
+  FAIL-SUSPECT: case_study_prior_test or domain_baseline repeatedly reproduces multiple exact AS titles.
   Positive control should recover many ASs when scenario text is intentionally provided.

@@ -4,4 +4,9 @@
 .venv/
 __pycache__/
 *.pyc
+.DS_Store
 API_key_test/Test_Output/
+ODD_EV-parking/RerunArchive/
+ODD_EV-parking/build/doc_render/
+ODD_EV-parking/build/*preview.png
+ODD_EV-parking/DeepSeek_V4Pro_single_test_ODD+game.md

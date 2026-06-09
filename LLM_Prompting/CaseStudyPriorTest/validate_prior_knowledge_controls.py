@@ -1,14 +1,16 @@
 """
-Prior-knowledge / leakage-control validation for the EV-parking case.
+Prior-knowledge / leakage-control validation for case-study AS extraction.
 
 This script does not prove that a provider's training corpus excludes the case.
-Instead, it tests whether models can reproduce the hidden EV-parking AS set
-before they are given the ODD/game material.
+Instead, it tests whether models can reproduce the hidden AS set before they
+are given the ODD/game material. The default metadata targets the EV-parking
+case, but the case name, domain baseline, weak description, and input paths can
+be overridden from the CLI for another case study.
 
 Control conditions:
-  1. blind_prior: only the case file name/domain is mentioned.
-  2. domain_baseline: generic apartment EV charging domain, no case details.
-  3. weak_case_description: the short user concept, no ODD/game/scenario text.
+  1. case_study_prior_test: only the case-study name/domain is mentioned.
+  2. domain_baseline: generic domain context, no case-specific details.
+  3. weak_case_description: short case concept, no ODD/game/scenario text.
   4. odd_only: the real ODD text is provided.
   5. odd_game: the real ODD + game_stuff text is provided.
   6. scenario_positive_control: scenario.txt is intentionally provided to
@@ -23,28 +25,44 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import importlib.util
 import json
 import os
 import re
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
 
 from together import Together
 
-import evaluate_tp_fp_fn_compare as evaluator
-
 
 CURRENT_DIR = Path(__file__).resolve().parent
-TXT_DIR = CURRENT_DIR / "Txts"
+PROJECT_ROOT = CURRENT_DIR.parent
+DEFAULT_CASE_DIR = PROJECT_ROOT / "ODD_EV-parking"
+TXT_DIR = DEFAULT_CASE_DIR / "Txts"
 ODD_PATH = TXT_DIR / "odd.txt"
 GAME_PATH = TXT_DIR / "game_stuff.txt"
 SCENARIO_PATH = TXT_DIR / "scenarios.txt"
+EVALUATOR_PATH = DEFAULT_CASE_DIR / "evaluate_tp_fp_fn_compare.py"
 OUTPUT_ROOT = CURRENT_DIR / "PriorKnowledgeControlRuns"
 
 TEMPERATURE = 0.6
 MAX_RETRIES = 5
 RETRY_WAIT_SECONDS = 30
+
+DEFAULT_CASE_NAME = "ODD_EV-parking"
+DEFAULT_CASE_DOMAIN = "apartment EV parking shared-charging case"
+DEFAULT_DOMAIN_BASELINE = (
+    "Consider a generic apartment parking garage with shared EV chargers and "
+    "limited charging bays. Drivers may wait, charge, and leave."
+)
+DEFAULT_WEAK_CASE_DESCRIPTION = (
+    "An apartment parking garage has shared EV chargers. Residents receive a "
+    "discounted per-kWh charging price, non-residents pay the regular per-kWh "
+    "price, all users are billed by electricity consumed, and the research "
+    "focus is fair queueing for scarce shared chargers."
+)
 
 MODEL_CONFIGS = {
     "DeepSeek-V4-Pro": {
@@ -65,7 +83,7 @@ MODEL_CONFIGS = {
 }
 
 CONDITION_ORDER = (
-    "blind_prior",
+    "case_study_prior_test",
     "domain_baseline",
     "weak_case_description",
     "odd_only",
@@ -85,14 +103,14 @@ class Condition:
 
 
 CONDITIONS = {
-    "blind_prior": Condition(
-        name="blind_prior",
-        description="No ODD/game/scenario context; tests whether the exact case is already known.",
+    "case_study_prior_test": Condition(
+        name="case_study_prior_test",
+        description="No ODD/game/scenario context; tests whether the exact case study is already known.",
         leakage_control=True,
     ),
     "domain_baseline": Condition(
         name="domain_baseline",
-        description="Generic apartment EV charging context; tests domain-level inference.",
+        description="Generic domain context; tests domain-level inference.",
         leakage_control=True,
     ),
     "weak_case_description": Condition(
@@ -125,6 +143,32 @@ def sha256_text(text: str) -> str:
 
 def normalize_for_exact_match(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
+
+def load_evaluator(evaluator_path: Path):
+    if not evaluator_path.exists():
+        raise FileNotFoundError(f"Evaluator file not found: {evaluator_path}")
+
+    module_name = f"case_study_evaluator_{sha256_text(str(evaluator_path))[:12]}"
+    spec = importlib.util.spec_from_file_location(module_name, evaluator_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Could not load evaluator module from {evaluator_path}")
+
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[module_name] = module
+    sys.path.insert(0, str(evaluator_path.parent))
+    try:
+        spec.loader.exec_module(module)
+    finally:
+        try:
+            sys.path.remove(str(evaluator_path.parent))
+        except ValueError:
+            pass
+
+    missing = [name for name in ("GROUND_TRUTH", "evaluate_run") if not hasattr(module, name)]
+    if missing:
+        raise RuntimeError(f"Evaluator {evaluator_path} is missing required attributes: {missing}")
+    return module
 
 
 def looks_truncated(text: str) -> bool:
@@ -166,20 +210,32 @@ You may provide general hypotheses, but label them as inferred.
 """
 
 
-def build_prompt(condition: Condition, odd_text: str, game_text: str, scenario_text: str) -> str:
+def build_prompt(
+    condition: Condition,
+    odd_text: str,
+    game_text: str,
+    scenario_text: str,
+    *,
+    case_name: str,
+    case_domain: str,
+    domain_baseline: str,
+    weak_case_description: str,
+) -> str:
     instruction = build_output_instruction()
 
-    if condition.name == "blind_prior":
+    if condition.name == "case_study_prior_test":
         return f"""
-This is a prior-knowledge control test.
+This is a case-study prior-knowledge control test.
 
-The unpublished case is named ODD_EV-parking and concerns action-situation
-extraction for an EV-parking case. No ODD, game scenario, or gold AS list is
-provided here.
+The unpublished case study is named {case_name}.
+Domain/context label: {case_domain}
+
+No ODD text, game scenario, scenario file, gold AS list, or case-specific
+material is provided here.
 
 Task:
-If you already know the exact unpublished case, list the exact action
-situations. If you do not know it exactly, state that the titles are inferred
+If you already know this exact unpublished case study, list the exact action
+situations. If you do not know it exactly, state that your titles are inferred
 from general domain knowledge.
 
 {instruction}
@@ -189,9 +245,10 @@ from general domain knowledge.
         return f"""
 This is a domain-baseline control test.
 
-Consider a generic apartment parking garage with shared EV chargers and limited
-charging bays. Drivers may wait, charge, and leave. No case-specific ODD,
-game_stuff, scenario file, or gold AS list is provided.
+Generic domain context:
+{domain_baseline}
+
+No case-specific ODD, game_stuff, scenario file, or gold AS list is provided.
 
 Extract plausible action situations using the IAD framework. These should be
 general hypotheses, not claims about an exact unpublished case.
@@ -204,10 +261,7 @@ general hypotheses, not claims about an exact unpublished case.
 This is a weak-context control test.
 
 The only case description is:
-An apartment parking garage has shared EV chargers. Residents receive a
-discounted per-kWh charging price, non-residents pay the regular per-kWh price,
-all users are billed by electricity consumed, and the research focus is fair
-queueing for scarce shared chargers.
+{weak_case_description}
 
 No ODD text, game_stuff text, scenario file, or gold AS list is provided.
 Extract plausible action situations using the IAD framework.
@@ -217,8 +271,8 @@ Extract plausible action situations using the IAD framework.
 
     if condition.name == "odd_only":
         return f"""
-Given the following ODD+D description of an apartment EV parking shared-charging
-model:
+Given the following ODD+D description for the case study "{case_name}"
+({case_domain}):
 
 {odd_text}
 
@@ -230,8 +284,8 @@ framework. Do not use any scenario/gold-answer file.
 
     if condition.name == "odd_game":
         return f"""
-Given the following ODD+D description of an apartment EV parking shared-charging
-model:
+Given the following ODD+D description for the case study "{case_name}"
+({case_domain}):
 
 {odd_text}
 
@@ -286,7 +340,7 @@ def call_model(client: Together, model_id: str, prompt: str, max_tokens: int) ->
     return None
 
 
-def exact_title_hits(text: str) -> list[str]:
+def exact_title_hits(text: str, evaluator) -> list[str]:
     normalized_text = normalize_for_exact_match(text)
     hits: list[str] = []
     for gt_as in evaluator.GROUND_TRUTH.values():
@@ -297,13 +351,13 @@ def exact_title_hits(text: str) -> list[str]:
 
 
 def leakage_risk(condition_name: str, tp: int, exact_hits: int) -> str:
-    if condition_name not in {"blind_prior", "domain_baseline", "weak_case_description"}:
+    if condition_name not in {"case_study_prior_test", "domain_baseline", "weak_case_description"}:
         return "N/A"
     if exact_hits >= 2:
         return "HIGH"
     if exact_hits == 1:
         return "MEDIUM"
-    if condition_name in {"blind_prior", "domain_baseline"} and tp >= 4:
+    if condition_name in {"case_study_prior_test", "domain_baseline"} and tp >= 4:
         return "MEDIUM"
     return "LOW"
 
@@ -316,11 +370,32 @@ def write_manifest(
     scenario_text: str,
     runs: int,
     models: list[str],
+    *,
+    case_name: str,
+    case_domain: str,
+    domain_baseline: str,
+    weak_case_description: str,
+    odd_path: Path,
+    game_path: Path,
+    scenario_path: Path,
+    evaluator_path: Path,
 ) -> None:
     manifest = {
-        "purpose": "EV-parking prior-knowledge / leakage-control validation",
+        "purpose": "case-study prior-knowledge / leakage-control validation",
+        "case_study": {
+            "name": case_name,
+            "domain": case_domain,
+            "domain_baseline": domain_baseline,
+            "weak_case_description": weak_case_description,
+        },
         "runs_per_condition_model": runs,
         "models": models,
+        "input_paths": {
+            "odd": str(odd_path),
+            "game_stuff": str(game_path),
+            "scenarios": str(scenario_path),
+            "evaluator": str(evaluator_path),
+        },
         "input_hashes": {
             "odd.txt": sha256_text(odd_text),
             "game_stuff.txt": sha256_text(game_text),
@@ -387,7 +462,15 @@ def run_generation(args, prompts: dict[str, str], selected_models: list[str]) ->
                 print(f" saved {len(content)} chars ({status})")
 
 
-def score_outputs(output_root: Path, conditions: list[str], selected_models: list[str]) -> tuple[Path, Path]:
+def score_outputs(
+    output_root: Path,
+    conditions: list[str],
+    selected_models: list[str],
+    *,
+    case_name: str,
+    scenario_path: Path,
+    evaluator,
+) -> tuple[Path, Path]:
     summary_csv = output_root / "prior_knowledge_control_summary.csv"
     report_txt = output_root / "prior_knowledge_control_report.txt"
     output_root.mkdir(parents=True, exist_ok=True)
@@ -400,7 +483,7 @@ def score_outputs(output_root: Path, conditions: list[str], selected_models: lis
             for filepath in sorted(model_dir.glob("run_*.md")):
                 result = evaluator.evaluate_run(filepath)
                 text = filepath.read_text(encoding="utf-8", errors="replace")
-                exact_hits = exact_title_hits(text)
+                exact_hits = exact_title_hits(text, evaluator)
                 rows.append(
                     {
                         "Condition": condition_name,
@@ -465,14 +548,14 @@ def score_outputs(output_root: Path, conditions: list[str], selected_models: lis
 
     with report_txt.open("w", encoding="utf-8") as out:
         out.write("=" * 88 + "\n")
-        out.write("EV-PARKING PRIOR-KNOWLEDGE / LEAKAGE-CONTROL REPORT\n")
+        out.write(f"{case_name} PRIOR-KNOWLEDGE / LEAKAGE-CONTROL REPORT\n")
         out.write("=" * 88 + "\n\n")
         out.write("Interpretation:\n")
         out.write("  This script cannot prove absence from a provider training corpus.\n")
         out.write("  It tests whether models reproduce the hidden AS set before ODD/game/scenario text is given.\n")
-        out.write("  Exact title hits in blind/domain/weak controls are the strongest warning signal.\n")
+        out.write("  Exact title hits in case-study-prior/domain/weak controls are the strongest warning signal.\n")
         out.write("  Semantic TP in weak controls may be ordinary inference, not proof of leakage.\n\n")
-        out.write("Gold AS titles from Txts/scenarios.txt:\n")
+        out.write(f"Gold AS titles from {scenario_path}:\n")
         for gt_as in evaluator.GROUND_TRUTH.values():
             out.write(f"  {gt_as.label}\n")
         out.write("\n")
@@ -500,16 +583,17 @@ def score_outputs(output_root: Path, conditions: list[str], selected_models: lis
                 )
 
         out.write("\nDecision guide:\n")
-        out.write("  PASS: blind/domain/weak controls have zero exact title hits and low leakage risk.\n")
+        out.write("  PASS: case-study-prior/domain/weak controls have zero exact title hits and low leakage risk.\n")
         out.write("  REVIEW: any weak control has exact title hits or repeated medium/high risk.\n")
-        out.write("  FAIL-SUSPECT: blind_prior or domain_baseline repeatedly reproduces multiple exact AS titles.\n")
+        out.write("  FAIL-SUSPECT: case_study_prior_test or domain_baseline repeatedly reproduces multiple exact AS titles.\n")
         out.write("  Positive control should recover many ASs when scenario text is intentionally provided.\n")
 
     return summary_csv, report_txt
 
 
-def parse_csv_arg(value: str, allowed: set[str], label: str) -> list[str]:
-    items = [item.strip() for item in value.split(",") if item.strip()]
+def parse_csv_arg(value: str, allowed: set[str], label: str, aliases: dict[str, str] | None = None) -> list[str]:
+    aliases = aliases or {}
+    items = [aliases.get(item.strip(), item.strip()) for item in value.split(",") if item.strip()]
     invalid = [item for item in items if item not in allowed]
     if invalid:
         raise ValueError(f"Unknown {label}: {invalid}. Allowed: {sorted(allowed)}")
@@ -517,7 +601,7 @@ def parse_csv_arg(value: str, allowed: set[str], label: str) -> list[str]:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run EV-parking prior-knowledge leakage controls.")
+    parser = argparse.ArgumentParser(description="Run case-study prior-knowledge leakage controls.")
     parser.add_argument("--runs", type=int, default=3, help="Runs per condition/model. Default: 3.")
     parser.add_argument(
         "--models",
@@ -530,6 +614,14 @@ def main() -> None:
         help="Comma-separated condition names. Default: all conditions.",
     )
     parser.add_argument("--output-root", type=Path, default=OUTPUT_ROOT)
+    parser.add_argument("--odd-path", type=Path, default=ODD_PATH)
+    parser.add_argument("--game-path", type=Path, default=GAME_PATH)
+    parser.add_argument("--scenario-path", type=Path, default=SCENARIO_PATH)
+    parser.add_argument("--evaluator-path", type=Path, default=EVALUATOR_PATH)
+    parser.add_argument("--case-name", default=DEFAULT_CASE_NAME)
+    parser.add_argument("--case-domain", default=DEFAULT_CASE_DOMAIN)
+    parser.add_argument("--domain-baseline", default=DEFAULT_DOMAIN_BASELINE)
+    parser.add_argument("--weak-case-description", default=DEFAULT_WEAK_CASE_DESCRIPTION)
     parser.add_argument("--force", action="store_true", help="Overwrite existing generated outputs.")
     parser.add_argument("--score-only", action="store_true", help="Only score existing outputs; no API calls.")
     parser.add_argument("--dry-run", action="store_true", help="Write prompt manifest only; no API calls.")
@@ -541,16 +633,46 @@ def main() -> None:
     selected_models = parse_csv_arg(args.models, set(MODEL_CONFIGS), "models")
     args.conditions = parse_csv_arg(args.conditions, set(CONDITIONS), "conditions")
     args.output_root = args.output_root.resolve()
+    args.odd_path = args.odd_path.resolve()
+    args.game_path = args.game_path.resolve()
+    args.scenario_path = args.scenario_path.resolve()
+    args.evaluator_path = args.evaluator_path.resolve()
+    evaluator = load_evaluator(args.evaluator_path)
 
-    odd_text = ODD_PATH.read_text(encoding="utf-8")
-    game_text = GAME_PATH.read_text(encoding="utf-8")
-    scenario_text = SCENARIO_PATH.read_text(encoding="utf-8")
+    odd_text = args.odd_path.read_text(encoding="utf-8")
+    game_text = args.game_path.read_text(encoding="utf-8")
+    scenario_text = args.scenario_path.read_text(encoding="utf-8")
 
     prompts = {
-        condition_name: build_prompt(CONDITIONS[condition_name], odd_text, game_text, scenario_text)
+        condition_name: build_prompt(
+            CONDITIONS[condition_name],
+            odd_text,
+            game_text,
+            scenario_text,
+            case_name=args.case_name,
+            case_domain=args.case_domain,
+            domain_baseline=args.domain_baseline,
+            weak_case_description=args.weak_case_description,
+        )
         for condition_name in args.conditions
     }
-    write_manifest(args.output_root, prompts, odd_text, game_text, scenario_text, args.runs, selected_models)
+    write_manifest(
+        args.output_root,
+        prompts,
+        odd_text,
+        game_text,
+        scenario_text,
+        args.runs,
+        selected_models,
+        case_name=args.case_name,
+        case_domain=args.case_domain,
+        domain_baseline=args.domain_baseline,
+        weak_case_description=args.weak_case_description,
+        odd_path=args.odd_path,
+        game_path=args.game_path,
+        scenario_path=args.scenario_path,
+        evaluator_path=args.evaluator_path,
+    )
 
     if args.dry_run:
         print(f"Dry run complete. Manifest: {args.output_root / 'prompt_manifest.json'}")
@@ -559,7 +681,14 @@ def main() -> None:
     if not args.score_only:
         run_generation(args, prompts, selected_models)
 
-    summary_csv, report_txt = score_outputs(args.output_root, args.conditions, selected_models)
+    summary_csv, report_txt = score_outputs(
+        args.output_root,
+        args.conditions,
+        selected_models,
+        case_name=args.case_name,
+        scenario_path=args.scenario_path,
+        evaluator=evaluator,
+    )
     print("\nValidation outputs:")
     print(f"  Summary CSV: {summary_csv}")
     print(f"  Report:      {report_txt}")

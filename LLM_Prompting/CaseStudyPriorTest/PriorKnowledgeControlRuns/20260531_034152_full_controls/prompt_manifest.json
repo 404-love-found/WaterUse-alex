@@ -1,32 +1,44 @@
 {
-  "purpose": "EV-parking prior-knowledge / leakage-control validation",
+  "purpose": "case-study prior-knowledge / leakage-control validation",
+  "case_study": {
+    "name": "ODD_EV-parking",
+    "domain": "apartment EV parking shared-charging case",
+    "domain_baseline": "Consider a generic apartment parking garage with shared EV chargers and limited charging bays. Drivers may wait, charge, and leave.",
+    "weak_case_description": "An apartment parking garage has shared EV chargers. Residents receive a discounted per-kWh charging price, non-residents pay the regular per-kWh price, all users are billed by electricity consumed, and the research focus is fair queueing for scarce shared chargers."
+  },
   "runs_per_condition_model": 3,
   "models": [
     "DeepSeek-V4-Pro",
     "Llama-3.3-70B",
     "Qwen2.5-7B"
   ],
+  "input_paths": {
+    "odd": "/Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_EV-parking/Txts/odd.txt",
+    "game_stuff": "/Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_EV-parking/Txts/game_stuff.txt",
+    "scenarios": "/Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_EV-parking/Txts/scenarios.txt",
+    "evaluator": "/Users/alex-lirio-lucian/develop/WaterUse-alex/LLM_Prompting/ODD_EV-parking/evaluate_tp_fp_fn_compare.py"
+  },
   "input_hashes": {
     "odd.txt": "48ea510a5dfa23559f3b46bfb4dd8c56df5abf4a9448c2c24e2afffaa4b74c99",
     "game_stuff.txt": "52a578b91bda562394a8c43c987cfe48eeca02fcbdfca87f982cc1eeecd2da1c",
     "scenarios.txt": "dca758833e6956cfbd4d58331a58aa26647bfefeae84a3ddb14c3b83e511699f"
   },
   "conditions": {
-    "blind_prior": {
-      "description": "No ODD/game/scenario context; tests whether the exact case is already known.",
+    "case_study_prior_test": {
+      "description": "No ODD/game/scenario context; tests whether the exact case study is already known.",
       "includes_odd": false,
       "includes_game": false,
       "includes_scenario": false,
       "leakage_control": true,
-      "prompt_sha256": "70510d9fe3d4aa48dd5bde08bbcd3317af840528bdf1110294547d6966032a22"
+      "prompt_sha256": "755b063036fcb5812ac54e3a417ec145552bcdbb1980c674c34c220053a94c4b"
     },
     "domain_baseline": {
-      "description": "Generic apartment EV charging context; tests domain-level inference.",
+      "description": "Generic domain context; tests domain-level inference.",
       "includes_odd": false,
       "includes_game": false,
       "includes_scenario": false,
       "leakage_control": true,
-      "prompt_sha256": "e03fc44d99cbf13608ff41fe5e44650304310402668c63f2b5c288ee6972dd2c"
+      "prompt_sha256": "118c1454683b03a7466cacc60dfb9c889d3a550a00e8a794605dc1ca07b6f811"
     },
     "weak_case_description": {
       "description": "Short user concept only; tests what can be inferred without ODD/game/scenario.",
@@ -34,7 +46,7 @@
       "includes_game": false,
       "includes_scenario": false,
       "leakage_control": true,
-      "prompt_sha256": "b9be2b61f3010d9c1b9cead302bf012e8b351f1b10e420cd847ccd8281afaaa6"
+      "prompt_sha256": "c35caca02c2465536e352d604c4e70809e7b7a1dd90d69782fe7a9479a04417f"
     },
     "odd_only": {
       "description": "Real ODD text only; expected to recover more ASs than weak controls.",
@@ -42,7 +54,7 @@
       "includes_game": false,
       "includes_scenario": false,
       "leakage_control": false,
-      "prompt_sha256": "e02e9383fbc1d742be9fd193db020d62956618c38ccea81bf0c90050a32d5196"
+      "prompt_sha256": "791a6242eab32edf849d0cb0c99bed527fc8ca2bdba470622e6724a841a5c9f7"
     },
     "odd_game": {
       "description": "Real ODD + game_stuff text; expected to recover the most ASs.",
@@ -50,7 +62,7 @@
       "includes_game": true,
       "includes_scenario": false,
       "leakage_control": false,
-      "prompt_sha256": "152054c7f3a896d1c3c3a33275f3dab5b835722d4bd22779d2b64278e2f663c9"
+      "prompt_sha256": "b682efdb97a9ba0c81fc4fa3ef5cfe8134ba7069dfc5161e1bd1f555fd0edd26"
     },
     "scenario_positive_control": {
       "description": "scenario.txt intentionally included; positive control for scorer sensitivity.",
