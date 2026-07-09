@@ -50,10 +50,12 @@ text_dir = os.path.join(current_dir, "Txts", "TXT")
 odd_path = os.path.join(text_dir, "odd_jennifer.txt")
 output_dir = os.path.join(current_dir, "Batch_30Runs_ODDOnly_Jennifer")
 
-JENNIFER_ODD_ONLY_PROMPT_TEMPLATE = """
+
+def build_prompt(odd_text):
+    return f"""
 Given the following ODD+D description of an electricity-irrigation governance model:
  
-{odd}
+{odd_text}
 
 Extract all **distinct action situations** described in the model using the IAD framework. Each action situation should reflect a **distinct governance interaction** — this includes both strategic games (simultaneous decisions with interdependent payoffs) and non-strategic sequential processes (observation, experimentation, imitation). Do not merge separate interactions into one just because they share the same player types.
 To help inspire diverse and concrete strategic tensions, consider parallels to the following sustainability-related games, each with its own type of dilemma:
@@ -141,10 +143,6 @@ Each game must be 2×2 (two players, two strategies each).
  
 Each game should represent a distinct strategic tension with ordinal payoffs (integers 0–3) grounded in the electricity-irrigation governance context.
 """
-
-
-def build_prompt(odd_text):
-    return JENNIFER_ODD_ONLY_PROMPT_TEMPLATE.replace("{odd}", odd_text)
 
 
 def run_single(client, model_id, prompt, max_tokens):

@@ -51,12 +51,15 @@ odd_path = os.path.join(text_dir, "odd_jennifer.txt")
 game_path = os.path.join(text_dir, "Electricity_game_stuff.txt")
 output_dir = os.path.join(current_dir, "Batch_30Runs_Jennifer")
 
-ODD_PROMPT_TEMPLATE = """
-Given the following ODD+D description of an electricity-irrigation governance model:
- 
-{odd}
-{game_block}
-Extract all **distinct action situations** described in the model using the IAD framework. Each action situation should reflect a **distinct governance interaction** — this includes both strategic games (simultaneous decisions with interdependent payoffs) and non-strategic sequential processes (observation, experimentation, imitation). Do not merge separate interactions into one just because they share the same player types.
+def build_prompt(odd_text, game_text):
+    return f"""
+    Given the following ODD+D description of an electricity-irrigation governance model:
+    {odd_text}
+
+    Additional model logic and institutional details:
+    {game_text}
+
+    Extract all **distinct action situations** described in the model using the IAD framework. Each action situation should reflect a **distinct governance interaction** — this includes both strategic games (simultaneous decisions with interdependent payoffs) and non-strategic sequential processes (observation, experimentation, imitation). Do not merge separate interactions into one just because they share the same player types.
 To help inspire diverse and concrete strategic tensions, consider parallels to the following sustainability-related games, each with its own type of dilemma:
  
 - **Cooperation, Coordination, and Conflict Game** – In this set of games standard 2-player games on cooperation and coordination are framed in a natural resource management context. With this set of games we can see how small changes in the payoff matrix affect the nature of the social dilemma and expected outcomes.
@@ -142,15 +145,6 @@ Each game must be 2×2 (two players, two strategies each).
  
 Each game should represent a distinct strategic tension with ordinal payoffs (integers 0–3) grounded in the electricity-irrigation governance context.
 """
-
-
-def build_prompt(odd_text, game_text):
-    game_block = f"""
-Additional model logic and institutional details:
-{game_text}
- 
-"""
-    return ODD_PROMPT_TEMPLATE.replace("{odd}", odd_text).replace("{game_block}", game_block)
 
 
 def run_single(client, model_id, prompt, max_tokens):
