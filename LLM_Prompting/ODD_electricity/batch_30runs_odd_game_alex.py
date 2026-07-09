@@ -1,6 +1,9 @@
 """
 Run the 3 LLM models 30 times on the electricity ODD plus game_stuff text.
 
+This preserved Alex-version runner uses the previous ODD prompt and reads
+Txts/TXT/odd_alex.txt. Results are written to the original Batch_30Runs folder.
+
 Models:
   - DeepSeek-R1
   - DeepSeek-V4-Pro
@@ -47,7 +50,7 @@ BASE_WAIT = 30
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 text_dir = os.path.join(current_dir, "Txts", "TXT")
-odd_path = os.path.join(text_dir, "odd.txt")
+odd_path = os.path.join(text_dir, "odd_alex.txt")
 game_path = os.path.join(text_dir, "Electricity_game_stuff.txt")
 output_dir = os.path.join(current_dir, "Batch_30Runs")
 
