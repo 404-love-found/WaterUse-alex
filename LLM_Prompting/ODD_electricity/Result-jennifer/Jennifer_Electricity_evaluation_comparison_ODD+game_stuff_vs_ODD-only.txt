@@ -1,0 +1,34 @@
+==============================================================================
+JENNIFER ELECTRICITY COMPARISON: ODD+game_stuff VS ODD-only
+==============================================================================
+
+Correct action situations (6):
+  AS1: Capacitor-adoption assurance game between neighbouring farmers
+  AS2: Sequential social-learning process in capacitor adoption
+  AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+Side-by-side totals:
+Model                Evaluation         TP   FN   FP  Precision   Recall
+----------------------------------------------------------------------------
+DeepSeek-V4-Pro      ODD+game_stuff    121   59   22     0.8462   0.6722
+DeepSeek-V4-Pro      ODD-only           93   87   25     0.7881   0.5167
+Llama-3.3-70B        ODD+game_stuff    176    4    4     0.9778   0.9778
+Llama-3.3-70B        ODD-only          161   19   19     0.8944   0.8944
+Qwen2.5-7B           ODD+game_stuff    123   57  109     0.5302   0.6833
+Qwen2.5-7B           ODD-only          119   61   88     0.5749   0.6611
+
+Differences (ODD+game_stuff minus ODD-only):
+Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro           +28      -28       -3     +0.0580       +0.1556
+Llama-3.3-70B             +15      -15      -15     +0.0833       +0.0833
+Qwen2.5-7B                 +4       -4      +21     -0.0447       +0.0222
+
+Audit notes:
+  Only TP, FN, FP, Precision, and Recall are evaluated.
+  AS-level CSVs list every generated AS and whether it is TP, FP-duplicate, or FP-wrong.
+  Per-run invariant: TP + FN = 6 confirmed correct ASs.
+  Generated AS titles are included with body/matrix/sequential text when judging correctness.

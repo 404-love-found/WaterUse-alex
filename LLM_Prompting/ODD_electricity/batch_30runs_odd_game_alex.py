@@ -52,7 +52,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 text_dir = os.path.join(current_dir, "Txts", "TXT")
 odd_path = os.path.join(text_dir, "odd_alex.txt")
 game_path = os.path.join(text_dir, "Electricity_game_stuff.txt")
-output_dir = os.path.join(current_dir, "Batch_30Runs")
+output_dir = os.path.join(current_dir, "Result-Alex", "Result-30Runs_ODD+gamestuff", "Result")
 
 
 def build_prompt(odd_text, game_text):

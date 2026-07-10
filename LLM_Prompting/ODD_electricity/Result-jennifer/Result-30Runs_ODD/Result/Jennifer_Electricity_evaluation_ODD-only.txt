@@ -1,0 +1,923 @@
+==============================================================================
+ELECTRICITY EVALUATION: TP / FN / FP (ODD-only)
+==============================================================================
+
+Correct action situations (6):
+  AS1: Capacitor-adoption assurance game between neighbouring farmers
+  AS2: Sequential social-learning process in capacitor adoption
+  AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+Metrics:
+  TP = How many LLM-generated ASs were in the correct set of ASs
+  FN = How many correct ASs the LLM missed
+  FP = How many LLM-generated ASs were not in the correct set of ASs
+  Precision = TP / (TP + FP)
+  Recall    = TP / (TP + FN)
+
+Scoring rules:
+  Each generated AS is reviewed against only the six confirmed correct ASs.
+  The first generated AS matching a correct AS counts as TP.
+  Additional generated ASs matching the same correct AS count as FP-duplicate.
+  Generated ASs matching none of the correct ASs count as FP-wrong.
+  Missing correct ASs count as FN, so TP + FN = 6 for every run.
+  Generated AS titles are included with body/matrix/sequential text when judging correctness.
+
+
+##############################################################################
+MODEL 1: DeepSeek-V4-Pro (30 runs)
+##############################################################################
+
+run_01.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L1: DSM adoption (capacitor adoption) – a coordination game where farmers invest only if enough others invest.
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_02.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  FP-wrong [None] L11: Outcomes – If both invest: improved power quality for both, lower pumping costs. If only one invests: investor loses cost, no grid improvement; non-investor keeps status quo. If neither invests: status quo (unreliable voltage, higher motor burnout risk).
+  TP [AS2: Sequential social-learning process in capacitor adoption] L15: Relevant Rules – Choice rules: farmers decide based on heuristic and social-learning rules. Boundary rules: only farmers on the same transformer are paired. Control rules: threshold benefit requires simultaneous investment by enough farmers on the transformer.
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L43: Relevant Rules – Choice rules: farmer’s decision influenced by tie to staff and capacity funding; staff’s enforcement conditional on perceived oversight risk. Boundary rules: only disconnected farmers and assigned staff participate. Control rules: formal connection always succeeds; informal success depends on enforcement.
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L72: Relevant Rules – Choice rules: willingness depends on individual corruption level (staff), financial strain (farmer), and detection risk. Boundary rules: only farmers with an existing tie or randomly matched staff participate. Control rules: collusion tie forms only with mutual agreement.
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L95: Information – Farmers know past transformer failures, voltage quality, and whether neighbours have contributed. They may misattribute reliability changes to other causes.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_03.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L8: DSM Coordination (Capacitor Adoption)
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L35: Authorization and Enforcement Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L67: Collusion Exchange (Trust Game)
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L98: Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L130: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L164: Social Learning (Non‑strategic Sequential Process)
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_04.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L1: First, let's parse the ODD+D description to identify all action situations mentioned.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_05.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L1: Adoption of capacitor/DSM equipment: farmers drawn into an adoption pool, paired up, invest only if enough farmers on same transformer land on "invest" within same cycle, otherwise cost with no return. This is a coordination game (DSM Coordination Game). It's a strategic interaction because payoffs depend on others' choices. In the submodel, it's not just a simultaneous game but includes experimentation and imitation. But the core strategic interaction is the decision to invest in DSM, which requires a threshold of adopters to succeed. That's a typical assurance game (stag hunt). So one action situation: DSM Adoption Coordination.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_06.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L9: DSM Adoption Coordination
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L49: Social Learning and Experimentation
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L82: Connection Authorization and Staff Investment
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L164: Transformer Capacity Contribution
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L204: Groundwater Extraction Restraint
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_07.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L1: We need to ensure diversity: avoid duplication of strategic tensions. The prompt mentions several sustainability games as inspiration: Cooperation/Coordination/Conflict, Trust, Public Goods, CPR, Authorization, Capacity Provision, Collusion Exchange, DSM Coordination, Groundwater Extraction, Social Learning (non-strategic). We should map the ODD's interactions to these types, but not force-fit; they should emerge from the description.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_08.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L3: DSM Technology Adoption Coordination
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L48: Social Learning and Imitation of DSM Adoption
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Collusion Tie Formation (Trust Game)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L120: Groundwater Extraction Restraint
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L164: Staff Investment in Transformer Capacity for Tied Farmers
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L193: Disconnected Farmer Connection Choice
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_09.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L9: Collusion Tie Formation
+  TP [AS2: Sequential social-learning process in capacitor adoption] L43: DSM Adoption Coordination
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L74: Groundwater Extraction
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L105: Connection Choice (Disconnected Farmer & Staff)
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L137: Regularisation Offer (Connected Free‑rider & Staff)
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L169: Social Learning and Imitation
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_10.md | TP=3 FN=3 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L3: Collusion Exchange Game (Trust Game)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L65: DSM Coordination Game (Stag Hunt)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L125: Groundwater Extraction Game (Prisoner’s Dilemma)
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_11.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L1: From the ODD, we can identify
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_12.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L1: Once per year: farmers and staff make strategic decisions: farmer–staff collusion-tie formation, transformer capacity/authorization stance, staff investment decisions, groundwater-extraction stance, social-learning. A collusion tie forms only where a farmer's offer and their matched staff member's offer agree, and a DSM-adoption commitment is confirmed only where enough farmers on the same transformer land on "invest" within the same cycle.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_13.md | TP=5 FN=1 FP=3 Precision=0.6250 Recall=0.8333
+  FP-wrong [None] L129: DSM Adoption Coordination
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L134: Collusion Bribery Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L144: Connection Authorization Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L150: Regularization Offer Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L171: Social Learning (Non-strategic)
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L187: DSM Adoption Coordination
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L213: Collusion Bribery Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L239: Groundwater Extraction Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_14.md | TP=3 FN=3 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Sequential social-learning process in capacitor adoption] L7: DSM Adoption Coordination
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L36: Collusion Tie Formation
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L66: Informal Connection Provision
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_15.md | TP=3 FN=3 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Adoption Coordination
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L28: Collusion Tie Formation
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L51: Authorization and Service Provision
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_16.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L1: DSM adoption (capacitor adoption): farmers decide to invest, but benefit only if enough neighbors also invest in the same cycle. This is a coordination game (assurance game). It's described as "farmers who have not yet adopted ... paired up; a farmer who invests only realises the shared benefit if enough farmers on the same transformer land on 'invest' within the same cycle, otherwise they pay the adoption cost with no return." This is a strategic interaction among farmers on the same transformer. It's a DSM Coordination Game.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_17.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L3: Action Situation 1 – DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L37: Action Situation 2 – Social Learning (Non‑strategic sequential process)
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L57: Action Situation 3 – Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L91: Action Situation 4 – Authorization Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L124: Action Situation 5 – Informal Capacity Delivery Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L157: Action Situation 6 – Regularisation Offer Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L190: Action Situation 7 – Groundwater Extraction Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_18.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L7: Collusion Tie Formation (Trust Game)
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L54: DSM Adoption Coordination (Assurance Game)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L101: Groundwater Extraction (Common‑Pool Resource Game)
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L148: Connection Authorization (Asymmetric Prisoner’s Dilemma)
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L243: Enforcement (Inspection Game)
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_19.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L9: Collusion Tie Formation (Trust Game)
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L67: DSM Adoption Coordination (Assurance Game)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L122: Groundwater Extraction (Common‑Pool Resource Dilemma)
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L176: Electricity Use Enforcement (Inspection Game)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L236: Social Learning (Non‑Strategic Sequential Process)
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_20.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L3: DSM Adoption Coordination
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L36: Connection Authorization
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L68: Collusion Tie Formation
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L101: Transformer Capacity Investment
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L134: Groundwater Extraction
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L167: Electricity Use Enforcement
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L200: Social Learning (Non‑strategic sequential process)
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_21.md | TP=1 FN=5 FP=1 Precision=0.5000 Recall=0.1667
+  FP-wrong [None] L12: Outcomes – Coordinated investment improves power factor and reduces voltage drops; uncoordinated investment wastes private resources.
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L17: Strategic Tension – Coordination game (Assurance / Stag Hunt). Both farmers prefer to invest only if the other does, creating a risk of coordination failure. The interaction is strategic.
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_22.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Coordination Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_23.md | TP=3 FN=3 FP=2 Precision=0.6000 Recall=0.5000
+  TP [AS2: Sequential social-learning process in capacitor adoption] L3: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L68: Social Learning Process (Observation and Imitation)
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L112: Authorization Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L180: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L247: Groundwater Extraction Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_24.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
+  TP [AS2: Sequential social-learning process in capacitor adoption] L1: Let's parse the ODD+D carefully. The "Process overview and scheduling" says
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_25.md | TP=3 FN=3 FP=0 Precision=1.0000 Recall=0.5000
+  TP [AS2: Sequential social-learning process in capacitor adoption] L7: DSM Adoption Coordination Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L57: Collusion Tie Formation Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L109: Capacity Investment for Regularization Game (Trust)
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+run_26.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS2: Sequential social-learning process in capacitor adoption] L7: DSM Coordination Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L64: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L123: Transformer Capacity Contribution Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L182: Groundwater Extraction Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L240: Social Learning Process
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L282: Connection Authorization Choice
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_27.md | TP=5 FN=1 FP=2 Precision=0.7143 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: DSM Coordination (Capacitor Adoption)
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L31: Collusion Tie Formation
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L60: Formal Connection Authorization
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L88: Staff Capacity Investment for Tied Farmer
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L116: Groundwater Extraction
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L144: Compliance Inspection (Enforcement)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L173: Social Learning (Observation & Imitation)
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_28.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: DSM Adoption (Capacitor Investment)
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L46: Connection Authorization (Formal vs. Informal)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L89: Groundwater Extraction (CPR Dilemma)
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L133: Collusion Tie Formation (Farmer–Staff Exchange)
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L182: Capacity Provision (Staff Investment for Tied Farmers)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L229: Social Learning (Observation & Imitation)
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_29.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L3: DSM Coordination Game (Strategic)
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L27: Collusion Tie Formation (Strategic)
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L52: Staff Investment and Farmer Regularisation (Strategic)
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L76: Groundwater Extraction Game (Strategic)
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L100: Connection Authorization Decision (Non‑strategic)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L117: Social Learning and Imitation (Non‑strategic Sequential Process)
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_30.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L9: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L40: Connection Authorization Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L72: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L136: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L167: Social Learning Process (Non‑Strategic)
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro TOTALS
+------------------------------------------------------------------------------
+TP = 93    FN = 87    FP = 25
+Precision = TP/(TP+FP) = 93/(93+25) = 0.7881
+Recall    = TP/(TP+FN) = 93/(93+87) = 0.5167
+
+##############################################################################
+MODEL 2: Llama-3.3-70B (30 runs)
+##############################################################################
+
+run_01.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L22: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L39: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L56: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L73: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L90: Social Learning Game
+
+run_02.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L22: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L39: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L56: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L73: Capacity Provision Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L90: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_03.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L22: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L39: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L56: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L73: Authorization Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L90: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_04.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  FP-wrong [None] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L41: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L59: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Collusion Exchange Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_05.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L77: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_06.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L41: Authorization Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L59: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L77: Capacity Provision Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_07.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L77: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_08.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L21: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L39: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L57: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L75: Capacity Provision Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L93: Social Learning Game
+
+run_09.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Transformer Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L41: Collusion Exchange Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L59: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L77: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+
+run_10.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L59: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L77: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+
+run_11.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L77: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_12.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L7: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L25: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L43: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L61: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L79: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L97: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_13.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L41: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L77: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+
+run_14.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L21: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L37: Authorization Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L53: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L69: Capacity Provision Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L85: Social Learning Game
+
+run_15.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L26: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L47: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L68: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L89: Social Learning Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L105: Capacity Provision Game
+
+run_16.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L77: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_17.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L41: Authorization Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L59: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L77: Capacity Provision Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_18.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS2: Sequential social-learning process in capacitor adoption] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L41: Authorization Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L59: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L77: Capacity Provision Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_19.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L23: Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L59: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Collusion Exchange Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L149: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_20.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L22: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L39: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L56: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L73: Authorization Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L90: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_21.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L59: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L77: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+
+run_22.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L22: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L39: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L56: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L73: Social Learning Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L86: Capacity Provision Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_23.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  FP-wrong [None] L5: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L41: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L59: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Collusion Exchange Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_24.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L28: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L51: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L74: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L97: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L120: Social Learning Game
+
+run_25.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L24: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L43: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L62: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L81: Capacity Provision Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L100: Social Learning Game
+
+run_26.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L59: DSM Coordination Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Authorization Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_27.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L41: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L77: Social Learning Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L91: Capacity Provision Game
+
+run_28.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L28: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L51: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L74: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L97: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L120: Social Learning Game
+
+run_29.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L5: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L41: Groundwater Extraction Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L77: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_30.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L23: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L41: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L77: DSM Coordination Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L95: Social Learning Game
+
+------------------------------------------------------------------------------
+Llama-3.3-70B TOTALS
+------------------------------------------------------------------------------
+TP = 161   FN = 19    FP = 19
+Precision = TP/(TP+FP) = 161/(161+19) = 0.8944
+Recall    = TP/(TP+FN) = 161/(161+19) = 0.8944
+
+##############################################################################
+MODEL 3: Qwen2.5-7B (30 runs)
+##############################################################################
+
+run_01.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L8: Roles: Farmers are electricity consumers and potential contributors to transformer capacity. Substation staff are service providers responsible for transformer maintenance and authorization.
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L44: Roles: Farmers are groundwater users.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L73: Roles: Farmers are electricity consumers, and substation staff are service providers.
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L107: Location: Transformer group level
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L136: Location: Transformer group level
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L176: Roles: Farmers are groundwater users.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_02.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Location: Transformer group level
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L52: Location: Groundwater basin level
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L99: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L146: Location: Substation level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L193: Location: Transformer group level
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L250: Location: Transformer group level
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_03.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L7: Capacitor Adoption Pooling Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L58: Informal Connection Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L108: Staff Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L158: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L208: Collusion Exchange Game
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_04.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L6: Location: Transformer group level
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L53: Players: Farmers, Substation Staff
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L94: Location: Groundwater basin level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L136: Players: Farmers, Substation Staff
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L178: Players: Farmers, Substation Staff
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L235: Players: Farmers, Substation Staff
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_05.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: Capacitor Adoption Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L58: Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L115: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L170: Collusion Exchange Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L227: Social Learning Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L295: Revised Game: Groundwater Extraction Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_06.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L6: Roles: Electricity Consumers, Groundwater Extractors
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L57: Roles: Electricity Consumers, Service Providers, Informal Network Contributors
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L107: Roles: Electricity Consumers, Service Providers, Formal Connection Seekers
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L155: Location: Transformer Group
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L207: Roles: Electricity Consumers, Service Providers, Informal Network Contributors
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L255: Location: Transformer Group
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_07.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L5: Transformer Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L31: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L57: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L79: Groundwater Extraction Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L101: Authorization Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L151: Groundwater Extraction Game - Revised
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+
+run_08.md | TP=4 FN=2 FP=6 Precision=0.4000 Recall=0.6667
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L6: Authorization Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L39: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L71: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L102: Groundwater Extraction Game
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L133: Cooperation, Coordination, and Conflict Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L191: Formal vs. Unauthorized Connection Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L206: Formal vs. Informal Connection Game
+  FP-wrong [None] L217: DSM Coordination Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L235: Groundwater Extraction Game
+  FP-wrong [None] L245: Cooperation, Coordination, and Conflict Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+
+run_09.md | TP=3 FN=3 FP=2 Precision=0.6000 Recall=0.5000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L5: Location: Transformer group level
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L34: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L64: Players: Sub-station staff
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L92: Location: Village-level groundwater basin
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L122: Players: Farmers, Sub-station staff
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_10.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L6: Capacitor Adoption Pool
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L40: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L74: Collusion Exchange Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L108: Authorization Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L142: DSM Coordination Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L191: Authorization Coordination Game
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_11.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L5: Players: Farmers, Substation Staff
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L45: Location: Village-Level Groundwater Basin
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L83: Players: Farmers, Substation Staff
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L125: Location: Transformer Group Level
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L162: Location: Transformer Group Level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L210: Revised Players: Farmers, Substation Staff
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_12.md | TP=5 FN=1 FP=6 Precision=0.4545 Recall=0.8333
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L6: Farmer-Substation Staff Authorization Decision
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L34: Farmer-Substation Staff Collusion
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L61: DSM Coordination Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L89: Farmer-Substation Staff Groundwater Extraction Decision
+  TP [AS2: Sequential social-learning process in capacitor adoption] L117: Farmer-Neighborhood Social Learning
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L148: Social Learning Game: This is a non-strategic sequential process where farmers benefit from social learning but may face coordination problems. The payoff structure reflects the benefits of imitation and the potential for slow adoption.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L153: Authorization Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L170: Collusion Exchange Game
+  FP-wrong [None] L187: DSM Coordination Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L204: Groundwater Extraction Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L221: Social Learning Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_13.md | TP=5 FN=1 FP=6 Precision=0.4545 Recall=0.8333
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L3: Transformer Capacity Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L63: Groundwater Extraction Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L122: Capacitor Adoption Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L180: Social Learning Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L234: Collusion Exchange Game
+  FP-wrong [None] L292: Public Goods Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L362: Transformer Capacity Authorization Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L374: Groundwater Extraction Game
+  FP-duplicate [AS1: Capacitor-adoption assurance game between neighbouring farmers] L386: Capacitor Adoption Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L398: Social Learning Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L410: Collusion Exchange Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_14.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L6: Transformer Capacity Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L37: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L66: Collusion Exchange Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L97: Demand-Side Management (DSM) Coordination Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L125: Transformer Failure Game
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L184: Transformer Failure Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+
+run_15.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L6: Farmer-Staff Authorisation Decision
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L31: Farmer-Staff Capacity Contribution
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L56: Farmer Groundwater Extraction
+  TP [AS2: Sequential social-learning process in capacitor adoption] L76: Farmer Social Learning
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L96: Farmer-Staff Collusion
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_16.md | TP=6 FN=0 FP=6 Precision=0.5000 Recall=1.0000
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L8: Roles: Electricity consumers and groundwater extractors
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L26: Strategic Tension: This is a Common Pool Resource Game. Farmers face a dilemma between short-term gain and long-term sustainability. If all farmers restrict extraction, the aquifer remains healthy, but if one farmer extracts at full rate, it risks depleting the aquifer, affecting all.
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L51: Roles: Farmers as electricity consumers and groundwater extractors, Staff as service providers
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L69: Strategic Tension: This is a Collusion Exchange Game. Farmers and staff face a dilemma between formal compliance and informal reciprocity. If both farmers and staff collude, the staff benefits from reduced effort, but if either party does not collude, the staff faces reputational risk.
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L94: Roles: Farmers as electricity consumers, Staff as service providers
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L112: Strategic Tension: This is an Authorization Game. Farmers and staff face a dilemma between formal compliance and informal reciprocity. If the farmer invests in a formal connection and staff invests in the capacity, the staff benefits from reduced effort, but if either party does not invest, the staff faces reputational risk.
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L135: Location: Transformer group
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L154: Strategic Tension: This is a DSM Coordination Game. Farmers face a dilemma between short-term cost savings and long-term grid quality. If all farmers adopt DSM technology, the grid quality improves, but if one farmer does not adopt, the benefits are reduced.
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L179: Roles: Farmers as electricity consumers and groundwater extractors
+  TP [AS2: Sequential social-learning process in capacitor adoption] L196: Strategic Tension: This is a Social Learning Game. Farmers face a dilemma between short-term cost savings and long-term grid quality. If all farmers adopt technology, the grid quality improves, but if one farmer does not adopt, the benefits are reduced.
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L253: Roles: Electricity consumers and groundwater extractors
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L271: Strategic Tension: This is a Collusion-Based Groundwater Extraction Game. Farmers face a dilemma between short-term gain and long-term sustainability, but the strategic tension is now between formal and informal practices. The strategic tension is between mutual enforcement and mutual tolerance.
+
+run_17.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L6: Transformer Authorization Game
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L32: Capacitor Adoption Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L54: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L77: Collusion Exchange Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L103: Authorization and Collusion Game
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_18.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L12: Control Rules: A farmer can invest only if enough farmers on the same transformer land on "invest" within the same cycle. If the threshold is met, the shared benefit is realized. Otherwise, the farmer pays the adoption cost with no return.
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L38: Control Rules: Farmers with an existing tie to sub-station staff face better informal terms. The attractiveness of staying informal responds to local collusion density and transformer capacity.
+  TP [AS2: Sequential social-learning process in capacitor adoption] L65: Information: Staff observe the local demand and the existing capacity.
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L91: Information: Farmers observe the local groundwater levels and the energy costs.
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L117: Information: Farmers observe the outcomes of their neighbors' decisions and the local collusion density.
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L153: Information: Farmers observe the local groundwater levels and the energy costs.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+
+run_19.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L6: Location: Transformer group level
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L49: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L92: Players: Substation staff
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L134: Location: Village-level groundwater basins
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L179: Players: Farmers and Substation staff
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L254: Location: Village-level groundwater basins
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_20.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L6: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L35: Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L59: Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L87: DSM Coordination Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L111: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_21.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L6: Farmer-Capacitor Adoption Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L42: Farmer-Substation Staff Collusion Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L80: Farmer-Groundwater Extraction Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L115: Farmer-Substation Staff Authorization Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L153: Farmer-Social Learning Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_22.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L7: Players: Farmers, Substation Staff
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L52: Location: Transformer group level
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L94: Location: Village-level groundwater basin
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L137: Players: Farmers, Substation Staff
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L180: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L232: Players: Farmers, Substation Staff
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_23.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L7: Players: Farmers, Substation Staff
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L47: Location: Village Groundwater Basin
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L83: Roles: Consumers, Service Providers, Informal Exchangers
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L123: Players: Farmers, Substation Staff
+  TP [AS2: Sequential social-learning process in capacitor adoption] L162: Social Learning Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L217: Roles: Consumers, Service Providers, Informal Exchangers
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_24.md | TP=4 FN=2 FP=6 Precision=0.4000 Recall=0.6667
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: Capacitor Adoption Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L33: Formal vs. Informal Connection Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L61: Staff Capacity Provision Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L89: Groundwater Extraction Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L118: Collusion Exchange Game
+  FP-duplicate [AS1: Capacitor-adoption assurance game between neighbouring farmers] L149: Capacitor Adoption Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L164: Formal vs. Informal Connection Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L179: Staff Capacity Provision Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L194: Groundwater Extraction Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L209: Collusion Exchange Game
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_25.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L6: Authorization Game
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L60: Capacity Provision Game
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L114: Collusion Exchange Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L168: Groundwater Extraction Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L214: DSM Coordination Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+
+run_26.md | TP=4 FN=2 FP=6 Precision=0.4000 Recall=0.6667
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L5: Collusion Exchange Game
+  TP [AS2: Sequential social-learning process in capacitor adoption] L51: DSM Coordination Game
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L92: Authorization Game
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L137: Groundwater Extraction Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L177: Social Learning Game
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L219: Collusion Exchange Game
+  FP-wrong [None] L222: DSM Coordination Game
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L225: Authorization Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L228: Groundwater Extraction Game
+  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L231: Social Learning Game
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_27.md | TP=3 FN=3 FP=4 Precision=0.4286 Recall=0.5000
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L5: Location: Transformer group level
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L45: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L78: Location: Transformer group level
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L117: Location: Transformer group level
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L150: Location: Transformer group level
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L201: Revised Game: Groundwater Extraction Game
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L206: Location: Transformer group level
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
+
+run_28.md | TP=5 FN=1 FP=6 Precision=0.4545 Recall=0.8333
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L14: Outcomes: Successful formal authorization improves grid reliability but incurs costs. Informal connections are cheaper but risk sanctions.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L28: Relevant Rules: Explicit boundary rules include the need for a quorum of farmers to invest for formal authorization, and the discretionary power of staff to enforce or accept informal connections.
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L49: Outcomes: Full rate extraction leads to higher yields but depletes the aquifer, increasing pumping costs. Restraint leads to lower yields but preserves the aquifer.
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L58: Relevant Rules: Explicit boundary rules include the dynamic nature of aquifer drawdown and the impact of extraction rates on local groundwater levels.
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L80: Outcomes: Successful collusion yields mutual benefit, but there is reputational risk if the collusion is detected.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L94: Relevant Rules: Explicit boundary rules include the need for both farmers and staff to be independently willing to collaborate, and the reputational risk associated with detection.
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L114: Information: Farmers know the status of neighboring farmers' capacitor adoption and local voltage quality.
+  TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L122: Strategic Tension: This is a coordination game. Farmers must coordinate to achieve the best outcome (all adopting capacitors). The dilemma arises from the potential for free-riding and the uneven distribution of costs.
+  FP-duplicate [AS1: Capacitor-adoption assurance game between neighbouring farmers] L144: Information: Farmers know the status of neighboring farmers' DSM investments and local voltage quality.
+  FP-duplicate [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L152: Strategic Tension: This is a coordination game. Farmers must coordinate to achieve the best outcome (all investing in DSM technologies). The dilemma arises from the potential for free-riding and the uneven distribution of costs.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L181: Demand-Side Management (DSM) Coordination
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+
+run_29.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: Capacitor Adoption Decision
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L61: Staff Capacity Authorization Decision
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L117: Groundwater Extraction Decision
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L173: Collusion Exchange Decision
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L230: Farmer-Staff Coordination on Transformer Capacity
+  TP [AS2: Sequential social-learning process in capacitor adoption] L312: Authorization Game
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+run_30.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
+  TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L11: Roles: Farmers are electricity consumers who can invest in capacitor measures. Sub-station staff are service providers who can authorize or deny investments.
+  TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L76: Roles: Farmers are electricity consumers who can extract groundwater for irrigation. Sub-station staff are service providers who can monitor and enforce extraction limits.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L141: Roles: Farmers are electricity consumers who can seek formal connection or informal connection. Sub-station staff are service providers who can authorize or deny formal connections.
+  TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L205: Roles: Farmers are electricity consumers who can form or break collusion ties with sub-station staff. Sub-station staff are service providers who can form or break collusion ties with farmers.
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L266: Location: Transformer group level
+  FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L322: Roles: Farmers are electricity consumers who can invest in demand-side management technologies. Sub-station staff are service providers who can authorize or deny DSM investments.
+  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
+  FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+
+------------------------------------------------------------------------------
+Qwen2.5-7B TOTALS
+------------------------------------------------------------------------------
+TP = 119   FN = 61    FP = 88
+Precision = TP/(TP+FP) = 119/(119+88) = 0.5749
+Recall    = TP/(TP+FN) = 119/(119+61) = 0.6611
+
+
+##############################################################################
+FINAL MODEL COMPARISON: ODD-only
+##############################################################################
+
+Model                  TP   FN   FP  Precision   Recall
+----------------------------------------------------------------------
+DeepSeek-V4-Pro        93   87   25     0.7881   0.5167
+Llama-3.3-70B         161   19   19     0.8944   0.8944
+Qwen2.5-7B            119   61   88     0.5749   0.6611

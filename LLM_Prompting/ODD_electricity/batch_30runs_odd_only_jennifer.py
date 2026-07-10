@@ -2,13 +2,13 @@
 Run the 3 LLM models 30 times on the Jennifer electricity ODD text only.
 
 Models:
-  - DeepSeek-R1
   - DeepSeek-V4-Pro
   - Llama-3.3-70B-Instruct-Turbo
   - Qwen2.5-7B-Instruct-Turbo
 """
 
 import os
+import signal
 import time
 
 from together import Together
@@ -19,11 +19,6 @@ if not api_key:
     raise RuntimeError("Set TOGETHER_API_KEY before running this script.")
 
 MODELS = {
-    "DeepSeek-R1": {
-        "model_id": "deepseek-ai/DeepSeek-R1",
-        "timeout": 600.0,
-        "max_tokens": 16000,
-    },
     "DeepSeek-V4-Pro": {
         "model_id": "deepseek-ai/DeepSeek-V4-Pro",
         "timeout": 600.0,
@@ -45,10 +40,18 @@ N_RUNS = 30
 MAX_RETRIES = 5
 BASE_WAIT = 30
 
+
+class RequestTimeoutError(TimeoutError):
+    pass
+
+
+def _handle_request_timeout(signum, frame):
+    raise RequestTimeoutError("request timed out")
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 text_dir = os.path.join(current_dir, "Txts", "TXT")
 odd_path = os.path.join(text_dir, "odd_jennifer.txt")
-output_dir = os.path.join(current_dir, "Batch_30Runs_ODDOnly_Jennifer")
+output_dir = os.path.join(current_dir, "Result-jennifer", "Result-30Runs_ODD", "Result")
 
 
 def build_prompt(odd_text):
@@ -145,19 +148,35 @@ Each game should represent a distinct strategic tension with ordinal payoffs (in
 """
 
 
-def run_single(client, model_id, prompt, max_tokens):
+def run_single(client, model_id, prompt, max_tokens, hard_timeout):
     """Send one request with retry logic."""
     for attempt in range(1, MAX_RETRIES + 1):
         try:
+            previous_handler = signal.signal(signal.SIGALRM, _handle_request_timeout)
+            signal.alarm(int(hard_timeout))
             response = client.chat.completions.create(
                 model=model_id,
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
                 max_tokens=max_tokens,
             )
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous_handler)
             message = response.choices[0].message
             return message.content or getattr(message, "reasoning", None)
+        except RequestTimeoutError as e:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous_handler)
+            if attempt < MAX_RETRIES:
+                wait = BASE_WAIT * attempt
+                print(f"      ⚠️  Retry {attempt}/{MAX_RETRIES}, waiting {wait}s... ({e})")
+                time.sleep(wait)
+            else:
+                print(f"      ❌ Error: {e}")
+                return None
         except Exception as e:
+            signal.alarm(0)
+            signal.signal(signal.SIGALRM, previous_handler)
             error_msg = str(e).lower()
             retryable = any(k in error_msg for k in ["503", "service_unavailable", "timeout", "rate"])
             if retryable and attempt < MAX_RETRIES:
@@ -196,7 +215,7 @@ def run_model_batch(model_key):
             continue
 
         print(f"  Run {i:2d}/{N_RUNS} ...", end="", flush=True)
-        content = run_single(client, model_id, prompt, cfg["max_tokens"])
+        content = run_single(client, model_id, prompt, cfg["max_tokens"], cfg["timeout"])
 
         if content:
             with open(filepath, "w", encoding="utf-8") as f:
