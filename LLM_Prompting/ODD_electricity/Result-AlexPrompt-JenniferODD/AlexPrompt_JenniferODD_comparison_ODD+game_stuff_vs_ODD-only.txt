@@ -1,0 +1,34 @@
+==============================================================================
+ALEX PROMPT + JENNIFER ODD: ODD+game_stuff VS ODD-only
+==============================================================================
+
+Correct action situations (6):
+  AS1: Capacitor-adoption assurance game between neighbouring farmers
+  AS2: Sequential social-learning process in capacitor adoption
+  AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+Side-by-side totals:
+Model                Evaluation         TP   FN   FP  Precision   Recall
+----------------------------------------------------------------------------
+DeepSeek-V4-Pro      ODD+game_stuff    140   40   29     0.8284   0.7778
+DeepSeek-V4-Pro      ODD-only          132   48   21     0.8627   0.7333
+Llama-3.3-70B        ODD+game_stuff    144   36   12     0.9231   0.8000
+Llama-3.3-70B        ODD-only          143   37   12     0.9226   0.7944
+Qwen2.5-7B           ODD+game_stuff    144   36  146     0.4966   0.8000
+Qwen2.5-7B           ODD-only          142   38  132     0.5182   0.7889
+
+Differences (ODD+game_stuff minus ODD-only):
+Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro            +8       -8       +8     -0.0343       +0.0444
+Llama-3.3-70B              +1       -1       +0     +0.0005       +0.0056
+Qwen2.5-7B                 +2       -2      +14     -0.0217       +0.0111
+
+Audit notes:
+  Metrics: TP, FN, FP, Precision, and Recall only.
+  AS titles and AS body text are both used during classification.
+  Duplicate matches count as FP; each correct AS can count once per run.
+  Per-run invariant: TP + FN = 6.

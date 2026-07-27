@@ -180,17 +180,48 @@ def is_candidate_start(raw_line: str) -> bool:
         return False
 
     is_heading = bool(re.match(r"^#{2,6}\s+", stripped))
+    is_plain_title = bool(
+        re.match(
+            r"^(?:#{2,6}\s*)?(?:\*\*)?title(?:\*\*)?\s*[:.-]\s*\S",
+            stripped,
+            flags=re.I,
+        )
+    )
+    is_numbered_plain_title = bool(
+        re.match(
+            r"^\d+\s*[.)]\s+(?:\*\*)?title(?:\*\*)?\s*[:.-]\s*\S",
+            stripped,
+            flags=re.I,
+        )
+    )
+    is_plain_action_situation = bool(
+        re.match(
+            r"^(?:action\s+situation|strategic\s+dilemma|game)\s*\d+\s*[:.)-]\s*\S",
+            stripped,
+            flags=re.I,
+        )
+    )
     is_bold_title = bool(
         re.match(r"^\*\*(?:title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*|game\s*\d*)", stripped, re.I)
     )
     is_bold_numbered = bool(re.match(r"^\*\*\d+\s*[.)]\s*", stripped))
     is_numbered_bold = bool(re.match(r"^\d+\s*[.)]\s+\*\*", stripped))
-    if not (is_heading or is_bold_title or is_bold_numbered or is_numbered_bold):
+    if not (
+        is_heading
+        or is_plain_title
+        or is_numbered_plain_title
+        or is_plain_action_situation
+        or is_bold_title
+        or is_bold_numbered
+        or is_numbered_bold
+    ):
         return False
 
     title = clean_markdown(stripped)
     if is_generic_heading(title):
         return False
+    if is_plain_title or is_numbered_plain_title or is_plain_action_situation:
+        return len(canonical_title(title)) >= 4
 
     lower = title.lower()
     candidate_patterns = (
@@ -207,11 +238,35 @@ def is_candidate_start(raw_line: str) -> bool:
 
 
 def is_title_only_line(raw_line: str) -> bool:
-    return bool(re.match(r"^\s*(?:#{2,6}\s*)?\*\*title(?:\*\*)?\s*[:.-]", raw_line, flags=re.I))
+    return bool(
+        re.match(
+            r"^\s*(?:#{2,6}\s*)?(?:\*\*)?title(?:\*\*)?\s*[:.-]",
+            raw_line,
+            flags=re.I,
+        )
+    )
 
 
 def is_action_situation_label_line(raw_line: str) -> bool:
     return bool(re.search(r"\baction\s+situation\s*\d*\b", clean_markdown(raw_line), flags=re.I))
+
+
+def is_contextual_bold_title(lines: list[str], index: int) -> bool:
+    stripped = lines[index].strip()
+    match = re.match(r"^\*\*(?P<title>.+?)\*\*$", stripped)
+    if not match:
+        return False
+
+    title = canonical_title(match.group("title"))
+    if len(title) < 4 or is_generic_heading(title):
+        return False
+
+    for probe in range(index + 1, min(index + 4, len(lines))):
+        next_line = clean_markdown(lines[probe])
+        if not next_line:
+            continue
+        return bool(re.match(r"^tension\b", next_line, flags=re.I))
+    return False
 
 
 def has_representation_evidence(block: str) -> bool:
@@ -232,7 +287,7 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
     starts: list[tuple[int, str]] = []
 
     for index, line in enumerate(lines):
-        if is_candidate_start(line):
+        if is_candidate_start(line) or is_contextual_bold_title(lines, index):
             if (
                 is_title_only_line(line)
                 and starts
@@ -293,9 +348,15 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
             return label
 
     # Title-first rules avoid generic explanatory text pulling a block into the wrong class.
-    if has_any(title_text, (r"\bgroundwater\b|\baquifer\b|\bover[- ]?extract|\bdepletion\b|\brecharge\b",)):
+    if has_any(
+        title_text,
+        (r"\bgroundwater\b|\baquifer\b|\bover[- ]?extract|\bdepletion\b|\brecharge\b|\bwater\s+table\b",),
+    ):
         return "AS6"
-    if has_any(title_text, (r"\bsocial[- ]?learning\b|\bdiffusion\b|\bimitat|\bobserv|\bpeer\b|\bsequential\b|\btrial\b",)):
+    if has_any(
+        title_text,
+        (r"\bsocial[- ]?learning\b|\bdiffusion\b|\bimitat|\bobserv|\blearn(?:ing)?\b|\btrial\b",),
+    ):
         return "AS2"
     if has_any(title_text, (r"\bmutual[- ]?exchange\b|\binformal[- ]?exchange\b|\brecipro|\bcollusion|collusive|\bfavor|\bfavour\b",)):
         return "AS4"
@@ -308,17 +369,24 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
         ),
     ):
         return "AS5"
+    if has_any(title_text, (r"\bcapacitor\b|\bvoltage[- ]?stabili|\bassurance\b",)):
+        return "AS1"
+    if has_any(
+        title_text,
+        (r"\bauthori[sz](?:ed|ation)?\s+connections?\b|\bconnections?\s+authori[sz]ation\b",),
+    ):
+        return "AS3"
     if has_any(title_text, (r"\btransformer\b|\bcapacity\b|\bfree[- ]?rid|\bvolunteer|\bcontribut",)):
         if has_any(full_text, (r"\bstaff\b|\bsub[- ]?station\b",)) and has_any(
             full_text, (r"\bformal\b|\binformal\b|\benforce|\bmaintenance\b|\bconnection\b",)
         ):
             return "AS5"
         return "AS3"
-    if has_any(title_text, (r"\bcapacitor\b|\bvoltage[- ]?stabili|\bassurance\b",)):
-        return "AS1"
 
-    social_score = len(re.findall(r"social[- ]?learning|diffusion|imitat|observ|peer|neighbou?r|sequential|trial", full_text))
-    capacitor_score = len(re.findall(r"capacitor|voltage[- ]?stabili|adopt", full_text))
+    social_score = len(re.findall(r"social[- ]?learning|diffusion|imitat|observ|learn(?:ing)?|trial", full_text))
+    capacitor_score = len(re.findall(r"capacitor", full_text))
+    voltage_stability_score = len(re.findall(r"voltage[- ]?stabili", full_text))
+    adoption_score = len(re.findall(r"adopt", full_text))
     groundwater_score = len(re.findall(r"groundwater|aquifer|over[- ]?extract|extraction|depletion|recharge", full_text))
     exchange_score = len(re.findall(r"mutual[- ]?exchange|informal[- ]?exchange|recipro|collusion|collusive|favor|favour|trust", full_text))
     staff_score = len(re.findall(r"staff|sub[- ]?station|utility", full_text))
@@ -326,7 +394,7 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
     transformer_score = len(re.findall(r"transformer|capacity|free[- ]?rid|contribut|volunteer|upgrade", full_text))
     farmer_farmer_score = len(re.findall(r"two farmers|farmer[- ]?farmer|neighbou?r|farmer 1|farmer 2", full_text))
 
-    if social_score >= 2 and capacitor_score >= 1:
+    if social_score >= 2 and (capacitor_score >= 1 or voltage_stability_score >= 1 or adoption_score >= 1):
         return "AS2"
     if groundwater_score >= 2:
         return "AS6"
@@ -334,9 +402,21 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
         return "AS4"
     if staff_score >= 1 and formal_score >= 2:
         return "AS5"
-    if transformer_score >= 2 and (farmer_farmer_score >= 1 or staff_score == 0):
+    has_capacity_authorization_core = has_any(
+        full_text,
+        (
+            r"\btransformer\s+capacity\b",
+            r"\bauthori[sz](?:ed|ation)?\s+connections?\b",
+            r"\bcapacity\s+(?:contribut|provision|upgrade|authori[sz])",
+        ),
+    )
+    if (
+        transformer_score >= 2
+        and has_capacity_authorization_core
+        and (farmer_farmer_score >= 1 or staff_score == 0)
+    ):
         return "AS3"
-    if capacitor_score >= 2:
+    if capacitor_score >= 1:
         return "AS1"
 
     return None
