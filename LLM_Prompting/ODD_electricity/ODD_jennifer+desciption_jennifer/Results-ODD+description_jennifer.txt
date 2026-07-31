@@ -2,6 +2,8 @@
 JENNIFER ELECTRICITY COMPARISON: ODD+game_stuff VS ODD-only
 ==============================================================================
 
+USE Jennifer's ODD + jennifer's LLM description + game_stuff
+
 Correct action situations (6):
   AS1: Capacitor-adoption assurance game between neighbouring farmers
   AS2: Sequential social-learning process in capacitor adoption
