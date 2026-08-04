@@ -1,5 +1,5 @@
 """
-Run the 3 LLM models 30 times on the electricity ODD plus game_stuff text.
+Run the configured LLM models 30 times on the electricity ODD plus game_stuff text.
 
 This preserved Alex-version runner uses the previous ODD prompt and reads
 Txts/TXT/odd_alex.txt. Results are written to the original Batch_30Runs folder.
@@ -9,6 +9,8 @@ Models:
   - DeepSeek-V4-Pro
   - Llama-3.3-70B-Instruct-Turbo
   - Qwen2.5-7B-Instruct-Turbo
+  - Qwen3.7-Plus
+  - gpt-oss-120b
 """
 
 import os
@@ -42,6 +44,16 @@ MODELS = {
         "timeout": 600.0,
         "max_tokens": 16000,
     },
+    "Qwen3.7-Plus": {
+        "model_id": "Qwen/Qwen3.7-Plus",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
+    "gpt-oss-120b": {
+        "model_id": "openai/gpt-oss-120b",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
 }
 
 N_RUNS = 30
@@ -52,7 +64,12 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 text_dir = os.path.join(current_dir, "Txts", "TXT")
 odd_path = os.path.join(text_dir, "odd_alex.txt")
 game_path = os.path.join(text_dir, "Electricity_game_stuff.txt")
-output_dir = os.path.join(current_dir, "Result-Alex", "Result-30Runs_ODD+gamestuff", "Result")
+output_dir = os.path.join(
+    current_dir,
+    "ODD_alex+desciption_alex",
+    "Result-30Runs_ODD+gamestuff",
+    "Result",
+)
 
 
 def build_prompt(odd_text, game_text):

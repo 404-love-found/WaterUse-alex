@@ -23,20 +23,27 @@ CURRENT_DIR = Path(__file__).resolve().parent
 
 EXPERIMENTS = {
     "ODD+game_stuff": {
-        "batch_dir": CURRENT_DIR / "Batch_30Runs",
+        "batch_dir": CURRENT_DIR / "ODD_alex+desciption_alex" / "Result-30Runs_ODD+gamestuff" / "Result",
         "report_name": "Electricity_evaluation_ODD+game_stuff.txt",
         "csv_name": "Electricity_evaluation_summary_ODD+game_stuff.csv",
         "as_csv_name": "Electricity_evaluation_as_level_ODD+game_stuff.csv",
     },
     "ODD-only": {
-        "batch_dir": CURRENT_DIR / "Batch_30Runs_ODDOnly",
+        "batch_dir": CURRENT_DIR / "ODD_alex+desciption_alex" / "Result-30Runs_ODD" / "Result",
         "report_name": "Electricity_evaluation_ODD-only.txt",
         "csv_name": "Electricity_evaluation_summary_ODD-only.csv",
         "as_csv_name": "Electricity_evaluation_as_level_ODD-only.csv",
     },
 }
 
-MODELS = ("DeepSeek-R1", "DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
+MODELS = (
+    "DeepSeek-R1",
+    "DeepSeek-V4-Pro",
+    "Llama-3.3-70B",
+    "Qwen2.5-7B",
+    "Qwen3.7-Plus",
+    "gpt-oss-120b",
+)
 
 
 @dataclass(frozen=True)

@@ -13,9 +13,15 @@ import evaluate_tp_fp_fn as base
 
 
 CURRENT_DIR = Path(__file__).resolve().parent
-RESULT_ROOT = CURRENT_DIR / "Result-AlexPrompt-JenniferODD"
+RESULT_ROOT = CURRENT_DIR / "ODD_jennifer+desciption_alex"
 
-MODELS = ("DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
+MODELS = (
+    "DeepSeek-V4-Pro",
+    "Llama-3.3-70B",
+    "Qwen2.5-7B",
+    "Qwen3.7-Plus",
+    "gpt-oss-120b",
+)
 
 EXPERIMENTS = {
     "ODD+game_stuff": {

@@ -15,17 +15,25 @@ import evaluate_tp_fp_fn as base
 
 CURRENT_DIR = Path(__file__).resolve().parent
 
-MODELS = ("DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
+RESULT_ROOT = CURRENT_DIR / "ODD_jennifer+desciption_jennifer"
+
+MODELS = (
+    "DeepSeek-V4-Pro",
+    "Llama-3.3-70B",
+    "Qwen2.5-7B",
+    "Qwen3.7-Plus",
+    "gpt-oss-120b",
+)
 
 EXPERIMENTS = {
     "ODD+game_stuff": {
-        "batch_dir": CURRENT_DIR / "Result-jennifer" / "Result-30Runs_ODD+gamestuff" / "Result",
+        "batch_dir": RESULT_ROOT / "Result-30Runs_ODD+gamestuff" / "Result",
         "report_name": "Jennifer_Electricity_evaluation_ODD+game_stuff.txt",
         "csv_name": "Jennifer_Electricity_evaluation_summary_ODD+game_stuff.csv",
         "as_csv_name": "Jennifer_Electricity_evaluation_as_level_ODD+game_stuff.csv",
     },
     "ODD-only": {
-        "batch_dir": CURRENT_DIR / "Result-jennifer" / "Result-30Runs_ODD" / "Result",
+        "batch_dir": RESULT_ROOT / "Result-30Runs_ODD" / "Result",
         "report_name": "Jennifer_Electricity_evaluation_ODD-only.txt",
         "csv_name": "Jennifer_Electricity_evaluation_summary_ODD-only.csv",
         "as_csv_name": "Jennifer_Electricity_evaluation_as_level_ODD-only.csv",
@@ -35,8 +43,7 @@ EXPERIMENTS = {
 
 def write_jennifer_cross_comparison(results_by_experiment: dict[str, dict]) -> Path:
     comparison_path = (
-        CURRENT_DIR
-        / "Result-jennifer"
+        RESULT_ROOT
         / "Jennifer_Electricity_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt"
     )
 
