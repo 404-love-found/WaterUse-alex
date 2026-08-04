@@ -92,6 +92,55 @@ Matrix:
         self.assertEqual("AS1", evaluator.classify_against_correct_set(situations[0]))
         self.assertEqual("AS6", evaluator.classify_against_correct_set(situations[1]))
 
+    def test_action_situation_table_rows_are_extracted_separately(self) -> None:
+        response = """# Run 1 - test/model
+
+| # | Title (AS) | Strategic tension | Representation |
+|---|------------|-------------------|----------------|
+| 1 | **Capacitor Adoption Assurance Game** | Neighbours coordinate adoption. | Payoff matrix |
+| 2 | **Groundwater Extraction Dilemma** | Farmers share an aquifer. | Payoff matrix |
+"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "run_01.md"
+            path.write_text(response, encoding="utf-8")
+            situations = evaluator.extract_action_situations(path)
+
+        self.assertEqual(2, len(situations))
+        self.assertEqual("AS1", evaluator.classify_against_correct_set(situations[0]))
+        self.assertEqual("AS6", evaluator.classify_against_correct_set(situations[1]))
+
+    def test_detailed_headings_take_priority_over_summary_table(self) -> None:
+        response = """# Run 1 - test/model
+
+## Action Situation 1: Capacitor Adoption Assurance Game
+Tension: Neighbours coordinate adoption.
+Matrix: 2x2 payoff matrix.
+
+## Action Situation 2: Groundwater Extraction Dilemma
+Tension: Farmers share an aquifer.
+Matrix: 2x2 payoff matrix.
+
+| # | Title | Strategic tension |
+|---|-------|-------------------|
+| 1 | Capacitor Adoption Assurance Game | Coordination |
+| 2 | Groundwater Extraction Dilemma | Common pool resource |
+"""
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "run_01.md"
+            path.write_text(response, encoding="utf-8")
+            situations = evaluator.extract_action_situations(path)
+
+        self.assertEqual(2, len(situations))
+
+    def test_payoff_matrix_table_is_not_an_action_situation_table(self) -> None:
+        lines = [
+            "| Farmer A / Farmer B | Adopt | Wait |",
+            "|---------------------|-------|------|",
+            "| Adopt | (3,3) | (0,2) |",
+            "| Wait | (2,0) | (1,1) |",
+        ]
+        self.assertEqual([], evaluator.extract_table_action_situations(lines))
+
     def test_capacitor_title_takes_priority_over_transformer_context(self) -> None:
         situation = evaluator.ActionSituation(
             title="Capacitor Adoption Coordination among Farmers on a Transformer",

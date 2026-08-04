@@ -289,6 +289,98 @@ def has_representation_evidence(block: str) -> bool:
     )
 
 
+def split_markdown_table_row(raw_line: str) -> list[str]:
+    stripped = raw_line.strip()
+    if not stripped.startswith("|"):
+        return []
+
+    row = stripped[1:-1] if stripped.endswith("|") else stripped[1:]
+    cells = re.split(r"(?<!\\)\|", row)
+    return [clean_markdown(cell.replace(r"\|", "|").strip()) for cell in cells]
+
+
+def find_table_title_column(cells: list[str]) -> int | None:
+    for index, cell in enumerate(cells):
+        header = normalize(cell)
+        if re.search(r"\btitle\b", header):
+            return index
+        if re.fullmatch(r"(?:action[- ]?situation|strategic dilemma|game)", header):
+            return index
+    return None
+
+
+def is_markdown_table_separator(cells: list[str]) -> bool:
+    return bool(cells) and all(
+        not cell or bool(re.fullmatch(r":?-{3,}:?", cell.replace(" ", "")))
+        for cell in cells
+    )
+
+
+def extract_table_action_situations(lines: list[str]) -> list[ActionSituation]:
+    situations: list[ActionSituation] = []
+    title_column: int | None = None
+    identifier_column: int | None = None
+    waiting_for_separator = False
+
+    for index, line in enumerate(lines):
+        cells = split_markdown_table_row(line)
+        if not cells:
+            title_column = None
+            identifier_column = None
+            waiting_for_separator = False
+            continue
+
+        if title_column is None:
+            candidate_title_column = find_table_title_column(cells)
+            if candidate_title_column is None:
+                continue
+            title_column = candidate_title_column
+            identifier_column = next(
+                (
+                    cell_index
+                    for cell_index, cell in enumerate(cells)
+                    if normalize(cell) in {"#", "no", "number", "as", "as #", "action situation #"}
+                ),
+                None,
+            )
+            waiting_for_separator = True
+            continue
+
+        if waiting_for_separator:
+            if is_markdown_table_separator(cells):
+                waiting_for_separator = False
+                continue
+            title_column = None
+            identifier_column = None
+            waiting_for_separator = False
+            continue
+
+        if title_column >= len(cells) or is_markdown_table_separator(cells):
+            continue
+        if identifier_column is not None:
+            if identifier_column >= len(cells):
+                continue
+            identifier = normalize(cells[identifier_column])
+            if not re.fullmatch(r"(?:as\s*)?\d+", identifier):
+                continue
+
+        title = canonical_title(cells[title_column])
+        if len(title) < 4 or is_generic_heading(title):
+            continue
+
+        block = " | ".join(cell for cell_index, cell in enumerate(cells) if cell_index != title_column)
+        situations.append(
+            ActionSituation(
+                title=title,
+                block=block,
+                line_no=index + 1,
+                has_representation_evidence=has_representation_evidence(block),
+            )
+        )
+
+    return situations
+
+
 def extract_action_situations(filepath: Path) -> list[ActionSituation]:
     lines = filepath.read_text(encoding="utf-8").splitlines()
     starts: list[tuple[int, str]] = []
@@ -324,6 +416,10 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
     situations_with_evidence = [s for s in situations if s.has_representation_evidence]
     if situations_with_evidence:
         return situations_with_evidence
+
+    table_situations = extract_table_action_situations(lines)
+    if table_situations:
+        return table_situations
 
     full_text = "\n".join(lines)
     if has_representation_evidence(full_text):
@@ -639,7 +735,11 @@ def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path,
 
 
 def write_cross_comparison(results_by_experiment: dict[str, dict]) -> Path:
-    comparison_path = CURRENT_DIR / "Electricity_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt"
+    comparison_path = (
+        CURRENT_DIR
+        / "ODD_alex+desciption_alex"
+        / "Electricity_evaluation_comparison_ODD+game_stuff_vs_ODD-only.txt"
+    )
 
     with comparison_path.open("w", encoding="utf-8") as out:
         out.write("=" * 78 + "\n")

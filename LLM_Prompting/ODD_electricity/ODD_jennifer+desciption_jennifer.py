@@ -178,11 +178,26 @@ def run_single(client, model_id, prompt, max_tokens, hard_timeout):
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
                 max_tokens=max_tokens,
+                stream=model_id == "Qwen/Qwen3.7-Plus",
             )
+            if model_id == "Qwen/Qwen3.7-Plus":
+                content_parts = []
+                reasoning_parts = []
+                for chunk in response:
+                    if not chunk.choices:
+                        continue
+                    delta = chunk.choices[0].delta
+                    if getattr(delta, "content", None):
+                        content_parts.append(delta.content)
+                    if getattr(delta, "reasoning", None):
+                        reasoning_parts.append(delta.reasoning)
+                content = "".join(content_parts) or "".join(reasoning_parts)
+            else:
+                message = response.choices[0].message
+                content = message.content or getattr(message, "reasoning", None)
             signal.alarm(0)
             signal.signal(signal.SIGALRM, previous_handler)
-            message = response.choices[0].message
-            return message.content or getattr(message, "reasoning", None)
+            return content
         except RequestTimeoutError as e:
             signal.alarm(0)
             signal.signal(signal.SIGALRM, previous_handler)
