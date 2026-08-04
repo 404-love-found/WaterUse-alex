@@ -1,0 +1,40 @@
+==============================================================================
+JENNIFER ELECTRICITY COMPARISON: ODD+game_stuff VS ODD-only
+==============================================================================
+
+Correct action situations (6):
+  AS1: Capacitor-adoption assurance game between neighbouring farmers
+  AS2: Sequential social-learning process in capacitor adoption
+  AS3: Asymmetric transformer-capacity authorization dilemma between farmers
+  AS4: Mutual-exchange coordination game between farmer and sub-station staff
+  AS5: Authorization-and-investment asymmetric coordination between farmer and staff
+  AS6: Groundwater-extraction prisoner's dilemma between farmers
+
+Side-by-side totals:
+Model                Evaluation         TP   FN   FP  Precision   Recall
+----------------------------------------------------------------------------
+DeepSeek-V4-Pro      ODD+game_stuff    134   46   27     0.8323   0.7444
+DeepSeek-V4-Pro      ODD-only          110   70   31     0.7801   0.6111
+Llama-3.3-70B        ODD+game_stuff    170   10   10     0.9444   0.9444
+Llama-3.3-70B        ODD-only          140   40   40     0.7778   0.7778
+Qwen2.5-7B           ODD+game_stuff    128   52   77     0.6244   0.7111
+Qwen2.5-7B           ODD-only          124   56   73     0.6294   0.6889
+Qwen3.7-Plus         ODD+game_stuff    161   19   22     0.8798   0.8944
+Qwen3.7-Plus         ODD-only          147   33   27     0.8448   0.8167
+gpt-oss-120b         ODD+game_stuff    136   44   33     0.8047   0.7556
+gpt-oss-120b         ODD-only          139   41   45     0.7554   0.7722
+
+Differences (ODD+game_stuff minus ODD-only):
+Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
+------------------------------------------------------------------------------
+DeepSeek-V4-Pro           +24      -24       -4     +0.0522       +0.1333
+Llama-3.3-70B             +30      -30      -30     +0.1667       +0.1667
+Qwen2.5-7B                 +4       -4       +4     -0.0051       +0.0222
+Qwen3.7-Plus              +14      -14       -5     +0.0350       +0.0778
+gpt-oss-120b               -3       +3      -12     +0.0493       -0.0167
+
+Audit notes:
+  Only TP, FN, FP, Precision, and Recall are evaluated.
+  AS-level CSVs list every generated AS and whether it is TP, FP-duplicate, or FP-wrong.
+  Per-run invariant: TP + FN = 6 confirmed correct ASs.
+  Generated AS titles are included with body/matrix/sequential text when judging correctness.

@@ -141,6 +141,47 @@ Matrix: 2x2 payoff matrix.
         ]
         self.assertEqual([], evaluator.extract_table_action_situations(lines))
 
+    def test_json_array_objects_are_extracted_as_action_situations(self) -> None:
+        response = '''# Run 1 - test/model
+
+[
+  {
+    "Title": "Capacitor Adoption Assurance Game",
+    "Tension": "Neighbours coordinate adoption.",
+    "Representation": "Payoff matrix"
+  },
+  {
+    "title": "Groundwater Extraction Dilemma",
+    "tension": "Farmers share an aquifer.",
+    "representation": "Payoff matrix"
+  }
+]
+'''
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "run_01.md"
+            path.write_text(response, encoding="utf-8")
+            situations = evaluator.extract_action_situations(path)
+
+        self.assertEqual(2, len(situations))
+        self.assertEqual("AS1", evaluator.classify_against_correct_set(situations[0]))
+        self.assertEqual("AS6", evaluator.classify_against_correct_set(situations[1]))
+
+    def test_wrapped_json_action_situations_are_extracted(self) -> None:
+        response = '''# Run 1 - test/model
+
+{
+  "action_situations": [
+    {"action_situation_title": "Sequential Social Learning", "representation": "Sequence"},
+    {"action_situation_title": "Groundwater Extraction", "representation": "Payoff matrix"}
+  ]
+}
+'''
+        situations = evaluator.extract_json_action_situations(response)
+
+        self.assertEqual(2, len(situations))
+        self.assertEqual("AS2", evaluator.classify_against_correct_set(situations[0]))
+        self.assertEqual("AS6", evaluator.classify_against_correct_set(situations[1]))
+
     def test_capacitor_title_takes_priority_over_transformer_context(self) -> None:
         situation = evaluator.ActionSituation(
             title="Capacitor Adoption Coordination among Farmers on a Transformer",
@@ -197,6 +238,71 @@ Matrix: 2x2 payoff matrix.
             has_representation_evidence=True,
         )
         self.assertIsNone(evaluator.classify_against_correct_set(situation))
+
+    def test_numbered_structured_fields_are_not_action_situation_starts(self) -> None:
+        fields = (
+            "**8. Outcomes:** Formal authorized connection and staff effort.",
+            "10. **Strategic Tension:** Staff and farmer coordinate.",
+            "**12. Relevant Rules:** Boundary and choice rules for the transformer.",
+        )
+        for field in fields:
+            with self.subTest(field=field):
+                self.assertFalse(evaluator.is_candidate_start(field))
+
+    def test_numbered_title_field_remains_an_action_situation_start(self) -> None:
+        self.assertTrue(evaluator.is_candidate_start("1. **Title:** Authorization Game"))
+
+    def test_game_tree_moves_are_not_action_situation_starts(self) -> None:
+        moves = (
+            "1. **Staff chooses: Invest Effort or Shirk**",
+            "## Stage 1 - Staff decides whether to authorize",
+            "**Node A - Staff decision**",
+        )
+        for move in moves:
+            with self.subTest(move=move):
+                self.assertFalse(evaluator.is_candidate_start(move))
+
+    def test_nonbreaking_hyphen_mutual_exchange_matches_as4(self) -> None:
+        situation = evaluator.ActionSituation(
+            title="Mutual‑exchange coordination between farmer and sub-station staff",
+            block="Farmer and staff exchange reciprocal informal benefits. Matrix.",
+            line_no=1,
+            has_representation_evidence=True,
+        )
+        self.assertEqual("AS4", evaluator.classify_against_correct_set(situation))
+
+    def test_staff_maintenance_tradeoff_is_not_as5(self) -> None:
+        situation = evaluator.ActionSituation(
+            title="Staff workload-maintenance trade-off",
+            block="Sub-station staff choose maintenance effort. Payoff matrix.",
+            line_no=1,
+            has_representation_evidence=True,
+        )
+        self.assertIsNone(evaluator.classify_against_correct_set(situation))
+
+    def test_transformer_investment_and_regularisation_matches_as5(self) -> None:
+        situation = evaluator.ActionSituation(
+            title="Transformer Capacity Investment and Regularisation",
+            block="A farmer requests formalisation and sub-station staff decide whether to invest. Matrix.",
+            line_no=1,
+            has_representation_evidence=True,
+        )
+        self.assertEqual("AS5", evaluator.classify_against_correct_set(situation))
+
+    def test_explicit_labels_do_not_override_semantic_review(self) -> None:
+        as4 = evaluator.ActionSituation("AS‑4: Mutual-exchange coordination", "Matrix", 1, True)
+        as5 = evaluator.ActionSituation(
+            "Action Situation 5: Authorization-and-investment coordination",
+            "Farmer and sub-station staff choose whether to formalize a connection. Matrix.",
+            1,
+            True,
+        )
+        mislabeled = evaluator.ActionSituation("AS1: Groundwater Extraction", "Shared aquifer matrix", 1, True)
+        bare_label = evaluator.ActionSituation("AS-4", "Matrix", 1, True)
+        self.assertEqual("AS4", evaluator.classify_against_correct_set(as4))
+        self.assertEqual("AS5", evaluator.classify_against_correct_set(as5))
+        self.assertEqual("AS6", evaluator.classify_against_correct_set(mislabeled))
+        self.assertIsNone(evaluator.classify_against_correct_set(bare_label))
 
 
 if __name__ == "__main__":

@@ -13,19 +13,25 @@ Correct action situations (6):
 Side-by-side totals:
 Model                Evaluation         TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------------
-DeepSeek-V4-Pro      ODD+game_stuff    140   40   29     0.8284   0.7778
+DeepSeek-V4-Pro      ODD+game_stuff    144   36   25     0.8521   0.8000
 DeepSeek-V4-Pro      ODD-only          132   48   21     0.8627   0.7333
-Llama-3.3-70B        ODD+game_stuff    144   36   12     0.9231   0.8000
-Llama-3.3-70B        ODD-only          143   37   12     0.9226   0.7944
-Qwen2.5-7B           ODD+game_stuff    144   36  146     0.4966   0.8000
-Qwen2.5-7B           ODD-only          142   38  132     0.5182   0.7889
+Llama-3.3-70B        ODD+game_stuff    147   33    9     0.9423   0.8167
+Llama-3.3-70B        ODD-only          127   53   28     0.8194   0.7056
+Qwen2.5-7B           ODD+game_stuff    135   45  155     0.4655   0.7500
+Qwen2.5-7B           ODD-only          134   46  140     0.4891   0.7444
+Qwen3.7-Plus         ODD+game_stuff    147   33   14     0.9130   0.8167
+Qwen3.7-Plus         ODD-only          115   65   24     0.8273   0.6389
+gpt-oss-120b         ODD+game_stuff    100   80   56     0.6410   0.5556
+gpt-oss-120b         ODD-only          114   66   69     0.6230   0.6333
 
 Differences (ODD+game_stuff minus ODD-only):
 Model                Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
 ------------------------------------------------------------------------------
-DeepSeek-V4-Pro            +8       -8       +8     -0.0343       +0.0444
-Llama-3.3-70B              +1       -1       +0     +0.0005       +0.0056
-Qwen2.5-7B                 +2       -2      +14     -0.0217       +0.0111
+DeepSeek-V4-Pro           +12      -12       +4     -0.0107       +0.0667
+Llama-3.3-70B             +20      -20      -19     +0.1230       +0.1111
+Qwen2.5-7B                 +1       -1      +15     -0.0235       +0.0056
+Qwen3.7-Plus              +32      -32      -10     +0.0857       +0.1778
+gpt-oss-120b              -14      +14      -13     +0.0181       -0.0778
 
 Audit notes:
   Metrics: TP, FN, FP, Precision, and Recall only.

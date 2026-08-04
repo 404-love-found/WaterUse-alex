@@ -13,6 +13,7 @@ Metrics:
 from __future__ import annotations
 
 import csv
+import json
 import re
 from collections import Counter
 from dataclasses import dataclass, field
@@ -131,7 +132,9 @@ def canonical_title(text: str) -> str:
 
 def normalize(text: str) -> str:
     text = clean_markdown(text).lower()
-    return text.replace("‐", "-").replace("–", "-").replace("—", "-")
+    for dash in ("‐", "‑", "‒", "–", "—", "−"):
+        text = text.replace(dash, "-")
+    return text
 
 
 def has_any(text: str, patterns: tuple[str, ...]) -> bool:
@@ -181,6 +184,55 @@ def is_generic_heading(title: str) -> bool:
     return False
 
 
+def is_structured_field_line(raw_line: str) -> bool:
+    """Reject numbered ODD/IAD fields that belong inside an AS block."""
+    title = normalize(canonical_title(raw_line))
+    field_names = (
+        r"location",
+        r"players?",
+        r"roles?",
+        r"actions?",
+        r"control rules?",
+        r"information",
+        r"outcomes?",
+        r"payoffs?",
+        r"strategic tension",
+        r"strategic classification",
+        r"temporal structure",
+        r"relevant rules?",
+        r"boundary rules?",
+        r"position rules?",
+        r"choice rules?",
+        r"aggregation rules?",
+        r"information rules?",
+        r"scope rules?",
+        r"representation",
+        r"sequential representation",
+        r"game tree",
+        r"matrix",
+        r"payoff matrix",
+        r"payoff rationale",
+        r"justification",
+        r"game description",
+        r"compliance with odd\+?d",
+    )
+    return bool(re.match(rf"^(?:{'|'.join(field_names)})(?:\s*[:(\-]|$)", title))
+
+
+def is_internal_game_tree_step(raw_line: str) -> bool:
+    """Reject decision-tree nodes and moves that are not separate AS titles."""
+    title = normalize(canonical_title(raw_line))
+    if re.match(r"^(?:stage\s*\d+|node\s+[a-z0-9]+)\b", title):
+        return True
+    return bool(
+        re.match(
+            r"^(?:farmer|staff|player\s*\d*|nature|utility|regulator)\s+"
+            r"(?:chooses?|decides?|moves?|sets?|observes?|responds?)\b",
+            title,
+        )
+    )
+
+
 def is_candidate_start(raw_line: str) -> bool:
     stripped = raw_line.strip()
     if not stripped or stripped.startswith("# Run "):
@@ -224,6 +276,9 @@ def is_candidate_start(raw_line: str) -> bool:
     ):
         return False
 
+    if is_structured_field_line(stripped) or is_internal_game_tree_step(stripped):
+        return False
+
     title = clean_markdown(stripped)
     if is_generic_heading(title):
         return False
@@ -233,7 +288,7 @@ def is_candidate_start(raw_line: str) -> bool:
     lower = title.lower()
     candidate_patterns = (
         r"\baction\s+situation\s*\d*\b.+",
-        r"\bAS\s*\d+\b.+",
+        r"\bAS\s*[-:]?\s*\d+\b.+",
         r"^(?:\d+\s*[.)]\s*)?(?:strategic\s+)?(?:tension|dilemma|game)\s*\d*\s*[:.-].+",
         r".*\b(capacitor|voltage|social[- ]?learning|diffusion|imitat|peer|sequential|transformer|"
         r"capacity|authori[sz]ation|authori[sz]e|free[- ]?rid|contribut|volunteer|mutual[- ]?exchange|"
@@ -381,8 +436,86 @@ def extract_table_action_situations(lines: list[str]) -> list[ActionSituation]:
     return situations
 
 
+def json_title_key(item: dict) -> str | None:
+    for key in item:
+        normalized_key = re.sub(r"[^a-z]+", " ", str(key).lower()).strip()
+        if normalized_key == "title" or normalized_key.endswith(" title") or normalized_key in {
+            "action situation",
+            "action situation name",
+        }:
+            return key
+    return None
+
+
+def json_action_situation_items(payload: object) -> list[dict]:
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict) and json_title_key(item)]
+    if not isinstance(payload, dict):
+        return []
+    if json_title_key(payload):
+        return [payload]
+
+    for key, value in payload.items():
+        normalized_key = re.sub(r"[^a-z]+", " ", str(key).lower()).strip()
+        if isinstance(value, list) and (
+            "action situation" in normalized_key or normalized_key in {"situations", "results", "analysis"}
+        ):
+            items = [item for item in value if isinstance(item, dict) and json_title_key(item)]
+            if items:
+                return items
+    return []
+
+
+def extract_json_action_situations(full_text: str) -> list[ActionSituation]:
+    decoder = json.JSONDecoder()
+
+    for match in re.finditer(r"(?m)^\s*(?P<start>[\[{])", full_text):
+        start_index = match.start("start")
+        try:
+            payload, _ = decoder.raw_decode(full_text[start_index:])
+        except json.JSONDecodeError:
+            continue
+
+        items = json_action_situation_items(payload)
+        if not items:
+            continue
+
+        base_line = full_text.count("\n", 0, start_index) + 1
+        situations: list[ActionSituation] = []
+        for item_index, item in enumerate(items):
+            title_key = json_title_key(item)
+            if title_key is None:
+                continue
+            title = canonical_title(str(item[title_key]))
+            if len(title) < 4 or is_generic_heading(title):
+                continue
+
+            block_parts = []
+            for key, value in item.items():
+                if key == title_key:
+                    continue
+                if isinstance(value, str):
+                    rendered_value = value
+                else:
+                    rendered_value = json.dumps(value, ensure_ascii=False, sort_keys=True)
+                block_parts.append(f"{key}: {rendered_value}")
+            block = "\n".join(block_parts)
+            situations.append(
+                ActionSituation(
+                    title=title,
+                    block=block,
+                    line_no=base_line + item_index,
+                    has_representation_evidence=has_representation_evidence(block),
+                )
+            )
+        return situations
+
+    return []
+
+
 def extract_action_situations(filepath: Path) -> list[ActionSituation]:
-    lines = filepath.read_text(encoding="utf-8").splitlines()
+    full_text = filepath.read_text(encoding="utf-8")
+    lines = full_text.splitlines()
     starts: list[tuple[int, str]] = []
 
     for index, line in enumerate(lines):
@@ -421,7 +554,10 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
     if table_situations:
         return table_situations
 
-    full_text = "\n".join(lines)
+    json_situations = extract_json_action_situations(full_text)
+    if json_situations:
+        return json_situations
+
     if has_representation_evidence(full_text):
         fallback_title = "Single extracted action situation"
         for line in lines:
@@ -438,17 +574,21 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
     title_text = normalize(situation.title)
     full_text = normalize(f"{situation.title}\n{situation.block}")
 
-    explicit_labels = {
-        r"\bAS\s*1\b": "AS1",
-        r"\bAS\s*2\b": "AS2",
-        r"\bAS\s*3\b": "AS3",
-        r"\bAS\s*4\b": "AS4",
-        r"\bAS\s*5\b": "AS5",
-        r"\bAS\s*6\b": "AS6",
-    }
-    for pattern, label in explicit_labels.items():
-        if re.search(pattern, title_text, flags=re.IGNORECASE):
-            return label
+    # A model-assigned AS number is not evidence of correctness. Strip it and
+    # classify the generated title/body against the ground-truth semantics.
+    title_text = re.sub(
+        r"^(?:(?:AS\s*[-:]?\s*\d+)|(?:action\s+situation\s*[-:]?\s*\d+))\s*[:.)-]*\s*",
+        "",
+        title_text,
+        flags=re.IGNORECASE,
+    )
+
+    staff_context = has_any(full_text, (r"\bstaff\b|\bsub[- ]?station\b|\butility\b",))
+    farmer_context = has_any(full_text, (r"\bfarmer",))
+    farmer_farmer_context = has_any(
+        full_text,
+        (r"\btwo farmers\b|\bfarmer[- ]?farmer\b|\bneighbou?ring farmers\b|\bfarmer 1\b|\bfarmer 2\b",),
+    )
 
     # Title-first rules avoid generic explanatory text pulling a block into the wrong class.
     if has_any(
@@ -463,28 +603,57 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
         return "AS2"
     if has_any(title_text, (r"\bmutual[- ]?exchange\b|\binformal[- ]?exchange\b|\brecipro|\bcollusion|collusive|\bfavor|\bfavour\b",)):
         return "AS4"
-    if has_any(
+
+    title_has_authorization = has_any(
         title_text,
         (
-            r"\bauthori[sz]ation.*investment\b|\bauthori[sz]ation.*enforcement\b",
-            r"\bformal\b.*\binformal\b|\binformal\b.*\bformal\b",
-            r"\bstaff\b|\bsub[- ]?station\b|\bmaintenance\b|\bconnection\b",
+            r"\bauthori[sz](?:e[ds]?|ation)?\b",
+            r"\bformal[- ]?connection\b",
+            r"\bregulari[sz](?:e[ds]?|ation)\b",
+            r"\bformalisation\b|\bformalization\b",
         ),
-    ):
+    )
+    title_has_investment = has_any(title_text, (r"\binvest|\bcapacity\s+upgrade",))
+    title_has_as5_pairing = has_any(
+        title_text,
+        (
+            r"\bauthori[sz]ation.*(?:investment|enforcement)\b",
+            r"\b(?:investment|enforcement).*authori[sz]ation\b",
+            r"\bformal[- ]?connection\b",
+            r"\binvest.*(?:regulari[sz]|formali[sz])\b",
+            r"\b(?:regulari[sz]|formali[sz]).*invest\b",
+            r"\bauthori[sz]ation\s+(?:game|decision|coordination)\b",
+            r"\bconnection\s+authori[sz]ation\b",
+        ),
+    )
+    if title_has_authorization and title_has_investment:
         return "AS5"
+    if title_has_as5_pairing and not farmer_farmer_context and (staff_context or not farmer_context):
+        return "AS5"
+    if title_has_authorization and staff_context and farmer_context and not farmer_farmer_context:
+        return "AS5"
+
     if has_any(title_text, (r"\bcapacitor\b|\bvoltage[- ]?stabili|\bassurance\b",)):
         return "AS1"
     if has_any(
         title_text,
         (r"\bauthori[sz](?:ed|ation)?\s+connections?\b|\bconnections?\s+authori[sz]ation\b",),
-    ):
+    ) and (farmer_farmer_context or not staff_context):
         return "AS3"
     if has_any(title_text, (r"\btransformer\b|\bcapacity\b|\bfree[- ]?rid|\bvolunteer|\bcontribut",)):
-        if has_any(full_text, (r"\bstaff\b|\bsub[- ]?station\b",)) and has_any(
-            full_text, (r"\bformal\b|\binformal\b|\benforce|\bmaintenance\b|\bconnection\b",)
-        ):
-            return "AS5"
-        return "AS3"
+        if farmer_farmer_context or not staff_context:
+            return "AS3"
+
+    # These are distinct extra situations; generic body text must not turn them into AS5.
+    if has_any(
+        title_text,
+        (
+            r"\bmaintenance\b|\bworkload\b",
+            r"\benforcement\s+(?:game|decision|dilemma)\b",
+            r"\bcapacity\s+provision\b",
+        ),
+    ) and not (title_has_authorization or title_has_as5_pairing):
+        return None
 
     social_score = len(re.findall(r"social[- ]?learning|diffusion|imitat|observ|learn(?:ing)?|trial", full_text))
     capacitor_score = len(re.findall(r"capacitor", full_text))
@@ -503,7 +672,17 @@ def classify_against_correct_set(situation: ActionSituation) -> str | None:
         return "AS6"
     if exchange_score >= 2 and staff_score >= 1:
         return "AS4"
-    if staff_score >= 1 and formal_score >= 2:
+    has_staff_authorization_core = has_any(
+        full_text,
+        (
+            r"\bauthori[sz](?:e[ds]?|ation)?\b.*\binvest",
+            r"\binvest.*\bauthori[sz](?:e[ds]?|ation)?\b",
+            r"\bformal[- ]?connection\b",
+            r"\bregulari[sz](?:e[ds]?|ation)\b.*\binvest",
+            r"\binvest.*\bregulari[sz](?:e[ds]?|ation)\b",
+        ),
+    )
+    if staff_score >= 1 and farmer_context and formal_score >= 2 and has_staff_authorization_core:
         return "AS5"
     has_capacity_authorization_core = has_any(
         full_text,
