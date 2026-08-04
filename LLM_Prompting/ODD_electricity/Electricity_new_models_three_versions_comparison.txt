@@ -10,24 +10,52 @@ Ground truth: 6 correct action situations per run
 Version                                  Condition        Model             TP   FN   FP  Precision   Recall
 -----------------------------------------------------------------------------------------------------------
 ODD_alex+desciption_alex                 ODD+game_stuff   Qwen3.7-Plus     179    1    0     1.0000   0.9944
-ODD_alex+desciption_alex                 ODD+game_stuff   gpt-oss-120b      88   92   21     0.8073   0.4889
-ODD_alex+desciption_alex                 ODD-only         Qwen3.7-Plus     180    0    3     0.9836   1.0000
-ODD_alex+desciption_alex                 ODD-only         gpt-oss-120b      99   81   23     0.8115   0.5500
-ODD_jennifer+desciption_jennifer         ODD+game_stuff   Qwen3.7-Plus     145   35  112     0.5642   0.8056
-ODD_jennifer+desciption_jennifer         ODD+game_stuff   gpt-oss-120b     134   46   35     0.7929   0.7444
-ODD_jennifer+desciption_jennifer         ODD-only         Qwen3.7-Plus     136   44  101     0.5738   0.7556
-ODD_jennifer+desciption_jennifer         ODD-only         gpt-oss-120b     141   39   43     0.7663   0.7833
-ODD_jennifer+desciption_alex             ODD+game_stuff   Qwen3.7-Plus     150   30   18     0.8929   0.8333
-ODD_jennifer+desciption_alex             ODD+game_stuff   gpt-oss-120b      98   82   56     0.6364   0.5444
-ODD_jennifer+desciption_alex             ODD-only         Qwen3.7-Plus     120   60   37     0.7643   0.6667
-ODD_jennifer+desciption_alex             ODD-only         gpt-oss-120b     107   73   68     0.6114   0.5944
+ODD_alex+desciption_alex                 ODD+game_stuff   gpt-oss-120b      87   93   21     0.8056   0.4833
+ODD_alex+desciption_alex                 ODD-only         Qwen3.7-Plus     180    0    0     1.0000   1.0000
+ODD_alex+desciption_alex                 ODD-only         gpt-oss-120b     109   71   13     0.8934   0.6056
+ODD_jennifer+desciption_jennifer         ODD+game_stuff   Qwen3.7-Plus     161   19   22     0.8798   0.8944
+ODD_jennifer+desciption_jennifer         ODD+game_stuff   gpt-oss-120b     136   44   33     0.8047   0.7556
+ODD_jennifer+desciption_jennifer         ODD-only         Qwen3.7-Plus     147   33   27     0.8448   0.8167
+ODD_jennifer+desciption_jennifer         ODD-only         gpt-oss-120b     139   41   42     0.7680   0.7722
+ODD_jennifer+desciption_alex             ODD+game_stuff   Qwen3.7-Plus     147   33   14     0.9130   0.8167
+ODD_jennifer+desciption_alex             ODD+game_stuff   gpt-oss-120b     100   80   56     0.6410   0.5556
+ODD_jennifer+desciption_alex             ODD-only         Qwen3.7-Plus     115   65   23     0.8333   0.6389
+ODD_jennifer+desciption_alex             ODD-only         gpt-oss-120b     112   68   70     0.6154   0.6222
 
 ODD+game_stuff minus ODD-only:
 Version                                  Model           Delta TP Delta FN Delta FP  Delta Prec  Delta Recall
 ------------------------------------------------------------------------------------------------------------
-ODD_alex+desciption_alex                 Qwen3.7-Plus          -1       +1       -3     +0.0164       -0.0056
-ODD_alex+desciption_alex                 gpt-oss-120b         -11      +11       -2     -0.0041       -0.0611
-ODD_jennifer+desciption_jennifer         Qwen3.7-Plus          +9       -9      +11     -0.0096       +0.0500
-ODD_jennifer+desciption_jennifer         gpt-oss-120b          -7       +7       -8     +0.0266       -0.0389
-ODD_jennifer+desciption_alex             Qwen3.7-Plus         +30      -30      -19     +0.1285       +0.1667
-ODD_jennifer+desciption_alex             gpt-oss-120b          -9       +9      -12     +0.0249       -0.0500
+ODD_alex+desciption_alex                 Qwen3.7-Plus          -1       +1       +0     +0.0000       -0.0056
+ODD_alex+desciption_alex                 gpt-oss-120b         -22      +22       +8     -0.0879       -0.1222
+ODD_jennifer+desciption_jennifer         Qwen3.7-Plus         +14      -14       -5     +0.0350       +0.0778
+ODD_jennifer+desciption_jennifer         gpt-oss-120b          -3       +3       -9     +0.0368       -0.0167
+ODD_jennifer+desciption_alex             Qwen3.7-Plus         +32      -32       -9     +0.0797       +0.1778
+ODD_jennifer+desciption_alex             gpt-oss-120b         -12      +12      -14     +0.0256       -0.0667
+
+Output-quality diagnostics (audit evidence, not evaluation metrics):
+Version                                  Condition        Model            Mean AS  Runs <=1 AS  Perfect  Whitespace
+--------------------------------------------------------------------------------------------------------------------
+ODD_alex+desciption_alex                 ODD+game_stuff   Qwen3.7-Plus        5.97            0       29           0
+ODD_alex+desciption_alex                 ODD+game_stuff   gpt-oss-120b        3.60           15        0          13
+ODD_alex+desciption_alex                 ODD-only         Qwen3.7-Plus        6.00            0       30           0
+ODD_alex+desciption_alex                 ODD-only         gpt-oss-120b        4.07           13       10           4
+ODD_jennifer+desciption_jennifer         ODD+game_stuff   Qwen3.7-Plus        6.10            0        6           0
+ODD_jennifer+desciption_jennifer         ODD+game_stuff   gpt-oss-120b        5.63            0        2           0
+ODD_jennifer+desciption_jennifer         ODD-only         Qwen3.7-Plus        5.80            0        2           0
+ODD_jennifer+desciption_jennifer         ODD-only         gpt-oss-120b        6.03            1        2           0
+ODD_jennifer+desciption_alex             ODD+game_stuff   Qwen3.7-Plus        5.37            0        0           0
+ODD_jennifer+desciption_alex             ODD+game_stuff   gpt-oss-120b        5.20           12        0           9
+ODD_jennifer+desciption_alex             ODD-only         Qwen3.7-Plus        4.60            1        0           0
+ODD_jennifer+desciption_alex             ODD-only         gpt-oss-120b        6.07            7        0           5
+
+Interpretation:
+- Qwen3.7-Plus is effectively tied at ceiling for ODD_alex+desciption_alex: ODD+game_stuff missed one correct AS, while both conditions produced no FP.
+- For both Jennifer-ODD versions, Qwen3.7-Plus improves with game_stuff: it recovers more correct capacity/authorization situations while generating fewer wrong or duplicate ASs.
+- gpt-oss-120b is worse in recall with game_stuff in all three versions. In the Alex and hybrid versions, game_stuff also has more runs with only zero/one extracted AS and more large trailing-whitespace outputs, showing incomplete or degenerate completions despite successful API calls. The longer prompt is a plausible contributor, but this is an inference from the observed outputs rather than a proven API cause.
+- In ODD_jennifer+desciption_jennifer, gpt-oss-120b shows a precision-recall tradeoff rather than a pure decline: game_stuff loses three TP but removes nine FP, so precision rises while recall falls slightly.
+
+Evaluation audit rules:
+- Only TP, FN, FP, Precision, and Recall are performance metrics.
+- Generated titles and their associated body/representation are reviewed together.
+- Model-assigned AS numbers do not establish correctness.
+- ODD/IAD fields, payoff-matrix headings, and game-tree steps are not counted as separate ASs.

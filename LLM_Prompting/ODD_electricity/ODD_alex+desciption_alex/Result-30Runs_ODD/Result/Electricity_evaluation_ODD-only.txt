@@ -521,8 +521,8 @@ run_28.md | TP=1 FN=5 FP=2 Precision=0.3333 Recall=0.1667
   FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
 
 run_29.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS2: Sequential social-learning process in capacitor adoption] L1: We need to provide a 2-player normal form payoff matrix when simultaneous, or a sequential game tree if sequential. The ODD text describes
-  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L1: AS1: Capacitor-adoption assurance game between two farmers. Simultaneous? Likely yes. It says "mutual investment yields shared improvement, while unilateral investment yields no added private benefit" - typical assurance/coordination game. Payoffs: mutual cooperation Pareto-dominant but risky. We need to construct a matrix with ordinal payoffs. Since the ODD says ordinal relations follow canonical archetypes, we can represent with generic payoffs (e.g., a > b > c > d). But we need to be specific? The ODD says reference values are normalized to ordinal ranks. We can use generic ordinal payoffs like 4,3,2,1. For assurance game: mutual cooperation is best, but if one defects while other cooperates, cooperator gets worst, defector gets second worst? Actually typical assurance: CC > DC > DD > CD? Or CC > DC > DD > CD? Let's recall: In assurance (stag hunt), both cooperating is best, but if one defects, the cooperator gets the sucker's payoff (lowest), while the defector gets something but not as high as mutual cooperation. Typically, CC > DC >= DD > CD. But in the text: "mutual cooperation Pareto-dominant but risky" and "unilateral investment yields no added private benefit". So if both invest, both get benefit. If only one invests, the investor bears cost without benefit, so gets lower payoff than if neither invested? The text says: "mutual investment yields shared improvement, while unilateral investment yields no added private benefit". So if both invest, both get improvement (highest). If neither invests, they get baseline (medium). If one invests and other doesn't, the investor pays cost but gets no benefit (lowest), while the non-investor gets the shared benefit without paying cost? Wait: "unilateral investment yields no added private benefit" - so if only one invests, the investment does not produce the benefit because it requires both to coordinate? Or does the benefit still occur but the investor bears the cost? The text: "mutual investment yields shared improvement, while unilateral investment yields no added private benefit" - that suggests that the benefit only materializes if both invest. So if one invests and the other doesn't, the investment is wasted, so the investor gets a loss (cost without benefit), and the non-investor gets baseline. If neither invests, both get baseline. So payoffs: CC > DD > DC > CD? But if DC means investor gets worst, and non-investor gets baseline, then DD = baseline, DC investor < baseline, CD non-investor = baseline, investor < baseline. So ordering: CC (best), DD (second best), DC for defector (baseline? Actually defector gets baseline because no benefit, no cost? But if the investment fails, does the non-investor get any benefit? The text says "unilateral investment yields no added private benefit", implying the benefit does not occur. So both get baseline if neither invests, or if one invests and the other doesn't, the benefit doesn't happen, so the non-investor gets baseline, the investor gets baseline minus cost. So payoffs: CC > DD > DC (defector) = DD? Actually defector in DC gets baseline, which is same as DD. But then it's not a dilemma. In assurance game, typically the defector gets a temptation payoff that is higher than mutual cooperation? No, in assurance, mutual cooperation is best for both, but if one defects, the defector gets less than mutual cooperation but more than mutual defection? Actually, the stag hunt: both hunting stag gives 4 each; both hunting hare gives 2 each; if one hunts stag and other hare, the stag hunter gets 0, hare hunter gets 2. So CC=4, DD=2, DC for defector=2, CD for cooperator=0. So defector gets same as mutual defection. That is a typical assurance game. In this capacitor case, if both invest, they get improved voltage (high payoff). If neither invests, they get baseline (medium). If one invests, the investment is wasted, so investor gets low payoff (cost incurred, no benefit), non-investor gets baseline (since no benefit, no cost). So the non-investor gets baseline, which is higher than the investor's low payoff. So the matrix is
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
@@ -1108,10 +1108,9 @@ Recall    = TP/(TP+FN) = 170/(170+10) = 0.9444
 MODEL 5: Qwen3.7-Plus (30 runs)
 ##############################################################################
 
-run_01.md | TP=6 FN=0 FP=1 Precision=0.8571 Recall=1.0000
+run_01.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: AS1: Capacitor Adoption Assurance Game
   TP [AS2: Sequential social-learning process in capacitor adoption] L23: AS2: Sequential Social Learning in Capacitor Adoption
-  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L31: Focal Farmer observes Peer's choice, then chooses: {Imitate (Invest), Not Imitate}
   TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L45: AS3: Asymmetric Transformer-Capacity Authorization Dilemma
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L63: AS4: Mutual-Exchange Coordination Game
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L81: AS5: Authorization-and-Investment Asymmetric Coordination Game
@@ -1213,10 +1212,9 @@ run_13.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L93: Authorization-and-Investment Asymmetric Coordination Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L113: Groundwater-Extraction Prisoner’s Dilemma
 
-run_14.md | TP=6 FN=0 FP=1 Precision=0.8571 Recall=1.0000
+run_14.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: Capacitor Adoption Assurance Game
   TP [AS2: Sequential social-learning process in capacitor adoption] L13: Sequential Social Learning in Capacitor Adoption
-  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L16: Peer (Farmer A) chooses: {Adopt, Not Adopt}
   TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L22: Asymmetric Transformer-Capacity Authorization Dilemma
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L32: Mutual-Exchange Coordination Game
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L42: Authorization-and-Investment Asymmetric Coordination Game
@@ -1302,10 +1300,9 @@ run_24.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L51: AS5: Authorization-and-Investment Asymmetric Coordination Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L62: AS6: Groundwater-Extraction Prisoner’s Dilemma
 
-run_25.md | TP=6 FN=0 FP=1 Precision=0.8571 Recall=1.0000
+run_25.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L5: AS1: Capacitor-Adoption Assurance Game
   TP [AS2: Sequential social-learning process in capacitor adoption] L20: AS2: Sequential Social Learning in Capacitor Adoption
-  FP-wrong [None] L24: [Peer's Realized Outcome] -> {Success, Failure}
   TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L37: AS3: Asymmetric Transformer-Capacity Authorization Dilemma
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L52: AS4: Mutual-Exchange Coordination Game
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L67: AS5: Authorization-and-Investment Asymmetric Coordination Game
@@ -1354,8 +1351,8 @@ run_30.md | TP=6 FN=0 FP=0 Precision=1.0000 Recall=1.0000
 ------------------------------------------------------------------------------
 Qwen3.7-Plus TOTALS
 ------------------------------------------------------------------------------
-TP = 180   FN = 0     FP = 3
-Precision = TP/(TP+FP) = 180/(180+3) = 0.9836
+TP = 180   FN = 0     FP = 0
+Precision = TP/(TP+FP) = 180/(180+0) = 1.0000
 Recall    = TP/(TP+FN) = 180/(180+0) = 1.0000
 
 ##############################################################################
@@ -1633,5 +1630,5 @@ DeepSeek-R1           170   10   12     0.9341   0.9444
 DeepSeek-V4-Pro       111   69    3     0.9737   0.6167
 Llama-3.3-70B         180    0    0     1.0000   1.0000
 Qwen2.5-7B            170   10   59     0.7424   0.9444
-Qwen3.7-Plus          180    0    3     0.9836   1.0000
+Qwen3.7-Plus          180    0    0     1.0000   1.0000
 gpt-oss-120b          109   71   13     0.8934   0.6056

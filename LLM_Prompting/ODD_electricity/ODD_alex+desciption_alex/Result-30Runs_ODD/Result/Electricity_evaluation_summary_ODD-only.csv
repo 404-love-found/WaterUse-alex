@@ -119,7 +119,7 @@ ODD-only,Qwen2.5-7B,run_27.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen2.5-7B,run_28.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen2.5-7B,run_29.md,5,1,1,0.8333,0.8333
 ODD-only,Qwen2.5-7B,run_30.md,6,0,4,0.6000,1.0000
-ODD-only,Qwen3.7-Plus,run_01.md,6,0,1,0.8571,1.0000
+ODD-only,Qwen3.7-Plus,run_01.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_02.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_03.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_04.md,6,0,0,1.0000,1.0000
@@ -132,7 +132,7 @@ ODD-only,Qwen3.7-Plus,run_10.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_11.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_12.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_13.md,6,0,0,1.0000,1.0000
-ODD-only,Qwen3.7-Plus,run_14.md,6,0,1,0.8571,1.0000
+ODD-only,Qwen3.7-Plus,run_14.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_15.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_16.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_17.md,6,0,0,1.0000,1.0000
@@ -143,7 +143,7 @@ ODD-only,Qwen3.7-Plus,run_21.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_22.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_23.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_24.md,6,0,0,1.0000,1.0000
-ODD-only,Qwen3.7-Plus,run_25.md,6,0,1,0.8571,1.0000
+ODD-only,Qwen3.7-Plus,run_25.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_26.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_27.md,6,0,0,1.0000,1.0000
 ODD-only,Qwen3.7-Plus,run_28.md,6,0,0,1.0000,1.0000

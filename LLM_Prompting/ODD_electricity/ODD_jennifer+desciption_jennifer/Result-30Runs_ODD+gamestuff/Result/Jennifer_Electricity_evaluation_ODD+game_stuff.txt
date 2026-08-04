@@ -740,13 +740,12 @@ run_17.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
   FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
-run_18.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+run_18.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L6: Capacitor Adoption Game
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L28: Farmer-Staff Connection Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L50: Groundwater Extraction Game
   FP-wrong [None] L72: Transformer Capacity Game
   TP [AS2: Sequential social-learning process in capacitor adoption] L94: Social Learning Game
-  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L125: Social Learning Game: This is a social learning game where the payoff matrix reflects the path dependency of technology adoption and the risk of imitating failed strategies. The tension arises from the incomplete knowledge and misattribution of causes.
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
 
@@ -755,7 +754,7 @@ run_19.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L43: Authorized Connection vs. Informal Access
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L84: Groundwater Extraction Game
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L122: Farmer-Staff Collusion Exchange
-  FP-wrong [None] L162: Demand-Side Management (DSM) Coordination
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L162: Demand-Side Management (DSM) Coordination
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L210: Farmer-Staff Collusion Exchange
   FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
@@ -837,13 +836,12 @@ run_26.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
 
-run_27.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
+run_27.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L6: Capacitor Adoption Game
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L46: Authorization Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L85: Groundwater Extraction Game
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L122: Farmer-Staff Coordination Game
   TP [AS2: Sequential social-learning process in capacitor adoption] L161: Social Learning Game
-  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L206: Social Learning Game: This game is a Social Learning Game where farmers update their strategies based on observed outcomes. The payoff matrix reflects the benefits of imitation and the costs of non-imitation.
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
 run_28.md | TP=4 FN=2 FP=7 Precision=0.3636 Recall=0.6667
@@ -889,8 +887,8 @@ run_30.md | TP=3 FN=3 FP=2 Precision=0.6000 Recall=0.5000
 ------------------------------------------------------------------------------
 Qwen2.5-7B TOTALS
 ------------------------------------------------------------------------------
-TP = 128   FN = 52    FP = 77
-Precision = TP/(TP+FP) = 128/(128+77) = 0.6244
+TP = 128   FN = 52    FP = 75
+Precision = TP/(TP+FP) = 128/(128+75) = 0.6305
 Recall    = TP/(TP+FN) = 128/(128+52) = 0.7111
 
 ##############################################################################
@@ -1459,6 +1457,6 @@ Model                  TP   FN   FP  Precision   Recall
 ----------------------------------------------------------------------
 DeepSeek-V4-Pro       134   46   27     0.8323   0.7444
 Llama-3.3-70B         170   10   10     0.9444   0.9444
-Qwen2.5-7B            128   52   77     0.6244   0.7111
+Qwen2.5-7B            128   52   75     0.6305   0.7111
 Qwen3.7-Plus          161   19   22     0.8798   0.8944
 gpt-oss-120b          136   44   33     0.8047   0.7556

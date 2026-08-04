@@ -1468,8 +1468,8 @@ run_05.md | TP=6 FN=0 FP=1 Precision=0.8571 Recall=1.0000
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L14: Enforcement‑access dilemma (Staff ↔ Farmer)
 
 run_06.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
-  TP [AS2: Sequential social-learning process in capacitor adoption] L82: Step 2 (Staff, after observing the farmer’s choice): Choose Enforce Penalty (E) or Tolerate (T).
-  FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
+  TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L1: Action‑Situation 1 – Capacitor‑Adoption Assurance (Farmer ↔ Farmer)
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS4: Mutual-exchange coordination game between farmer and sub-station staff
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff

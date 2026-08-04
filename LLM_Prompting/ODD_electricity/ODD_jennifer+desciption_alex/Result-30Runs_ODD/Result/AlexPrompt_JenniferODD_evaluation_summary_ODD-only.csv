@@ -96,7 +96,7 @@ ODD-only,Qwen3.7-Plus,run_04.md,2,4,0,1.0000,0.3333
 ODD-only,Qwen3.7-Plus,run_05.md,2,4,0,1.0000,0.3333
 ODD-only,Qwen3.7-Plus,run_06.md,4,2,1,0.8000,0.6667
 ODD-only,Qwen3.7-Plus,run_07.md,5,1,0,1.0000,0.8333
-ODD-only,Qwen3.7-Plus,run_08.md,5,1,2,0.7143,0.8333
+ODD-only,Qwen3.7-Plus,run_08.md,5,1,1,0.8333,0.8333
 ODD-only,Qwen3.7-Plus,run_09.md,4,2,2,0.6667,0.6667
 ODD-only,Qwen3.7-Plus,run_10.md,4,2,1,0.8000,0.6667
 ODD-only,Qwen3.7-Plus,run_11.md,4,2,1,0.8000,0.6667
@@ -122,11 +122,11 @@ ODD-only,Qwen3.7-Plus,run_30.md,4,2,1,0.8000,0.6667
 ODD-only,gpt-oss-120b,run_01.md,1,5,0,1.0000,0.1667
 ODD-only,gpt-oss-120b,run_02.md,0,6,1,0.0000,0.0000
 ODD-only,gpt-oss-120b,run_03.md,2,4,0,1.0000,0.3333
-ODD-only,gpt-oss-120b,run_04.md,4,2,2,0.6667,0.6667
+ODD-only,gpt-oss-120b,run_04.md,3,3,3,0.5000,0.5000
 ODD-only,gpt-oss-120b,run_05.md,6,0,4,0.6000,1.0000
 ODD-only,gpt-oss-120b,run_06.md,2,4,0,1.0000,0.3333
 ODD-only,gpt-oss-120b,run_07.md,5,1,2,0.7143,0.8333
-ODD-only,gpt-oss-120b,run_08.md,6,0,4,0.6000,1.0000
+ODD-only,gpt-oss-120b,run_08.md,5,1,4,0.5556,0.8333
 ODD-only,gpt-oss-120b,run_09.md,5,1,2,0.7143,0.8333
 ODD-only,gpt-oss-120b,run_10.md,6,0,4,0.6000,1.0000
 ODD-only,gpt-oss-120b,run_11.md,1,5,1,0.5000,0.1667

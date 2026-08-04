@@ -155,6 +155,8 @@ def is_generic_heading(title: str) -> bool:
     lower = title.lower()
     if is_terminal_heading(title):
         return True
+    if re.search(r"\b(?:normal[- ]form\s+)?payoff matrix\b", lower):
+        return True
     if lower in {
         "matrix",
         "payoff matrix",
@@ -222,11 +224,14 @@ def is_structured_field_line(raw_line: str) -> bool:
 def is_internal_game_tree_step(raw_line: str) -> bool:
     """Reject decision-tree nodes and moves that are not separate AS titles."""
     title = normalize(canonical_title(raw_line))
-    if re.match(r"^(?:stage\s*\d+|node\s+[a-z0-9]+)\b", title):
+    if re.match(r"^(?:stage\s*\d+|step\s*\d+|node\s+[a-z0-9]+)\b", title):
+        return True
+    if re.match(r"^\[[^]]*(?:outcome|state|signal|observation)[^]]*\]", title):
         return True
     return bool(
         re.match(
-            r"^(?:farmer|staff|player\s*\d*|nature|utility|regulator)\s+"
+            r"^(?:(?:focal\s+)?farmer(?:\s*\d+|\s*\([^)]*\))?|staff|peer(?:\s*\([^)]*\))?|"
+            r"player\s*\d*|nature|utility|regulator)\s+"
             r"(?:chooses?|decides?|moves?|sets?|observes?|responds?)\b",
             title,
         )

@@ -257,10 +257,19 @@ Matrix: 2x2 payoff matrix.
             "1. **Staff chooses: Invest Effort or Shirk**",
             "## Stage 1 - Staff decides whether to authorize",
             "**Node A - Staff decision**",
+            "### Step 2 (Staff): Choose Enforce or Tolerate",
+            "**Focal Farmer observes Peer's choice, then chooses: Imitate or Wait**",
+            "1. **Farmer 1 chooses: Authorize or Not Authorize**",
+            "**[Peer's Realized Outcome] -> Success or Failure**",
         )
         for move in moves:
             with self.subTest(move=move):
                 self.assertFalse(evaluator.is_candidate_start(move))
+
+    def test_normal_form_payoff_matrix_is_not_an_action_situation_start(self) -> None:
+        self.assertFalse(
+            evaluator.is_candidate_start("### Normal-form payoff matrix (Farmer rows, Staff columns)")
+        )
 
     def test_nonbreaking_hyphen_mutual_exchange_matches_as4(self) -> None:
         situation = evaluator.ActionSituation(

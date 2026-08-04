@@ -163,19 +163,18 @@ run_15.md | TP=3 FN=3 FP=0 Precision=1.0000 Recall=0.5000
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
 
-run_16.md | TP=4 FN=2 FP=4 Precision=0.5000 Recall=0.6667
+run_16.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L48: Collusion Exchange Game. Players: Farmer and Staff. Actions: Farmer offers collusion (Offer/Not Offer), Staff accepts (Accept/Reject). Or both decide to collude or not. The ODD+D: "a collusive tie forms only when both sides are independently willing." So it's a mutual agreement. If both collude, they gain from informal exchanges: farmer gets lenient enforcement, unauthorized connection, etc., staff gets bribes or favors. If one offers and other rejects, the offerer may face risk of exposure or nothing. If neither colludes, formal rules apply. So it's a trust game-like: farmer's offer is risky if staff rejects. Payoffs: Both collude: farmer gets high benefit (3), staff gets high (3) (bribe). Farmer offers, staff rejects: farmer may get punished or nothing, staff gets maybe 2 (no bribe but no risk). Farmer doesn't offer, staff would accept: staff gets 1 (no bribe, maybe disappointed), farmer gets 1 (no benefit). Neither: farmer 1, staff 1 (formal). Need to reflect asymmetry: staff has power to enforce. So if farmer offers and staff rejects, staff might report or just refuse, farmer might face penalty. So farmer's payoff could be 0 (worst). Staff's payoff if rejecting an offer could be 2 (no bribe but maintains integrity). If farmer doesn't offer and staff would accept, staff gets 1 (missed opportunity), farmer gets 1. So matrix
-  TP [AS2: Sequential social-learning process in capacitor adoption] L60: Social Learning (non-strategic). This is the process where farmers observe neighbors' adoption outcomes and update their strategies. It's not a game, so we just describe the IAD elements without a payoff matrix.
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L79: DSM Coordination Game (Capacitor Adoption)
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L101: Groundwater Extraction Game
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L121: Collusion Exchange Game
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L141: Authorization Game (Trust Game)
-  FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L163: Social Learning (Non-strategic)
+  TP [AS2: Sequential social-learning process in capacitor adoption] L163: Social Learning (Non-strategic)
   FP-wrong [None] L177: Capacity Provision Decision (Non-strategic)
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
 
-run_17.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
+run_17.md | TP=4 FN=2 FP=4 Precision=0.5000 Recall=0.6667
   TP [AS2: Sequential social-learning process in capacitor adoption] L3: Action Situation 1 – DSM Coordination Game
   FP-duplicate [AS2: Sequential social-learning process in capacitor adoption] L37: Action Situation 2 – Social Learning (Non‑strategic sequential process)
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L57: Action Situation 3 – Collusion Exchange Game
@@ -183,6 +182,7 @@ run_17.md | TP=4 FN=2 FP=3 Precision=0.5714 Recall=0.6667
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L124: Action Situation 5 – Informal Capacity Delivery Game
   FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L157: Action Situation 6 – Regularisation Offer Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L190: Action Situation 7 – Groundwater Extraction Game
+  FP-duplicate [AS6: Groundwater-extraction prisoner's dilemma between farmers] L230: Groundwater Extraction – *Prisoner’s Dilemma.* Symmetric farmers, dominant strategy to over‑extract, resulting in the tragedy of the commons.
   FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
@@ -1279,16 +1279,13 @@ run_08.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
   FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
-run_09.md | TP=4 FN=2 FP=5 Precision=0.4444 Recall=0.6667
+run_09.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L12: Authorization Game
-  FP-wrong [None] L30: Normal‑form payoff matrix (Farmer rows, Staff columns)
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L46: Collusion Exchange Game
   FP-wrong [None] L80: Capacity‑Provision Game
-  FP-wrong [None] L98: Normal‑form payoff matrix (Staff rows, Farmer columns)
   TP [AS2: Sequential social-learning process in capacitor adoption] L114: DSM Coordination Game
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L148: Groundwater Extraction Game
-  FP-wrong [None] L248: Revised Game – Enforcement‑Compliance Game
-  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L265: Normal‑form payoff matrix (Staff rows, Farmer columns)
+  FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L248: Revised Game – Enforcement‑Compliance Game
   FN missed: AS1: Capacitor-adoption assurance game between neighbouring farmers
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
@@ -1493,8 +1490,8 @@ run_30.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
 ------------------------------------------------------------------------------
 gpt-oss-120b TOTALS
 ------------------------------------------------------------------------------
-TP = 139   FN = 41    FP = 45
-Precision = TP/(TP+FP) = 139/(139+45) = 0.7554
+TP = 139   FN = 41    FP = 42
+Precision = TP/(TP+FP) = 139/(139+42) = 0.7680
 Recall    = TP/(TP+FN) = 139/(139+41) = 0.7722
 
 
@@ -1508,4 +1505,4 @@ DeepSeek-V4-Pro       110   70   31     0.7801   0.6111
 Llama-3.3-70B         140   40   40     0.7778   0.7778
 Qwen2.5-7B            124   56   73     0.6294   0.6889
 Qwen3.7-Plus          147   33   27     0.8448   0.8167
-gpt-oss-120b          139   41   45     0.7554   0.7722
+gpt-oss-120b          139   41   42     0.7680   0.7722

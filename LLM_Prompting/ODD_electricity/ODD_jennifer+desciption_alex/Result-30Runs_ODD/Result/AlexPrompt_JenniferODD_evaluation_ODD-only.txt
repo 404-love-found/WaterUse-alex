@@ -1034,12 +1034,11 @@ run_07.md | TP=5 FN=1 FP=0 Precision=1.0000 Recall=0.8333
   TP [AS2: Sequential social-learning process in capacitor adoption] L7: Exploration vs. Exploitation in DSM Adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
-run_08.md | TP=5 FN=1 FP=2 Precision=0.7143 Recall=0.8333
+run_08.md | TP=5 FN=1 FP=1 Precision=0.8333 Recall=0.8333
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L3: Capacitor/DSM Adoption Coordination
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L13: Groundwater Extraction Restraint
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L23: Farmer-Staff Collusive Exchange
   TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L33: Transformer Authorization and Cost-Sharing
-  FP-wrong [None] L36: Farmer 1 chooses: {Authorize, Not Authorize}
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L44: Connection Authorization and Enforcement
   FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L54: Transformer Capacity Investment and Regularisation
   FN missed: AS2: Sequential social-learning process in capacitor adoption
@@ -1239,8 +1238,8 @@ run_30.md | TP=4 FN=2 FP=1 Precision=0.8000 Recall=0.6667
 ------------------------------------------------------------------------------
 Qwen3.7-Plus TOTALS
 ------------------------------------------------------------------------------
-TP = 115   FN = 65    FP = 24
-Precision = TP/(TP+FP) = 115/(115+24) = 0.8273
+TP = 115   FN = 65    FP = 23
+Precision = TP/(TP+FP) = 115/(115+23) = 0.8333
 Recall    = TP/(TP+FN) = 115/(115+65) = 0.6389
 
 ##############################################################################
@@ -1272,13 +1271,14 @@ run_03.md | TP=2 FN=4 FP=0 Precision=1.0000 Recall=0.3333
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
   FN missed: AS6: Groundwater-extraction prisoner's dilemma between farmers
 
-run_04.md | TP=4 FN=2 FP=2 Precision=0.6667 Recall=0.6667
+run_04.md | TP=3 FN=3 FP=3 Precision=0.5000 Recall=0.5000
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L14: Capacitor‑Adoption Coordination
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L32: Farmer ↔ Staff Collusion Tie Formation
-  TP [AS2: Sequential social-learning process in capacitor adoption] L54: Farmer (observing the chosen intensity) decides Authorize (A) (pay formal connection fee) or Stay Unauthorised (U).
+  FP-wrong [None] L50: Authorization Decision vs Regulatory Monitoring
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L76: Groundwater Extraction (Full vs Restraint)
   FP-duplicate [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L109: Informal‑Connection Choice (Tied vs Untied Farmers)
   FP-wrong [None] L129: Enforcement Effort vs Detection Risk (Regulator ↔ Staff)
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
   FN missed: AS5: Authorization-and-investment asymmetric coordination between farmer and staff
 
@@ -1312,17 +1312,17 @@ run_07.md | TP=5 FN=1 FP=2 Precision=0.7143 Recall=0.8333
   TP [AS2: Sequential social-learning process in capacitor adoption] L14: Social‑learning / imitation decision
   FN missed: AS3: Asymmetric transformer-capacity authorization dilemma between farmers
 
-run_08.md | TP=6 FN=0 FP=4 Precision=0.6000 Recall=1.0000
+run_08.md | TP=5 FN=1 FP=4 Precision=0.5556 Recall=0.8333
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L14: Capacitor‑Adoption Coordination (Farmer ↔ Farmer)
   TP [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L29: Authorization Decision (Farmer ↔ Utility Staff)
   TP [AS4: Mutual-exchange coordination game between farmer and sub-station staff] L44: Collusion‑Tie Formation (Farmer ↔ Staff) – Sequential
-  TP [AS2: Sequential social-learning process in capacitor adoption] L51: Farmer (observing staff’s offer) chooses Accept or Reject.
   FP-duplicate [AS5: Authorization-and-investment asymmetric coordination between farmer and staff] L64: Transformer‑Capacity Investment (Staff ↔ Farmer)
   FP-wrong [None] L79: Enforcement vs. Tolerance (Utility Staff ↔ Regulator)
   TP [AS6: Groundwater-extraction prisoner's dilemma between farmers] L94: Groundwater Extraction Choice (Farmer ↔ Farmer)
   TP [AS3: Asymmetric transformer-capacity authorization dilemma between farmers] L124: Capacity‑Funding Contribution (Farmer ↔ Farmer Group)
   FP-wrong [None] L139: Staff Workload Allocation (Staff ↔ Staff)
   FP-wrong [None] L154: Policy Push for DSM Adoption (Regulator ↔ Farmers) – Sequential
+  FN missed: AS2: Sequential social-learning process in capacitor adoption
 
 run_09.md | TP=5 FN=1 FP=2 Precision=0.7143 Recall=0.8333
   TP [AS1: Capacitor-adoption assurance game between neighbouring farmers] L8: Capacitor/DSM adoption – Farmer ↔ Farmer
@@ -1559,9 +1559,9 @@ run_30.md | TP=1 FN=5 FP=0 Precision=1.0000 Recall=0.1667
 ------------------------------------------------------------------------------
 gpt-oss-120b TOTALS
 ------------------------------------------------------------------------------
-TP = 114   FN = 66    FP = 69
-Precision = TP/(TP+FP) = 114/(114+69) = 0.6230
-Recall    = TP/(TP+FN) = 114/(114+66) = 0.6333
+TP = 112   FN = 68    FP = 70
+Precision = TP/(TP+FP) = 112/(112+70) = 0.6154
+Recall    = TP/(TP+FN) = 112/(112+68) = 0.6222
 
 
 ##############################################################################
@@ -1573,5 +1573,5 @@ Model                  TP   FN   FP  Precision   Recall
 DeepSeek-V4-Pro       132   48   21     0.8627   0.7333
 Llama-3.3-70B         127   53   28     0.8194   0.7056
 Qwen2.5-7B            134   46  140     0.4891   0.7444
-Qwen3.7-Plus          115   65   24     0.8273   0.6389
-gpt-oss-120b          114   66   69     0.6230   0.6333
+Qwen3.7-Plus          115   65   23     0.8333   0.6389
+gpt-oss-120b          112   68   70     0.6154   0.6222
