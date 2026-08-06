@@ -1,3 +1,8 @@
+"""Run each configured LLM 30 times against the ODD-only prompt.
+
+All models use the same timeout, max-token limit, temperature, and prompt.
+Qwen3.7-Plus uses streaming because that endpoint requires it.
+"""
 
 from together import Together
 import os
@@ -31,11 +36,23 @@ MODELS = {
         "timeout": 600.0,
         "max_tokens": 16000,
     },
+    "Qwen3.7-Plus": {
+        "model_id": "Qwen/Qwen3.7-Plus",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
+    "gpt-oss-120b": {
+        "model_id": "openai/gpt-oss-120b",
+        "timeout": 600.0,
+        "max_tokens": 16000,
+    },
 }
 
 N_RUNS = 30
 MAX_RETRIES = 5
 RETRY_WAIT_SECONDS = 30
+RUN_START = int(os.environ.get("RUN_START", "1"))
+RUN_END = int(os.environ.get("RUN_END", str(N_RUNS)))
 
 # Paths
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -75,12 +92,26 @@ def run_single(client, model_id, prompt, max_tokens):
                 messages=[{"role": "user", "content": prompt}],
                 temperature=0.6,
                 max_tokens=max_tokens,
+                stream=model_id == "Qwen/Qwen3.7-Plus",
             )
+            if model_id == "Qwen/Qwen3.7-Plus":
+                content_parts = []
+                reasoning_parts = []
+                for chunk in response:
+                    if not getattr(chunk, "choices", None):
+                        continue
+                    delta = chunk.choices[0].delta
+                    if getattr(delta, "content", None):
+                        content_parts.append(delta.content)
+                    if getattr(delta, "reasoning", None):
+                        reasoning_parts.append(delta.reasoning)
+                return "".join(content_parts) or "".join(reasoning_parts) or None
+
             message = response.choices[0].message
             return message.content or getattr(message, "reasoning", None)
         except Exception as e:
             error_msg = str(e).lower()
-            if any(k in error_msg for k in ["503", "service_unavailable", "timeout"]):
+            if any(k in error_msg for k in ["503", "service_unavailable", "timeout", "rate", "429"]):
                 print(
                     f"      ⚠️  Retry {attempt+1}/{MAX_RETRIES}, "
                     f"waiting {RETRY_WAIT_SECONDS}s... ({e})"
@@ -110,7 +141,7 @@ def run_model_batch(model_key):
     print(f"  Model: {model_id}  |  {N_RUNS} runs")
     print(f"{'='*60}")
 
-    for i in range(1, N_RUNS + 1):
+    for i in range(RUN_START, RUN_END + 1):
         filepath = os.path.join(model_output_dir, f"run_{i:02d}.md")
         if os.path.exists(filepath):
             print(f"  Run {i:2d}/{N_RUNS} ... already exists, skipped")
@@ -132,7 +163,15 @@ if __name__ == "__main__":
     print(f"Output directory: {output_dir}")
     print(f"Input ODD: {odd_path}")
 
-    for model_key in MODELS:
+    requested_models = os.environ.get("MODEL_KEYS")
+    selected_models = requested_models.split(",") if requested_models else list(MODELS)
+    unknown_models = [model_key for model_key in selected_models if model_key not in MODELS]
+    if unknown_models:
+        raise ValueError(f"Unknown MODEL_KEYS: {', '.join(unknown_models)}")
+    if not 1 <= RUN_START <= RUN_END <= N_RUNS:
+        raise ValueError(f"Run range must satisfy 1 <= RUN_START <= RUN_END <= {N_RUNS}.")
+
+    for model_key in selected_models:
         run_model_batch(model_key)
 
     print(f"\n{'='*60}")

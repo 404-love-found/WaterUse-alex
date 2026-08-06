@@ -13,6 +13,7 @@ Metrics:
 from __future__ import annotations
 
 import csv
+import json
 import re
 from collections import Counter
 from dataclasses import dataclass, field
@@ -36,7 +37,14 @@ EXPERIMENTS = {
     },
 }
 
-MODELS = ("DeepSeek-R1", "DeepSeek-V4-Pro", "Llama-3.3-70B", "Qwen2.5-7B")
+MODELS = (
+    "DeepSeek-R1",
+    "DeepSeek-V4-Pro",
+    "Llama-3.3-70B",
+    "Qwen2.5-7B",
+    "Qwen3.7-Plus",
+    "gpt-oss-120b",
+)
 
 
 @dataclass(frozen=True)
@@ -87,9 +95,11 @@ GROUND_TRUTH = {
     "AS2": GroundTruthAS("AS2", "Fish extraction common pool resource game"),
 }
 
+DASH_TRANSLATION = str.maketrans({dash: "-" for dash in "‐‑‒–—−"})
+
 
 def clean_markdown(text: str) -> str:
-    cleaned = text.strip()
+    cleaned = text.translate(DASH_TRANSLATION).strip()
     cleaned = re.sub(r"^#{1,6}\s*", "", cleaned)
     cleaned = re.sub(r"^\s*[-*]\s+", "", cleaned)
     cleaned = re.sub(r"^\*+|\*+$", "", cleaned.strip())
@@ -100,11 +110,12 @@ def clean_markdown(text: str) -> str:
 
 
 def canonical_title(text: str) -> str:
-    title = clean_markdown(text).replace("**", "")
-    title = re.sub(r"^\*\*(title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*)\*\*\s*[:.-]\s*", "", title, flags=re.I)
+    title = clean_markdown(text)
+    title = re.sub(r"^\d+\ufe0f?\u20e3\s*", "", title)
+    title = re.sub(r"^\d+\s*[.)]\s*(?:title\s*[:.-]\s*)?", "", title, flags=re.IGNORECASE)
     title = re.sub(r"^title\s*[:.-]\s*", "", title, flags=re.IGNORECASE)
     title = re.sub(
-        r"^(?:action\s+situation|strategic\s+dilemma|tension)\s*\d*\s*[:.)-]\s*",
+        r"^(?:action[- ]+situation|strategic[- ]+dilemma|dilemma|game)\s*[a-z0-9]*\s*[:.)-]\s*",
         "",
         title,
         flags=re.IGNORECASE,
@@ -116,6 +127,11 @@ def canonical_title(text: str) -> str:
         flags=re.IGNORECASE,
     )
     return clean_markdown(title)
+
+
+def normalize(text: str) -> str:
+    text = clean_markdown(text).lower()
+    return text
 
 
 def is_terminal_heading(title: str) -> bool:
@@ -132,11 +148,19 @@ def is_generic_heading(title: str) -> bool:
     lower = title.lower()
     if is_terminal_heading(title):
         return True
+    if re.search(r"\b(?:normal[- ]form\s+)?payoff matrix\b", lower):
+        return True
     if lower in {"matrix", "payoff matrix", "2-player", "justification", "tension", "assumptions"}:
         return True
-    if re.match(r"^(matrix|payoff matrix|2-player|justification|assumptions)\b", lower):
+    if re.match(
+        r"^(matrix|payoff matrix|2-player|representation|sequential representation|game tree|"
+        r"justification|assumptions|tension|payoff|interpretation)\b",
+        lower,
+    ):
         return True
     if re.match(r"^(analysis|extracted|distinct action situations|action situation analysis)\b", lower):
+        return True
+    if re.match(r"^how\s+(?:the\s+)?action[- ]situations?\b", lower):
         return True
     if lower.startswith("title:"):
         stripped = re.sub(r"^title:\s*", "", lower).strip()
@@ -149,27 +173,117 @@ def is_generic_heading(title: str) -> bool:
     return False
 
 
+def is_structured_field_line(raw_line: str) -> bool:
+    """Reject ODD/IAD fields that belong inside an AS block."""
+    title = normalize(canonical_title(raw_line))
+    if re.match(r"^action[- ]+situations?\b", title):
+        return False
+    field_names = (
+        r"location",
+        r"players?",
+        r"roles?",
+        r"actions?",
+        r"control rules?",
+        r"information",
+        r"outcomes?",
+        r"payoffs?",
+        r"strategic tension",
+        r"strategic classification",
+        r"temporal structure",
+        r"relevant rules?",
+        r"boundary rules?",
+        r"position rules?",
+        r"choice rules?",
+        r"aggregation rules?",
+        r"information rules?",
+        r"scope rules?",
+        r"representation",
+        r"sequential representation",
+        r"game tree",
+        r"matrix",
+        r"payoff matrix",
+        r"payoff rationale",
+        r"justification",
+        r"game description",
+        r"interpretation",
+    )
+    return bool(re.match(rf"^(?:{'|'.join(field_names)})(?:\s*[:(\-]|$)", title))
+
+
+def is_internal_game_tree_step(raw_line: str) -> bool:
+    """Reject decision-tree nodes and moves that are not separate AS titles."""
+    title = normalize(canonical_title(raw_line))
+    if re.match(r"^(?:stage\s*\d+|step\s*\d+|node\s+[a-z0-9]+)\b", title):
+        return True
+    if re.match(r"^\[[^]]*(?:outcome|state|signal|observation)[^]]*\]", title):
+        return True
+    return bool(
+        re.match(
+            r"^(?:(?:focal\s+)?farmer(?:\s*\d+|\s*\([^)]*\))?|staff|peer(?:\s*\([^)]*\))?|"
+            r"player\s*\d*|nature|authority|regulator)\s+"
+            r"(?:chooses?|decides?|moves?|sets?|observes?|responds?)\b",
+            title,
+        )
+    )
+
+
 def is_candidate_start(raw_line: str) -> bool:
     stripped = raw_line.strip()
     if not stripped or stripped.startswith("# Run "):
         return False
 
     is_heading = bool(re.match(r"^#{2,6}\s+", stripped))
-    is_bold_title = bool(re.match(r"^\*\*(?:title|action\s+situation\s*\d*|strategic\s+dilemma\s*\d*)", stripped, re.I))
-    if not is_heading and not is_bold_title:
+    is_plain_title = bool(
+        re.match(r"^(?:#{2,6}\s*)?(?:\*\*)?title(?:\*\*)?\s*[:.-]\s*\S", stripped, flags=re.I)
+    )
+    is_numbered_plain_title = bool(
+        re.match(r"^\d+\s*[.)]\s+(?:\*\*)?title(?:\*\*)?\s*[:.-]\s*\S", stripped, flags=re.I)
+    )
+    is_plain_action_situation = bool(
+        re.match(
+            r"^(?:action[- ]+situation|strategic[- ]+dilemma|game)\s*[a-z0-9]+\s*[:.)-]\s*\S",
+            stripped,
+            flags=re.I,
+        )
+    )
+    is_bold_title = bool(
+        re.match(
+            r"^\*\*(?:title|action[- ]+situation\s*[a-z0-9]*|strategic[- ]+dilemma\s*[a-z0-9]*|game\s*\d*)",
+            stripped.translate(DASH_TRANSLATION),
+            re.I,
+        )
+    )
+    is_bold_numbered = bool(re.match(r"^\*\*\d+\s*[.)]\s*", stripped))
+    is_numbered_bold = bool(re.match(r"^\d+\s*[.)]\s+\*\*", stripped))
+    if not (
+        is_heading
+        or is_plain_title
+        or is_numbered_plain_title
+        or is_plain_action_situation
+        or is_bold_title
+        or is_bold_numbered
+        or is_numbered_bold
+    ):
+        return False
+
+    if is_structured_field_line(stripped) or is_internal_game_tree_step(stripped):
         return False
 
     title = clean_markdown(stripped)
     if is_generic_heading(title):
         return False
+    if is_plain_title or is_numbered_plain_title or is_plain_action_situation:
+        return len(canonical_title(title)) >= 4
 
     lower = title.lower()
     candidate_patterns = (
-        r"\baction\s+situation\s*\d*\b.+",
-        r"^(?:\d+\s*[.)]\s*)?(?:strategic\s+)?(?:tension|dilemma)\s*\d*\s*[:.-].+",
-        r"^(?:title\s*[:.-]\s*)?.*\b(upstream|downstream|farmer|water|irrigat|withdraw|extract|"
-        r"allocat|forecast|trust|national\s+authority|fish|fishing|fishery|catch|harvest|"
-        r"overfish|larv|reproduction|threshold|budget|income|yield|conservation)\b.*",
+        r"\baction[- ]+situation\s*[a-z0-9]*\b.+",
+        r"\bAS\s*[-:]?\s*\d+\b.+",
+        r"^(?:\d+\s*[.)]\s*)?(?:strategic\s+)?(?:tension|dilemma|game)\s*\d*\s*[:.-].+",
+        r"^(?:title\s*[:.-]\s*)?.*\b(upstream|downstream|farmers?|fields?|water|irrigat\w*|withdraw\w*|"
+        r"extract\w*|allocat\w*|forecast\w*|trust|national\s+authority|fish(?:ing|ery|eries)?|"
+        r"catch\w*|harvest\w*|over[- ]?fish\w*|larv\w*|reproduc\w*|threshold|budget|income|"
+        r"yield|conserv\w*)\b.*",
     )
     return any(re.search(pattern, lower, re.IGNORECASE) for pattern in candidate_patterns)
 
@@ -179,7 +293,25 @@ def is_title_only_line(raw_line: str) -> bool:
 
 
 def is_action_situation_label_line(raw_line: str) -> bool:
-    return bool(re.search(r"\baction\s+situation\s*\d*\b", clean_markdown(raw_line), flags=re.I))
+    return bool(re.search(r"\baction[- ]+situation\s*[a-z0-9]*\b", clean_markdown(raw_line), flags=re.I))
+
+
+def is_contextual_bold_title(lines: list[str], index: int) -> bool:
+    stripped = lines[index].strip()
+    match = re.match(r"^\*\*(?P<title>.+?)\*\*$", stripped)
+    if not match:
+        return False
+
+    title = canonical_title(match.group("title"))
+    if len(title) < 4 or is_generic_heading(title):
+        return False
+
+    for probe in range(index + 1, min(index + 4, len(lines))):
+        next_line = clean_markdown(lines[probe])
+        if not next_line:
+            continue
+        return bool(re.match(r"^tension\b", next_line, flags=re.I))
+    return False
 
 
 def has_payoff_evidence(block: str) -> bool:
@@ -188,16 +320,168 @@ def has_payoff_evidence(block: str) -> bool:
         "payoff" in lower
         or "matrix" in lower
         or "\\begin{array}" in lower
-        or re.search(r"\n\s*\|.+\|\s*\n\s*\|[-:|\s]+\|", block)
+        or re.search(r"(?m)^\s*\|(?:\s*:?-{3,}:?\s*\|)+\s*$", block)
     )
 
 
+def split_markdown_table_row(raw_line: str) -> list[str]:
+    stripped = raw_line.strip()
+    if not stripped.startswith("|"):
+        return []
+
+    row = stripped[1:-1] if stripped.endswith("|") else stripped[1:]
+    cells = re.split(r"(?<!\\)\|", row)
+    return [clean_markdown(cell.replace(r"\|", "|").strip()) for cell in cells]
+
+
+def find_table_title_column(cells: list[str]) -> int | None:
+    for index, cell in enumerate(cells):
+        header = normalize(cell)
+        if re.search(r"\btitle\b", header):
+            return index
+        if re.fullmatch(r"(?:action[- ]?situation|strategic dilemma|game)", header):
+            return index
+    return None
+
+
+def is_markdown_table_separator(cells: list[str]) -> bool:
+    return bool(cells) and all(
+        not cell or bool(re.fullmatch(r":?-{3,}:?", cell.replace(" ", ""))) for cell in cells
+    )
+
+
+def extract_table_action_situations(lines: list[str]) -> list[ActionSituation]:
+    situations: list[ActionSituation] = []
+    title_column: int | None = None
+    identifier_column: int | None = None
+    waiting_for_separator = False
+
+    for index, line in enumerate(lines):
+        cells = split_markdown_table_row(line)
+        if not cells:
+            title_column = None
+            identifier_column = None
+            waiting_for_separator = False
+            continue
+
+        if title_column is None:
+            candidate_title_column = find_table_title_column(cells)
+            if candidate_title_column is None:
+                continue
+            title_column = candidate_title_column
+            identifier_column = next(
+                (
+                    cell_index
+                    for cell_index, cell in enumerate(cells)
+                    if normalize(cell) in {"#", "no", "number", "as", "as #", "action situation #"}
+                ),
+                None,
+            )
+            waiting_for_separator = True
+            continue
+
+        if waiting_for_separator:
+            if is_markdown_table_separator(cells):
+                waiting_for_separator = False
+                continue
+            title_column = None
+            identifier_column = None
+            waiting_for_separator = False
+            continue
+
+        if title_column >= len(cells) or is_markdown_table_separator(cells):
+            continue
+        if identifier_column is not None:
+            if identifier_column >= len(cells):
+                continue
+            identifier = normalize(cells[identifier_column])
+            if not re.fullmatch(r"(?:as\s*)?\d+", identifier):
+                continue
+
+        title = canonical_title(cells[title_column])
+        if len(title) < 4 or is_generic_heading(title):
+            continue
+
+        block = " | ".join(cell for cell_index, cell in enumerate(cells) if cell_index != title_column)
+        situations.append(ActionSituation(title, block, index + 1, has_payoff_evidence(block)))
+
+    return situations
+
+
+def json_title_key(item: dict) -> str | None:
+    for key in item:
+        normalized_key = re.sub(r"[^a-z]+", " ", str(key).lower()).strip()
+        if normalized_key == "title" or normalized_key.endswith(" title") or normalized_key in {
+            "action situation",
+            "action situation name",
+        }:
+            return key
+    return None
+
+
+def json_action_situation_items(payload: object) -> list[dict]:
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict) and json_title_key(item)]
+    if not isinstance(payload, dict):
+        return []
+    if json_title_key(payload):
+        return [payload]
+
+    for key, value in payload.items():
+        normalized_key = re.sub(r"[^a-z]+", " ", str(key).lower()).strip()
+        if isinstance(value, list) and (
+            "action situation" in normalized_key or normalized_key in {"situations", "results", "analysis"}
+        ):
+            items = [item for item in value if isinstance(item, dict) and json_title_key(item)]
+            if items:
+                return items
+    return []
+
+
+def extract_json_action_situations(full_text: str) -> list[ActionSituation]:
+    decoder = json.JSONDecoder()
+
+    for match in re.finditer(r"(?m)^\s*(?P<start>[\[{])", full_text):
+        start_index = match.start("start")
+        try:
+            payload, _ = decoder.raw_decode(full_text[start_index:])
+        except json.JSONDecodeError:
+            continue
+
+        items = json_action_situation_items(payload)
+        if not items:
+            continue
+
+        base_line = full_text.count("\n", 0, start_index) + 1
+        situations: list[ActionSituation] = []
+        for item_index, item in enumerate(items):
+            title_key = json_title_key(item)
+            if title_key is None:
+                continue
+            title = canonical_title(str(item[title_key]))
+            if len(title) < 4 or is_generic_heading(title):
+                continue
+
+            block_parts = []
+            for key, value in item.items():
+                if key == title_key:
+                    continue
+                rendered_value = value if isinstance(value, str) else json.dumps(value, ensure_ascii=False, sort_keys=True)
+                block_parts.append(f"{key}: {rendered_value}")
+            block = "\n".join(block_parts)
+            situations.append(ActionSituation(title, block, base_line + item_index, has_payoff_evidence(block)))
+        return situations
+
+    return []
+
+
 def extract_action_situations(filepath: Path) -> list[ActionSituation]:
-    lines = filepath.read_text(encoding="utf-8").splitlines()
+    full_text = filepath.read_text(encoding="utf-8")
+    lines = full_text.splitlines()
     starts: list[tuple[int, str]] = []
 
     for index, line in enumerate(lines):
-        if is_candidate_start(line):
+        if is_candidate_start(line) or is_contextual_bold_title(lines, index):
             if (
                 is_title_only_line(line)
                 and starts
@@ -224,11 +508,20 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
         if title and len(title) >= 4:
             situations.append(ActionSituation(title, block, start_index + 1, has_payoff_evidence(block)))
 
-    situations_with_evidence = [s for s in situations if s.has_payoff_evidence]
+    situations_with_evidence = [situation for situation in situations if situation.has_payoff_evidence]
     if situations_with_evidence:
         return situations_with_evidence
+    if situations:
+        return situations
 
-    full_text = "\n".join(lines)
+    table_situations = extract_table_action_situations(lines)
+    if table_situations:
+        return table_situations
+
+    json_situations = extract_json_action_situations(full_text)
+    if json_situations:
+        return json_situations
+
     if has_payoff_evidence(full_text):
         fallback_title = "Single extracted action situation"
         for line in lines:
@@ -241,135 +534,274 @@ def extract_action_situations(filepath: Path) -> list[ActionSituation]:
     return situations
 
 
-def normalize(text: str) -> str:
-    text = clean_markdown(text).lower()
-    return text.replace("‐", "-").replace("–", "-").replace("—", "-")
-
-
 def has_any(text: str, patterns: tuple[str, ...]) -> bool:
     return any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in patterns)
 
 
-def is_centralized_or_forecast_as(text: str) -> bool:
+def is_centralized_or_forecast_as(title_text: str) -> bool:
+    """Identify an explicitly centralized AS from its title, not incidental body text."""
     return has_any(
-        text,
+        title_text,
         (
-            r"\bcentralized\s+version\b|\bcv\b",
-            r"\bnational\s+authority\b|\bforecaster\b|\ballocator\b",
-            r"\bforecast(?:ing|s|er)?\b",
+            r"\bcentrali[sz](?:ed|ation)?\b|\bcv\b",
+            r"\bnational\s+authority\b|\bforecaster\b|\bauthority\s+allocation\b",
             r"\brepresentative\s+farmer\b",
+            r"\bforecast(?:ing)?\s+(?:trust|allocation|game|interaction)\b",
             r"\btrust\s+interaction\b|\btrust\s+game\b",
         ),
     )
 
 
-def is_fish_reproduction_only(text: str) -> bool:
-    reproduction_cues = has_any(
-        text,
-        (
-            r"\bfish[- ]?reproduction\b|\breproduction\b|\breproductive\b",
-            r"\blarv(?:a|ae|al)\b|\brecruitment\b",
-            r"\bmay\b.*\b(irrigat|flow|withdraw|conserv|delay)\b",
-            r"\bthreshold\b.*\b(fish|larv|lake|inflow|reproduction|stock)\b",
-            r"\b(fish|lake)\b.*\bthreshold\b",
-            r"\bhold\s+irrigation\b|\bdelay\b.*\birrigat",
-        ),
+def has_two_farmer_context(text: str) -> bool:
+    return bool(
+        (re.search(r"\bup[- ]?stream\b", text) and re.search(r"\bdown[- ]?stream\b", text))
+        or re.search(r"\b(?:both|two)\s+farmers?\b", text)
+        or re.search(r"\beach\s+farmer\b", text)
+        or re.search(r"\bfarmer\s+a\b.*\bfarmer\s+b\b", text, flags=re.DOTALL)
     )
-    extraction_cues = has_any(
-        text,
-        (
-            r"\bcatch(?:es|ing)?\b|\btarget\s+catch\b|\bcatch\s+level\b",
-            r"\bharvest(?:ing|ed|s)?\b|\bover[- ]?harvest(?:ing|ed|s)?\b",
-            r"\bfishing\s+(decision|effort|access|competition|priority|order|race|resource|management|game|dilemma)\b",
-            r"\bfish\s+extraction\b|\bover[- ]?fish(?:ing)?\b",
-        ),
-    )
-    return reproduction_cues and not extraction_cues
 
 
-def matches_fish_extraction_cpr(title_text: str, full_text: str) -> bool:
-    direct_extraction = has_any(
-        full_text,
-        (
-            r"\bfish\s+extraction\b",
-            r"\bfishing\s+(decision|effort|access|competition|priority|order|race|resource|management|game|dilemma|lake)\b",
-            r"\bfishing\s+over(?:exploitation|extraction)\b",
-            r"\bfishery\b|\bfisheries\b|\bfisher\b",
-            r"\bcatch(?:es|ing)?\b|\btarget\s+catch\b|\bcatch\s+level\b|\bamount\s+of\s+fish\b",
-            r"\bharvest(?:ing|ed|s)?\b|\bover[- ]?harvest(?:ing|ed|s)?\b",
-            r"\bover[- ]?fish(?:ing)?\b|\bsustainable\s+catch\b",
-            r"\bcommon[- ]pool\s+fish(?:ery|eries|resource)?\b",
-        ),
+def has_two_fish_user_context(text: str) -> bool:
+    if has_two_farmer_context(text):
+        return True
+    return bool(
+        re.search(r"\b(?:both|two)\s+(?:farmers?|fishers?)\b", text)
+        or re.search(r"\beach\s+(?:farmer|fisher)\b", text)
+        or (
+            re.search(r"\b(?:farmer|fisher)\s*a\b", text)
+            and re.search(r"\b(?:farmer|fisher)\s*b\b", text)
+        )
+        or (
+            re.search(r"\b(?:(?:down[- ]?stream)(?:\s+(?:farmer|fisher))?|(?:farmer|fisher))\s*1\b", text)
+            and re.search(r"\b(?:(?:down[- ]?stream)(?:\s+(?:farmer|fisher))?|(?:farmer|fisher))\s*2\b", text)
+        )
+        or re.search(r"\bamong\s+(?:the\s+)?down[- ]?stream\s+farmers\b", text)
     )
-    strategic_resource = has_any(
-        full_text,
-        (
-            r"\bcommon[- ]pool\b|\bcpr\b",
-            r"\bstock\s+(collapse|depletion|sustainability|coordination|management)\b",
-            r"\bpopulation\s+(declines?|collapse|sustainability|healthy)\b",
-            r"\bover(?:exploitation|harvest|fishing)\b",
-            r"\bconserv(?:e|es|ation)\b",
-            r"\bcoordination\b|\bassurance\b|\bstag[- ]?hunt\b|\bdilemma\b|\bgame\b",
-        ),
-    )
-    title_is_fish_cpr = has_any(
+
+
+def title_supports_water_withdrawal(title_text: str) -> bool:
+    water_action = has_any(
         title_text,
         (
-            r"\bfish(?:ing|ery)?\b.*\b(common[- ]pool|over[- ]?exploitation|harvest|catch|coordination|sustainability|dilemma|game|competition|access|priority|race)\b",
-            r"\b(common[- ]pool|over[- ]?exploitation|harvest|catch|coordination|sustainability|dilemma|game|competition|access|priority|race)\b.*\bfish(?:ing|ery)?\b",
-            r"\bover[- ]?exploitation\b.*\bfish\b|\bfish\b.*\bover[- ]?exploitation\b",
+            r"\bwater[- ]?(?:extraction|withdrawal|appropriation|allocation|competition|conflict|use)\b",
+            r"\bwithdraw(?:al|s|ing)?\b|\birrigat(?:e|ion|ing)?\b",
+            r"\b(?:field|agricultural)\s+expansion\b",
+            r"\bresource\s+extraction\b",
         ),
     )
-    return (direct_extraction and strategic_resource) or title_is_fish_cpr
-
-
-def matches_upstream_downstream_withdrawal(title_text: str, full_text: str) -> bool:
-    spatial = has_any(
-        full_text,
+    strategic_scope = has_any(
+        title_text,
         (
-            r"\bupstream\b",
-            r"\bdownstream\b",
-            r"\bspatial\s+asymmetr",
-            r"\briver\s+position\b",
+            r"\bup[- ]?stream\b|\bdown[- ]?stream\b|\bspatial\b|\basymmetr",
+            r"\bsequential\b|\bcompeti(?:tion|ng)\b|\bconflict\b|\brivalry\b|\bdilemma\b|\bgame\b",
+            r"\bcommon[- ]pool\b|\bcommons\b|\bdecentrali[sz]ed\b",
         ),
     )
-    withdrawal = has_any(
+    wrong_domain = has_any(
+        title_text,
+        (
+            r"\bfish(?:ing|ery|eries)?\b|\bcatch\b|\bharvest\b|\blarv",
+            r"\bforecast\b|\btrust\b|\bnational\s+authority\b",
+            r"\bfarmer\s+vs\.?\s+(?:nature|environment)\b",
+            r"\bbounded\s+rationality\b|\bincome\s+threshold\b|\bbudget[- ]risk\b|\brisk[- ]taking\b",
+        ),
+    )
+    return water_action and strategic_scope and not wrong_domain
+
+
+def matches_upstream_downstream_withdrawal(title_text: str, block_text: str) -> bool:
+    full_text = normalize(f"{title_text}\n{block_text}")
+    exact_title = bool(
+        re.search(r"\bup[- ]?stream\b", title_text)
+        and re.search(r"\bdown[- ]?stream\b", title_text)
+        and re.search(r"\b(?:water[- ]?)?(?:withdraw|extraction|irrigat|appropriat|allocat)", title_text)
+        and not re.search(r"\bfish(?:ing|ery|eries)?\b|\bcatch\b|\bharvest\b", title_text)
+    )
+    body_has_water_action = has_any(
         full_text,
         (
             r"\bwithdraw(?:al|s|ing)?\b",
-            r"\bwater\s+(extraction|withdrawal|allocation|use|demand|scarcity|stress|access)\b",
-            r"\birrigat(?:e|ion|ing)?\b",
-            r"\bfields?\b",
-            r"\bconserv(?:e|es|ing|ation)\s+water\b",
-            r"\bover[- ]?extract(?:ion|s|ing)?\b",
+            r"\bwater\s+(?:extraction|withdrawal|appropriation|allocation|use|demand|scarcity|stress|access)\b",
+            r"\birrigat(?:e|ion|ing)?\b|\bover[- ]?extract(?:ion|s|ing)?\b",
+            r"\b(?:low|high|expand|maximi[sz]e|conserve|hold)\b.{0,80}\bfields?\b",
         ),
     )
-    title_support = has_any(
+    return bool(
+        (exact_title or title_supports_water_withdrawal(title_text))
+        and has_two_farmer_context(full_text)
+        and body_has_water_action
+    )
+
+
+def title_supports_fish_extraction(title_text: str) -> bool:
+    fish_domain = has_any(title_text, (r"\bfish(?:ing|ery|eries)?\b", r"\blake[- ]fishing\b"))
+    extraction_scope = has_any(
         title_text,
         (
-            r"\bupstream\b|\bdownstream\b|\bspatial\s+asymmetr",
-            r"\bwater\b|\birrigat|\bwithdraw|\bextraction\b|\ballocation\b",
+            r"\bfishing\b|\bfish(?:ery)?\s+extraction\b",
+            r"\bharvest(?:ing)?\b|\bcatch\b|\bover[- ]?fish(?:ing)?\b|\bover[- ]?harvest",
+            r"\bexploitation\b|\bpressure\b|\baccess\b|\bpriority\b|\beffort\b|\brace\b",
+            r"\bcompetition\b|\bcoordination\b|\bcommon[- ]pool\b|\bcommons\b",
+            r"\bcollapse\b|\bdepletion\b|\bsustainability\b|\bdilemma\b|\bgame\b",
         ),
     )
-    title_not_other_as = not has_any(
+    explicit_harvest = has_any(
         title_text,
         (
-            r"\bfish[- ]?reproduction\b|\blarv|\bforecast|\bnational\s+authority\b|\btrust\b",
-            r"\bbudget\s+constraints?\b",
+            r"\bfishing\b|\bfish\s+extraction\b|\bharvest(?:ing)?\b|\bcatch\b",
+            r"\bover[- ]?fish(?:ing)?\b|\bover[- ]?harvest|\bexploitation\b",
         ),
     )
-    return spatial and withdrawal and title_support and title_not_other_as
+    reproduction_focus = has_any(
+        title_text,
+        (
+            r"\breproduction\b|\blarv|\brecruitment\b|\blake\s+inflow\b|\benvironmental\s+flow\b",
+        ),
+    )
+    cross_resource = has_any(
+        title_text,
+        (
+            r"\bwater[- ]fish\b|\bwater\b.{0,40}\b(?:vs\.?|versus)\b.{0,40}\bfish",
+            r"\birrigat\w*\b.{0,50}\bfish|\bfish\w*\b.{0,50}\birrigat",
+        ),
+    )
+    return fish_domain and extraction_scope and not cross_resource and (explicit_harvest or not reproduction_focus)
+
+
+def has_fish_extraction_choice(text: str) -> bool:
+    text = normalize(text)
+    return has_any(
+        text,
+        (
+            r"\b(?:both|each)\b.{0,180}\b(?:catch|harvest|fishing\s+(?:effort|strategy|level))\b",
+            r"\b(?:choose|decide|select|set|target)\w*\b.{0,120}\b(?:catch|harvest|fishing|fish\s+extraction)\b",
+            r"\b(?:low|high|moderate|maximum|maximal|aggressive|conservative|sustainable)\b"
+            r"[- ]*(?:catch|harvest|fishing|effort)\b",
+            r"\b(?:catch|harvest|fishing\s+(?:effort|strategy)|target\s+catch)\b.{0,120}"
+            r"\b(?:low|high|moderate|maximum|maximal|aggressive|conservative|sustainable|restrain|maximi[sz]e)\b",
+            r"\bover[- ]?(?:fish|harvest|exploit)\w*\b",
+        ),
+    )
+
+
+def is_cross_resource_water_fish_game(block_text: str) -> bool:
+    """Reject games where one axis chooses water use and the other chooses fishing."""
+    text = block_text.translate(DASH_TRANSLATION).lower()
+    compact_text = normalize(block_text)
+    upstream_water_role = has_any(
+        compact_text,
+        (
+            r"\bup[- ]?stream\b.{0,180}\b(?:irrigat|water|agricultur|fields?|spring\s+flow)",
+            r"\b(?:irrigat|water|agricultur|fields?|spring\s+flow)\b.{0,180}\bup[- ]?stream\b",
+        ),
+    )
+    downstream_fish_role = has_any(
+        compact_text,
+        (
+            r"\bdown[- ]?stream\b.{0,180}\b(?:fish|catch|harvest)",
+            r"\b(?:fish|catch|harvest)\b.{0,180}\bdown[- ]?stream\b",
+        ),
+    )
+    role_cross = upstream_water_role and downstream_fish_role
+
+    table_groups: list[list[str]] = []
+    current_group: list[str] = []
+    for line in text.splitlines():
+        if line.lstrip().startswith("|"):
+            current_group.append(line)
+        elif current_group:
+            table_groups.append(current_group)
+            current_group = []
+    if current_group:
+        table_groups.append(current_group)
+
+    table_cross = False
+    for group in table_groups:
+        if len(group) < 3:
+            continue
+        header_cells = split_markdown_table_row(group[0])
+        separator_cells = split_markdown_table_row(group[1])
+        if len(header_cells) < 2 or not is_markdown_table_separator(separator_cells):
+            continue
+
+        row_cells = [split_markdown_table_row(line) for line in group[2:]]
+        row_labels = " ".join(cells[0] for cells in row_cells if cells)
+        column_labels = " ".join(header_cells[1:])
+
+        def has_fish_axis(axis: str) -> bool:
+            return has_any(axis, (r"\bfish", r"\bcatch\b|\bharvest|\bover[- ]?fish"))
+
+        def has_water_axis(axis: str) -> bool:
+            direct_water = has_any(
+                axis,
+                (r"\bwater\b|\birrigat|\bfields?\b|\bagri\b|\bagricultur|\bspring\s+flow\b",),
+            )
+            implicit_water_extraction = role_cross and bool(
+                re.search(r"\b(?:over[- ]?)?extract(?:ion)?\b|\bbreach\s+threshold\b", axis)
+            )
+            return direct_water or implicit_water_extraction
+
+        column_fish = has_fish_axis(column_labels)
+        row_fish = has_fish_axis(row_labels)
+        column_water = has_water_axis(column_labels)
+        row_water = has_water_axis(row_labels)
+        if (column_fish and row_water and not row_fish) or (row_fish and column_water and not column_fish):
+            table_cross = True
+            break
+
+    strategy_cross = has_any(
+        compact_text,
+        (
+            r"\bstrateg(?:y|ies)\s*:?\s*.{0,100}\bup[- ]?stream\b.{0,180}"
+            r"\b(?:water|irrigat|fields?|agricultur).{0,300}\bdown[- ]?stream\b.{0,180}"
+            r"\b(?:fish|catch|harvest)",
+            r"\bactions?\s+(?:for\s+)?(?:the\s+)?up[- ]?stream\b.{0,200}"
+            r"\b(?:water|irrigat|fields?|agricultur).{0,500}\bactions?\s+(?:for\s+)?(?:the\s+)?"
+            r"down[- ]?stream\b.{0,200}\b(?:fish|catch|harvest)",
+        ),
+    )
+    return table_cross or strategy_cross
+
+
+def matches_fish_extraction_cpr(title_text: str, block_text: str) -> bool:
+    full_text = normalize(f"{title_text}\n{block_text}")
+    exact_title = bool(
+        re.search(r"\bfish\s+extraction\b", title_text)
+        and re.search(r"\bcommon[- ]pool\b|\bcpr\b", title_text)
+    )
+    self_contained_title = bool(
+        re.search(r"\bfish(?:ing|ery)?\b", title_text)
+        and re.search(r"\bharvest|\bcatch|\bextraction\b", title_text)
+        and re.search(r"\bcoordination\b|\bcompetition\b|\bcommon[- ]pool\b|\bcommons\b|\bgame\b", title_text)
+    )
+    return bool(
+        title_supports_fish_extraction(title_text)
+        and not is_cross_resource_water_fish_game(block_text)
+        and (
+            exact_title
+            or self_contained_title
+            or (has_two_fish_user_context(full_text) and has_fish_extraction_choice(block_text))
+        )
+    )
 
 
 def classify_against_correct_set(situation: ActionSituation) -> str | None:
     title_text = normalize(situation.title)
     full_text = normalize(f"{situation.title}\n{situation.block}")
 
-    if is_centralized_or_forecast_as(full_text):
+    # A generated AS number is only formatting; semantic title/body evidence decides the match.
+    title_text = re.sub(
+        r"^(?:(?:AS\s*[-:]?\s*\d+)|(?:action\s+situation\s*[-:]?\s*\d+))\s*[:.)-]*\s*",
+        "",
+        title_text,
+        flags=re.IGNORECASE,
+    )
+
+    if is_centralized_or_forecast_as(title_text):
         return None
 
-    water_match = matches_upstream_downstream_withdrawal(title_text, full_text)
-    fish_match = matches_fish_extraction_cpr(title_text, full_text) and not is_fish_reproduction_only(full_text)
+    water_match = matches_upstream_downstream_withdrawal(title_text, situation.block)
+    fish_match = matches_fish_extraction_cpr(title_text, situation.block)
     title_is_explicit_fish = has_any(
         title_text,
         (
@@ -490,8 +922,8 @@ def evaluate_experiment(experiment_name: str, config: dict) -> tuple[dict, Path,
         csv_path.open("w", newline="", encoding="utf-8") as csvf,
         as_csv_path.open("w", newline="", encoding="utf-8") as as_csvf,
     ):
-        writer = csv.writer(csvf)
-        as_writer = csv.writer(as_csvf)
+        writer = csv.writer(csvf, lineterminator="\n")
+        as_writer = csv.writer(as_csvf, lineterminator="\n")
         writer.writerow(["Experiment", "Model", "Run", "TP", "FN", "FP", "Precision", "Recall"])
         as_writer.writerow(
             [
